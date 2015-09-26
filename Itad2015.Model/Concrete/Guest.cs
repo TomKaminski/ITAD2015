@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using Itad2015.Model.Common;
 
 namespace Itad2015.Model.Concrete

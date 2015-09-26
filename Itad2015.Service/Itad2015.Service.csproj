@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +44,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\EntityService.cs" />
+    <Compile Include="Concrete\GuestService.cs" />
+    <Compile Include="Concrete\PrizeService.cs" />
+    <Compile Include="Concrete\WorkshopGuestService.cs" />
+    <Compile Include="Concrete\IWorkshopService.cs" />
+    <Compile Include="Helpers\ExpressionMapper.cs" />
+    <Compile Include="Helpers\MapperHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Itad2015.Contract\Itad2015.Contract.csproj">
+      <Project>{652432b9-b953-47c6-bb69-aab9357afd2d}</Project>
+      <Name>Itad2015.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itad2015.Model\Itad2015.Model.csproj">
+      <Project>{4F3F3C07-017A-41C4-B1C7-754CB249DBF0}</Project>
+      <Name>Itad2015.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itad2015.Repository\Itad2015.Repository.csproj">
+      <Project>{18f03bdd-6264-4040-99a3-6f9949ad6923}</Project>
+      <Name>Itad2015.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
