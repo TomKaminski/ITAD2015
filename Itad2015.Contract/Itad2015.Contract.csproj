@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,11 +52,12 @@
     <Compile Include="DTO\PostDto\WorkshopGuestPostDto.cs" />
     <Compile Include="DTO\PostDto\WorkshopPostDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\IEntityService.cs" />
-    <Compile Include="Service\IGuestService.cs" />
-    <Compile Include="Service\IPrizeService.cs" />
-    <Compile Include="Service\IWorkshopGuestService.cs" />
-    <Compile Include="Service\IWorkshopService.cs" />
+    <Compile Include="Service\Entity\IEntityService.cs" />
+    <Compile Include="Service\Entity\IGuestService.cs" />
+    <Compile Include="Service\Entity\IPrizeService.cs" />
+    <Compile Include="Service\Entity\IWorkshopGuestService.cs" />
+    <Compile Include="Service\Entity\IWorkshopService.cs" />
+    <Compile Include="Service\IPdfService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

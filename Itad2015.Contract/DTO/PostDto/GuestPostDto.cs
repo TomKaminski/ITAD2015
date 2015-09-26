@@ -1,4 +1,5 @@
-﻿using Itad2015.Contract.DTO.Base;
+﻿using System;
+using Itad2015.Contract.DTO.Base;
 
 namespace Itad2015.Contract.DTO.PostDto
 {
@@ -8,5 +9,6 @@ namespace Itad2015.Contract.DTO.PostDto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string SchoolName { get; set; }
+        public DateTime RegistrationTime { get; set; }
     }
 }

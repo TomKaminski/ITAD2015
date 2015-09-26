@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -44,10 +48,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\ContractModule.cs" />
+    <Compile Include="Modules\EfModule.cs" />
+    <Compile Include="Modules\MapperModule.cs" />
+    <Compile Include="Modules\RepositoryModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Itad2015.Contract\Itad2015.Contract.csproj">
+      <Project>{652432b9-b953-47c6-bb69-aab9357afd2d}</Project>
+      <Name>Itad2015.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itad2015.Model\Itad2015.Model.csproj">
+      <Project>{4f3f3c07-017a-41c4-b1c7-754cb249dbf0}</Project>
+      <Name>Itad2015.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itad2015.Repository\Itad2015.Repository.csproj">
+      <Project>{18f03bdd-6264-4040-99a3-6f9949ad6923}</Project>
+      <Name>Itad2015.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Itad2015.Service\Itad2015.Service.csproj">
+      <Project>{b9519a62-1a06-4a80-b4c5-7db23927b182}</Project>
+      <Name>Itad2015.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

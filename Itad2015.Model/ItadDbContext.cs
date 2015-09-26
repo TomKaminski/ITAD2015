@@ -7,7 +7,7 @@ namespace Itad2015.Model
 {
     public class ItadDbContext : DbContext
     {
-        public ItadDbContext() : base("ItadDb")
+        public ItadDbContext() : base("ItadDbContext")
         {
             Database.SetInitializer(new ItadDbInitializer());
         }

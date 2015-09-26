@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Itad2015.Contract.DTO;
 using Itad2015.Contract.DTO.Base;
 using Itad2015.Model.Common;
 
