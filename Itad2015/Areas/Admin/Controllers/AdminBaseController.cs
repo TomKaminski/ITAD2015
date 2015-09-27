@@ -12,7 +12,7 @@ using Microsoft.Owin.Security;
 namespace Itad2015.Areas.Admin.Controllers
 {
     [Authorize]
-    public abstract class AdminBaseController : BaseController
+    public class AdminBaseController : BaseController
     {
         protected AppUserState AppUserState = new AppUserState();
 

@@ -8,5 +8,8 @@ namespace Itad2015.Contract.Service.Entity
     {
         Task<bool> LoginAsync(string email, string password);
         bool Login(string email, string password);
+
+        Task<UserGetDto> GetByEmailAsync(string email);
+        UserGetDto GetByEmail(string email);
     }
 }

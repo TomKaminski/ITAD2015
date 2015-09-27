@@ -13,6 +13,7 @@ namespace Itad2015.Modules.Modules
             builder.RegisterType<WorkshopRepository>().As<IWorkshopRepository>();
             builder.RegisterType<WorkshopGuestRepository>().As<IWorkshopGuestRepository>();
             builder.RegisterType<PrizeRepository>().As<IPrizeRepository>();
+            builder.RegisterType<UserRepository>().As<IUserRepository>();
         }
     }
 }

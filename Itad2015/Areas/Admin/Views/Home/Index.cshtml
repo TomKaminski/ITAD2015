@@ -1,0 +1,9 @@
+﻿@using Itad2015.Models
+
+@{
+    ViewBag.Title = "Index";
+    var appUserState = (AppUserState)ViewBag.UserState;
+}
+
+<h2>Zalogowany jako: @appUserState.Email.</h2>
+

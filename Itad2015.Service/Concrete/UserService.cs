@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using AutoMapper;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
@@ -30,6 +31,18 @@ namespace Itad2015.Service.Concrete
         {
             var user = _repository.FirstOrDefault(x => x.Email == email);
             return user != null && _passwordHasher.ValidatePassword(password, user.PasswordHash, user.PasswordSalt);
+        }
+
+        public async Task<UserGetDto> GetByEmailAsync(string email)
+        {
+            var user = await _repository.FirstOrDefaultAsync(x => x.Email == email);
+            return user == null ? null : Mapper.Map<UserGetDto>(user);
+        }
+
+        public UserGetDto GetByEmail(string email)
+        {
+            var user = _repository.FirstOrDefault(x => x.Email == email);
+            return user == null ? null : Mapper.Map<UserGetDto>(user);
         }
     }
 }

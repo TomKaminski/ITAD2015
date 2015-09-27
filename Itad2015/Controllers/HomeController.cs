@@ -1,7 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
-using Itad2015.Contract.DTO.PostDto;
-using Itad2015.Contract.Service;
+﻿using System.Web.Mvc;
 using Itad2015.Contract.Service.Entity;
 
 namespace Itad2015.Controllers
@@ -18,14 +15,6 @@ namespace Itad2015.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            _guestService.Create(new GuestPostDto
-            {
-                RegistrationTime = DateTime.Now,
-                Email = "adsdaad@wp.pl",
-                LastName = "Tomasz",
-                FirstName = "adsads",
-                SchoolName = "adsasddas"
-            });
             return View();
         }
     }
