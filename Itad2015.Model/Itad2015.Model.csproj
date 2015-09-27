@@ -53,12 +53,17 @@
     <Compile Include="Common\IEntity.cs" />
     <Compile Include="Concrete\Guest.cs" />
     <Compile Include="Concrete\Prize.cs" />
+    <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\Workshop.cs" />
     <Compile Include="Concrete\WorkshopGuest.cs" />
     <Compile Include="ItadDbContext.cs" />
     <Compile Include="Migrations\201509261041213_InitialMigration.cs" />
     <Compile Include="Migrations\201509261041213_InitialMigration.Designer.cs">
       <DependentUpon>201509261041213_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509271544114_Users.cs" />
+    <Compile Include="Migrations\201509271544114_Users.Designer.cs">
+      <DependentUpon>201509271544114_Users.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +75,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509261041213_InitialMigration.resx">
       <DependentUpon>201509261041213_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509271544114_Users.resx">
+      <DependentUpon>201509271544114_Users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

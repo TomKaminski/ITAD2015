@@ -78,17 +78,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\EntityService.cs" />
+    <Compile Include="Concrete\UserService.cs" />
     <Compile Include="Concrete\GuestService.cs" />
     <Compile Include="Concrete\PrizeService.cs" />
     <Compile Include="Concrete\WorkshopGuestService.cs" />
     <Compile Include="Concrete\WorkshopService.cs" />
     <Compile Include="Helpers\CustomImageTagProcessor.cs" />
     <Compile Include="Helpers\ExpressionMapper.cs" />
-    <Compile Include="Helpers\HashGenerator.cs" />
-    <Compile Include="Helpers\Interfaces\IHashGenerator.cs" />
+    <Compile Include="Helpers\Interfaces\IPasswordHasher.cs" />
     <Compile Include="Helpers\Interfaces\IQrCodeGenerator.cs" />
     <Compile Include="Helpers\MapperHelper.cs" />
     <Compile Include="Concrete\PdfService.cs" />
+    <Compile Include="Helpers\PasswordHasher.cs" />
     <Compile Include="Helpers\QRCodeGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\AutoMapperExtensions.cs" />
     <Compile Include="Modules\ContractModule.cs" />
     <Compile Include="Modules\EfModule.cs" />
     <Compile Include="Modules\MapperModule.cs" />

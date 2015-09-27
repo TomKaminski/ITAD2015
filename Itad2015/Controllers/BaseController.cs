@@ -19,6 +19,6 @@ namespace Itad2015.Controllers
                 razorViewResult.View.Render(viewContext, writer);
                 return writer.ToString();
             }
-        }
+        } 
     }
 }

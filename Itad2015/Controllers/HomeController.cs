@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service;
+using Itad2015.Contract.Service.Entity;
 
 namespace Itad2015.Controllers
 {

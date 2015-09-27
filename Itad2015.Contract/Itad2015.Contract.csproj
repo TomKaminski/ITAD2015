@@ -43,16 +43,19 @@
   <ItemGroup>
     <Compile Include="DTO\Base\PostBaseDto.cs" />
     <Compile Include="DTO\Base\GetBaseDto.cs" />
+    <Compile Include="DTO\GetDto\UserGetDto.cs" />
     <Compile Include="DTO\GetDto\GuestGetDto.cs" />
     <Compile Include="DTO\GetDto\PrizeGetDto.cs" />
     <Compile Include="DTO\GetDto\WorkshopGetDto.cs" />
     <Compile Include="DTO\GetDto\WorkshopGuestGetGto.cs" />
     <Compile Include="DTO\PostDto\GuestPostDto.cs" />
     <Compile Include="DTO\PostDto\PrizePostDto.cs" />
+    <Compile Include="DTO\PostDto\UserPostDto.cs" />
     <Compile Include="DTO\PostDto\WorkshopGuestPostDto.cs" />
     <Compile Include="DTO\PostDto\WorkshopPostDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Entity\IEntityService.cs" />
+    <Compile Include="Service\Entity\IUserService.cs" />
     <Compile Include="Service\Entity\IGuestService.cs" />
     <Compile Include="Service\Entity\IPrizeService.cs" />
     <Compile Include="Service\Entity\IWorkshopGuestService.cs" />

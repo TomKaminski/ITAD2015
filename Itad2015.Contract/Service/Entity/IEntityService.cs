@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Itad2015.Contract.DTO.Base;
 
-namespace Itad2015.Contract.Service
+namespace Itad2015.Contract.Service.Entity
 {
     public interface IEntityService<TGetDto, TPostDto>
         where TGetDto : GetBaseDto

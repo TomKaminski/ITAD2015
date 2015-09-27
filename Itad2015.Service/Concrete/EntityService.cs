@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Itad2015.Contract.DTO.Base;
 using Itad2015.Contract.Service;
+using Itad2015.Contract.Service.Entity;
 using Itad2015.Model.Common;
 using Itad2015.Repository.Common;
 using Itad2015.Service.Helpers;
