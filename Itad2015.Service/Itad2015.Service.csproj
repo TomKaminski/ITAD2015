@@ -34,6 +34,10 @@
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ImageResizer, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
@@ -78,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\EntityService.cs" />
+    <Compile Include="Concrete\ImageProcessorService.cs" />
     <Compile Include="Concrete\UserService.cs" />
     <Compile Include="Concrete\GuestService.cs" />
     <Compile Include="Concrete\PrizeService.cs" />

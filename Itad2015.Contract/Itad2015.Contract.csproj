@@ -60,6 +60,7 @@
     <Compile Include="Service\Entity\IPrizeService.cs" />
     <Compile Include="Service\Entity\IWorkshopGuestService.cs" />
     <Compile Include="Service\Entity\IWorkshopService.cs" />
+    <Compile Include="Service\IImageProcessorService.cs" />
     <Compile Include="Service\IPdfService.cs" />
   </ItemGroup>
   <ItemGroup />

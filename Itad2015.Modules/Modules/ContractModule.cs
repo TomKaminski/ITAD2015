@@ -20,6 +20,7 @@ namespace Itad2015.Modules.Modules
 
             builder.RegisterType<PasswordHasher>().As<IPasswordHasher>();
             builder.RegisterType<QRCodeGenerator>().As<IQrCodeGenerator>();
+            builder.RegisterType<ImageProcessorService>().As<IImageProcessorService>();
 
             builder.RegisterGeneric(typeof(CustomExpressionVisitor<>)).AsSelf();
         }
