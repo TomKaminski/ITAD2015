@@ -19,7 +19,15 @@ namespace Itad2015.Areas.Admin.ViewModels
 
         [DataType(DataType.Upload)]
         [Required]
-        public HttpPostedFileBase Image{ get; set; }
+        public HttpPostedFileBase Image { get; set; }
+    }
+
+    public class WorkshopEditViewModel : WorkshopCreateViewModel
+    {
+        [Required]
+        public int Id { get; set; }
+
+        public string ImgPath { get; set; }
     }
 
     public class WorkshopListItem

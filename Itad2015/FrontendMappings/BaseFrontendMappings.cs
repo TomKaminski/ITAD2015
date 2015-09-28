@@ -12,10 +12,10 @@ namespace Itad2015.FrontendMappings
         public static void Initialize()
         {
             Mapper.CreateMap<UserGetDto, AppUserState>().IgnoreNotExistingProperties();
-
             Mapper.CreateMap<WorkshopCreateViewModel, WorkshopPostDto>().IgnoreNotExistingProperties();
-
             Mapper.CreateMap<WorkshopGetDto, WorkshopListItem>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<WorkshopGetDto, WorkshopEditViewModel>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<WorkshopEditViewModel, WorkshopPostDto>().IgnoreNotExistingProperties();
         }
     }
 }

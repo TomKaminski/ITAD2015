@@ -64,5 +64,35 @@ namespace Itad2015.Areas.Admin.Controllers
             _workshopService.Delete(id, path);
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult Edit(int id)
+        {
+            var obj = Mapper.Map<WorkshopEditViewModel>(_workshopService.Get(id));
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(WorkshopEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var mappedModel = Mapper.Map<WorkshopPostDto>(model);
+                if (model.Image != null)
+                {
+                    var virtualPath = "~/Content/images/workshop/" + model.Title;
+                    var path = Server.MapPath(virtualPath);
+
+                    _imageProcessorService.DeleteImagesByPath(path);
+                    _imageProcessorService.ProcessAndSaveImage(HttpPostedFileBaseToByteConverter.Convert(model.Image.InputStream), path);
+
+                    mappedModel.ImgPath = virtualPath;
+                }
+
+                _workshopService.Edit(mappedModel);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
 }
