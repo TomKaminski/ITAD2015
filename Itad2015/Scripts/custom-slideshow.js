@@ -47,22 +47,35 @@
                     $('.left-panel').animate({ left: '-160px' });
             });
 
-            /** VEGAS SLIDESHOW IMAGES  **/
-            $(function () {
-                $.vegas('slideshow', {
-                    backgrounds: [
-                      { src: 'Content/images/slides/2.jpg', fade: 1000, delay: 9000 }, //CHANGE THESE IMAGES WITH YOUR ORIGINAL IMAGES
-                       { src: 'Content/images/slides/1.jpg', fade: 1000, delay: 9000 }, //THESE IMAGES ARE FOR DEMO PURPOSE ONLY YOU, CAN NOT USE THEM WITHOUT AUTHORS PERMISSION
-                        { src: 'Content/images/slides/3.jpg', fade: 1000, delay: 9000 }, //SEE DOCUMENTATION FOR ORIGINAL URLs/LINKs OF IMAGES
-                        
-                    ]
-                })('overlay', {
-                    /** SLIDESHOW OVERLAY IMAGE **/
-                    src: 'Content/vegas/overlays/01.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
-                });
 
-
+            $("#example, body").vegas({
+                delay:9000,
+                fade:1000,
+                slides: [
+                    { src: 'Content/images/slides/2.jpg'},
+                    { src: 'Content/images/slides/1.jpg'},
+                    {src: 'Content/images/slides/3.jpg'},
+                ],
+                overlay:true
             });
+
+
+            ///** VEGAS SLIDESHOW IMAGES  **/
+            //$(function () {
+            //    $('body').vegas('slideshow', {
+            //        backgrounds: [
+            //          { src: 'Content/images/slides/2.jpg', fade: 1000, delay: 9000 }, //CHANGE THESE IMAGES WITH YOUR ORIGINAL IMAGES
+            //           { src: 'Content/images/slides/1.jpg', fade: 1000, delay: 9000 }, //THESE IMAGES ARE FOR DEMO PURPOSE ONLY YOU, CAN NOT USE THEM WITHOUT AUTHORS PERMISSION
+            //            { src: 'Content/images/slides/3.jpg', fade: 1000, delay: 9000 }, //SEE DOCUMENTATION FOR ORIGINAL URLs/LINKs OF IMAGES
+                        
+            //        ]
+            //    })('overlay', {
+            //        /** SLIDESHOW OVERLAY IMAGE **/
+            //        src: 'Content/vegas/overlays/01.png' // THERE ARE TOTAL 01 TO 15 .png IMAGES AT THE PATH GIVEN, WHICH YOU CAN USE HERE
+            //    });
+
+
+            //});
 
             /*
             YOU CAN WRITE 

@@ -11,7 +11,7 @@ namespace Itad2015
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/countdown/jquery.countdown.js",
                         "~/Scripts/countdown.js",
-                        "~/Scripts/jquery.vegas.min.js",
+                        "~/Scripts/jquery.vegas.js",
                         "~/Scripts/jquery.easing.1.3.js",
                         "~/Scripts/custom-slideshow.js"));
 
@@ -19,8 +19,8 @@ namespace Itad2015
 
             bundles.Add(new StyleBundle("~/css").Include(
                          "~/Content/bootstrap/bootstrap.css",
-                         "~/Content/font-awesome/font-awesome.min.css",
-                         "~/Content/vegas/jquery.vegas.min.css",
+                         "~/Content/font-awesome/font-awesome.css",
+                         "~/Content/vegas/jquery.vegas.css",
                          "~/Content/countdown.css",
                          "~/Content/style.css"));
 
