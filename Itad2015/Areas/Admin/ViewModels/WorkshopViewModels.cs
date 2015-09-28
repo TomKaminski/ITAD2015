@@ -24,6 +24,7 @@ namespace Itad2015.Areas.Admin.ViewModels
 
     public class WorkshopListItem
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int MaxParticipants { get; set; }
         public string TutorName { get; set; }

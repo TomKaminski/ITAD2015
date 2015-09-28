@@ -29,19 +29,19 @@ namespace Itad2015.Service.Concrete
 
 
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             var obj = _repository.Find(id);
             _repository.Delete(obj);
             _unitOfWork.Commit();
         }
 
-        public TGetDto Get(int id)
+        public virtual TGetDto Get(int id)
         {
             return (TGetDto)Mapper.Map(_repository.Find(id), typeof(TEntity), typeof(TGetDto));
         }
 
-        public void Edit(TPostDto entity)
+        public virtual void Edit(TPostDto entity)
         {
             var obj = _repository.Find(entity.Id);
             if (obj == null) return;
@@ -50,18 +50,18 @@ namespace Itad2015.Service.Concrete
             _unitOfWork.Commit();
         }
 
-        public void Create(TPostDto entity)
+        public virtual void Create(TPostDto entity)
         {
             _repository.Add(Mapper.Map<TEntity>(entity));
             _unitOfWork.Commit();
         }
 
-        public IEnumerable<TGetDto> GetAll()
+        public virtual IEnumerable<TGetDto> GetAll()
         {
             return _repository.GetAll().Select(Mapper.Map<TGetDto>).ToList();
         }
 
-        public IEnumerable<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate)
+        public virtual IEnumerable<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate)
         {
             var param = Expression.Parameter(typeof(TEntity));
             var result = new CustomExpressionVisitor<TEntity>(param).Visit(predicate.Body);
@@ -71,23 +71,23 @@ namespace Itad2015.Service.Concrete
 
         //Async
 
-        public async Task<TGetDto> GetAsync(int id)
+        public virtual async Task<TGetDto> GetAsync(int id)
         {
             return (TGetDto)Mapper.Map(await _repository.FindAsync(id), typeof(TEntity), typeof(TGetDto));
         }
 
-        public async Task CreateAsync(TPostDto entity)
+        public virtual async Task CreateAsync(TPostDto entity)
         {
             _repository.Add(Mapper.Map<TEntity>(entity));
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task<IEnumerable<TGetDto>> GetAllAsync()
+        public virtual async Task<IEnumerable<TGetDto>> GetAllAsync()
         {
             return (await _repository.GetAllAsync()).Select(Mapper.Map<TGetDto>).ToList();
         }
 
-        public async Task<IEnumerable<TGetDto>> GetAllAsync(Expression<Func<TGetDto, bool>> predicate)
+        public virtual async Task<IEnumerable<TGetDto>> GetAllAsync(Expression<Func<TGetDto, bool>> predicate)
         {
             var param = Expression.Parameter(typeof(TEntity));
             var result = new CustomExpressionVisitor<TEntity>(param).Visit(predicate.Body);
@@ -95,7 +95,7 @@ namespace Itad2015.Service.Concrete
             return (await _repository.GetAllAsync(lambda)).Select(Mapper.Map<TGetDto>).ToList();
         }
 
-        public async Task EditAsync(TPostDto entity)
+        public virtual async Task EditAsync(TPostDto entity)
         {
             var obj = await _repository.FindAsync(entity.Id);
             if (obj == null) return;
@@ -104,7 +104,7 @@ namespace Itad2015.Service.Concrete
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public virtual async Task DeleteAsync(int id)
         {
             var obj = await _repository.FindAsync(id);
             _repository.Delete(obj);

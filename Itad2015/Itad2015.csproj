@@ -220,6 +220,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regulard41d.eot" />
     <Content Include="Areas\Admin\Views\Workshop\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Workshop\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Workshop\Delete.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

@@ -50,5 +50,19 @@ namespace Itad2015.Areas.Admin.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Delete(int id)
+        {
+            return View(Mapper.Map<WorkshopListItem>(_workshopService.Get(id)));
+        }
+
+        [ActionName("Delete")]
+        [HttpPost]
+        public ActionResult DeletePost(int id)
+        {
+            var path = Server.MapPath("~/Content/images/workshop/");
+            _workshopService.Delete(id, path);
+            return RedirectToAction("Index");
+        }
     }
 }

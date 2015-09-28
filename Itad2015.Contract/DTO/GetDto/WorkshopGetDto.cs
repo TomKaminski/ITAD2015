@@ -5,6 +5,7 @@ namespace Itad2015.Contract.DTO.GetDto
 {
     public class WorkshopGetDto : GetBaseDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int MaxParticipants { get; set; }
         public string TutorName { get; set; }
