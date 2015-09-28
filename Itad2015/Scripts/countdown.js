@@ -17,7 +17,11 @@ var defaultPercent = 0;
 
 
 $(function() {
-    $('#counter').countdown(endDate);
+    $('#counter').countdown({
+        until: endDate,
+        layout: '<div></div>',
+        onTick: updateBar
+    });
 
     $('a[rel=tooltip]').tooltip();
     $('div[rel=tooltip]').tooltip();
