@@ -9,7 +9,7 @@
 
 var startDate = new Date("16/03/2014"); //THIS IS JUST FOR REFERENCE- DO NOT CHANGE THIS.
 
-var endDate = new Date("01/01/2015"); //CHANGE THIS TO YOUR LAUNCHING DATE
+var endDate = new Date("11/20/2015"); //CHANGE THIS TO YOUR LAUNCHING DATE
 
 var dif = endDate.getTime() - startDate.getTime();
 var difToSecond = dif / 1000;
@@ -39,21 +39,41 @@ function updateBar(periods) {
 
 function fillSecondBar(percent) {
     $('#second-number').html(percent);
+    if (percent === 1) {
+        $('#second-number').siblings('.timer-text').text('SEKUNDA');
+    } else {
+        $('#second-number').siblings('.timer-text').text('SEKUND');
+    }
     $('#second-bar').css('width', percent * 100 / 60 + '%');
 }
 
 function fillMinuteBar(percent) {
     $('#minute-number').html(percent);
+    if (percent === 1) {
+        $('#minute-number').siblings('.timer-text').text('MINUTA');
+    } else {
+        $('#minute-number').siblings('.timer-text').text('MINUT');
+    }
     $('#minute-bar').css('width', percent * 100 / 60 + '%');
 }
 
 function fillHourBar(percent) {
     $('#hour-number').html(percent);
+    if (percent === 1) {
+        $('#hour-number').siblings('.timer-text').text('GODZINA');
+    } else {
+        $('#hour-number').siblings('.timer-text').text('GODZIN');
+    }
     $('#hour-bar').css('width', percent * 100 / 24 + '%');
 }
 
 function fillDayBar(percent) {
     $('#day-number').html(percent);
+    if (percent === 1) {
+        $('#day-number').siblings('.timer-text').text('DZIEÑ');
+    } else {
+        $('#day-number').siblings('.timer-text').text('DNI');
+    }
     $('#day-bar').css('width', percent * 100 / 365 + '%');
 }
 
