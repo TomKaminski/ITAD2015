@@ -1,19 +1,62 @@
-﻿using Itad2015.Contract.DTO.GetDto;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
+using Itad2015.Contract.Common;
+using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.Model.Concrete;
 using Itad2015.Repository.Common;
 using Itad2015.Repository.Interfaces;
+using Itad2015.Service.Helpers.Interfaces;
 
 namespace Itad2015.Service.Concrete
 {
     public class GuestService : EntityService<GuestGetDto, GuestPostDto,Guest>,IGuestService
     {
         private readonly IGuestRepository _repository;
+        private readonly IHashGenerator _hashGenerator;
+        private readonly IUnitOfWork _unitOfWork;
         
-        public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository) : base(unitOfWork, repository)
+        const int MaxRegisteredGuests = 350;
+        public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository, IHashGenerator hashGenerator, IUnitOfWork unitOfWork1) : base(unitOfWork, repository)
         {
             _repository = repository;
+            _hashGenerator = hashGenerator;
+            _unitOfWork = unitOfWork1;
+        }
+
+        public int RegisteredGuestsCount()
+        {
+            return _repository.Count(x => x.Cancelled != true);
+        }
+
+        public SingleServiceResult<GuestGetDto> Register(GuestPostDto model)
+        {
+            var errors = ValidateRegister();
+            if (!errors.Any())
+            {
+                model.RegistrationTime = DateTime.Now;
+                var entity = Mapper.Map<Guest>(model);
+
+                entity.CancelationHash = _hashGenerator.CreateHash(entity.Email + "cancel");
+                entity.ConfirmationHash = _hashGenerator.CreateHash(entity.Email + "confirm");
+
+                var obj = Mapper.Map<GuestGetDto>(_repository.Add(entity));
+                _unitOfWork.Commit();
+
+                return new SingleServiceResult<GuestGetDto>(obj);
+            }
+            return new SingleServiceResult<GuestGetDto>(new GuestGetDto(), errors);
+        }
+
+        private List<string> ValidateRegister()
+        {
+            var errors = new List<string>();
+            if(RegisteredGuestsCount() >= MaxRegisteredGuests)
+                errors.Add("Przepraszamy, brak miejsc.");
+            return errors;
         }
     }
 }

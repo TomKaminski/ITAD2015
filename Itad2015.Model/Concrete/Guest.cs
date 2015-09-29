@@ -8,7 +8,6 @@ namespace Itad2015.Model.Concrete
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string SchoolName { get; set; }
         public DateTime? CheckInDate { get; set; }
 
         public string ConfirmationHash { get; set; }
@@ -18,11 +17,7 @@ namespace Itad2015.Model.Concrete
 
         public bool Cancelled { get; set; }
 
-        public int? WorkshopId { get; set; }
-
         public int? WorkshopGuestId { get; set; }
-
-        public Workshop Workshop { get; set; }
 
         public WorkshopGuest WorkshopGuest { get; set; }
     }

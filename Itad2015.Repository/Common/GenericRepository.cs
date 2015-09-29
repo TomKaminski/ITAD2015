@@ -19,9 +19,9 @@ namespace Itad2015.Repository.Common
             Dbset = factory.Get().Set<T>();
         }
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
-            Dbset.Add(entity);
+            return Dbset.Add(entity);
         }
 
         public void Delete(T entity)
@@ -37,6 +37,11 @@ namespace Itad2015.Repository.Common
 
 
         //Sync
+        public int Count(Expression<Func<T, bool>> expression)
+        {
+            return Dbset.Count(expression);
+        }
+
         public T Find(int id)
         {
             return Dbset.SingleOrDefault(x => x.Id == id);
@@ -60,6 +65,11 @@ namespace Itad2015.Repository.Common
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
         {
             return Dbset.Where(expression);
+        }
+
+        public int Count()
+        {
+            return Dbset.Count();
         }
 
         //Async

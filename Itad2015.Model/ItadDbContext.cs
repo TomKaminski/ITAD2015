@@ -31,8 +31,8 @@ namespace Itad2015.Model
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Workshop>()
-                .HasMany(x => x.Guests)
-                .WithOptional(x => x.Workshop)
+                .HasMany(x => x.WorkshopGuests)
+                .WithRequired(x => x.Workshop)
                 .HasForeignKey(x => x.WorkshopId);
 
             modelBuilder.Entity<WorkshopGuest>().HasRequired(x => x.Guest).WithMany().HasForeignKey(x => x.GuestId);

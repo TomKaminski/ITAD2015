@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ServiceResult.cs" />
     <Compile Include="DTO\Base\PostBaseDto.cs" />
     <Compile Include="DTO\Base\GetBaseDto.cs" />
     <Compile Include="DTO\GetDto\UserGetDto.cs" />

@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201509281631469_WorkshopDate.Designer.cs">
       <DependentUpon>201509281631469_WorkshopDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509291705099_workshopguest-workshop.cs" />
+    <Compile Include="Migrations\201509291705099_workshopguest-workshop.Designer.cs">
+      <DependentUpon>201509291705099_workshopguest-workshop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509281631469_WorkshopDate.resx">
       <DependentUpon>201509281631469_WorkshopDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509291705099_workshopguest-workshop.resx">
+      <DependentUpon>201509291705099_workshopguest-workshop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

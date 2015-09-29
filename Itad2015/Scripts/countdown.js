@@ -7,7 +7,7 @@
 */
 /* Start Countdown Settings */
 
-var startDate = new Date("16/03/2014"); //THIS IS JUST FOR REFERENCE- DO NOT CHANGE THIS.
+var startDate = new Date("16/09/2015"); //THIS IS JUST FOR REFERENCE- DO NOT CHANGE THIS.
 
 var endDate = new Date("11/20/2015"); //CHANGE THIS TO YOUR LAUNCHING DATE
 

@@ -8,7 +8,7 @@ namespace Itad2015.Model.Concrete
     {
         public Workshop()
         {
-            Guests = new HashSet<Guest>();
+            WorkshopGuests = new HashSet<WorkshopGuest>();
         }
 
         public string Title { get; set; }
@@ -18,6 +18,6 @@ namespace Itad2015.Model.Concrete
         public string Description { get; set; }
         public string ImgPath { get; set; }
 
-        public virtual HashSet<Guest> Guests { get; set; }
+        public virtual HashSet<WorkshopGuest> WorkshopGuests { get; set; }
     }
 }

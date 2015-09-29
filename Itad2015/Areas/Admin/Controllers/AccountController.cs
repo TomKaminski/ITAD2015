@@ -34,7 +34,8 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (await _userService.LoginAsync(model.Email, model.Password))
+                var loginResult = await _userService.LoginAsync(model.Email, model.Password);
+                if (loginResult.Result)
                 {
                     await IdentitySignin(model.Email, model.RemeberMe);
                     return RedirectToLocal(ReturnUrl);

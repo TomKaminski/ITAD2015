@@ -22,7 +22,8 @@ namespace Itad2015.Areas.Admin.Controllers
         // GET: Admin/Workshop
         public ActionResult Index()
         {
-            var workshops = _workshopService.GetAll().Select(Mapper.Map<WorkshopListItem>).ToList();
+            var workshopResult = _workshopService.GetAll();
+            var workshops = workshopResult.Result.Select(Mapper.Map<WorkshopListItem>).ToList();
             return View(workshops);
         }
 

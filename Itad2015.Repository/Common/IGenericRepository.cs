@@ -8,13 +8,16 @@ namespace Itad2015.Repository.Common
 {
     public interface IGenericRepository<T>
     {
-        void Add(T entity);
+        T Add(T entity);
         void Delete(T entity);
         void Edit(T entity);
 
         //Sync
         IQueryable<T> GetAll();
         IQueryable<T> GetAll(Expression<Func<T,bool>> expression);
+
+        int Count();
+        int Count(Expression<Func<T, bool>> expression);
 
         T Find(int id);
         T First(Expression<Func<T, bool>> expression);

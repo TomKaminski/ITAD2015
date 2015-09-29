@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Itad2015.Contract.Common;
 using Itad2015.Contract.DTO.Base;
 
 namespace Itad2015.Contract.Service.Entity
@@ -11,19 +11,23 @@ namespace Itad2015.Contract.Service.Entity
         where TPostDto : PostBaseDto
     {
         void Delete(int id);
-        TGetDto Get(int id);
+        SingleServiceResult<TGetDto> Get(int id);
         void Edit(TPostDto entity);
-        void Create(TPostDto entity);
-        IEnumerable<TGetDto> GetAll();
-        IEnumerable<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate);
+        SingleServiceResult<TGetDto> Create(TPostDto entity);
+        MultipleServiceResult<TGetDto> GetAll();
+        MultipleServiceResult<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate);
 
+        SingleServiceResult<TGetDto> FirstOrDefault(Expression<Func<TGetDto, bool>> predicate);
 
+        int Count();
+
+        int Count(Expression<Func<TGetDto, bool>> predicate);
 
         //Async
-        Task<TGetDto> GetAsync(int id);
-        Task CreateAsync(TPostDto entity);
-        Task<IEnumerable<TGetDto>> GetAllAsync();
-        Task<IEnumerable<TGetDto>> GetAllAsync(Expression<Func<TGetDto, bool>> predicate);
+        Task<SingleServiceResult<TGetDto>> GetAsync(int id);
+        Task<SingleServiceResult<TGetDto>> CreateAsync(TPostDto entity);
+        Task<MultipleServiceResult<TGetDto>> GetAllAsync();
+        Task<MultipleServiceResult<TGetDto>> GetAllAsync(Expression<Func<TGetDto, bool>> predicate);
         Task EditAsync(TPostDto entity);
         Task DeleteAsync(int id);
     }

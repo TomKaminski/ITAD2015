@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AutoMapper;
+using Itad2015.Contract.Common;
 using Itad2015.Contract.DTO.Base;
-using Itad2015.Contract.Service;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.Model.Common;
 using Itad2015.Repository.Common;
@@ -36,9 +35,10 @@ namespace Itad2015.Service.Concrete
             _unitOfWork.Commit();
         }
 
-        public virtual TGetDto Get(int id)
+        public virtual SingleServiceResult<TGetDto> Get(int id)
         {
-            return (TGetDto)Mapper.Map(_repository.Find(id), typeof(TEntity), typeof(TGetDto));
+            var obj = (TGetDto)Mapper.Map(_repository.Find(id), typeof(TEntity), typeof(TGetDto));
+            return new SingleServiceResult<TGetDto>(obj);
         }
 
         public virtual void Edit(TPostDto entity)
@@ -50,49 +50,80 @@ namespace Itad2015.Service.Concrete
             _unitOfWork.Commit();
         }
 
-        public virtual void Create(TPostDto entity)
+        public virtual SingleServiceResult<TGetDto> Create(TPostDto entity)
         {
-            _repository.Add(Mapper.Map<TEntity>(entity));
+            
+            var obj =_repository.Add(Mapper.Map<TEntity>(entity));
             _unitOfWork.Commit();
+            return new SingleServiceResult<TGetDto>(Mapper.Map<TGetDto>(obj));
         }
 
-        public virtual IEnumerable<TGetDto> GetAll()
+        public virtual MultipleServiceResult<TGetDto> GetAll()
         {
-            return _repository.GetAll().Select(Mapper.Map<TGetDto>).ToList();
+            var obj = _repository.GetAll().Select(Mapper.Map<TGetDto>).ToList();
+            return new MultipleServiceResult<TGetDto>(obj);
         }
 
-        public virtual IEnumerable<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate)
+        public virtual MultipleServiceResult<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate)
         {
             var param = Expression.Parameter(typeof(TEntity));
             var result = new CustomExpressionVisitor<TEntity>(param).Visit(predicate.Body);
             var lambda = Expression.Lambda<Func<TEntity, bool>>(result, param);
-            return _repository.GetAll(lambda).Select(Mapper.Map<TGetDto>).ToList();
+            var obj = _repository.GetAll(lambda).Select(Mapper.Map<TGetDto>).ToList();
+            return new MultipleServiceResult<TGetDto>(obj);
+        }
+
+
+        public SingleServiceResult<TGetDto> FirstOrDefault(Expression<Func<TGetDto, bool>> predicate)
+        {
+            var param = Expression.Parameter(typeof(TEntity));
+            var result = new CustomExpressionVisitor<TEntity>(param).Visit(predicate.Body);
+            var lambda = Expression.Lambda<Func<TEntity, bool>>(result, param);
+            var obj = Mapper.Map<TGetDto>(_repository.FirstOrDefault(lambda));
+            return new SingleServiceResult<TGetDto>(obj);
+        }
+
+        public int Count()
+        {
+            return _repository.Count();
+        }
+
+        public int Count(Expression<Func<TGetDto, bool>> predicate)
+        {
+            var param = Expression.Parameter(typeof(TEntity));
+            var result = new CustomExpressionVisitor<TEntity>(param).Visit(predicate.Body);
+            var lambda = Expression.Lambda<Func<TEntity, bool>>(result, param);
+            return _repository.Count(lambda);
         }
 
         //Async
 
-        public virtual async Task<TGetDto> GetAsync(int id)
+        public virtual async Task<SingleServiceResult<TGetDto>> GetAsync(int id)
         {
-            return (TGetDto)Mapper.Map(await _repository.FindAsync(id), typeof(TEntity), typeof(TGetDto));
+            var obj = (TGetDto)Mapper.Map(await _repository.FindAsync(id), typeof(TEntity), typeof(TGetDto));
+            return new SingleServiceResult<TGetDto>(obj);
         }
 
-        public virtual async Task CreateAsync(TPostDto entity)
+        public virtual async Task<SingleServiceResult<TGetDto>> CreateAsync(TPostDto entity)
         {
-            _repository.Add(Mapper.Map<TEntity>(entity));
+            var obj = _repository.Add(Mapper.Map<TEntity>(entity));
             await _unitOfWork.CommitAsync();
+            return new SingleServiceResult<TGetDto>(Mapper.Map<TGetDto>(obj));
         }
 
-        public virtual async Task<IEnumerable<TGetDto>> GetAllAsync()
+        public virtual async Task<MultipleServiceResult<TGetDto>> GetAllAsync()
         {
-            return (await _repository.GetAllAsync()).Select(Mapper.Map<TGetDto>).ToList();
+            var obj = (await _repository.GetAllAsync()).Select(Mapper.Map<TGetDto>).ToList();
+            return new MultipleServiceResult<TGetDto>(obj);
         }
 
-        public virtual async Task<IEnumerable<TGetDto>> GetAllAsync(Expression<Func<TGetDto, bool>> predicate)
+        public virtual async Task<MultipleServiceResult<TGetDto>> GetAllAsync(Expression<Func<TGetDto, bool>> predicate)
         {
             var param = Expression.Parameter(typeof(TEntity));
             var result = new CustomExpressionVisitor<TEntity>(param).Visit(predicate.Body);
             var lambda = Expression.Lambda<Func<TEntity, bool>>(result, param);
-            return (await _repository.GetAllAsync(lambda)).Select(Mapper.Map<TGetDto>).ToList();
+            var obj = (await _repository.GetAllAsync(lambda)).Select(Mapper.Map<TGetDto>).ToList();
+            return new MultipleServiceResult<TGetDto>(obj);
         }
 
         public virtual async Task EditAsync(TPostDto entity)
