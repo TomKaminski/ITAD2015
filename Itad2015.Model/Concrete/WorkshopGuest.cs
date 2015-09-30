@@ -5,8 +5,6 @@ namespace Itad2015.Model.Concrete
     public class WorkshopGuest:Entity
     {
         public string SchoolName { get; set; }
-        public string CancelationHash { get; set; }
-        public bool Cancelled { get; set; }
         public int GuestId { get; set; }
         public Guest Guest { get; set; }
         public int WorkshopId { get; set; }

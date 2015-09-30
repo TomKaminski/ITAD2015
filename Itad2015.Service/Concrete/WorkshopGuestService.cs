@@ -47,11 +47,8 @@ namespace Itad2015.Service.Concrete
                 guestEntity.CancelationHash = _hashGenerator.CreateHash(guestEntity.Email + "cancel");
                 guestEntity.ConfirmationHash = _hashGenerator.CreateHash(guestEntity.Email + "confirm");
 
-                workshopGuestEntity.CancelationHash = _hashGenerator.CreateHash(guestEntity.Email + "cancelWorkshop");
-
                 var guestObj = Mapper.Map<GuestGetDto>(_guestRepository.Add(guestEntity));
 
-                //var workshopObj = Mapper.Map<WorkshopGuestGetGto>(_repository.Add(workshopGuestEntity));
                 _repository.Add(workshopGuestEntity);
 
                 _unitOfWork.Commit();

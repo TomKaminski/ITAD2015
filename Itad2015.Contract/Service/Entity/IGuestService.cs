@@ -9,5 +9,9 @@ namespace Itad2015.Contract.Service.Entity
         int RegisteredGuestsCount();
 
         SingleServiceResult<GuestGetDto> Register(GuestPostDto model);
+
+        SingleServiceResult<bool> ConfirmRegistration(int id, string confirmHash);
+
+        SingleServiceResult<bool> CancelRegistration(int id, string cancelHash);
     }
 }

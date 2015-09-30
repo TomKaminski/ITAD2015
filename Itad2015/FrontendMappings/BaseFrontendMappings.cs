@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Itad2015.Areas.Admin.ViewModels;
+using Itad2015.Contract.Common;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Models;
 using Itad2015.Modules.Infrastructure;
 using Itad2015.ViewModels;
+using Itad2015.ViewModels.Base;
 using Itad2015.ViewModels.Guest;
 
 namespace Itad2015.FrontendMappings
@@ -22,6 +24,8 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, GuestPostDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, WorkshopGuestGetGto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap(typeof (SingleServiceResult<>), typeof (BaseReturnViewModel<>));
         }
     }
 }

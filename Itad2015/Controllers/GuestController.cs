@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
+using Itad2015.ViewModels.Base;
 using Itad2015.ViewModels.Guest;
 
 namespace Itad2015.Controllers
@@ -42,6 +43,22 @@ namespace Itad2015.Controllers
                 status = guestRegisterResult.ValidationErrors.Any(),
                 errors = guestRegisterResult.ValidationErrors
             });
+        }
+
+        [HttpGet]
+        public ActionResult ConfirmRegistration(int id, string confirmationCode)
+        {
+            var result = _guestService.ConfirmRegistration(id, confirmationCode);
+            //TODO: Chcemy jakiś popup na głównej, czy osobny widok z info?
+            return View(Mapper.Map<BaseReturnViewModel<bool>>(result));
+        }
+
+        [HttpGet]
+        public ActionResult CancelRegistration(int id, string cancelationCode)
+        {
+            var result = _guestService.CancelRegistration(id, cancelationCode);
+            //TODO: Chcemy jakiś popup na głównej, czy osobny widok z info?
+            return View(Mapper.Map<BaseReturnViewModel<bool>>(result));
         }
     }
 }

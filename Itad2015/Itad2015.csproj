@@ -276,6 +276,7 @@
     <Compile Include="Helpers\Email\IEmailHelper.cs" />
     <Compile Include="Models\AppUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Base\BaseReturnViewModel.cs" />
     <Compile Include="ViewModels\Email\EmailCommon.cs" />
     <Compile Include="ViewModels\Guest\RegisterGuestViewModel.cs" />
     <Compile Include="ViewModels\RegisterWorkshopGuestViewModel.cs" />
@@ -289,6 +290,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\Guest\ConfirmRegistration.cshtml" />
+    <Content Include="Views\Guest\CancelRegistration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -300,7 +303,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Guest\" />
     <Folder Include="Views\WorkshopGuest\" />
   </ItemGroup>
   <ItemGroup>
