@@ -11,5 +11,6 @@ namespace Itad2015.Contract.DTO.PostDto
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public string ImgPath { get; set; }
+        public string Room { get; set; }
     }
 }

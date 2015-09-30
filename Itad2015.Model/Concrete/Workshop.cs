@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
 using Itad2015.Model.Common;
 
 namespace Itad2015.Model.Concrete
@@ -17,6 +18,7 @@ namespace Itad2015.Model.Concrete
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public string ImgPath { get; set; }
+        public string Room { get; set; }
 
         public virtual HashSet<WorkshopGuest> WorkshopGuests { get; set; }
     }

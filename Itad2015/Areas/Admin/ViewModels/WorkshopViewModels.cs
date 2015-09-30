@@ -17,6 +17,9 @@ namespace Itad2015.Areas.Admin.ViewModels
         [Required]
         public string Description { get; set; }
 
+        [Required]
+        public string Room { get; set; }
+
         [DataType(DataType.Upload)]
         [Required]
         public HttpPostedFileBase Image { get; set; }
@@ -39,5 +42,6 @@ namespace Itad2015.Areas.Admin.ViewModels
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public string ImgPath { get; set; }
+        public string Room { get; set; }
     }
 }

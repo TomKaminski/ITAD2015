@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201509291705099_workshopguest-workshop.Designer.cs">
       <DependentUpon>201509291705099_workshopguest-workshop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509301807219_WorkshopRoom.cs" />
+    <Compile Include="Migrations\201509301807219_WorkshopRoom.Designer.cs">
+      <DependentUpon>201509301807219_WorkshopRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509291705099_workshopguest-workshop.resx">
       <DependentUpon>201509291705099_workshopguest-workshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509301807219_WorkshopRoom.resx">
+      <DependentUpon>201509301807219_WorkshopRoom.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

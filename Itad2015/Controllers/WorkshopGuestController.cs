@@ -3,7 +3,9 @@ using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
+using Itad2015.Helpers.Email;
 using Itad2015.ViewModels;
+using Itad2015.ViewModels.Email;
 
 namespace Itad2015.Controllers
 {
@@ -30,17 +32,27 @@ namespace Itad2015.Controllers
             var mappedGuestModel = Mapper.Map<GuestPostDto>(model);
             var mappedWorkshopGuestModel = Mapper.Map<WorkshopGuestPostDto>(model);
 
-            var guestRegisterResult = _workshopGuestService.Register(mappedGuestModel, mappedWorkshopGuestModel);
+            var res = _workshopGuestService.Register(mappedGuestModel, mappedWorkshopGuestModel);
 
-            if (!guestRegisterResult.ValidationErrors.Any())
+            if (!res.ValidationErrors.Any())
             {
-                //TODO: SEND EMAIL
+                var user = res.FirstResult;
+                var workshop = res.SecondResult;
+                new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "itaddbb@gmail.com", "Rejestracja na konferencję.")
+                {
+                    LastName = user.LastName,
+                    FirstName = user.FirstName,
+                    ConfirmationHash = user.ConfirmationHash,
+                    CancelationHash = user.CancelationHash,
+                    SchoolName = model.SchoolName,
+                    WorkshopTitle = workshop.Title
+                }).SendEmail();
             }
 
             return Json(new
             {
-                status = guestRegisterResult.ValidationErrors.Any(),
-                errors = guestRegisterResult.ValidationErrors
+                status = res.ValidationErrors.Any(),
+                errors = res.ValidationErrors
             });
         }
     }

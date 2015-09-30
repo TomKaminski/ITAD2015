@@ -3,7 +3,7 @@ using Itad2015.Contract.DTO.Base;
 
 namespace Itad2015.Contract.DTO.GetDto
 {
-    public class GuestGetDto:GetBaseDto
+    public class GuestGetDto : GetBaseDto
     {
         public string Email { get; set; }
         public string FirstName { get; set; }
@@ -13,5 +13,7 @@ namespace Itad2015.Contract.DTO.GetDto
         public int? WorkshopGuestId { get; set; }
         public DateTime RegistrationTime { get; set; }
         public DateTime? ConfirmationTime { get; set; }
+        public string ConfirmationHash { get; set; }
+        public string CancelationHash { get; set; }
     }
 }
