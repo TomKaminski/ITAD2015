@@ -56,6 +56,7 @@
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\Workshop.cs" />
     <Compile Include="Concrete\WorkshopGuest.cs" />
+    <Compile Include="Enums\Size.cs" />
     <Compile Include="ItadDbContext.cs" />
     <Compile Include="Migrations\201509261041213_InitialMigration.cs" />
     <Compile Include="Migrations\201509261041213_InitialMigration.Designer.cs">
@@ -76,6 +77,14 @@
     <Compile Include="Migrations\201509301807219_WorkshopRoom.cs" />
     <Compile Include="Migrations\201509301807219_WorkshopRoom.Designer.cs">
       <DependentUpon>201509301807219_WorkshopRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510011318000_size.cs" />
+    <Compile Include="Migrations\201510011318000_size.Designer.cs">
+      <DependentUpon>201510011318000_size.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510011437109_MigracjaKasi.cs" />
+    <Compile Include="Migrations\201510011437109_MigracjaKasi.Designer.cs">
+      <DependentUpon>201510011437109_MigracjaKasi.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509301807219_WorkshopRoom.resx">
       <DependentUpon>201509301807219_WorkshopRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510011318000_size.resx">
+      <DependentUpon>201510011318000_size.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510011437109_MigracjaKasi.resx">
+      <DependentUpon>201510011437109_MigracjaKasi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

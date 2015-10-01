@@ -106,6 +106,10 @@ h4 {
     margin-bottom: 50px;
 }
 
+.margin-botom-20 {
+    margin-bottom: 20px;
+}
+
 /* LEFT MENU / PANEL STYLES  */
 
 .left-panel {
@@ -157,7 +161,7 @@ h4 {
         font-size: 40px;
     }
 
-#social-links a, a:hover {
+#social-links a {
     color: #ffffff;
     display: table;
     text-decoration: none;
@@ -266,4 +270,10 @@ h4 {
     .container {
         padding-left: 10px;
     }
+}
+
+.btn-itad {
+    font-size: 24px;
+    padding: 15px;
+    
 }

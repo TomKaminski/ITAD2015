@@ -258,9 +258,11 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminBaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GuestController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkshopController.cs" />
     <Compile Include="Areas\Admin\Helpers\HttpPostedFileBaseToByteConverter.cs" />
+    <Compile Include="Areas\Admin\ViewModels\AdminGuestViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopViewModels.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -309,6 +311,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Guest\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\WorkshopGuest\" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@model Itad2015.ViewModels.Guest.RegisterGuestViewModel
 @{
     ViewBag.Title = "ITADBB 2015";
     Layout = null;
@@ -61,7 +62,9 @@
         <section id="home-section">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h1>WE PLUS <i class="fa fa-plus-circle main-color"></i> COMING  </h1>
+                    <h1>
+                        WE PLUS <i class="fa fa-plus-circle main-color"></i> COMING
+                    </h1>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="divider"></div>
                         <h3 class="center">WORKING DAY & NIGHT TO LAND HERE</h3>
@@ -116,23 +119,130 @@
             </div>
             <!--./row-->
         </section>
+        <section>
+            <div class="row srvc-back-color">
+                <div class="col-xs-12 center">
+                    <div class="divider-two"></div>
+                    <h2 class="center">
+                        REJESTRACJA
+                    </h2>
+                    <div class="divider-two margin-botom-50"></div>
+                    <div class="row margin-botom-20">
+                        <div class="col-xs-6">
+                            <a class="btn btn-primary btn-itad pull-right col-xs-6">
+                                KONFERENCJA
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a class="btn btn-primary btn-itad col-xs-6">
+                                WARSZTATY
+                            </a>
+                        </div>
+                    </div>
+
+                    <p>Rejestracja na warsztaty jest równoznaczna z rejestracją na konferencję.</p>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            @using (Html.BeginForm("Register", "Guest", FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "Imię" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Nazwisko" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Adres email" })
+                                </div>
+                                <p>Koszulka</p><br />
+                                <div id="TShirtType">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="TShirtSex" id="TShirtFemale" checked> Damska
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="TShirtSex" id="TShirtMale"> Męska
+                                    </label>
+                                </div>
+
+                                <div id="TShirtSizeFemale">
+                                    <label class="radio-inline">
+                                        <input type="radio" value="1" name="TShirtSize" id="TSHirtS" checked> S
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="2" name="TShirtSize" id="TShirtM"> M
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="3" name="TShirtSize" id="TSHirtL" checked> L
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="4" name="TShirtSize" id="TShirtXL"> XL
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="5" name="TShirtSize" id="TShirtXXL"> XXL
+                                    </label>
+                                </div>
+
+                                <div id="TShirtSizeMale">
+                                    <label class="radio-inline">
+                                        <input type="radio" value="6" name="TShirtSize" id="TSHirtS" checked> S
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="7" name="TShirtSize" id="TShirtM"> M
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="8" name="TShirtSize" id="TSHirtL" checked> L
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="9" name="TShirtSize" id="TShirtXL"> XL
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="10" name="TShirtSize" id="TShirtXXL"> XXL
+                                    </label>
+                                </div>
+
+                                <p>Skąd dowiedziałeś się o konferencji IT Academic Day?</p>
+                                <div class="form-group">
+                                    @Html.TextAreaFor(x => x.Info, new {@class = "form-control", placeholder = "np.zajęcia na uczelni"})
+                                </div>
+
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Zgadzam się na przetwarzanie moich danych osobowych przez RESET ATH</label>
+                                </div>
+
+                                <div class="col-xs-6 pull-right">
+                                    <a class="btn btn-primary btn-itad col-xs-6">
+                                        REJESTRUJ
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-xs-8"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- END HOME SECION -->
         <!-- ABOUT SECION -->
         <section id="about-section">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abt-back-color">
                     <div class="divider-two"></div>
-                    <h2 class="center">YEH YOU <i class="fa fa-plus-circle"></i> GOT US</h2>
+                    <h2 class="center">
+                        YEH YOU <i class="fa fa-plus-circle"></i> GOT US
+                    </h2>
                     <div class="divider-two margin-botom-50"></div>
                     <!-- ./Headings -->
 
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                         <div class="alert alert-info">
-                            <strong>Lorem ipsum !</strong> Lorem ipsum dolor sit  tincidunt
+                            <strong>Lorem ipsum !</strong> Lorem ipsum dolor sit tincidunt
                         </div>
                         <blockquote>
-                            Lorem ipsum dolor sit amet, Lorem ipsum  diam nonummy nibh euismod tincidunt.
-                            Lorem ipsum dolor sit  tincidunt.  consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            Lorem ipsum dolor sit amet, Lorem ipsum diam nonummy nibh euismod tincidunt.
+                            Lorem ipsum dolor sit tincidunt. consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                             consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                         </blockquote>
                         <ul class="fa-ul">
@@ -144,7 +254,7 @@
                         <b>
                             Lorem ipsum dolor
                             sed diam nonummy nibh euismod tincidunt
-                            sit amet, Lorem ipsum  diam nonummy nibh euismod tincidunt.
+                            sit amet, Lorem ipsum diam nonummy nibh euismod tincidunt.
                         </b>
                         <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
@@ -214,6 +324,7 @@
             <!--./row-->
 
         </section>
+
         <!-- END ABOUT SECION -->
         <!-- SERVICES SECION -->
         <section id="services-section">
@@ -332,5 +443,4 @@
     @Scripts.Render("~/bundles/js")
 </body>
 </html>
-
 

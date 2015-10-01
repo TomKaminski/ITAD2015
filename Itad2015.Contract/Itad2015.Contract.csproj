@@ -44,6 +44,7 @@
     <Compile Include="Common\ServiceResult.cs" />
     <Compile Include="DTO\Base\PostBaseDto.cs" />
     <Compile Include="DTO\Base\GetBaseDto.cs" />
+    <Compile Include="DTO\Base\Size.cs" />
     <Compile Include="DTO\GetDto\UserGetDto.cs" />
     <Compile Include="DTO\GetDto\GuestGetDto.cs" />
     <Compile Include="DTO\GetDto\PrizeGetDto.cs" />

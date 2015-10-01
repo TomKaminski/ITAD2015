@@ -18,9 +18,11 @@ namespace Itad2015.Modules.Modules
             builder.RegisterType<WorkshopGuestService>().As<IWorkshopGuestService>();
             builder.RegisterType<UserService>().As<IUserService>();
 
+
             builder.RegisterType<PasswordHasher>().As<IPasswordHasher>();
             builder.RegisterType<QRCodeGenerator>().As<IQrCodeGenerator>();
             builder.RegisterType<ImageProcessorService>().As<IImageProcessorService>();
+            builder.RegisterType<HashGenerator>().As<IHashGenerator>();
 
             builder.RegisterGeneric(typeof(CustomExpressionVisitor<>)).AsSelf();
         }

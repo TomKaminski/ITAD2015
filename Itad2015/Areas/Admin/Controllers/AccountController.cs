@@ -48,7 +48,7 @@ namespace Itad2015.Areas.Admin.Controllers
         private async Task IdentitySignin(string email, bool isPersistent = false)
         {
             var x = await _userService.GetByEmailAsync(email);
-            var userState = Mapper.Map<AppUserState>(x);
+            var userState = Mapper.Map<AppUserState>(x.Result);
 
             var claims = new List<Claim>
             {

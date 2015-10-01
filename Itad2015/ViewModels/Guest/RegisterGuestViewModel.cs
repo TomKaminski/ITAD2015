@@ -1,5 +1,7 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using Itad2015.Contract.DTO.Base;
 
 namespace Itad2015.ViewModels.Guest
 {
@@ -11,5 +13,8 @@ namespace Itad2015.ViewModels.Guest
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        [Required]
+        public Size Size { get; set; }
+        public string Info { get; set; }
     }
 }

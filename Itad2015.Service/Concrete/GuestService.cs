@@ -79,6 +79,9 @@ namespace Itad2015.Service.Concrete
             if (!errors.Any())
             {
                 guest.Cancelled = true;
+
+                //_repository.Delete(guest);
+
                 _repository.Edit(guest);
                 _unitOfWork.Commit();
                 return new SingleServiceResult<bool>(true, errors);

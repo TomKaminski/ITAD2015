@@ -9,11 +9,13 @@ namespace Itad2015.Contract.DTO.GetDto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? CheckInDate { get; set; }
+        public Size Size { get; set; }
         public bool Cancelled { get; set; }
         public int? WorkshopGuestId { get; set; }
         public DateTime RegistrationTime { get; set; }
         public DateTime? ConfirmationTime { get; set; }
         public string ConfirmationHash { get; set; }
         public string CancelationHash { get; set; }
+        public string Info { get; set; }
     }
 }
