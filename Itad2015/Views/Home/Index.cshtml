@@ -145,81 +145,119 @@
 
                 <div class="col-xs-12">
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
                             @using (Html.BeginForm("Register", "Guest", FormMethod.Post))
                             {
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "Imię" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Nazwisko" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Adres email" })
-                                </div>
-                                <p>Koszulka</p><br />
-                                <div id="TShirtType">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="TShirtSex" id="TShirtFemale" checked> Damska
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="TShirtSex" id="TShirtMale"> Męska
-                                    </label>
+                                @Html.AntiForgeryToken()
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "Imię" })
+                                            @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "validation-itad" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Nazwisko" })
+                                            @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "validation-itad" })
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div id="TShirtSizeFemale">
-                                    <label class="radio-inline">
-                                        <input type="radio" value="1" name="TShirtSize" id="TSHirtS" checked> S
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="2" name="TShirtSize" id="TShirtM"> M
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="3" name="TShirtSize" id="TSHirtL" checked> L
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="4" name="TShirtSize" id="TShirtXL"> XL
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="5" name="TShirtSize" id="TShirtXXL"> XXL
-                                    </label>
+                                <div class="row margin-botom-20">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Adres email" })
+                                            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "validation-itad" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.TextAreaFor(x => x.Info, new { @class = "form-control", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center">Wybierz typ i rozmiar koszulki:</p>
+                                <div id="TShirtType" class="row margin-botom-20 ">
+                                    <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+                                        <a class="btn btn-success col-xs-12">Damska</a>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4">
+                                        <a class="btn btn-danger col-xs-12">Męska</a>
+                                    </div>
+
+                                </div>
+                                <div class="row margin-botom-20 size-options">
+                                    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                                        <div class="col-xs-6 col-sm-2 col-sm-offset-1">
+                                            <button class="btn btn-default col-xs-12">S</button>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-2"><button class="btn btn-default col-xs-12">M</button></div>
+                                        <div class="col-xs-6 col-sm-2"><button class="btn btn-default col-xs-12">L</button></div>
+                                        <div class="col-xs-6 col-sm-2"><button class="btn btn-default col-xs-12">XL</button></div>
+                                        <div class="col-xs-12 col-sm-2"><button class="btn btn-default col-xs-12">XXL</button></div>
+                                    </div>
+                                </div>
+                                <div class="row margin-botom-20 size-options">
+                                    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                                        <div class="col-xs-6 col-sm-2 col-sm-offset-1">
+                                            <button class="btn btn-default col-xs-12">S</button>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-2"><button class="btn btn-default col-xs-12">M</button></div>
+                                        <div class="col-xs-6 col-sm-2"><button class="btn btn-default col-xs-12">L</button></div>
+                                        <div class="col-xs-6 col-sm-2"><button class="btn btn-default col-xs-12">XL</button></div>
+                                        <div class="col-xs-12 col-sm-2"><button class="btn btn-default col-xs-12">XXL</button></div>
+                                    </div>
                                 </div>
 
-                                <div id="TShirtSizeMale">
-                                    <label class="radio-inline">
-                                        <input type="radio" value="6" name="TShirtSize" id="TSHirtS" checked> S
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="7" name="TShirtSize" id="TShirtM"> M
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="8" name="TShirtSize" id="TSHirtL" checked> L
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="9" name="TShirtSize" id="TShirtXL"> XL
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" value="10" name="TShirtSize" id="TShirtXXL"> XXL
-                                    </label>
+                                <div style="display: none" id="tshirtFormRadios">
+                                    <div id="TShirtSizeMale" class="margin-botom-50">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="6" name="Size" id="m-size-s"> S
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="7" name="Size" id="m-size-m"> M
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="8" name="Size" id="m-size-l"> L
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="9" name="Size" id="m-size-xl"> XL
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="10" name="Size" id="m-size-xxl"> XXL
+                                        </label>
+                                    </div>
+                                    <div id="TShirtSizeFemale">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="1" name="Size" id="d-size-s" checked> S
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="2" name="Size" id="d-size-m"> M
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="3" name="Size" id="d-size-l"> L
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="4" name="Size" id="d-size-xl"> XL
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="5" name="Size" id="d-size-xxl"> XXL
+                                        </label>
+                                    </div>
                                 </div>
 
-                                <p>Skąd dowiedziałeś się o konferencji IT Academic Day?</p>
-                                <div class="form-group">
-                                    @Html.TextAreaFor(x => x.Info, new {@class = "form-control", placeholder = "np.zajęcia na uczelni"})
+                                <div class="checkbox margin-botom-20">
+                                    <label><input type="checkbox" name="Accepted">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>
                                 </div>
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Zgadzam się na przetwarzanie moich danych osobowych przez RESET ATH</label>
-                                </div>
-
-                                <div class="col-xs-6 pull-right">
-                                    <a class="btn btn-primary btn-itad col-xs-6">
-                                        REJESTRUJ
-                                    </a>
-                                </div>
+                                <a class="btn btn-primary btn-itad col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" id="register">
+                                    REJESTRUJ
+                                </a>
                             }
                         </div>
-                        <div class="col-xs-8"></div>
                     </div>
                 </div>
             </div>
@@ -441,6 +479,8 @@
     <!-- END MAIN CONTAINER -->
 
     @Scripts.Render("~/bundles/js")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>
 

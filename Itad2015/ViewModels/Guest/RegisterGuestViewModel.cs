@@ -8,6 +8,7 @@ namespace Itad2015.ViewModels.Guest
     public class RegisterGuestViewModel
     {
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         public string FirstName { get; set; }
