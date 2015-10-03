@@ -3,6 +3,7 @@
 @using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Size, new { id = "sizeInput" })
     <div id="inputStage">
         <div class="row">
             <div class="col-sm-6">

@@ -146,8 +146,22 @@ $(document).ready(function () {
     });
 
     $("#shirtSizeStageFemale a, #shirtSizeStageMale a").click(function () {
+        var id = registerModule.getFormId();
         var code = $(this).data("size-code");
-        $("#sizeInput").val(code);
+        $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code);
+        $("#shirtSizeStageFemale a, #shirtSizeStageMale a").removeClass("btn-selected");
+        $(this).addClass('btn-selected');
+
+        if (id === regWorkshopId) {
+            $(regId +" #shirtSizeStageFemale a, "+ regId+" #shirtSizeStageMale a").removeClass("btn-selected");
+
+            $(regId + " a[data-size-code='" + $(this).data('size-code') + "']").addClass('btn-selected');
+        } else {
+            $(regWorkshopId + " #shirtSizeStageFemale a, " + regWorkshopId + " #shirtSizeStageMale a").removeClass("btn-selected");
+
+            $(regWorkshopId + " a[data-size-code='" + $(this).data('size-code') +"']").addClass('btn-selected');
+        }
+
         registerModule.setStage(5);
     });
 

@@ -289,3 +289,8 @@ h4 {
 .input-validation-error {
     border-color: red;
 }
+
+.btn-selected,.btn-selected:hover,.btn-selected:active,.btn-selected:focus {
+    border: 3px solid green;
+
+}
