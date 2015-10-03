@@ -175,4 +175,17 @@ $(document).ready(function () {
         }
         $("#registerBtnStage a").toggleClass("disabled");
     });
+
+
+    var options = { 
+        success:    function(data) {
+            console.log(data);
+        } 
+    };
+
+    $('#RegisterForm, #RegisterWorkshopForm').ajaxForm(options);
+
+    $('#registerBtnStage a').click(function() {
+        $(this).parent().parent().submit();
+    });
 });

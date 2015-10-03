@@ -1,6 +1,6 @@
 ﻿@model Itad2015.ViewModels.RegisterWorkshopGuestViewModel
 
-@using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post))
+@using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post, new {id="RegisterWorkshopForm"}))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.Size, new { id = "sizeInput" })
