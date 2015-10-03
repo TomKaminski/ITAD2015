@@ -1,0 +1,83 @@
+﻿@model Itad2015.ViewModels.RegisterWorkshopGuestViewModel
+
+@using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="inputStage">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control itad-required-input", placeholder = "Imię" })
+                    @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "validation-itad" })
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control itad-required-input", placeholder = "Nazwisko" })
+                    @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "validation-itad" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-botom-20">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control itad-required-input", placeholder = "Adres email" })
+                    @Html.ValidationMessageFor(x => x.Email, null, new { @class = "validation-itad" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.SchoolName, new { @class = "form-control itad-required-input", placeholder = "Nazwa szkoły" })
+                    @Html.ValidationMessageFor(x => x.SchoolName, null, new { @class = "validation-itad" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    @Html.TextAreaFor(x => x.Info, new { @class = "form-control", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shirtTypeStage">
+        <p class="text-center">Wybierz typ i rozmiar koszulki:</p>
+        <div id="TShirtType" class="row margin-botom-20 ">
+            <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+                <a class="btn btn-success col-xs-12 female">Damska</a>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+                <a class="btn btn-danger col-xs-12">Męska</a>
+            </div>
+        </div>
+    </div>
+    <div class="row margin-botom-20 size-options" id="shirtSizeStageFemale">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="col-xs-6 col-sm-2 col-sm-offset-1"><a class="btn btn-default col-xs-12" data-size-code="1">f S</a></div>
+            <div class="col-xs-6 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="2">f M</a></div>
+            <div class="col-xs-6 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="3">f L</a></div>
+            <div class="col-xs-6 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="4">f XL</a></div>
+            <div class="col-xs-12 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="5">f XXL</a></div>
+        </div>
+    </div>
+    <div class="row margin-botom-20 size-options" id="shirtSizeStageMale">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="col-xs-6 col-sm-2 col-sm-offset-1"><a class="btn btn-default col-xs-12" data-size-code="6">m S</a></div>
+            <div class="col-xs-6 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="7">m M</a></div>
+            <div class="col-xs-6 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="8">m L</a></div>
+            <div class="col-xs-6 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="9">m XL</a></div>
+            <div class="col-xs-12 col-sm-2"><a class="btn btn-default col-xs-12" data-size-code="10">m XXL</a></div>
+        </div>
+    </div>
+
+        <div id="registerBtnStage">
+            <div class="checkbox margin-botom-20">
+                <label><input type="checkbox" name="Accepted">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>
+            </div>
+            <a class="btn btn-primary btn-itad col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 disabled">
+                REJESTRUJ
+            </a>
+        </div>
+}

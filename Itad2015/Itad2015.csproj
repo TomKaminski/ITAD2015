@@ -253,6 +253,7 @@
     <Content Include="Content\vegas\overlays\13.png" />
     <Content Include="Content\vegas\overlays\14.png" />
     <Content Include="Content\vegas\overlays\15.png" />
+    <Content Include="Scripts\registerApp.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +307,8 @@
     <Content Include="Views\Emails\GuestRegister.Html.cshtml" />
     <Content Include="Views\Emails\WorkshopGuestRegister.cshtml" />
     <Content Include="Views\Emails\WorkshopGuestRegister.Html.cshtml" />
+    <Content Include="Views\Home\RegisterGuest.cshtml" />
+    <Content Include="Views\Home\RegisterWorkshopGuest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
