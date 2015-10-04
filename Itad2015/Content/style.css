@@ -14,7 +14,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    margin: 0px;
+    margin: 0;
     font-family: 'Open Sans', sans-serif;
     border: none;
     color: #ffffff;
@@ -304,7 +304,6 @@ h4 {
     background-position: -206px -224px;
 }
 
-
 .itad-guy {
     background-position: 0 -224px;
 }
@@ -313,18 +312,27 @@ h4 {
     background-position: -206px 0;
 }
 
-
 .itad-guy.active {
     background-position: 0 0;
 }
-.chooseText{
-    color:white;
 
-}
 .chooseIcon{
     font-size: 50px;
-    color:white;
+    padding-bottom:10px
 }
+
+.chooseConferenceType {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
 .iconColor {
     color: #50efff;
 }
+

@@ -19,29 +19,29 @@
         switch (actualStage) {
             case registrationStage.inputStage:
                 {
-                    $(formId + " #inputStage").fadeIn();
+                    $(formId + " #inputStage").fadeIn(1000);
                     break;
                 }
             case registrationStage.shirtTypeStage:
                 {
-                    $(formId + " #shirtTypeStage").fadeIn();
+                    $(formId + " #shirtTypeStage").fadeIn(1000);
                     break;
                 }
             case registrationStage.shirtSizeStage:
                 {
                     if (isFemale) {
                         $(formId + " #shirtSizeStageMale").hide();
-                        $(formId + " #shirtSizeStageFemale").fadeIn();
+                        $(formId + " #shirtSizeStageFemale").fadeIn(1000);
 
                     } else {
                         $(formId + " #shirtSizeStageFemale").hide();
-                        $(formId + " #shirtSizeStageMale").fadeIn();
+                        $(formId + " #shirtSizeStageMale").fadeIn(1000);
                     }
                     break;
                 }
             case registrationStage.registerBtnStage:
                 {
-                    $(formId + " #registerBtnStage").fadeIn();
+                    $(formId + " #registerBtnStage").fadeIn(1000);
                     break;
                 }
         }
@@ -94,16 +94,23 @@ var regId = "#registerGuestPartial";
 $(document).ready(function () {
     registerModule.init();
 
-    $("#registrationTypeStage a").click(function () {
+    $("#registrationTypeStage .chooseConferenceType").click(function () {
+
+        $("#registrationTypeStage .chooseConferenceType").removeClass("iconColor");
+        $(this).addClass("iconColor");
+
+
         if ($(this).data("isworkshop") === true) {
-            $(regWorkshopId).fadeIn();
+            $(regWorkshopId).fadeIn(1000);
             $(regId).hide();
             registerModule.setFormId(regWorkshopId);
         } else {
             $(regWorkshopId).hide();
-            $(regId).fadeIn();
+            $(regId).fadeIn(1000);
             registerModule.setFormId(regId);
         }
+
+
         if (registerModule.getActualStage() === 1) {
             registerModule.setStage(2);
         } else {
