@@ -49,14 +49,16 @@
 
 
             $("#example, body").vegas({
-                delay:9000,
-                fade:1000,
+                delay: 9000,
+                fade: 1000,
                 slides: [
-                    { src: 'Content/images/slides/2.jpg'},
-                    { src: 'Content/images/slides/1.jpg'},
-                    {src: 'Content/images/slides/3.jpg'},
+                    { src: 'Content/images/slides/2.jpg' },
+                    { src: 'Content/images/slides/1.jpg' },
+                    { src: 'Content/images/slides/3.jpg' },
+                    { src: 'Content/images/slides/4.jpg' },
+                    { src: 'Content/images/slides/5.jpg' },
                 ],
-                overlay:true
+                overlay: true
             });
 
 
@@ -67,7 +69,7 @@
             //          { src: 'Content/images/slides/2.jpg', fade: 1000, delay: 9000 }, //CHANGE THESE IMAGES WITH YOUR ORIGINAL IMAGES
             //           { src: 'Content/images/slides/1.jpg', fade: 1000, delay: 9000 }, //THESE IMAGES ARE FOR DEMO PURPOSE ONLY YOU, CAN NOT USE THEM WITHOUT AUTHORS PERMISSION
             //            { src: 'Content/images/slides/3.jpg', fade: 1000, delay: 9000 }, //SEE DOCUMENTATION FOR ORIGINAL URLs/LINKs OF IMAGES
-                        
+
             //        ]
             //    })('overlay', {
             //        /** SLIDESHOW OVERLAY IMAGE **/
