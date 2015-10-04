@@ -116,8 +116,8 @@ h4 {
     position: fixed;
     display: table;
     height: 100%;
-    width: 200px;
-    left: -160px;
+    width: 300px;
+    left: -230px;
     top: 0;
     background: rgba(80, 239, 255, 0.6);
     z-index: 999999;
@@ -139,15 +139,15 @@ h4 {
         color: #fff;
         display: block;
         margin-bottom: 5px;
-        font-size: 20px;
+        font-size: 18px;
         text-decoration: none;
     }
 
         .navigatation a:hover {
-            color: #19CF7F;
+            color: #50efff;
             cursor: pointer;
             transition: all linear 0.2s;
-            font-size: 20px; /* DO NOT REMOVE THIS */
+            font-size: 18px; /* DO NOT REMOVE THIS */
         }
 
 .Icon-trigger {
@@ -293,4 +293,15 @@ h4 {
 .btn-selected,.btn-selected:hover,.btn-selected:active,.btn-selected:focus {
     border: 3px solid green;
 
+}
+.chooseText{
+    color:white;
+
+}
+.chooseIcon{
+    font-size: 50px;
+    color:white;
+}
+.iconColor {
+    color: #50efff;
 }

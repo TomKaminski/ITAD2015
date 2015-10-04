@@ -40,11 +40,11 @@
 
             $('.Icon-trigger span').click(function () {
                 if (
-            $('.left-panel').css('left') == '-160px') {
+            $('.left-panel').css('left') == '-230px') {
                     $('.left-panel').animate({ left: '0px' });
                 }
                 else
-                    $('.left-panel').animate({ left: '-160px' });
+                    $('.left-panel').animate({ left: '-230px' });
             });
 
 
@@ -52,8 +52,8 @@
                 delay: 9000,
                 fade: 1000,
                 slides: [
-                    { src: 'Content/images/slides/2.jpg' },
                     { src: 'Content/images/slides/1.jpg' },
+                    { src: 'Content/images/slides/2.jpg' },
                     { src: 'Content/images/slides/3.jpg' },
                     { src: 'Content/images/slides/4.jpg' },
                     { src: 'Content/images/slides/5.jpg' },
