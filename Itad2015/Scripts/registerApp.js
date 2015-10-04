@@ -131,13 +131,18 @@ $(document).ready(function () {
         }
     });
 
-    $("#TShirtType a").click(function () {
-        if ($(this).hasClass("female")) {
+    $("#TShirtType .itad-gender").click(function () {
+        $(".itad-gender").removeClass("active");
+        if ($(this).hasClass("itad-girl")) {
             registerModule.setIsFemale(true);
+            $(".itad-gender.itad-girl").addClass("active");
         }
         else {
+            $(".itad-gender.itad-guy").addClass("active");
             registerModule.setIsFemale(false);
         }
+
+
         if (registerModule.getActualStage() === 3) {
             registerModule.setStage(4);
         } else {

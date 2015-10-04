@@ -188,7 +188,6 @@
     <Content Include="Content\images\Logo_ITAD.png" />
     <Content Include="Content\images\Logo_ITAD_small.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
-    <Content Include="Content\images\Register\ItadGeek_gray.png" />
     <Content Include="Content\images\slides\1.jpg" />
     <Content Include="Content\images\slides\2.jpg" />
     <Content Include="Content\images\slides\3.jpg" />
