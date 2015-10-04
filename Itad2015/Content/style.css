@@ -196,7 +196,7 @@ h4 {
 }
 
 .bk-red {
-    background-color: #FF0700;
+    color: #FF0700;
 }
 
 .bk-pink {
@@ -412,4 +412,7 @@ h4 {
 }
 blockquote{
     border-color:#50efff;
+}
+.no-p-border-but-bottom {
+    padding: 0 0 10px 0;
 }
