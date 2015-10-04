@@ -260,7 +260,6 @@ h4 {
     html, body {
         margin-top: -5px;
     }
-
 }
 
 @media only screen and (max-width: 240px) {
@@ -275,7 +274,6 @@ h4 {
 
 .btn-itad {
     padding: 10px;
-    
 }
 
 .validation-itad {
@@ -283,16 +281,41 @@ h4 {
 }
 
 .size-options a {
-    margin-bottom:5px
+    margin-bottom: 5px;
 }
 
 .input-validation-error {
     border-color: red;
 }
 
-.btn-selected,.btn-selected:hover,.btn-selected:active,.btn-selected:focus {
+.btn-selected, .btn-selected:hover, .btn-selected:active, .btn-selected:focus {
     border: 3px solid green;
+}
 
+.itad-gender {
+    background-image: url("images/Register/ItadGeek.png");
+    background-repeat: no-repeat;
+    width: 194px;
+    height: 210px;
+}
+
+
+.itad-girl {
+    background-position: -206px -224px;
+}
+
+
+.itad-guy {
+    background-position: 0 -224px;
+}
+
+.itad-girl.active {
+    background-position: -206px 0;
+}
+
+
+.itad-guy.active {
+    background-position: 0 0;
 }
 .chooseText{
     color:white;

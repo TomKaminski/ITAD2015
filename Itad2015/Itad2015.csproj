@@ -185,7 +185,6 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\images\konferencja.png" />
     <Content Include="Content\images\Logo_ITAD.png" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
@@ -193,12 +192,11 @@
     <Content Include="Content\images\Register\ItadGeek_gray.png" />
     <Content Include="Content\images\ResetLogo.png" />
     <Content Include="Content\images\slide.png" />
-    <Content Include="Content\images\slides\1.jpg" />
-    <Content Include="Content\images\slides\2.jpg" />
-    <Content Include="Content\images\slides\3.jpg" />
-    <Content Include="Content\images\slides\4.jpg" />
-    <Content Include="Content\images\slides\5.jpg" />
-    <Content Include="Content\images\warsztaty.png" />
+    <Content Include="Content\images\slides\01.jpg" />
+    <Content Include="Content\images\slides\02.jpg" />
+    <Content Include="Content\images\slides\03.jpg" />
+    <Content Include="Content\images\slides\04.jpg" />
+    <Content Include="Content\images\slides\05.jpg" />
     <Content Include="Content\images\Żłobiński_jcommerce.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
@@ -385,7 +383,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>47216</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
