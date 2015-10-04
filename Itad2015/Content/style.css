@@ -294,25 +294,26 @@ h4 {
 .itad-gender {
     background-image: url("images/Register/ItadGeek.png");
     background-repeat: no-repeat;
-    width: 194px;
-    height: 210px;
+    width: 179px;
+    height: 234px;
+    cursor:pointer;
 }
 
 
 .itad-girl {
-    background-position: -206px -224px;
+    background-position: 0 0;
 }
 
 .itad-guy {
-    background-position: 0 -224px;
+    background-position: 0 -234px;
 }
 
 .itad-girl.active {
-    background-position: -206px 0;
+    background-position: -178px 0;
 }
 
 .itad-guy.active {
-    background-position: 0 0;
+    background-position: -179px -234px;
 }
 
 .chooseIcon {
