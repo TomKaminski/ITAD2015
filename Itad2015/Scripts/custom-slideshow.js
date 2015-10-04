@@ -52,11 +52,11 @@
                 delay: 9000,
                 fade: 1000,
                 slides: [
-                    { src: 'Content/images/slides/02.jpg' },
-                    { src: 'Content/images/slides/01.jpg' },
-                    { src: 'Content/images/slides/03.jpg' },
-                    { src: 'Content/images/slides/04.jpg' },
-                    { src: 'Content/images/slides/05.jpg' }
+                    { src: 'Content/images/slides/1.jpg' },
+                    { src: 'Content/images/slides/2.jpg' },
+                    { src: 'Content/images/slides/3.jpg' },
+                    { src: 'Content/images/slides/4.jpg' },
+                    { src: 'Content/images/slides/5.jpg' }
                 ],
                 overlay: true
             });

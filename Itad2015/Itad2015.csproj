@@ -192,11 +192,11 @@
     <Content Include="Content\images\Register\shirt_size.png" />
     <Content Include="Content\images\ResetLogo.png" />
     <Content Include="Content\images\slide.png" />
-    <Content Include="Content\images\slides\01.jpg" />
-    <Content Include="Content\images\slides\02.jpg" />
-    <Content Include="Content\images\slides\03.jpg" />
-    <Content Include="Content\images\slides\04.jpg" />
-    <Content Include="Content\images\slides\05.jpg" />
+    <Content Include="Content\images\slides\1.jpg" />
+    <Content Include="Content\images\slides\2.jpg" />
+    <Content Include="Content\images\slides\3.jpg" />
+    <Content Include="Content\images\slides\4.jpg" />
+    <Content Include="Content\images\slides\5.jpg" />
     <Content Include="Content\images\Żłobiński_jcommerce.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
