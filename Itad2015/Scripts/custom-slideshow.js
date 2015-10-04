@@ -52,8 +52,8 @@
                 delay: 9000,
                 fade: 1000,
                 slides: [
-                    { src: 'Content/images/slides/2.jpg' },
                     { src: 'Content/images/slides/1.jpg' },
+                    { src: 'Content/images/slides/2.jpg' },
                     { src: 'Content/images/slides/3.jpg' },
                     { src: 'Content/images/slides/4.jpg' },
                     { src: 'Content/images/slides/5.jpg' }

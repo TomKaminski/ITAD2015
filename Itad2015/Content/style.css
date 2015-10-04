@@ -315,9 +315,9 @@ h4 {
     background-position: 0 0;
 }
 
-.chooseIcon{
+.chooseIcon {
     font-size: 50px;
-    padding-bottom:10px
+    padding-bottom: 10px;
 }
 
 .chooseConferenceType {
@@ -337,11 +337,23 @@ h4 {
 
 .prl-back-color {
     background-color: rgba(255, 0, 0, 0.3);
-    padding-top:50px;
-    padding-bottom:50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
 .new-back-color {
     background-color: rgba(0, 166, 0, 0.3);
-    padding-top:50px;
-    padding-bottom:50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.spn-back-color {
+    background-color: rgba(255, 242, 0, 0.3);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.org-back-color {
+    background-color: rgba(0, 174, 239, 0.3);
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
