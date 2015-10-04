@@ -157,21 +157,21 @@ $(document).ready(function () {
         }
     });
 
-    $("#shirtSizeStageFemale a, #shirtSizeStageMale a").click(function () {
+    $("#shirtSizeStageFemale .itad-shirt, #shirtSizeStageMale .itad-shirt").click(function () {
         var id = registerModule.getFormId();
         var code = $(this).data("size-code");
         $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code);
-        $("#shirtSizeStageFemale a, #shirtSizeStageMale a").removeClass("btn-selected");
-        $(this).addClass('btn-selected');
+        $("#shirtSizeStageFemale .itad-shirt, #shirtSizeStageMale .itad-shirt").removeClass("active");
+        $(this).addClass('active');
 
         if (id === regWorkshopId) {
-            $(regId +" #shirtSizeStageFemale a, "+ regId+" #shirtSizeStageMale a").removeClass("btn-selected");
+            $(regId + " #shirtSizeStageFemale .itad-shirt, " + regId + " #shirtSizeStageMale .itad-shirt").removeClass("active");
 
-            $(regId + " a[data-size-code='" + $(this).data('size-code') + "']").addClass('btn-selected');
+            $(regId + " .itad-shirt[data-size-code='" + $(this).data('size-code') + "']").addClass('active');
         } else {
-            $(regWorkshopId + " #shirtSizeStageFemale a, " + regWorkshopId + " #shirtSizeStageMale a").removeClass("btn-selected");
+            $(regWorkshopId + " #shirtSizeStageFemale .itad-shirt, " + regWorkshopId + " #shirtSizeStageMale .itad-shirt").removeClass("active");
 
-            $(regWorkshopId + " a[data-size-code='" + $(this).data('size-code') +"']").addClass('btn-selected');
+            $(regWorkshopId + " .itad-shirt[data-size-code='" + $(this).data('size-code') + "']").addClass('active');
         }
 
         registerModule.setStage(5);

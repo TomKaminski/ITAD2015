@@ -316,9 +316,9 @@ h4 {
     background-position: 0 0;
 }
 
-.chooseIcon{
+.chooseIcon {
     font-size: 50px;
-    padding-bottom:10px
+    padding-bottom: 10px;
 }
 
 .chooseConferenceType {
@@ -336,3 +336,51 @@ h4 {
     color: #50efff;
 }
 
+
+.itad-shirt {
+    background-image: url("images/Register/shirt_size.png");
+    background-repeat: no-repeat;
+    width: 97px;
+    height: 97px;
+    cursor: pointer;
+}
+
+.itad-shirt-s {
+    background-position: 0 -2px;
+}
+
+.itad-shirt-s.active {
+        background-position: -99px -2px;
+}
+
+.itad-shirt-m {
+    background-position: 0 -102px;
+}
+
+.itad-shirt-m.active {
+        background-position: -99px -102px;
+}
+
+.itad-shirt-l {
+    background-position: 0 -202px;
+}
+
+.itad-shirt-l.active {
+        background-position: -99px -202px;
+}
+
+.itad-shirt-xl {
+    background-position: 0 -302px;
+}
+
+.itad-shirt-xl.active {
+        background-position: -99px -302px;
+}
+
+.itad-shirt-xxl {
+    background-position: 0 -402px;
+}
+
+.itad-shirt-xxl.active {
+        background-position: -99px -402px;
+}
