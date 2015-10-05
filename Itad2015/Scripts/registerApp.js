@@ -139,12 +139,27 @@ $(document).ready(function () {
     });
 
     $("#TShirtType .itad-gender").click(function () {
+        var id = registerModule.getFormId();
+        var code = parseInt($(id + " .itad-shirt.active").data("size-code"));
+
         $(".itad-gender").removeClass("active");
         if ($(this).hasClass("itad-girl")) {
             registerModule.setIsFemale(true);
             $(".itad-gender.itad-girl").addClass("active");
+
+            if (code > 5) {
+                $(".itad-shirt").removeClass("active");
+                $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code - 5);
+                $(" .itad-shirt[data-size-code='" + (code-5) + "']").addClass('active');
+            }
         }
         else {
+            if (code <= 5) {
+                $(".itad-shirt").removeClass("active");
+                $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code + 5);
+                $(" .itad-shirt[data-size-code='" + (code + 5) + "']").addClass('active');
+            }
+
             $(".itad-gender.itad-guy").addClass("active");
             registerModule.setIsFemale(false);
         }
@@ -157,20 +172,16 @@ $(document).ready(function () {
         }
     });
 
-    $("#shirtSizeStageFemale .itad-shirt, #shirtSizeStageMale .itad-shirt").click(function () {
+    $(".itad-shirt").click(function () {
         var id = registerModule.getFormId();
         var code = $(this).data("size-code");
         $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code);
-        $("#shirtSizeStageFemale .itad-shirt, #shirtSizeStageMale .itad-shirt").removeClass("active");
+        $(".itad-shirt").removeClass("active");
         $(this).addClass('active');
 
         if (id === regWorkshopId) {
-            $(regId + " #shirtSizeStageFemale .itad-shirt, " + regId + " #shirtSizeStageMale .itad-shirt").removeClass("active");
-
             $(regId + " .itad-shirt[data-size-code='" + $(this).data('size-code') + "']").addClass('active');
         } else {
-            $(regWorkshopId + " #shirtSizeStageFemale .itad-shirt, " + regWorkshopId + " #shirtSizeStageMale .itad-shirt").removeClass("active");
-
             $(regWorkshopId + " .itad-shirt[data-size-code='" + $(this).data('size-code') + "']").addClass('active');
         }
 
@@ -189,15 +200,15 @@ $(document).ready(function () {
     });
 
 
-    var options = { 
-        success:    function(data) {
+    var options = {
+        success: function (data) {
             console.log(data);
-        } 
+        }
     };
 
     $('#RegisterForm, #RegisterWorkshopForm').ajaxForm(options);
 
-    $('#registerBtnStage a').click(function() {
+    $('#registerBtnStage a').click(function () {
         $(this).parent().parent().submit();
     });
 });

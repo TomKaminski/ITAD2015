@@ -8,14 +8,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control itad-required-input", placeholder = "Imię" })
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "itad-required-input", placeholder = "Imię" })
                     @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control itad-required-input", placeholder = "Nazwisko" })
+                    @Html.TextBoxFor(x => x.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko" })
                     @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
@@ -24,13 +24,13 @@
         <div class="row margin-botom-20">
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control itad-required-input", placeholder = "Adres email" })
+                    @Html.TextBoxFor(x => x.Email, new { @class = "itad-required-input", placeholder = "Adres email" })
                     @Html.ValidationMessageFor(x => x.Email, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.SchoolName, new { @class = "form-control itad-required-input", placeholder = "Nazwa szkoły" })
+                    @Html.TextBoxFor(x => x.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły" })
                     @Html.ValidationMessageFor(x => x.SchoolName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
@@ -38,10 +38,12 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextAreaFor(x => x.Info, new { @class = "form-control", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day" })
+                    @Html.TextAreaFor(x => x.Info, new {style = "height:55px", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?"})
                 </div>
             </div>
         </div>
+
+        <p class="text-center">Wybierz warsztat w którym chciałbyś/chiałabyś uczestniczyć:</p>
     </div>
     <div id="shirtTypeStage">
         <p class="text-center">Wybierz typ i rozmiar koszulki:</p>

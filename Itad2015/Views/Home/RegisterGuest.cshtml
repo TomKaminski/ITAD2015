@@ -6,32 +6,32 @@
     @Html.HiddenFor(x => x.Size, new { id = "sizeInput" })
     <div id="inputStage">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control itad-required-input", placeholder = "Imię" })
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "itad-required-input", placeholder = "Imię" })
                     @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control itad-required-input", placeholder = "Nazwisko" })
+                    @Html.TextBoxFor(x => x.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko" })
                     @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
         </div>
 
         <div class="row margin-botom-20">
-            <div class="col-sm-6">
+            <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control itad-required-input", placeholder = "Adres email" })
+                    @Html.TextBoxFor(x => x.Email, new { @class = "itad-required-input", placeholder = "Adres email" })
                     @Html.ValidationMessageFor(x => x.Email, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextAreaFor(x => x.Info, new { @class = "form-control", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?" })
+                    @Html.TextAreaFor(x => x.Info, new { style = "height:55px", placeholder = "\nSkąd dowiedziałeś się o konferencji IT Academic Day?" })
                 </div>
             </div>
         </div>
