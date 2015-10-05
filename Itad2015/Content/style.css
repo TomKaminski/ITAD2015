@@ -296,7 +296,7 @@ h4 {
     background-repeat: no-repeat;
     width: 179px;
     height: 234px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 
@@ -349,41 +349,42 @@ h4 {
     background-position: 0 -2px;
 }
 
-.itad-shirt-s.active {
+    .itad-shirt-s.active {
         background-position: -99px -2px;
-}
+    }
 
 .itad-shirt-m {
     background-position: 0 -102px;
 }
 
-.itad-shirt-m.active {
+    .itad-shirt-m.active {
         background-position: -99px -102px;
-}
+    }
 
 .itad-shirt-l {
     background-position: 0 -202px;
 }
 
-.itad-shirt-l.active {
+    .itad-shirt-l.active {
         background-position: -99px -202px;
-}
+    }
 
 .itad-shirt-xl {
     background-position: 0 -302px;
 }
 
-.itad-shirt-xl.active {
+    .itad-shirt-xl.active {
         background-position: -99px -302px;
-}
+    }
 
 .itad-shirt-xxl {
     background-position: 0 -402px;
 }
 
-.itad-shirt-xxl.active {
+    .itad-shirt-xxl.active {
         background-position: -99px -402px;
-}
+    }
+
 .prl-back-color {
     background-color: rgba(255, 0, 0, 0.3);
     padding-top: 50px;
@@ -401,23 +402,27 @@ h4 {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
 .org-back-color {
     background-color: rgba(0, 174, 239, 0.3);
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.aboutText{
-    color:white;
-    font-size:16px;
+
+.aboutText {
+    color: white;
+    font-size: 16px;
 }
-blockquote{
-    border-color:#50efff;
+
+blockquote {
+    border-color: #50efff;
 }
+
 .no-p-border-but-bottom {
     padding: 0 0 10px 0;
 }
 
-input[type=text],textarea {
+input[type=text], textarea {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #50efff;
@@ -431,30 +436,60 @@ input[type=text],textarea {
     box-shadow: none;
 }
 
-textarea:focus, input:focus{
-    outline: 0;
-}
+    textarea:focus, input:focus {
+        outline: 0;
+    }
 
-textarea{color:white}
+textarea {
+    color: white;
+}
 
 input:focus {
-     -moz-box-shadow: 0 4px 4px -2px #50efff;
+    -moz-box-shadow: 0 4px 4px -2px #50efff;
     -webkit-box-shadow: 0 4px 4px -2px #50efff;
-     box-shadow: 0 4px 4px -2px #50efff;
-     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .5s; 
+    box-shadow: 0 4px 4px -2px #50efff;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .5s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .5s;
-     transition: border-color ease-in-out .15s, box-shadow ease-in-out .5s; 
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .5s;
 }
-
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     -webkit-text-fill-color: #50efff !important;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    -webkit-transition: background-color 5000s ease-in-out 0s;
-    transition: background-color 5000s ease-in-out 0s;
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-transition: background-color 5000s ease-in-out 0s;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+.dropdown .dropdown-toggle {
+    border-radius: 0;
+    background-color: transparent;
+    color: #50efff;
+    border: none;
+    border-bottom: 1px solid #50efff;
+    width: 100%;
+    text-align: right;
+}
+
+.dropdown .dropdown-menu {
+    background-color: transparent;
+}
+
+.dropdown .dropdown-menu li {
+    float: right;
+    border: 1px solid #50efff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.dropdown .dropdown-menu li a {
+    color: #50efff;
+}
+
+.dropdown .dropdown-menu li a:hover {
+        background-color: transparent;
 }
