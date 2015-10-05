@@ -94,12 +94,25 @@ var regId = "#registerGuestPartial";
 $(document).ready(function () {
     registerModule.init();
 
+    $(".dropdown-menu li a").click(function (e) {
+        e.preventDefault();
+        var text = $(this).text();
+        $("#activeWorkshop").html(text);
+    });
+
     $("#registrationTypeStage .chooseConferenceType").click(function () {
 
         $("#registrationTypeStage .chooseConferenceType").removeClass("iconColor");
         $(this).addClass("iconColor");
 
+        $("button.dropdown-toggle, .dropdown-menu li a").click(function () {
+            if (!$(".dropdown").hasClass("open")) {
+                $('.dropdown-toggle').children("span").addClass("dropup");
+            } else {
+                $('.dropdown-toggle').children("span").removeClass("dropup");
 
+            }
+        });
         if ($(this).data("isworkshop") === true) {
             $(regWorkshopId).fadeIn(1000);
             $(regId).hide();

@@ -1,22 +1,23 @@
-﻿@model Itad2015.ViewModels.RegisterWorkshopGuestViewModel
+﻿@model Itad2015.ViewModels.Home.IndexWorkshopGuestModel
 
-@using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post, new {id="RegisterWorkshopForm"}))
+@using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post, new { id = "RegisterWorkshopForm" }))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(x => x.Size, new { id = "sizeInput" })
+    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.Size, new { id = "sizeInput" })
+    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.WorkshopId, new { id = "workshopId" })
     <div id="inputStage">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.FirstName, new { @class = "itad-required-input", placeholder = "Imię" })
-                    @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.FirstName, new { @class = "itad-required-input", placeholder = "Imię" })
+                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.FirstName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko" })
-                    @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko" })
+                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.LastName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
         </div>
@@ -24,41 +25,55 @@
         <div class="row margin-botom-20">
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Email, new { @class = "itad-required-input", placeholder = "Adres email" })
-                    @Html.ValidationMessageFor(x => x.Email, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.Email, new { @class = "itad-required-input", placeholder = "Adres email" })
+                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.Email, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły" })
-                    @Html.ValidationMessageFor(x => x.SchoolName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły" })
+                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    @Html.TextAreaFor(x => x.Info, new {style = "height:55px", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?"})
+                    @Html.TextAreaFor(x => x.RegisterWorkshopGuestViewModel.Info, new { style = "height:55px", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?" })
                 </div>
             </div>
         </div>
 
         <p class="text-center">Wybierz warsztat w którym chciałbyś/chiałabyś uczestniczyć:</p>
-        <div class="row">
+        <div class="row margin-botom-20">
             <div class="col-sm-6">
                 <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Wybierz warsztat &nbsp;
-                        <span class="caret"></span>
+                        <span id="activeWorkshop">Wybierz warsztat</span> &nbsp;
+                        <span><span class="caret"></span></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Podstawy HTML5 i CSS3 feat Kasia</a></li>
-                        <li><a href="#">Angular JS</a></li>
-                        <li><a href="#">Mikrokomputer Raspberry PI w pigułce</a></li>
+                        @foreach (var item in Model.WorkshopDropdownList)
+                        {
+                            <li><a href="" data-workshop-id="@item.Id">@item.Title</a></li>
+                        }
                     </ul>
                 </div>
+                @foreach (var item in Model.WorkshopDropdownList)
+                {
+                    <div class="text-left workshop-description" data-workshop-id="@item.Id">@item.Description</div>
+                }
             </div>
-            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+                @foreach (var item in Model.WorkshopDropdownList)
+                {
+                    <div class="workshop-container" data-workshop-id="@item.Id">
+                        <p class="center">Prowadzący: @item.TutorName<br />Liczba wolnych miejsc: @item.LeftParticipants</p>
+
+                        <img class="img-responsive col-xs-6 col-xs-offset-3" src="@Url.Content(item.ImgPath+"_small.jpg")" />
+                    </div>
+                }
+            </div>
         </div>
     </div>
     <div id="shirtTypeStage">
@@ -91,12 +106,12 @@
         </div>
     </div>
 
-        <div id="registerBtnStage">
-            <div class="checkbox margin-botom-20">
-                <label><input type="checkbox" name="Accepted">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>
-            </div>
-            <a class="btn btn-primary btn-itad col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 disabled">
-                REJESTRUJ
-            </a>
+    <div id="registerBtnStage">
+        <div class="checkbox margin-botom-20">
+            <label><input type="checkbox" name="Accepted">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>
         </div>
+        <a class="btn btn-primary btn-itad col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 disabled">
+            REJESTRUJ
+        </a>
+    </div>
 }

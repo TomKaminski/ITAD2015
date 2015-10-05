@@ -8,6 +8,7 @@ using Itad2015.Modules.Infrastructure;
 using Itad2015.ViewModels;
 using Itad2015.ViewModels.Base;
 using Itad2015.ViewModels.Guest;
+using Itad2015.ViewModels.Home;
 
 namespace Itad2015.FrontendMappings
 {
@@ -24,6 +25,8 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, GuestPostDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, WorkshopGuestGetGto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<WorkshopGetDto, WorkshopDropdownViewModel>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap(typeof (SingleServiceResult<>), typeof (BaseReturnViewModel<>));
         }

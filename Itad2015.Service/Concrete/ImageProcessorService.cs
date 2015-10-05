@@ -24,8 +24,10 @@ namespace Itad2015.Service.Concrete
 
         public void DeleteImagesByPath(string path)
         {
-            File.Delete($"{path}_normal.jpg");
-            File.Delete($"{path}_small.jpg");
+            if (File.Exists($"{path}_normal.jpg"))
+                File.Delete($"{path}_normal.jpg");
+            if (File.Exists($"{path}_small.jpg"))
+                File.Delete($"{path}_small.jpg");
         }
     }
 }

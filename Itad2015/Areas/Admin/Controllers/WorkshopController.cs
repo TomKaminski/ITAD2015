@@ -54,7 +54,7 @@ namespace Itad2015.Areas.Admin.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View(Mapper.Map<WorkshopListItem>(_workshopService.Get(id)));
+            return View(Mapper.Map<WorkshopListItem>(_workshopService.Get(id).Result));
         }
 
         [ActionName("Delete")]
@@ -69,7 +69,7 @@ namespace Itad2015.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var obj = Mapper.Map<WorkshopEditViewModel>(_workshopService.Get(id));
+            var obj = Mapper.Map<WorkshopEditViewModel>(_workshopService.Get(id).Result);
             return View(obj);
         }
 

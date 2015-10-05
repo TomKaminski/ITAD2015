@@ -78,11 +78,11 @@ namespace Itad2015.Service.Concrete
             var errors = ValidateCancel(guest, cancelHash);
             if (!errors.Any())
             {
-                guest.Cancelled = true;
+                //guest.Cancelled = true;
 
-                //_repository.Delete(guest);
+                _repository.Delete(guest);
 
-                _repository.Edit(guest);
+                //_repository.Edit(guest);
                 _unitOfWork.Commit();
                 return new SingleServiceResult<bool>(true, errors);
             }
