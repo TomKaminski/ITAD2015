@@ -53,7 +53,7 @@ namespace Itad2015.Service.Concrete
                 var obj = Mapper.Map<GuestGetDto>(_repository.Add(entity));
                 _unitOfWork.Commit();
 
-                return new SingleServiceResult<GuestGetDto>(obj);
+                return new SingleServiceResult<GuestGetDto>(obj, new List<string>());
             }
             return new SingleServiceResult<GuestGetDto>(new GuestGetDto(), errors);
         }

@@ -38,6 +38,8 @@ namespace Itad2015.Controllers
             {
                 var user = res.FirstResult;
                 var workshop = res.SecondResult;
+
+                //TODO: Uncomment if mail client will be provided
                 //new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "itaddbb@gmail.com", "Rejestracja na konferencję.")
                 //{
                 //    LastName = user.LastName,

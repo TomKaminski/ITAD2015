@@ -3,8 +3,9 @@
 @using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post, new { id = "RegisterWorkshopForm" }))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.Size, new { id = "sizeInput" })
-    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.WorkshopId, new { id = "workshopId" })
+    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.Size, new { id = "sizeInput", aria_required = true, aria_invalid = false, aria_describedby = "RegisterWorkshopGuestViewModel_Size-error" })
+    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.WorkshopId, new { id = "workshopId", aria_required = true, aria_invalid = false, aria_describedby = "RegisterWorkshopGuestViewModel_WorkshopId-error" })
+    
     <div id="inputStage">
         <div class="row">
             <div class="col-sm-6">
@@ -74,7 +75,7 @@
                         <div class="col-xs-6"><img class="img-responsive col-xs-6 col-xs-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" /></div>
                     </div>
                 }
-                @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.WorkshopId, null, new { @class = "validation-itad bk-red center" })
+                @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.WorkshopId, null, new { @class = "validation-itad bk-red" })
             </div>
         </div>
     </div>

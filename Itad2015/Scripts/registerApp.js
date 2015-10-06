@@ -91,14 +91,23 @@
 var regWorkshopId = "#registerWorkshopGuestPartial";
 var regId = "#registerGuestPartial";
 
+$.validator.setDefaults({
+    ignore: []
+});
+
 $(document).ready(function () {
+
+
     registerModule.init();
 
     $(".dropdown-menu li a").click(function (e) {
         e.preventDefault();
         var text = $(this).text();
         var workshopId = $(this).data("workshop-id");
-        $("#workshopId").val(workshopId);
+
+
+        $("#workshopId").val(workshopId).trigger("change");
+        $("#workshopId").valid();
         $(".workshop-container").hide();
         $(".workshop-container[data-workshop-id='" + workshopId + "']").fadeIn(1000);
         $("#activeWorkshop").html(text);

@@ -54,7 +54,7 @@ namespace Itad2015.Service.Concrete
 
                 _unitOfWork.Commit();
 
-                return new SingleServiceResult<GuestGetDto, WorkshopGetDto>(Mapper.Map<GuestGetDto>(guestObj),workshop);
+                return new SingleServiceResult<GuestGetDto, WorkshopGetDto>(Mapper.Map<GuestGetDto>(guestObj),workshop,new List<string>());
             }
             return new SingleServiceResult<GuestGetDto, WorkshopGetDto>(new GuestGetDto(),new WorkshopGetDto(), errors);
         }

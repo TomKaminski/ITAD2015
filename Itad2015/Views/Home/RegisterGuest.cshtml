@@ -3,7 +3,7 @@
 @using (Html.BeginForm("Register", "Guest", FormMethod.Post, new { id = "RegisterForm" }))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(x => x.RegisterGuestViewModel.Size, new { id = "sizeInput" })
+    @Html.HiddenFor(x => x.RegisterGuestViewModel.Size, new { id = "sizeInput", aria_required = true, aria_invalid=false, aria_describedby = "RegisterGuestViewModel_Size-error" })
     <div id="inputStage">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">

@@ -7,7 +7,7 @@ namespace Itad2015.ViewModels
     {
         [Required]
         public string SchoolName { get; set; }
-
+        [Required]
         public int WorkshopId { get; set; }
     }
 }
