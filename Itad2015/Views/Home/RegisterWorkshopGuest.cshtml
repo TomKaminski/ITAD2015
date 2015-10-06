@@ -8,16 +8,21 @@
     
     <div id="inputStage">
         <div class="row">
+            <div class="col-xs-4 col-xs-offset-4 text-center">
+                <p class="requiredText">Pola oznaczone * są wymagane</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.FirstName, new { @class = "itad-required-input", placeholder = "Imię" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.FirstName, new { @class = "itad-required-input", placeholder = "Imię*" })
                     @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.FirstName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko*" })
                     @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.LastName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
@@ -26,13 +31,13 @@
         <div class="row margin-botom-20">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.Email, new { @class = "itad-required-input", placeholder = "Adres email" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.Email, new { @class = "itad-required-input", placeholder = "Adres email*" })
                     @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.Email, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły" })
+                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły*" })
                     @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
