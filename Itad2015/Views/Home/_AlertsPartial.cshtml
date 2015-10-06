@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Itad2015.ViewModels.Base.AlertViewModel>
+
+@{
+    var x = 20;
+    foreach (var item in Model)
+    {
+
+        <div class="alert @item.AlertClass alert-dismissible col-sm-6 col-xs-8 col-xs-offset-2 col-sm-offset-3 itad-alert" role="alert" style="position: fixed; top: @(x+"px");">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            @item.AlertText
+        </div>
+        x += 60;
+    }
+}

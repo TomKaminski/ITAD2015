@@ -353,6 +353,17 @@
     <Content Include="Views\Emails\WorkshopGuestRegister.Html.cshtml" />
     <Content Include="Views\Home\RegisterGuest.cshtml" />
     <Content Include="Views\Home\RegisterWorkshopGuest.cshtml" />
+    <Content Include="Views\Home\_ItadShirtsPartial.cshtml" />
+    <Content Include="Views\Home\_RegisterStagePartial.cshtml" />
+    <Content Include="Views\Home\_AlertsPartial.cshtml" />
+    <Content Include="Views\Home\_LeftMenuPartial.cshtml" />
+    <Content Include="Views\Home\_HomeSectionPartial.cshtml" />
+    <Content Include="Views\Home\_AboutSectionPartial.cshtml" />
+    <Content Include="Views\Home\_ServicesSectionPartial.cshtml" />
+    <Content Include="Views\Home\_AgendaSectionPartial.cshtml" />
+    <Content Include="Views\Home\_WhatsNewSectionPartial.cshtml" />
+    <Content Include="Views\Home\_SponsorsSectionPartial.cshtml" />
+    <Content Include="Views\Home\_StaffSectionPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

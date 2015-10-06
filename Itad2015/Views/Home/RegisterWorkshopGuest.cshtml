@@ -84,44 +84,9 @@
             </div>
         </div>
     </div>
-    <div id="shirtTypeStage">
-        <p class="text-center">Wybierz typ i rozmiar koszulki:</p>
-        <div id="TShirtType" class="row margin-botom-20 ">
-            <div class="col-xs-6 col-sm-4 col-sm-offset-2">
-                <div class="itad-girl pull-right itad-gender"></div>
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <div class="itad-guy itad-gender"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row margin-botom-20 size-options" id="shirtSizeStageFemale">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-            <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-s" data-size-code="1"></div></div>
-            <div class="col-xs-2 col-xs-offset-2 col-sm-offset-0  no-p-border-but-bottom"><div class="itad-shirt itad-shirt-m" data-size-code="2"></div></div>
-            <div class="col-xs-2 col-sm-offset-0 col-xs-offset-2 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-l" data-size-code="3"></div></div>
-            <div class="col-xs-2 col-xs-offset-3 col-sm-offset-0 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-xl" data-size-code="4"></div></div>
-            <div class="col-xs-2 col-sm-offset-0  col-xs-offset-2 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-xxl" data-size-code="5"></div></div>
-        </div>
-    </div>
-    <div class="row margin-botom-20 size-options" id="shirtSizeStageMale">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-            <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-s" data-size-code="6"></div></div>
-            <div class="col-xs-2 col-xs-offset-2 col-sm-offset-0  no-p-border-but-bottom"><div class="itad-shirt itad-shirt-m" data-size-code="7"></div></div>
-            <div class="col-xs-2 col-sm-offset-0 col-xs-offset-2 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-l" data-size-code="8"></div></div>
-            <div class="col-xs-2 col-xs-offset-3 col-sm-offset-0 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-xl" data-size-code="9"></div></div>
-            <div class="col-xs-2 col-sm-offset-0  col-xs-offset-2 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-xxl" data-size-code="10"></div></div>
-        </div>
-    </div>
-    @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.Size, null, new { @class = "validation-itad bk-red center" })
-    <div id="registerBtnStage">
-        <div class="checkbox margin-botom-20">
-            <label><input type="checkbox" name="Accepted">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>
-        </div>
-        <div class="validation-itad bk-red serverErrorsContainer center"></div>
+    @Html.Partial("_ItadShirtsPartial")
 
-        <a class="btn btn-primary btn-itad col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 disabled">
-            REJESTRUJ
-        </a>
-    </div>
+    @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.Size, null, new { @class = "validation-itad bk-red center" })
+
+    @Html.Partial("_RegisterStagePartial")
 }

@@ -8,12 +8,16 @@ namespace Itad2015
         {
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery.form.js",
+                        "~/Scripts/jquery.validate.js",
+                        "~/Scripts/jquery.validate.unobtrusive.js",
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/countdown/jquery.countdown.js",
                         "~/Scripts/countdown.js",
                         "~/Scripts/jquery.vegas.js",
                         "~/Scripts/jquery.easing.1.3.js",
-                        "~/Scripts/custom-slideshow.js"));
+                        "~/Scripts/custom-slideshow.js",
+                        "~/Scripts/registerApp.js"));
 
             bundles.Add(new ScriptBundle("~/modernizr").Include("~/Scripts/modernizr-{version}.js"));
 
