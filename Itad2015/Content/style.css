@@ -278,7 +278,7 @@ h4 {
 .validation-itad {
     font-size: 12px;
     font-weight: bold;
-    text-transform:uppercase;    
+    text-transform: uppercase;
 }
 
 .size-options a {
@@ -477,21 +477,27 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 .dropdown .dropdown-menu {
     background-color: transparent;
     width: 100%;
+    border: none;
+    box-shadow: none;
 }
 
     .dropdown .dropdown-menu li {
-        border: 1px solid #50efff;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 1);
+        border-bottom: 1px solid #50efff;
         margin: 4px;
     }
 
         .dropdown .dropdown-menu li a {
-            color: black;
+            color: #50efff;
             text-align: right;
         }
 
             .dropdown .dropdown-menu li a:hover {
                 background-color: transparent;
                 color: #50efff;
+                font-weight: bold;
             }
+
+.workshopText{
+    text-transform: uppercase;
+    margin-top:30px;
+}
