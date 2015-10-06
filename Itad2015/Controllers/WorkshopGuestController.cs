@@ -1,11 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
-using Itad2015.Helpers.Email;
 using Itad2015.ViewModels;
-using Itad2015.ViewModels.Email;
 
 namespace Itad2015.Controllers
 {
@@ -23,11 +22,19 @@ namespace Itad2015.Controllers
         public JsonResult Register([Bind(Prefix = "RegisterWorkshopGuestViewModel")]RegisterWorkshopGuestViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errors = new List<string>();
+                foreach (var modelState in ViewData.ModelState.Values)
+                {
+                    errors.AddRange(modelState.Errors.Select(error => error.ErrorMessage));
+                }
                 return Json(new
                 {
                     status = false,
-                    error = ModelState.First(x => x.Value.Errors.Count > 0).Value.Errors.First()
+                    errors
                 });
+            }
+
 
             var mappedGuestModel = Mapper.Map<GuestPostDto>(model);
             var mappedWorkshopGuestModel = Mapper.Map<WorkshopGuestPostDto>(model);
