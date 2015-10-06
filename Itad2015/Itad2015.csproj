@@ -188,6 +188,10 @@
     <Content Include="Content\images\Logo_ITAD.png" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
+    <Content Include="Content\images\org\Artur_Loska.png" />
+    <Content Include="Content\images\org\Katarzyna_Jasiewicz.png" />
+    <Content Include="Content\images\org\Marcin_Wadoń.png" />
+    <Content Include="Content\images\org\Tomasz_Kamiński.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
     <Content Include="Content\images\Register\shirt_size.png" />
     <Content Include="Content\images\ResetLogo.png" />
