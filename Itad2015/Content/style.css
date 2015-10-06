@@ -196,7 +196,7 @@ h4 {
 }
 
 .bk-red {
-    color: #FF0700;
+    color: orangered;
 }
 
 .bk-pink {
@@ -277,15 +277,14 @@ h4 {
 
 .validation-itad {
     font-size: 12px;
+    font-weight: bold;
+    text-transform:uppercase;    
 }
 
 .size-options a {
     margin-bottom: 5px;
 }
 
-.input-validation-error {
-    border-color: red;
-}
 
 .btn-selected, .btn-selected:hover, .btn-selected:active, .btn-selected:focus {
     border: 3px solid green;
