@@ -97,6 +97,10 @@ $(document).ready(function () {
     $(".dropdown-menu li a").click(function (e) {
         e.preventDefault();
         var text = $(this).text();
+        var workshopId = $(this).data("workshop-id");
+        $("#workshopId").val(workshopId);
+        $(".workshop-container").hide();
+        $(".workshop-container[data-workshop-id='" + workshopId + "']").fadeIn(1000);
         $("#activeWorkshop").html(text);
     });
 

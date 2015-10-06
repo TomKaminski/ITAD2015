@@ -20,7 +20,7 @@ namespace Itad2015.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Register([Bind(Prefix = "RegisterModel")]RegisterWorkshopGuestViewModel model)
+        public JsonResult Register([Bind(Prefix = "RegisterWorkshopGuestViewModel")]RegisterWorkshopGuestViewModel model)
         {
             if (!ModelState.IsValid)
                 return Json(new
@@ -38,20 +38,20 @@ namespace Itad2015.Controllers
             {
                 var user = res.FirstResult;
                 var workshop = res.SecondResult;
-                new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "itaddbb@gmail.com", "Rejestracja na konferencję.")
-                {
-                    LastName = user.LastName,
-                    FirstName = user.FirstName,
-                    ConfirmationHash = user.ConfirmationHash,
-                    CancelationHash = user.CancelationHash,
-                    SchoolName = model.SchoolName,
-                    WorkshopTitle = workshop.Title
-                }).SendEmail();
+                //new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "itaddbb@gmail.com", "Rejestracja na konferencję.")
+                //{
+                //    LastName = user.LastName,
+                //    FirstName = user.FirstName,
+                //    ConfirmationHash = user.ConfirmationHash,
+                //    CancelationHash = user.CancelationHash,
+                //    SchoolName = model.SchoolName,
+                //    WorkshopTitle = workshop.Title
+                //}).SendEmail();
             }
 
             return Json(new
             {
-                status = res.ValidationErrors.Any(),
+                status = res.ValidationErrors.Count == 0,
                 errors = res.ValidationErrors
             });
         }

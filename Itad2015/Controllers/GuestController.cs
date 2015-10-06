@@ -22,7 +22,7 @@ namespace Itad2015.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Register(RegisterGuestViewModel model)
+        public JsonResult Register([Bind(Prefix = "RegisterGuestViewModel")]RegisterGuestViewModel model)
         {
             if (!ModelState.IsValid)
                 return Json(new
@@ -37,18 +37,18 @@ namespace Itad2015.Controllers
 
             if (!res.ValidationErrors.Any())
             {
-                new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email,"itaddbb@gmail.com","Rejestracja na konferencję.")
-                {
-                    LastName = res.Result.LastName,
-                    FirstName = res.Result.FirstName,
-                    ConfirmationHash = res.Result.ConfirmationHash,
-                    CancelationHash = res.Result.CancelationHash,
-                }).SendEmail();
+                //new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email,"itaddbb@gmail.com","Rejestracja na konferencję.")
+                //{
+                //    LastName = res.Result.LastName,
+                //    FirstName = res.Result.FirstName,
+                //    ConfirmationHash = res.Result.ConfirmationHash,
+                //    CancelationHash = res.Result.CancelationHash,
+                //}).SendEmail();
             }
 
             return Json(new
             {
-                status = res.ValidationErrors.Any(),
+                status = res.ValidationErrors.Count == 0,
                 errors = res.ValidationErrors
             });
         }

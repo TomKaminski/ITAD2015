@@ -24,7 +24,7 @@ namespace Itad2015.FrontendMappings
             Mapper.CreateMap<RegisterGuestViewModel, GuestPostDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, GuestPostDto>().IgnoreNotExistingProperties();
-            Mapper.CreateMap<RegisterWorkshopGuestViewModel, WorkshopGuestGetGto>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<RegisterWorkshopGuestViewModel, WorkshopGuestPostDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<WorkshopGetDto, WorkshopDropdownViewModel>().IgnoreNotExistingProperties();
 

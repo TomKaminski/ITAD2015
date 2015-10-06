@@ -35,7 +35,7 @@ namespace Itad2015.Service.Concrete
         {
 
             var workshop = Mapper.Map<WorkshopGetDto>(_workshopRepository.Find(workshopGuestModel.WorkshopId));
-            var errors = ValidateRegister(workshop);
+            var errors = ValidateRegister(workshop,guestModel);
             if (!errors.Any())
             {
                 guestModel.RegistrationTime = DateTime.Now;
@@ -47,22 +47,26 @@ namespace Itad2015.Service.Concrete
                 guestEntity.CancelationHash = _hashGenerator.CreateHash(guestEntity.Email + "cancel");
                 guestEntity.ConfirmationHash = _hashGenerator.CreateHash(guestEntity.Email + "confirm");
 
-                var guestObj = Mapper.Map<GuestGetDto>(_guestRepository.Add(guestEntity));
+                var guestObj = _guestRepository.Add(guestEntity);
 
+                workshopGuestEntity.GuestId = guestObj.Id;
                 _repository.Add(workshopGuestEntity);
 
                 _unitOfWork.Commit();
 
-                return new SingleServiceResult<GuestGetDto, WorkshopGetDto>(guestObj,workshop);
+                return new SingleServiceResult<GuestGetDto, WorkshopGetDto>(Mapper.Map<GuestGetDto>(guestObj),workshop);
             }
             return new SingleServiceResult<GuestGetDto, WorkshopGetDto>(new GuestGetDto(),new WorkshopGetDto(), errors);
         }
 
-        private List<string> ValidateRegister(WorkshopGetDto workshop)
+        private List<string> ValidateRegister(WorkshopGetDto workshop, GuestPostDto guestModel)
         {
             var errors = new List<string>();
             if (_repository.Count(x=>x.WorkshopId == workshop.Id) >= workshop.MaxParticipants)
                 errors.Add("Przepraszamy, brak miejsc.");
+
+            if (_guestRepository.FirstOrDefault(x => x.Email == guestModel.Email && !x.Cancelled) != null)
+                errors.Add("Ten email jest już zarejestrowany!");
             return errors;
         }
     }

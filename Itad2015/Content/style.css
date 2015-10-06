@@ -483,13 +483,16 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     .dropdown .dropdown-menu li {
         border: 1px solid #50efff;
         border-radius: 5px;
+        background-color: rgba(255, 255, 255, 1);
+        margin: 4px;
     }
 
         .dropdown .dropdown-menu li a {
-            color: #50efff;
+            color: black;
             text-align: right;
         }
 
             .dropdown .dropdown-menu li a:hover {
                 background-color: transparent;
+                color: #50efff;
             }

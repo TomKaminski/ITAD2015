@@ -59,20 +59,22 @@
                         }
                     </ul>
                 </div>
-                @foreach (var item in Model.WorkshopDropdownList)
-                {
-                    <div class="text-left workshop-description" data-workshop-id="@item.Id">@item.Description</div>
-                }
             </div>
-            <div class="col-sm-6">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
                 @foreach (var item in Model.WorkshopDropdownList)
                 {
-                    <div class="workshop-container" data-workshop-id="@item.Id">
-                        <p class="center">Prowadzący: @item.TutorName<br />Liczba wolnych miejsc: @item.LeftParticipants</p>
-
-                        <img class="img-responsive col-xs-6 col-xs-offset-3" src="@Url.Content(item.ImgPath+"_small.jpg")" />
+                    <div class="row workshop-container" data-workshop-id="@item.Id" style="display: none">
+                        <div class="col-xs-6">
+                            <p class="center"><strong>Prowadzący: @item.TutorName<br/>Liczba wolnych miejsc: @item.LeftParticipants</strong>
+                            </p>
+                            <p>@item.Description</p>
+                        </div>
+                        <div class="col-xs-6"><img class="img-responsive col-xs-6 col-xs-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" /></div>
                     </div>
                 }
+                @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.WorkshopId, null, new { @class = "validation-itad bk-red center" })
             </div>
         </div>
     </div>
@@ -105,7 +107,7 @@
             <div class="col-xs-2 col-sm-offset-0  col-xs-offset-2 no-p-border-but-bottom"><div class="itad-shirt itad-shirt-xxl" data-size-code="10"></div></div>
         </div>
     </div>
-
+    @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.Size, null, new { @class = "validation-itad bk-red center" })
     <div id="registerBtnStage">
         <div class="checkbox margin-botom-20">
             <label><input type="checkbox" name="Accepted">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>

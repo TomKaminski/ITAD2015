@@ -8,13 +8,13 @@ namespace Itad2015.Service.Concrete
     {
         public void ProcessAndSaveImage(byte[] image, string pathWithName)
         {
-            var imageBig = new ImageJob(image, pathWithName + "_normal", new Instructions("maxwidth=1500&maxheight=800&format=jpg"))
+            var imageBig = new ImageJob(image, pathWithName + "_normal", new Instructions("maxwidth=1500&maxheight=800&format=png"))
             {
                 CreateParentDirectory = true,
                 AddFileExtension = true
             };
             imageBig.Build();
-            var imageSmall = new ImageJob(image, pathWithName + "_small", new Instructions("maxwidth=500&maxheight=300&format=jpg"))
+            var imageSmall = new ImageJob(image, pathWithName + "_small", new Instructions("maxwidth=500&maxheight=300&format=png"))
             {
                 CreateParentDirectory = true,
                 AddFileExtension = true
@@ -24,10 +24,10 @@ namespace Itad2015.Service.Concrete
 
         public void DeleteImagesByPath(string path)
         {
-            if (File.Exists($"{path}_normal.jpg"))
-                File.Delete($"{path}_normal.jpg");
-            if (File.Exists($"{path}_small.jpg"))
-                File.Delete($"{path}_small.jpg");
+            if (File.Exists($"{path}_normal.png"))
+                File.Delete($"{path}_normal.png");
+            if (File.Exists($"{path}_small.png"))
+                File.Delete($"{path}_small.png");
         }
     }
 }
