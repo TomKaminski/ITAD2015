@@ -502,3 +502,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     margin-top:30px;
             }
 
+.itad-alert {
+    z-index: 9999;
+}
+

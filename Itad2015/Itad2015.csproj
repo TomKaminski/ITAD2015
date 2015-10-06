@@ -323,6 +323,7 @@
     <Compile Include="Helpers\Email\IEmailHelper.cs" />
     <Compile Include="Models\AppUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Base\AlertViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseReturnViewModel.cs" />
     <Compile Include="ViewModels\Email\EmailCommon.cs" />
     <Compile Include="ViewModels\Email\WorkshopGuestRegisterEmail.cs" />

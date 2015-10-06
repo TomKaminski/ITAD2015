@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using Itad2015.ViewModels.Base
 @model Itad2015.ViewModels.Home.IndexViewModel
 @{
     ViewBag.Title = "ITADBB 2015";
@@ -50,10 +51,21 @@
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
-    <div class="alert alert-success alert-dismissible" role="alert" style="position: fixed; top: 20px; width:50%">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Warning!</strong> Better check yourself, you're not looking too good.
-    </div>
+
+@{
+        var x = 20;
+        foreach (var item in Model.Alerts)
+        {
+
+            <div class="alert @item.AlertClass alert-dismissible col-sm-6 col-xs-8 col-xs-offset-2 col-sm-offset-3 itad-alert" role="alert" style="position: fixed; top: @(x+"px");">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                @item.AlertText
+            </div>
+            x += 60;
+        }
+    }
+
+
 <!-- LEFT MENU SECTION -->
 <section class="left-panel">
     <nav class="navigatation">
