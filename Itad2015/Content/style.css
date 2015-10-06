@@ -479,6 +479,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     width: 100%;
     border: none;
     box-shadow: none;
+    position: inherit;
 }
 
     .dropdown .dropdown-menu li {
@@ -497,9 +498,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
                 font-weight: bold;
             }
 
-.workshopText{
+.workshopText {
     text-transform: uppercase;
-    margin-top:30px;
+    margin-top: 30px;
+}
+.requiredText{
+    color: grey;
+    font-size:12px;
             }
 
 .itad-alert {
