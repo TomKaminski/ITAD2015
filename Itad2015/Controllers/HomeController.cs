@@ -44,7 +44,7 @@ namespace Itad2015.Controllers
 
             var normalTicketsLeft = NormalTicketsCount - _guestService.Count();
 
-            return View(new IndexViewModel
+            return View("Index",new IndexViewModel
             {
                 IndexGuestModel = new IndexGuestModel
                 {
@@ -73,33 +73,43 @@ namespace Itad2015.Controllers
                     AlertClass = "alert-success"
                 }
             };
-            var workshops = _workshopService.GetAll().Result.Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
+            return Index(alerts);
+        }
 
-            var workshopGuestsGrouped =
-                _workshopGuestService.GetAll()
-                    .Result.GroupBy(x => x.WorkshopId)
-                    .Select(x => new { Id = x.Key, Count = x.Count() }).ToList();
-
-            foreach (var workshop in workshops)
+        [HttpGet]
+        public ActionResult ConfirmRegistration(int id, string confirmationCode)
+        {
+            var result = _guestService.ConfirmRegistration(id, confirmationCode);
+            var alertModel = new AlertViewModel();
+            if (result.Result)
             {
-                var firstOrDefault = workshopGuestsGrouped.FirstOrDefault(x => x.Id == workshop.Id);
-                workshop.LeftParticipants = workshop.MaxParticipants - firstOrDefault?.Count ?? workshop.MaxParticipants;
+                alertModel.AlertClass = "alert-success";
+                alertModel.AlertText = "Rejestracja została potwierdzona pomyślnie!";
             }
-
-            var normalTicketsLeft = NormalTicketsCount - _guestService.Count();
-
-            return View("Index",new IndexViewModel
+            else
             {
-                IndexGuestModel = new IndexGuestModel
-                {
-                    NormalTicketsLeft = normalTicketsLeft
-                },
-                IndexWorkshopGuestModel = new IndexWorkshopGuestModel
-                {
-                    WorkshopDropdownList = workshops
-                },
-                Alerts = alerts
-            });
+                alertModel.AlertClass = "alert-danger";
+                alertModel.AlertText = $"Wystąpił błąd: {result.ValidationErrors.FirstOrDefault()}";
+            }
+            return Index(new List<AlertViewModel> { alertModel });
+        }
+
+        [HttpGet]
+        public ActionResult CancelRegistration(int id, string cancelationCode)
+        {
+            var result = _guestService.CancelRegistration(id, cancelationCode);
+            var alertModel = new AlertViewModel();
+            if (result.Result)
+            {
+                alertModel.AlertClass = "alert-success";
+                alertModel.AlertText = "Rejestracja została ANULOWANA pomyślnie!";
+            }
+            else
+            {
+                alertModel.AlertClass = "alert-danger";
+                alertModel.AlertText = $"Wystąpił błąd: {result.ValidationErrors.FirstOrDefault()}";
+            }
+            return Index(new List<AlertViewModel> { alertModel });
         }
     }
 }
