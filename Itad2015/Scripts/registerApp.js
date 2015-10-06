@@ -95,6 +95,16 @@ $.validator.setDefaults({
     ignore: []
 });
 
+function fillBackendErrorMessages(result) {
+    var id = registerModule.getFormId();
+    $(".serverErrorsContainer, .serverSuccessContainer").empty();
+    if (result.status === false) {
+        for (var j = 0; j < result.errors.length; j++) {
+            $(id + " .serverErrorsContainer").append("<p>" + result.errors[j] + "<br/></p>");
+        }
+    }
+}
+
 $(document).ready(function () {
 
 
@@ -229,6 +239,7 @@ $(document).ready(function () {
     var options = {
         success: function (data) {
             console.log(data);
+            fillBackendErrorMessages(data);
         }
     };
 

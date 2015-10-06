@@ -1,12 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
-using Itad2015.Helpers.Email;
 using Itad2015.ViewModels.Base;
-using Itad2015.ViewModels.Email;
 using Itad2015.ViewModels.Guest;
 
 namespace Itad2015.Controllers
@@ -25,11 +23,18 @@ namespace Itad2015.Controllers
         public JsonResult Register([Bind(Prefix = "RegisterGuestViewModel")]RegisterGuestViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errors = new List<string>();
+                foreach (var modelState in ViewData.ModelState.Values)
+                {
+                    errors.AddRange(modelState.Errors.Select(error => error.ErrorMessage));
+                }
                 return Json(new
                 {
                     status = false,
-                    error = ModelState.First(x => x.Value.Errors.Count > 0).Value.Errors.First()
+                    errors
                 });
+            }
 
             var mappedModel = Mapper.Map<GuestPostDto>(model);
 
