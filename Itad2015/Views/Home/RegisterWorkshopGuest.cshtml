@@ -67,12 +67,12 @@
                 @foreach (var item in Model.WorkshopDropdownList)
                 {
                     <div class="row workshop-container" data-workshop-id="@item.Id" style="display: none">
-                        <div class="col-xs-8 col-xs-offset-2">
-                            <p class="center"><strong>Prowadzący: @item.TutorName<br/>Liczba wolnych miejsc: @item.LeftParticipants</strong>
+                        <div class="col-xs-5 col-xs-offset-2">
+                            <p><strong>Prowadzący: @item.TutorName<br/>Liczba wolnych miejsc: @item.LeftParticipants</strong>
                             </p>
-                            <p class="text-center">@item.Description</p>
+                            <p>@item.Description</p>
                         </div>
-                        <div class="col-xs-8 col-xs-offset-2"><img class="img-responsive col-xs-6 col-xs-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" /></div>
+                        <div class="col-xs-4"><img class="img-responsive col-xs-6 col-xs-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" /></div>
                     </div>
                 }
                 @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.WorkshopId, null, new { @class = "validation-itad bk-red" })
