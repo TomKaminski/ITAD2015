@@ -6,7 +6,7 @@ namespace Itad2015.ViewModels.Guest
     public class RegisterGuestViewModel
     {
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage ="Podano zły adres e-mail")]
         public string Email { get; set; }
         [Required]
         public string FirstName { get; set; }
