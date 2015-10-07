@@ -112,24 +112,22 @@ function fillBackendErrorMessages(result) {
 $(document).ready(function () {
 
     $(window).scroll(function () {
+        if (!$("#fun-numbers").hasClass('fun-number-done')) {
+            var hT = $("#fun-numbers").offset().top;
+            var hH = $("#fun-numbers").outerHeight();
+            var wH = $(window).height();
+            var wS = $(this).scrollTop();
 
-        var hT = $("#fun-numbers").offset().top,
-               hH = $("#fun-numbers").outerHeight(),
-               wH = $(window).height(),
-               wS = $(this).scrollTop();
-        if (wS > (hT + hH - wH + 100)) {
-            $('.fun-number').each(function () {
-                if (!$(this).hasClass('fun-number-done')) {
-                    $(this).addClass('fun-number-done');
+            if (wS > (hT + hH - wH + 100)) {
+                $("#fun-numbers").addClass('fun-number-done');
+                $('.fun-number').each(function () {
                     $(this).animateNumber(
                     {
                         number: $(this).data("number"),
                         easing: 'easeInQuad'
-                    },
-                    $(this).data("speed")
-                );
-                }
-            });
+                    }, $(this).data("speed"));
+                });
+            }
         }
     });
 
