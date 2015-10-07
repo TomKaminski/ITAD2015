@@ -233,6 +233,8 @@
     <Content Include="Favicon\mstile-70x70.png" />
     <Content Include="Scripts\countdown\jquery.countdown.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\jquery.animateNumber.js" />
+    <Content Include="Scripts\jquery.animateNumber.min.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />

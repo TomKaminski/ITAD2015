@@ -95,6 +95,10 @@ $.validator.setDefaults({
     ignore: []
 });
 
+
+
+
+
 function fillBackendErrorMessages(result) {
     var id = registerModule.getFormId();
     $(".serverErrorsContainer, .serverSuccessContainer").empty();
@@ -106,6 +110,28 @@ function fillBackendErrorMessages(result) {
 }
 
 $(document).ready(function () {
+
+    $(window).scroll(function () {
+
+        var hT = $("#fun-numbers").offset().top,
+               hH = $("#fun-numbers").outerHeight(),
+               wH = $(window).height(),
+               wS = $(this).scrollTop();
+        if (wS > (hT + hH - wH + 100)) {
+            $('.fun-number').each(function () {
+                if (!$(this).hasClass('fun-number-done')) {
+                    $(this).addClass('fun-number-done');
+                    $(this).animateNumber(
+                    {
+                        number: $(this).data("number"),
+                        easing: 'easeInQuad'
+                    },
+                    $(this).data("speed")
+                );
+                }
+            });
+        }
+    });
 
 
     registerModule.init();
@@ -186,7 +212,7 @@ $(document).ready(function () {
             if (code > 5) {
                 $(".itad-shirt").removeClass("active");
                 $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code - 5);
-                $(" .itad-shirt[data-size-code='" + (code-5) + "']").addClass('active');
+                $(" .itad-shirt[data-size-code='" + (code - 5) + "']").addClass('active');
             }
         }
         else {
