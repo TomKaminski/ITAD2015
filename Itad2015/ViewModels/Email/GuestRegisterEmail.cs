@@ -6,6 +6,7 @@
         {
         }
 
+        public int Id { get; set; }
         public string ConfirmationHash { get; set; }
         public string CancelationHash { get; set; }
         public string FirstName { get; set; }

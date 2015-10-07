@@ -6,8 +6,11 @@ namespace Itad2015.Repository.Concrete
 {
     public class PrizeRepository : GenericRepository<Prize>, IPrizeRepository
     {
-        public PrizeRepository(IDatabaseFactory factory) : base(factory)
+        private IUnitOfWork _unitOfWork;
+
+        public PrizeRepository(IDatabaseFactory factory, IUnitOfWork unitOfWork) : base(factory, unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
     }
 }

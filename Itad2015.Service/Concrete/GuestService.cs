@@ -92,6 +92,11 @@ namespace Itad2015.Service.Concrete
         private static List<string> ValidateConfirm(Guest guest, string confirmationHash)
         {
             var errors = new List<string>();
+            if (guest == null)
+            {
+                errors.Add("Uczestnik nie istnieje!");
+                return errors;
+            }
             if (guest.ConfirmationTime != null)
                 errors.Add("Uczestnik został już potwierdzony!");
             if (guest.ConfirmationHash != confirmationHash)
@@ -99,12 +104,15 @@ namespace Itad2015.Service.Concrete
             return errors;
         }
 
-        private static List<string> ValidateCancel(Guest guest, string confirmationHash)
+        private static List<string> ValidateCancel(Guest guest, string cancelationHash)
         {
             var errors = new List<string>();
-            if (guest.Cancelled)
+            if (guest == null)
+            {
                 errors.Add("Uczestnik został już wypisany!");
-            if (guest.ConfirmationHash != confirmationHash)
+                return errors;
+            }
+            if (guest.CancelationHash != cancelationHash)
                 errors.Add("Błędny kod.");
             return errors;
         }
@@ -112,6 +120,7 @@ namespace Itad2015.Service.Concrete
         private static List<string> ValidateRegister(List<Guest> guests, string email)
         {
             var errors = new List<string>();
+
             if (guests.FirstOrDefault(x => x.Email == email && !x.Cancelled) != null)
                 errors.Add("Ten email jest już zarejestrowany!");
 

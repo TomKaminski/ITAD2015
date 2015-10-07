@@ -11,17 +11,21 @@ namespace Itad2015.Repository.Common
     public class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
         private readonly DbContext _entities;
+        private readonly IUnitOfWork _unitOfWork;
         protected readonly IDbSet<T> Dbset;
 
-        protected GenericRepository(IDatabaseFactory factory)
+        protected GenericRepository(IDatabaseFactory factory, IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
             _entities = factory.Get();
             Dbset = factory.Get().Set<T>();
         }
 
         public T Add(T entity)
         {
-            return Dbset.Add(entity);
+            Dbset.Add(entity);
+            _unitOfWork.Commit();
+            return entity;
         }
 
         public void Delete(T entity)

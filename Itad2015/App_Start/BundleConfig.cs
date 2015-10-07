@@ -18,6 +18,7 @@ namespace Itad2015
                         "~/Scripts/jquery.easing.1.3.js",
                         "~/Scripts/custom-slideshow.js",
                         "~/Scripts/jquery.animateNumber.js",
+                        "~/Scripts/alertApp.js",
                         "~/Scripts/registerApp.js"));
 
             bundles.Add(new ScriptBundle("~/modernizr").Include("~/Scripts/modernizr-{version}.js"));

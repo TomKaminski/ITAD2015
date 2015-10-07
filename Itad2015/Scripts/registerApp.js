@@ -263,13 +263,21 @@ $(document).ready(function () {
     var options = {
         success: function (data) {
             console.log(data);
-            fillBackendErrorMessages(data);
+            if (data.status === true) {
+                registerModule.setStage(1, true);
+                registerModule.init();
+                alertApp.appendAlert("alert-success", "Rejestracja przebiegła pomyślnie, na podany adres email została wysłana wiadomość potwierdzająca");
+            } else {
+                fillBackendErrorMessages(data);
+            }
+
         }
     };
 
     $('#RegisterForm, #RegisterWorkshopForm').ajaxForm(options);
 
     $('#registerBtnStage a').click(function () {
+        $(".serverErrorsContainer, .serverSuccessContainer").empty();
         $(this).parent().parent().submit();
     });
 });

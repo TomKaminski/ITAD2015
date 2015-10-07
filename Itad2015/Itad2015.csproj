@@ -231,6 +231,7 @@
     <Content Include="Favicon\mstile-310x150.png" />
     <Content Include="Favicon\mstile-310x310.png" />
     <Content Include="Favicon\mstile-70x70.png" />
+    <Content Include="Scripts\alertApp.js" />
     <Content Include="Scripts\countdown\jquery.countdown.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\jquery.animateNumber.js" />

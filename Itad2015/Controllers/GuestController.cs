@@ -4,7 +4,9 @@ using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
+using Itad2015.Helpers.Email;
 using Itad2015.ViewModels.Base;
+using Itad2015.ViewModels.Email;
 using Itad2015.ViewModels.Guest;
 
 namespace Itad2015.Controllers
@@ -42,13 +44,14 @@ namespace Itad2015.Controllers
 
             if (!res.ValidationErrors.Any())
             {
-                //new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email,"itaddbb@gmail.com","Rejestracja na konferencję.")
-                //{
-                //    LastName = res.Result.LastName,
-                //    FirstName = res.Result.FirstName,
-                //    ConfirmationHash = res.Result.ConfirmationHash,
-                //    CancelationHash = res.Result.CancelationHash,
-                //}).SendEmail();
+                new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "itadbb2015@gmail.com", "Rejestracja na konferencję.")
+                {
+                    LastName = res.Result.LastName,
+                    FirstName = res.Result.FirstName,
+                    ConfirmationHash = res.Result.ConfirmationHash,
+                    CancelationHash = res.Result.CancelationHash,
+                    Id = res.Result.Id
+                }).SendEmail();
             }
 
             return Json(new

@@ -6,8 +6,10 @@ namespace Itad2015.Repository.Concrete
 {
     public class WorkshopGuestRepository : GenericRepository<WorkshopGuest>, IWorkshopGuestRepository
     {
-        public WorkshopGuestRepository(IDatabaseFactory factory) : base(factory)
+        private IUnitOfWork _unitOfWork;
+        public WorkshopGuestRepository(IDatabaseFactory factory, IUnitOfWork unitOfWork) : base(factory, unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
     }
 }
