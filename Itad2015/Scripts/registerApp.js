@@ -57,6 +57,10 @@
 
     var init = function () {
         $("#registerGuestPartial,#registerWorkshopGuestPartial,#inputStage,#shirtTypeStage,#shirtSizeStageFemale,#shirtSizeStageMale,#registerBtnStage").hide();
+        $(".chooseConferenceType").removeClass("iconColor");
+        $("input.itad-required-input").val('');
+        $(".itad-gender").removeClass("active");
+        $(".itad-shirt").removeClass("active");
     }
 
     var setIsFemale = function (female) {

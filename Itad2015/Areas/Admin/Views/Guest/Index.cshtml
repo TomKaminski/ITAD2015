@@ -1,0 +1,41 @@
+﻿<div ng-app="guestAdminApp">
+    <div ng-controller="guestAdminCtrl as ctrl" ng-init="ctrl.init()">
+        <table class="table">
+            <tr>
+                <th>
+                    Imię
+                </th>
+                <th>
+                    Nazwisko
+                </th>
+                <th>
+                    Email
+                </th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="item in ctrl.guests">
+                <td>
+                    <div>{{item.FirstName}}</div>
+                </td>
+                <td>
+                    <div>{{item.LastName}}</div>
+                </td>
+                <td>
+                    <div>{{item.Email}}</div>
+                </td>
+                <td>
+                    <div ng-if="item.IsCheckIn == true">
+                        <button ng-click="ctrl.CheckOut(item.Id)" class="btn btn-danger">Wypisz</button>
+                    </div>
+                    <div ng-if="item.IsCheckIn == false">
+                        <button ng-click="ctrl.CheckIn(item.Id)" class="btn btn-success">Wpisz</button>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Areas/Admin/Scripts/guestApp.js"></script>

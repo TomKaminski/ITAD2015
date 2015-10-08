@@ -179,6 +179,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\guestApp.js" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -232,6 +233,9 @@
     <Content Include="Favicon\mstile-310x310.png" />
     <Content Include="Favicon\mstile-70x70.png" />
     <Content Include="Scripts\alertApp.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\countdown\jquery.countdown.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\jquery.animateNumber.js" />
@@ -269,6 +273,8 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Favicon\manifest.json" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Areas\Admin\Views\Guest\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -381,7 +387,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Guest\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\WorkshopGuest\" />
   </ItemGroup>

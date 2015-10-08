@@ -89,6 +89,32 @@ namespace Itad2015.Service.Concrete
             return new SingleServiceResult<bool>(false, errors);
         }
 
+        public SingleServiceResult<bool> CheckIn(int id)
+        {
+            var guest = _repository.Find(id);
+            if (guest != null)
+            {
+                guest.CheckInDate = DateTime.Now;
+                _repository.Edit(guest);
+                _unitOfWork.Commit();
+                return new SingleServiceResult<bool>(true);
+            }
+            return new SingleServiceResult<bool>(false, new List<string> { "Nie ma takiego użytkownika." });
+        }
+
+        public SingleServiceResult<bool> CheckOut(int id)
+        {
+            var guest = _repository.Find(id);
+            if (guest != null)
+            {
+                guest.CheckInDate = null;
+                _repository.Edit(guest);
+                _unitOfWork.Commit();
+                return new SingleServiceResult<bool>(true);
+            }
+            return new SingleServiceResult<bool>(false, new List<string> {"Nie ma takiego użytkownika."});
+        }
+
         private static List<string> ValidateConfirm(Guest guest, string confirmationHash)
         {
             var errors = new List<string>();
