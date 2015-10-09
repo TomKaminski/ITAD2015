@@ -66,6 +66,7 @@
                 if (result.data.status === true) {
                     var item = $filter('getById')(vm.guests, id);
                     item.IsCheckIn = true;
+                    vm.guestsList = filterGuests();
                 }
             }, function(error) {
                 console.log("Nie udało się zameldować uczestnika o id: " + id);
@@ -79,6 +80,7 @@
                 if (result.data.status === true) {
                     var item = $filter('getById')(vm.guests, id);
                     item.IsCheckIn = false;
+                    vm.guestsList = filterGuests();
                 }
             }, function(error) {
                 console.log("Nie udało się odmeldować uczestnika o id: " + id);
@@ -97,7 +99,15 @@
             vm.currentPage = page;
             vm.guestsList = filterGuests();
         }
+
+        vm.setPageSize = function(size) {
+            vm.pageSize = parseInt(size);
+            if (vm.pageSize == undefined)
+                vm.pageSize = 25;
+            vm.guestsList = filterGuests();
+        }
     }
+    
     
 
     angular.module('guestAdminApp')
