@@ -28,8 +28,10 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<WorkshopGetDto, WorkshopDropdownViewModel>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap<GuestGetDto, AdminGuestViewModel>()
-                .ForMember(x => x.IsCheckIn, k => k.Condition(x => x.ConfirmationTime != null));
+            Mapper.CreateMap<GuestGetDto, AdminGuestViewModel>().AfterMap((src, dest) =>
+            {
+                dest.IsCheckIn = src.CheckInDate != null;
+            });
 
             Mapper.CreateMap(typeof (SingleServiceResult<>), typeof (BaseReturnViewModel<>));
         }

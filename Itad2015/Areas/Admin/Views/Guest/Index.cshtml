@@ -1,5 +1,15 @@
 ﻿<div ng-app="guestAdminApp">
     <div ng-controller="guestAdminCtrl as ctrl" ng-init="ctrl.init()">
+        <div class="form-group" style="padding: 25px 10px">
+            <label class="control-label col-md-1">Wyszukaj:</label>
+            <input type="text" class="form-control col-md-4" ng-model="ctrl.searchText" ng-change="ctrl.filterList() "/>
+            <div class="checkbox col-md-2 col-md-offset-1">
+                <label>
+                    <input type="checkbox" ng-model="ctrl.showCheckedIn" ng-change="ctrl.filterList()"> Pokazuj wszystkich
+                </label>
+            </div>
+
+        </div>
         <table class="table">
             <tr>
                 <th>
@@ -13,7 +23,7 @@
                 </th>
                 <th></th>
             </tr>
-            <tr ng-repeat="item in ctrl.guests">
+            <tr ng-repeat="item in ctrl.guestsList">
                 <td>
                     <div>{{item.FirstName}}</div>
                 </td>
@@ -25,15 +35,32 @@
                 </td>
                 <td>
                     <div ng-if="item.IsCheckIn == true">
-                        <button ng-click="ctrl.CheckOut(item.Id)" class="btn btn-danger">Wypisz</button>
+                        <button ng-click="ctrl.checkOut(item.Id)" class="btn btn-danger">Wypisz</button>
                     </div>
                     <div ng-if="item.IsCheckIn == false">
-                        <button ng-click="ctrl.CheckIn(item.Id)" class="btn btn-success">Wpisz</button>
-
+                        <button ng-click="ctrl.checkIn(item.Id)" class="btn btn-success">Wpisz</button>
                     </div>
                 </td>
             </tr>
         </table>
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous" ng-click="ctrl.setPage(ctrl.currentPage-1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li ng-repeat="page in ctrl.tableOfPages" ng-class="{active: ctrl.currentPage==page}">
+                    <a href="#" ng-click="ctrl.setPage($index+1)">{{page}}</a>
+                </li>
+
+                <li>
+                    <a href="#" aria-label="Next" ng-click="ctrl.setPage(ctrl.currentPage+1)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 
