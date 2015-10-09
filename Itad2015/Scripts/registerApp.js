@@ -128,7 +128,8 @@ $(document).ready(function () {
                     $(this).animateNumber(
                     {
                         number: $(this).data("number"),
-                        easing: 'easeInQuad'
+                        easing: 'easeInQuad',
+                        'font-size': '45px'
                     }, $(this).data("speed"));
                 });
             }
