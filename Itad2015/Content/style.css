@@ -510,4 +510,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 .itad-alert {
     z-index: 9999;
 }
-
+.headerText{
+    font-size: 24px;
+    font-weight: bold;
+}
+.headerTextSmall{
+    font-size:18px;
+}
+.fa-file-pdf-o{
+    font-size:50px;
+}
