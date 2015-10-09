@@ -193,6 +193,8 @@
     <Content Include="Content\images\org\Katarzyna_Jasiewicz.png" />
     <Content Include="Content\images\org\Marcin_Wadoń.png" />
     <Content Include="Content\images\org\Tomasz_Kamiński.png" />
+    <Content Include="Content\images\packet.png" />
+    <Content Include="Content\images\register.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
     <Content Include="Content\images\Register\shirt_size.png" />
     <Content Include="Content\images\ResetLogo.png" />
@@ -202,6 +204,8 @@
     <Content Include="Content\images\slides\3.jpg" />
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
+    <Content Include="Content\images\web.png" />
+    <Content Include="Content\images\workshop.png" />
     <Content Include="Content\images\Żłobiński_jcommerce.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
