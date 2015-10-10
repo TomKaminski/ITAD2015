@@ -1,13 +1,5 @@
 ﻿var registerModule = (function () {
 
-    var registrationStage = {
-        registrationTypeStage: 1,
-        inputStage: 2,
-        shirtTypeStage: 3,
-        shirtSizeStage: 4,
-        registerBtnStage: 5
-    }
-
     var isFemale = false;
     var actualStage = 1;
     var formId;
@@ -17,33 +9,23 @@
             return;
         actualStage = stage;
         switch (actualStage) {
-            case registrationStage.inputStage:
-                {
-                    $(formId + " #inputStage").fadeIn(1000);
-                    break;
-                }
-            case registrationStage.shirtTypeStage:
-                {
-                    $(formId + " #shirtTypeStage").fadeIn(1000);
-                    break;
-                }
-            case registrationStage.shirtSizeStage:
+            case 4:
                 {
                     if (isFemale) {
-                        $(formId + " #shirtSizeStageMale").hide();
-                        $(formId + " #shirtSizeStageFemale").fadeIn(1000);
+                        $(formId + " section[data-stage-id='"+actualStage+"'].male").hide();
+                        $(formId + " section[data-stage-id='" + actualStage + "'].female").fadeIn(1000);
 
                     } else {
-                        $(formId + " #shirtSizeStageFemale").hide();
-                        $(formId + " #shirtSizeStageMale").fadeIn(1000);
+                        $(formId + " section[data-stage-id='" + actualStage + "'].female").hide();
+                        $(formId + " section[data-stage-id='" + actualStage + "'].male").fadeIn(1000);
                     }
                     break;
                 }
-            case registrationStage.registerBtnStage:
-                {
-                    $(formId + " #registerBtnStage").fadeIn(1000);
-                    break;
-                }
+            default :
+            {
+                $(formId + " section[data-stage-id='" + actualStage + "'").fadeIn(1000);
+                break;
+            }
         }
     }
 
@@ -56,11 +38,10 @@
 
 
     var init = function () {
-        $("#registerGuestPartial,#registerWorkshopGuestPartial,#inputStage,#shirtTypeStage,#shirtSizeStageFemale,#shirtSizeStageMale,#registerBtnStage").hide();
+        $(regId + " section, " + regWorkshopId + " section").hide();
         $(".chooseConferenceType").removeClass("iconColor");
         $("input.itad-required-input").val('');
-        $(".itad-gender").removeClass("active");
-        $(".itad-shirt").removeClass("active");
+        $(".itad-gender, .itad-shirt").removeClass("active");
     }
 
     var setIsFemale = function (female) {
@@ -81,7 +62,6 @@
 
     // Public API
     return {
-        registrationStage: registrationStage,
         setStage: setStage,
         init: init,
         getActualStage: getActualStage,
@@ -100,15 +80,11 @@ $.validator.setDefaults({
 });
 
 
-
-
-
 function fillBackendErrorMessages(result) {
-    var id = registerModule.getFormId();
-    $(".serverErrorsContainer, .serverSuccessContainer").empty();
+    $(".serverErrorsContainer").empty();
     if (result.status === false) {
         for (var j = 0; j < result.errors.length; j++) {
-            $(id + " .serverErrorsContainer").append("<p>" + result.errors[j] + "<br/></p>");
+            $(registerModule.getFormId() + " .serverErrorsContainer").append("<p>" + result.errors[j] + "<br/></p>");
         }
     }
 }
@@ -136,7 +112,6 @@ $(document).ready(function () {
         }
     });
 
-
     registerModule.init();
 
     $(".dropdown-menu li a").click(function (e) {
@@ -144,17 +119,14 @@ $(document).ready(function () {
         var text = $(this).text();
         var workshopId = $(this).data("workshop-id");
 
-
-        $("#workshopId").val(workshopId).trigger("change");
-        $("#workshopId").valid();
+        $("#workshopId").val(workshopId).trigger("change").valid();
         $(".workshop-container").hide();
         $(".workshop-container[data-workshop-id='" + workshopId + "']").fadeIn(1000);
         $("#activeWorkshop").html(text);
     });
 
-    $("#registrationTypeStage .chooseConferenceType").click(function () {
-
-        $("#registrationTypeStage .chooseConferenceType").removeClass("iconColor");
+    $(".chooseConferenceType").click(function () {
+        $(".chooseConferenceType").removeClass("iconColor");
         $(this).addClass("iconColor");
 
         $("button.dropdown-toggle, .dropdown-menu li a").click(function () {
@@ -162,9 +134,9 @@ $(document).ready(function () {
                 $('.dropdown-toggle').children("span").addClass("dropup");
             } else {
                 $('.dropdown-toggle').children("span").removeClass("dropup");
-
             }
         });
+
         if ($(this).data("isworkshop") === true) {
             $(regWorkshopId).fadeIn(1000);
             $(regId).hide();
@@ -174,7 +146,6 @@ $(document).ready(function () {
             $(regId).fadeIn(1000);
             registerModule.setFormId(regId);
         }
-
 
         if (registerModule.getActualStage() === 1) {
             registerModule.setStage(2);
@@ -203,7 +174,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#TShirtType .itad-gender").click(function () {
+    $(".itad-gender").click(function () {
         var id = registerModule.getFormId();
         var code = parseInt($(id + " .itad-shirt.active").data("size-code"));
 
@@ -238,13 +209,11 @@ $(document).ready(function () {
     });
 
     $(".itad-shirt").click(function () {
-        var id = registerModule.getFormId();
-        var code = $(this).data("size-code");
-        $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val(code);
+        $(regId + " #sizeInput," + regWorkshopId + " #sizeInput").val($(this).data("size-code"));
         $(".itad-shirt").removeClass("active");
         $(this).addClass('active');
 
-        if (id === regWorkshopId) {
+        if (registerModule.getFormId() === regWorkshopId) {
             $(regId + " .itad-shirt[data-size-code='" + $(this).data('size-code') + "']").addClass('active');
         } else {
             $(regWorkshopId + " .itad-shirt[data-size-code='" + $(this).data('size-code') + "']").addClass('active');
@@ -253,15 +222,10 @@ $(document).ready(function () {
         registerModule.setStage(5);
     });
 
-    $("#registerBtnStage input").click(function () {
+    $(".rulesCheckbox").click(function () {
         var isChecked = $(this)[0].checked;
-        var id = registerModule.getFormId();
-        if (id === regWorkshopId) {
-            $(regId + " #registerBtnStage input").prop('checked', isChecked);
-        } else {
-            $(regWorkshopId + " #registerBtnStage input").prop('checked', isChecked);
-        }
-        $("#registerBtnStage a").toggleClass("disabled");
+        $(".rulesCheckbox").prop('checked', isChecked);
+        $("a.registerSubmit").toggleClass("disabled");
     });
 
 
@@ -281,8 +245,8 @@ $(document).ready(function () {
 
     $('#RegisterForm, #RegisterWorkshopForm').ajaxForm(options);
 
-    $('#registerBtnStage a').click(function () {
-        $(".serverErrorsContainer, .serverSuccessContainer").empty();
+    $('a.registerSubmit').click(function () {
+        $(".serverErrorsContainer").empty();
         $(this).parent().parent().submit();
     });
 });
