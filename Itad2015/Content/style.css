@@ -120,7 +120,7 @@ h4 {
     left: -230px;
     top: 0;
     background: rgba(80, 239, 255, 0.6);
-    z-index: 999999;
+    z-index: 9999;
 }
 
 .menu-text {
@@ -502,25 +502,60 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     text-transform: uppercase;
     margin-top: 30px;
 }
-.requiredText{
+
+.requiredText {
     color: grey;
-    font-size:12px;
-            }
+    font-size: 12px;
+}
 
 .itad-alert {
     z-index: 9999;
 }
-.headerText{
+
+.headerText {
     font-size: 24px;
     font-weight: bold;
 }
-.headerTextSmall{
-    font-size:18px;
+
+.headerTextSmall {
+    font-size: 18px;
 }
-.fa-file-pdf-o{
-    font-size:50px;
+
+.fa-file-pdf-o {
+    font-size: 50px;
 }
-.fun-number{
-    color:#50efff;
+
+.fun-number {
+    color: #50efff;
     font-size: 24px;
 }
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99999;
+}
+
+
+.container-center {
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #50efff;
+
+}
+
+    .container-center > div {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }

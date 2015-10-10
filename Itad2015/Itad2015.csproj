@@ -202,6 +202,7 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\gears.gif" />
     <Content Include="Content\images\Logo_ITAD.png" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
@@ -214,6 +215,7 @@
     <Content Include="Content\images\Register\ItadGeek.png" />
     <Content Include="Content\images\Register\shirt_size.png" />
     <Content Include="Content\images\ResetLogo.png" />
+    <Content Include="Content\images\ring.gif" />
     <Content Include="Content\images\slide.png" />
     <Content Include="Content\images\slides\1.jpg" />
     <Content Include="Content\images\slides\2.jpg" />
@@ -401,6 +403,7 @@
     <Content Include="Views\Home\_WhatsNewSectionPartial.cshtml" />
     <Content Include="Views\Home\_SponsorsSectionPartial.cshtml" />
     <Content Include="Views\Home\_StaffSectionPartial.cshtml" />
+    <Content Include="Views\Home\_OverlayPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

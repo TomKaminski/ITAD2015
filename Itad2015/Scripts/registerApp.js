@@ -40,8 +40,10 @@
     var init = function () {
         $(regId + " section, " + regWorkshopId + " section").hide();
         $(".chooseConferenceType").removeClass("iconColor");
-        $("input.itad-required-input").val('');
+        $("input.itad-required-input, textarea").val('');
         $(".itad-gender, .itad-shirt").removeClass("active");
+        $(".rulesCheckbox").prop('checked', false);
+        $("a.registerSubmit").addClass("disabled");
     }
 
     var setIsFemale = function (female) {
@@ -231,8 +233,9 @@ $(document).ready(function () {
 
     var options = {
         success: function (data) {
-            console.log(data);
+            $(".overlay").hide();
             if (data.status === true) {
+                $('body').scrollTop(0);
                 registerModule.setStage(1, true);
                 registerModule.init();
                 alertApp.appendAlert("alert-success", "Rejestracja przebiegła pomyślnie, na podany adres email została wysłana wiadomość potwierdzająca");
@@ -240,6 +243,9 @@ $(document).ready(function () {
                 fillBackendErrorMessages(data);
             }
 
+        },
+        beforeSubmit: function() {
+            $(".overlay").fadeIn();
         }
     };
 
