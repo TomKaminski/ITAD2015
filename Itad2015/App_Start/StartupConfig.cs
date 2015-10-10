@@ -14,6 +14,7 @@ namespace Itad2015
     {
         public void Configuration(IAppBuilder app)
         {
+            app.MapSignalR();
             ConfigureAuth(app);
         }
 

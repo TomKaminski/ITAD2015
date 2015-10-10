@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Areas.Admin.ViewModels;
 using Itad2015.Contract.Service.Entity;
+using Microsoft.AspNet.SignalR;
 
 namespace Itad2015.Areas.Admin.Controllers
 {
@@ -26,7 +27,7 @@ namespace Itad2015.Areas.Admin.Controllers
 
         public JsonResult GetAll()
         {
-            var registeredGuests = _guestService.GetAll(x => !x.Cancelled);
+            var registeredGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime!=null);
 
             var mappedModel = registeredGuests.Result.Select(Mapper.Map<AdminGuestViewModel>).ToList();
             return Json(mappedModel,JsonRequestBehavior.AllowGet);

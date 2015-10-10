@@ -34,6 +34,13 @@ namespace Itad2015.Model.Migrations
                 PasswordHash = hash,
                 PasswordSalt = salt
             });
+            context.User.AddOrUpdate(new User
+            {
+                Email = "katarzynajasiewicz.93@gmail.com",
+                SuperAdmin = true,
+                PasswordHash = hash,
+                PasswordSalt = salt
+            });
             context.SaveChanges();
         }
     }
