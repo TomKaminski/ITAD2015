@@ -191,10 +191,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Scripts\getByIdFilter.js" />
-    <Content Include="Areas\Admin\Scripts\guestAdminCtrl.js" />
-    <Content Include="Areas\Admin\Scripts\guestApp.js" />
-    <Content Include="Areas\Admin\Scripts\hubProxyService.js" />
+    <Content Include="Areas\Admin\Scripts\filters\getByIdFilter.js" />
+    <Content Include="Areas\Admin\Scripts\controllers\guestAdminCtrl.js" />
+    <Content Include="Areas\Admin\Scripts\guestAdminApp.js" />
+    <Content Include="Areas\Admin\Scripts\services\guestFilterService.js" />
+    <Content Include="Areas\Admin\Scripts\services\hubProxyService.js" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />

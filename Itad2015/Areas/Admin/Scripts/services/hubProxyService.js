@@ -3,6 +3,7 @@
 
     function hubProxyService($rootScope, $, signalRServer) {
         function signalRHubProxyFactory(serverUrl, hubName, startOptions) {
+
             var connection = $.hubConnection(signalRServer);
             var proxy = connection.createHubProxy(hubName);
             connection.start(startOptions).done(function () { });
@@ -36,6 +37,5 @@
         return signalRHubProxyFactory;
     };
 
-
-    angular.module('guestAdminApp').factory('hubProxyService', hubProxyService);
+    angular.module('hubApp').factory('hubProxyService', hubProxyService);
 })();

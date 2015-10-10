@@ -1,5 +1,6 @@
-﻿//filter by ID
-(function () {
+﻿(function () {
+    'use strict';
+
     function getById() {
         return function (input, id) {
             var i = 0, len = input.length;
