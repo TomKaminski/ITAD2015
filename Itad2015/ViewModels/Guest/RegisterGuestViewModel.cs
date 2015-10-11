@@ -5,14 +5,14 @@ namespace Itad2015.ViewModels.Guest
 {
     public class RegisterGuestViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email jest wymagany")]
         [EmailAddress(ErrorMessage ="Podano zły adres e-mail")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Imię jest wymagane")]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Nazwisko jest wymagane")]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Wybierz rozmiar koszulki")]
         public Size Size { get; set; }
         public string Info { get; set; }
     }
