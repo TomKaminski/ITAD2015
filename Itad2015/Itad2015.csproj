@@ -205,9 +205,11 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\bag.png" />
     <Content Include="Content\images\gears.gif" />
     <Content Include="Content\images\Logo_ITAD.png" />
-    <Content Include="Content\images\Mail\mailHeader.jpg" />
+    <Content Include="Content\images\Mail\mailFooter.png" />
+    <Content Include="Content\images\Mail\mailHeader.png" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
     <Content Include="Content\images\org\Artur_Loska.png" />

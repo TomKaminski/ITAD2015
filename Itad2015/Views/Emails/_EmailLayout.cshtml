@@ -9,12 +9,17 @@ Content-Type: text/html; charset=utf-8
 </head>
 <body mail="fix">
     <div style="width: 700px; margin: auto">
-        <a href="@Url.Action("Index","Home",null,"http")">
+        <a href="@Url.Action("Index","Home",null,"http")" style="margin-bottom:35px">
             <div style="width: 700px; height: 350px; margin: auto">
-                @Html.EmbedImage("~/Content/images/Mail/mailHeader.jpg")
+                @Html.EmbedImage("~/Content/images/Mail/mailHeader.png")
             </div>
         </a>
         @RenderBody()
+        <a href="@Url.Action("Index","Home",null,"http")" style="margin-top:35px">
+            <div style="width: 700px; height: 350px; margin: auto">
+                @Html.EmbedImage("~/Content/images/Mail/mailFooter.png")
+            </div>
+        </a>
     </div>
 
 </body>
