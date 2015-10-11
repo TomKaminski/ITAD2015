@@ -3,11 +3,11 @@ using Itad2015.ViewModels.Guest;
 
 namespace Itad2015.ViewModels
 {
-    public class RegisterWorkshopGuestViewModel:RegisterGuestViewModel
+    public class RegisterWorkshopGuestViewModel : RegisterGuestViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Podaj nazwę szkoły")]
         public string SchoolName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Wybierz warsztat w którym chciałbyś uczestniczyć")]
         public int WorkshopId { get; set; }
     }
 }

@@ -63,7 +63,7 @@ namespace Itad2015.Service.Concrete
         {
             var errors = new List<string>();
             if (_repository.Count(x=>x.WorkshopId == workshop.Id) >= workshop.MaxParticipants)
-                errors.Add("Przepraszamy, brak miejsc.");
+                errors.Add("Przepraszamy, zabrakło miejsc na wybrany przez Ciebie warsztat");
 
             if (_guestRepository.FirstOrDefault(x => x.Email == guestModel.Email && !x.Cancelled) != null)
                 errors.Add("Ten email jest już zarejestrowany!");
