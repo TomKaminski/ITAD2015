@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itad2015.Service", "Itad201
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itad2015.Contract", "Itad2015.Contract\Itad2015.Contract.csproj", "{652432B9-B953-47C6-BB69-AAB9357AFD2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External DLL", "External DLL", "{59FAE1E9-9AF6-4341-84C0-B055AAE4517E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\Excel.dll = ..\..\..\..\Desktop\Excel.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
