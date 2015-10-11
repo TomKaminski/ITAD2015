@@ -204,7 +204,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\gears.gif" />
     <Content Include="Content\images\Logo_ITAD.png" />
-    <Content Include="Content\images\Mail\mailHeader.jpg" />
+    <Content Include="Content\images\Mail\mailHeader.png" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
     <Content Include="Content\images\org\Artur_Loska.png" />
@@ -405,6 +405,8 @@
     <Content Include="Views\Home\_SponsorsSectionPartial.cshtml" />
     <Content Include="Views\Home\_StaffSectionPartial.cshtml" />
     <Content Include="Views\Home\_OverlayPartial.cshtml" />
+    <Content Include="Views\Emails\GuestLastYear.cshtml" />
+    <Content Include="Views\Emails\GuestLastYear.Html.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
