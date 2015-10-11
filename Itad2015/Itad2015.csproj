@@ -204,6 +204,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\gears.gif" />
     <Content Include="Content\images\Logo_ITAD.png" />
+    <Content Include="Content\images\Mail\mailHeader.jpg" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
     <Content Include="Content\images\org\Artur_Loska.png" />
