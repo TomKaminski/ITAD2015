@@ -17,7 +17,7 @@ namespace Itad2015.Modules.Modules
             builder.RegisterType<WorkshopService>().As<IWorkshopService>();
             builder.RegisterType<WorkshopGuestService>().As<IWorkshopGuestService>();
             builder.RegisterType<UserService>().As<IUserService>();
-
+            builder.RegisterType<ExcelService>().As<IExcelService>();
 
             builder.RegisterType<PasswordHasher>().As<IPasswordHasher>();
             builder.RegisterType<QRCodeGenerator>().As<IQrCodeGenerator>();

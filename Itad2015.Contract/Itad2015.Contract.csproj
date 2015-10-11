@@ -45,11 +45,13 @@
     <Compile Include="DTO\Base\PostBaseDto.cs" />
     <Compile Include="DTO\Base\GetBaseDto.cs" />
     <Compile Include="DTO\Base\Size.cs" />
+    <Compile Include="DTO\GetDto\ExcelFileItem.cs" />
     <Compile Include="DTO\GetDto\UserGetDto.cs" />
     <Compile Include="DTO\GetDto\GuestGetDto.cs" />
     <Compile Include="DTO\GetDto\PrizeGetDto.cs" />
     <Compile Include="DTO\GetDto\WorkshopGetDto.cs" />
     <Compile Include="DTO\GetDto\WorkshopGuestGetGto.cs" />
+    <Compile Include="DTO\PostDto\ExcelPostFileDto.cs" />
     <Compile Include="DTO\PostDto\GuestPostDto.cs" />
     <Compile Include="DTO\PostDto\PrizePostDto.cs" />
     <Compile Include="DTO\PostDto\UserPostDto.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Service\Entity\IPrizeService.cs" />
     <Compile Include="Service\Entity\IWorkshopGuestService.cs" />
     <Compile Include="Service\Entity\IWorkshopService.cs" />
+    <Compile Include="Service\IExcelService.cs" />
     <Compile Include="Service\IImageProcessorService.cs" />
     <Compile Include="Service\IPdfService.cs" />
   </ItemGroup>

@@ -33,6 +33,14 @@ namespace Itad2015.FrontendMappings
                 dest.IsCheckIn = src.CheckInDate != null;
             });
 
+            Mapper.CreateMap<ExcelPostViewModel,ExcelPostFileDto>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<ExcelPostViewModel, ExcelGetDataViewModel>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<ExcelGetDataViewModel, ExcelPostFileDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<ExcelGetDataViewModel, ExcelPostViewModel>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<ExcelFileItem, ExcelListItemViewModel>().IgnoreNotExistingProperties();
+
             Mapper.CreateMap(typeof (SingleServiceResult<>), typeof (BaseReturnViewModel<>));
         }
     }

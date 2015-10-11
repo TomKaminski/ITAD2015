@@ -191,6 +191,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\controllers\excelAdminCtrl.js" />
+    <Content Include="Areas\Admin\Scripts\excelAdminApp.js" />
+    <Content Include="Areas\Admin\Scripts\filters\getByEmailFilter.js" />
     <Content Include="Areas\Admin\Scripts\filters\getByIdFilter.js" />
     <Content Include="Areas\Admin\Scripts\controllers\guestAdminCtrl.js" />
     <Content Include="Areas\Admin\Scripts\guestAdminApp.js" />
@@ -299,6 +302,8 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\Guest\Index.cshtml" />
     <Content Include="Content\files\ofertaSponsorska.pdf" />
+    <Content Include="Areas\Admin\Views\Excel\UploadExcelFile.cshtml" />
+    <Content Include="Areas\Admin\Views\Excel\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -342,12 +347,14 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminBaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ExcelController.cs" />
     <Compile Include="Areas\Admin\Controllers\GuestController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkshopController.cs" />
     <Compile Include="Areas\Admin\Helpers\HttpPostedFileBaseToByteConverter.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminGuestViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ExcelViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopViewModels.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
@@ -360,12 +367,14 @@
     </Compile>
     <Compile Include="Helpers\Email\EmailHelper.cs" />
     <Compile Include="Helpers\Email\IEmailHelper.cs" />
+    <Compile Include="Hubs\ExcelHub.cs" />
     <Compile Include="Hubs\GuestHub.cs" />
     <Compile Include="Models\AppUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Base\AlertViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseReturnViewModel.cs" />
     <Compile Include="ViewModels\Email\EmailCommon.cs" />
+    <Compile Include="ViewModels\Email\GuestInviteEmail.cs" />
     <Compile Include="ViewModels\Email\WorkshopGuestRegisterEmail.cs" />
     <Compile Include="ViewModels\Email\GuestRegisterEmail.cs" />
     <Compile Include="ViewModels\Guest\RegisterGuestViewModel.cs" />
@@ -381,7 +390,6 @@
     <Content Include="Views\Emails\_ViewStart.cshtml" />
     <Content Include="Views\Emails\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Guest\ConfirmRegistration.cshtml" />
@@ -405,6 +413,8 @@
     <Content Include="Views\Home\_SponsorsSectionPartial.cshtml" />
     <Content Include="Views\Home\_StaffSectionPartial.cshtml" />
     <Content Include="Views\Home\_OverlayPartial.cshtml" />
+    <Content Include="Views\Emails\GuestInvite.Html.cshtml" />
+    <Content Include="Views\Emails\GuestInvite.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -416,7 +426,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\WorkshopGuest\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Itad2015.Contract\Itad2015.Contract.csproj">

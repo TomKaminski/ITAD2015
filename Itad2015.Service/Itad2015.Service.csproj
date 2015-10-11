@@ -34,6 +34,9 @@
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\..\..\..\..\Desktop\Excel.dll</HintPath>
+    </Reference>
     <Reference Include="ImageResizer, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
       <Private>True</Private>
@@ -82,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\EntityService.cs" />
+    <Compile Include="Concrete\ExcelService.cs" />
     <Compile Include="Concrete\ImageProcessorService.cs" />
     <Compile Include="Concrete\UserService.cs" />
     <Compile Include="Concrete\GuestService.cs" />
