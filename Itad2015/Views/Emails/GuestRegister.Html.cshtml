@@ -1,6 +1,3 @@
 ﻿@model Itad2015.ViewModels.Email.GuestRegisterEmail
 
-<a style="text-decoration: none" href="@Url.Action("ConfirmRegistration", "Home", new {id=Model.Id, confirmationCode = Model.ConfirmationHash},"http")">Potwierdź tutaj obecność</a>
-
-<a style="text-decoration: none" href="@Url.Action("CancelRegistration","Home", new {id=Model.Id, cancelationCode = Model.CancelationHash},"http")">Anuluj tutaj obecność</a>
 
