@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Itad2015.Contract.Common;
+using Itad2015.Contract.DTO.Api;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
@@ -100,6 +101,45 @@ namespace Itad2015.Service.Concrete
                 return new SingleServiceResult<bool>(true);
             }
             return new SingleServiceResult<bool>(false, new List<string> { "Nie ma takiego użytkownika." });
+        }
+
+        public SingleServiceResult<GuestApiDto> CheckIn(string email)
+        {
+            var guest = _repository.FirstOrDefault(x => x.Email == email);
+
+            if (guest == null)
+            {
+                return new SingleServiceResult<GuestApiDto>(new GuestApiDto
+                {
+                    Status = false,
+                    Error = $"Email: {email} nie występuje na liście uczestników"
+                });
+            }
+
+            if (guest.CheckInDate != null)
+            {
+                return new SingleServiceResult<GuestApiDto>(new GuestApiDto
+                {
+                    Status = false,
+                    Error = $"{guest.FirstName} {guest.LastName} został już zarejestrowany!"
+                });
+            }
+
+            guest.CheckInDate = DateTime.Now;
+            _repository.Edit(guest);
+            _unitOfWork.Commit();
+            return new SingleServiceResult<GuestApiDto>(new GuestApiDto
+            {
+                Status = true,
+                Person = new GuestApiDtoPerson
+                {
+                    CheckInDate = guest.CheckInDate,
+                    Email = guest.Email,
+                    FirstName = guest.FirstName,
+                    Id = guest.Id,
+                    LastName = guest.LastName
+                }
+            });
         }
 
         public SingleServiceResult<bool> CheckOut(int id)

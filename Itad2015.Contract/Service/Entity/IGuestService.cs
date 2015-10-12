@@ -1,5 +1,6 @@
 ﻿using System;
 using Itad2015.Contract.Common;
+using Itad2015.Contract.DTO.Api;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 
@@ -16,6 +17,7 @@ namespace Itad2015.Contract.Service.Entity
         SingleServiceResult<bool> CancelRegistration(int id, string cancelHash);
 
         SingleServiceResult<bool> CheckIn(int id);
+        SingleServiceResult<GuestApiDto> CheckIn(string email);
 
         SingleServiceResult<bool> CheckOut(int id);
     }
