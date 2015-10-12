@@ -62,12 +62,12 @@ namespace Itad2015.Controllers
             {
                 new AlertViewModel
                 {
-                    AlertText = "Tutaj mamy error text sad asd sa das dasd as das dasd as",
+                    AlertText = "Wystąpił błąd podczas potwierdzania rejestracji na konferencję. <br/> Spróbuj ponownie lub skontaktuj się z administratorem strony",
                     AlertClass = "alert-danger"
                 },
                 new AlertViewModel
                 {
-                    AlertText = "Tutaj mamy success text adsasddasdas as das das das das ",
+                    AlertText = "Rejestracja przebiegła pomyślnie. Dziękujemy!",
                     AlertClass = "alert-success"
                 }
             };

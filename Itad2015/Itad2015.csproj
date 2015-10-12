@@ -208,8 +208,12 @@
     <Content Include="Content\images\bag.png" />
     <Content Include="Content\images\gears.gif" />
     <Content Include="Content\images\Logo_ITAD.png" />
+    <Content Include="Content\images\Mail\cancel.png" />
+    <Content Include="Content\images\Mail\cancel_red.png" />
     <Content Include="Content\images\Mail\mailFooter.png" />
     <Content Include="Content\images\Mail\mailHeader.png" />
+    <Content Include="Content\images\Mail\tick.png" />
+    <Content Include="Content\images\Mail\tick_green.png" />
     <Content Include="Content\images\marta_matusiak.png" />
     <Content Include="Content\images\michał dudak.png" />
     <Content Include="Content\images\org\Artur_Loska.png" />
@@ -303,7 +307,6 @@
     <Content Include="Favicon\manifest.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\Guest\Index.cshtml" />
-    <Content Include="Content\files\ofertaSponsorska.pdf" />
     <Content Include="Areas\Admin\Views\Excel\UploadExcelFile.cshtml" />
     <Content Include="Areas\Admin\Views\Excel\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -427,6 +430,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Content\files\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

@@ -559,3 +559,27 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
         margin: auto;
         text-align: center;
     }
+
+    .registerBtn {
+        font-size:24px;
+        color: white;
+    }
+      .registerBtn a{
+        font-size:24px;
+        color: white;
+        text-decoration:none;
+    }
+        .registerBtn a:hover{
+        font-size:24px;
+        color: white;
+    }
+.itad-alert-container {
+    padding: 5px 0 5px 50px;
+}
+.itad-alert.alert-success .itad-alert-container{
+   background: url('images/Mail/tick_green.png') no-repeat left;
+}  
+.itad-alert.alert-danger .itad-alert-container{
+   background: url('images/Mail/cancel_red.png') no-repeat left;
+}  
+  
