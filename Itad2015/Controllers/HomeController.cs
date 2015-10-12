@@ -62,12 +62,12 @@ namespace Itad2015.Controllers
             {
                 new AlertViewModel
                 {
-                    AlertText = "Wystąpił błąd podczas potwierdzania rejestracji na konferencję. <br/> Spróbuj ponownie lub skontaktuj się z administratorem strony",
+                    AlertText = "<img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji. Spróbuj ponownie lub skontaktuj się z administratorem strony</span>",
                     AlertClass = "alert-danger"
                 },
                 new AlertViewModel
                 {
-                    AlertText = "Rejestracja przebiegła pomyślnie. Dziękujemy!",
+                    AlertText = @"<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Dziękujemy!</span>",
                     AlertClass = "alert-success"
                 }
             };
@@ -82,12 +82,15 @@ namespace Itad2015.Controllers
             if (result.Result)
             {
                 alertModel.AlertClass = "alert-success";
-                alertModel.AlertText = "Rejestracja została potwierdzona pomyślnie!";
+                alertModel.AlertText =
+                    @"<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Dziękujemy!</span>";
+
             }
             else
             {
                 alertModel.AlertClass = "alert-danger";
-                alertModel.AlertText = $"Wystąpił błąd: {result.ValidationErrors.FirstOrDefault()}";
+                alertModel.AlertText =
+                    $"< img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji ({result.ValidationErrors.FirstOrDefault()}). Spróbuj ponownie lub skontaktuj się z administratorem strony</span>";
             }
             return Index(new List<AlertViewModel> { alertModel });
         }
@@ -100,12 +103,14 @@ namespace Itad2015.Controllers
             if (result.Result)
             {
                 alertModel.AlertClass = "alert-success";
-                alertModel.AlertText = "Rejestracja została ANULOWANA pomyślnie!";
+                alertModel.AlertText =
+                    @"<img src='~/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja została ANULOWANA pomyślnie!</span>";
             }
             else
             {
                 alertModel.AlertClass = "alert-danger";
-                alertModel.AlertText = $"Wystąpił błąd: {result.ValidationErrors.FirstOrDefault()}";
+                alertModel.AlertText = $"<img src='~/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji ({result.ValidationErrors.FirstOrDefault()}). Spróbuj ponownie lub skontaktuj się z administratorem strony</span>";
+
             }
             return Index(new List<AlertViewModel> { alertModel });
         }

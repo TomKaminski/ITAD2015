@@ -1,20 +1,19 @@
 ﻿@model IEnumerable<Itad2015.ViewModels.Base.AlertViewModel>
 
-@*@{
+@{
     var x = 20;
     foreach (var item in Model)
     {
 
         <div class="alert @item.AlertClass alert-dismissible col-xs-12 itad-alert text-center" role="alert" style="position: fixed; top: @(x+"px"); border-radius:0; opacity: 0.8">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-            <span>@Html.Raw(item.AlertText)</span>
+            @Html.Raw(item.AlertText)
         </div>
-        x += 100;
+        x += 120;
     }
-}*@
+}
 
-    <div class="alert alert-success alert-dismissible col-xs-12 itad-alert text-center" role="alert" style="position: fixed; top: 20px; border-radius:0; opacity: 0.8">
+    @*<div class="alert alert-success alert-dismissible col-xs-12 itad-alert text-center" role="alert" style="position: fixed; top: 20px; border-radius:0; opacity: 0.8">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <img src="~/Content/images/Mail/tick_green.png" />
         <span style="padding-left:20px;">Rejestracja przebiegła pomyślnie. Dziękujemy!</span>
@@ -24,4 +23,4 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <img src="~/Content/images/Mail/cancel_red.png" />
         <span style="padding-left:20px;">Wystąpił błąd podczas procesu rejestracji. Spróbuj ponownie lub skontaktuj się z administratorem strony</span>
-    </div>
+    </div>*@
