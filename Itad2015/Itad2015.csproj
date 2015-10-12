@@ -364,6 +364,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QrController.cs" />
     <Compile Include="Controllers\WorkshopGuestController.cs" />
     <Compile Include="FrontendMappings\BaseFrontendMappings.cs" />
     <Compile Include="FrontendModules\BaseFrontendModule.cs" />
@@ -387,6 +388,7 @@
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexWorkshopGuestModel.cs" />
     <Compile Include="ViewModels\Home\WorkshopDropdownViewModel.cs" />
+    <Compile Include="ViewModels\Qr\QrCheckInViewModel.cs" />
     <Compile Include="ViewModels\RegisterWorkshopGuestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
