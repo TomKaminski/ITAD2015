@@ -58,33 +58,9 @@
     <Compile Include="Concrete\WorkshopGuest.cs" />
     <Compile Include="Enums\Size.cs" />
     <Compile Include="ItadDbContext.cs" />
-    <Compile Include="Migrations\201509261041213_InitialMigration.cs" />
-    <Compile Include="Migrations\201509261041213_InitialMigration.Designer.cs">
-      <DependentUpon>201509261041213_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509271544114_Users.cs" />
-    <Compile Include="Migrations\201509271544114_Users.Designer.cs">
-      <DependentUpon>201509271544114_Users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509281631469_WorkshopDate.cs" />
-    <Compile Include="Migrations\201509281631469_WorkshopDate.Designer.cs">
-      <DependentUpon>201509281631469_WorkshopDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509291705099_workshopguest-workshop.cs" />
-    <Compile Include="Migrations\201509291705099_workshopguest-workshop.Designer.cs">
-      <DependentUpon>201509291705099_workshopguest-workshop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509301807219_WorkshopRoom.cs" />
-    <Compile Include="Migrations\201509301807219_WorkshopRoom.Designer.cs">
-      <DependentUpon>201509301807219_WorkshopRoom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510011318000_size.cs" />
-    <Compile Include="Migrations\201510011318000_size.Designer.cs">
-      <DependentUpon>201510011318000_size.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510011437109_MigracjaKasi.cs" />
-    <Compile Include="Migrations\201510011437109_MigracjaKasi.Designer.cs">
-      <DependentUpon>201510011437109_MigracjaKasi.cs</DependentUpon>
+    <Compile Include="Migrations\201510132010511_InitialMigration.cs" />
+    <Compile Include="Migrations\201510132010511_InitialMigration.Designer.cs">
+      <DependentUpon>201510132010511_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,26 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201509261041213_InitialMigration.resx">
-      <DependentUpon>201509261041213_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509271544114_Users.resx">
-      <DependentUpon>201509271544114_Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509281631469_WorkshopDate.resx">
-      <DependentUpon>201509281631469_WorkshopDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509291705099_workshopguest-workshop.resx">
-      <DependentUpon>201509291705099_workshopguest-workshop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509301807219_WorkshopRoom.resx">
-      <DependentUpon>201509301807219_WorkshopRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510011318000_size.resx">
-      <DependentUpon>201510011318000_size.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510011437109_MigracjaKasi.resx">
-      <DependentUpon>201510011437109_MigracjaKasi.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510132010511_InitialMigration.resx">
+      <DependentUpon>201510132010511_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

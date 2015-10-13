@@ -10,6 +10,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Itad2015.FrontendMappings;
 using Itad2015.FrontendModules;
+using Itad2015.Modules.Infrastructure;
 using Itad2015.Modules.Modules;
 
 namespace Itad2015
@@ -25,8 +26,9 @@ namespace Itad2015
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
             BaseFrontendMappings.Initialize();
+
+            InitializerModule.InitializeDb();
 
             var config = GlobalConfiguration.Configuration;
 

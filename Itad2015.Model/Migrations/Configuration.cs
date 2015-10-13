@@ -1,11 +1,13 @@
-using System;
 using Itad2015.Model.Concrete;
 
 namespace Itad2015.Model.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ItadDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Itad2015.Model.ItadDbContext>
     {
         public Configuration()
         {

@@ -7,6 +7,7 @@ using Itad2015.Models;
 using Itad2015.Modules.Infrastructure;
 using Itad2015.ViewModels;
 using Itad2015.ViewModels.Base;
+using Itad2015.ViewModels.Device;
 using Itad2015.ViewModels.Guest;
 using Itad2015.ViewModels.Home;
 
@@ -42,6 +43,8 @@ namespace Itad2015.FrontendMappings
             Mapper.CreateMap<ExcelFileItem, ExcelListItemViewModel>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap(typeof (SingleServiceResult<>), typeof (BaseReturnViewModel<>));
+
+            Mapper.CreateMap<RegisterDeviceApiModel, ConnectedDevicePostDto>().IgnoreNotExistingProperties();    
         }
     }
 }

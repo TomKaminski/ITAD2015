@@ -25,7 +25,6 @@ namespace Itad2015.Model
         public virtual IDbSet<User> User { get; set; } 
 
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -40,7 +39,7 @@ namespace Itad2015.Model
             base.OnModelCreating(modelBuilder);
         }
 
-        class ItadDbInitializer : DropCreateDatabaseIfModelChanges<ItadDbContext>
+        public class ItadDbInitializer : CreateDatabaseIfNotExists<ItadDbContext>
         {
             protected override void Seed(ItadDbContext context)
             {

@@ -362,6 +362,7 @@
     <Compile Include="Areas\Admin\ViewModels\ExcelViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopViewModels.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DeviceController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QrController.cs" />
@@ -379,6 +380,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Base\AlertViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseReturnViewModel.cs" />
+    <Compile Include="ViewModels\Device\RegisterDeviceApiModel.cs" />
     <Compile Include="ViewModels\Email\EmailCommon.cs" />
     <Compile Include="ViewModels\Email\GuestInviteEmail.cs" />
     <Compile Include="ViewModels\Email\WorkshopGuestRegisterEmail.cs" />

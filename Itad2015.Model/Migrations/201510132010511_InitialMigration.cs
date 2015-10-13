@@ -15,21 +15,34 @@ namespace Itad2015.Model.Migrations
                         Email = c.String(),
                         FirstName = c.String(),
                         LastName = c.String(),
-                        SchoolName = c.String(),
                         CheckInDate = c.DateTime(),
+                        Size = c.Int(nullable: false),
+                        Info = c.String(),
                         ConfirmationHash = c.String(),
                         CancelationHash = c.String(),
                         RegistrationTime = c.DateTime(nullable: false),
                         ConfirmationTime = c.DateTime(),
                         Cancelled = c.Boolean(nullable: false),
-                        WorkshopId = c.Int(),
                         WorkshopGuestId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Workshop", t => t.WorkshopId)
                 .ForeignKey("dbo.WorkshopGuest", t => t.WorkshopGuestId)
-                .Index(t => t.WorkshopId)
                 .Index(t => t.WorkshopGuestId);
+            
+            CreateTable(
+                "dbo.WorkshopGuest",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        SchoolName = c.String(),
+                        GuestId = c.Int(nullable: false),
+                        WorkshopId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Guest", t => t.GuestId, cascadeDelete: true)
+                .ForeignKey("dbo.Workshop", t => t.WorkshopId, cascadeDelete: true)
+                .Index(t => t.GuestId)
+                .Index(t => t.WorkshopId);
             
             CreateTable(
                 "dbo.Workshop",
@@ -39,28 +52,12 @@ namespace Itad2015.Model.Migrations
                         Title = c.String(),
                         MaxParticipants = c.Int(nullable: false),
                         TutorName = c.String(),
-                        StartDate = c.DateTime(nullable: false),
-                        EndDate = c.DateTime(nullable: false),
+                        Date = c.DateTime(nullable: false),
                         Description = c.String(),
                         ImgPath = c.String(),
+                        Room = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.WorkshopGuest",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ConfirmationHash = c.String(),
-                        CancelationHash = c.String(),
-                        RegistrationTime = c.DateTime(nullable: false),
-                        ConfirmationTime = c.DateTime(),
-                        Cancelled = c.Boolean(nullable: false),
-                        GuestId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Guest", t => t.GuestId, cascadeDelete: true)
-                .Index(t => t.GuestId);
             
             CreateTable(
                 "dbo.Prize",
@@ -72,19 +69,32 @@ namespace Itad2015.Model.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.User",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Email = c.String(),
+                        PasswordHash = c.String(),
+                        PasswordSalt = c.String(),
+                        SuperAdmin = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Guest", "WorkshopGuestId", "dbo.WorkshopGuest");
+            DropForeignKey("dbo.WorkshopGuest", "WorkshopId", "dbo.Workshop");
             DropForeignKey("dbo.WorkshopGuest", "GuestId", "dbo.Guest");
-            DropForeignKey("dbo.Guest", "WorkshopId", "dbo.Workshop");
+            DropIndex("dbo.WorkshopGuest", new[] { "WorkshopId" });
             DropIndex("dbo.WorkshopGuest", new[] { "GuestId" });
             DropIndex("dbo.Guest", new[] { "WorkshopGuestId" });
-            DropIndex("dbo.Guest", new[] { "WorkshopId" });
+            DropTable("dbo.User");
             DropTable("dbo.Prize");
-            DropTable("dbo.WorkshopGuest");
             DropTable("dbo.Workshop");
+            DropTable("dbo.WorkshopGuest");
             DropTable("dbo.Guest");
         }
     }
