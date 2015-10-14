@@ -374,6 +374,7 @@
     </Compile>
     <Compile Include="Helpers\Email\EmailHelper.cs" />
     <Compile Include="Helpers\Email\IEmailHelper.cs" />
+    <Compile Include="Hubs\CheckInHub.cs" />
     <Compile Include="Hubs\ExcelHub.cs" />
     <Compile Include="Hubs\GuestHub.cs" />
     <Compile Include="Models\AppUserState.cs" />
