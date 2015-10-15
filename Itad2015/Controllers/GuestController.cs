@@ -44,7 +44,7 @@ namespace Itad2015.Controllers
 
             if (!res.ValidationErrors.Any())
             {
-                new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "itadbb2015@gmail.com", "Rejestracja na konferencję.")
+                new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
                 {
                     LastName = res.Result.LastName,
                     FirstName = res.Result.FirstName,

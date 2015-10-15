@@ -76,7 +76,7 @@ namespace Itad2015.Areas.Admin.Controllers
 
             foreach (var d in data)
             {
-                await new EmailHelper<GuestInviteEmail>(new GuestInviteEmail(d.Email, "itadbb2015@gmail.com",
+                await new EmailHelper<GuestInviteEmail>(new GuestInviteEmail(d.Email, "reset@ath.bielsko.pl",
                     "Zaproszenie na konferencję ITAD 2015.")
                 {
                     LastName = d.LastName,

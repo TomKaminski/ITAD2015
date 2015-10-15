@@ -48,7 +48,7 @@ namespace Itad2015.Controllers
                 var user = res.FirstResult;
                 var workshop = res.SecondResult;
 
-                new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "itadbb2015@gmail.com", "Rejestracja na konferencję.")
+                new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
                 {
                     LastName = user.LastName,
                     FirstName = user.FirstName,

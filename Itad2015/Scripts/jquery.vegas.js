@@ -8,7 +8,7 @@
         preload:            false,
         preloadImage:       false,
         preloadVideo:       false,
-        timer:              true,
+        timer:              false,
         overlay:            false,
         autoplay:           true,
         shuffle:            false,
