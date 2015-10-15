@@ -212,6 +212,7 @@
     <Content Include="Content\images\Mail\cancel_red.png" />
     <Content Include="Content\images\Mail\mailFooter.png" />
     <Content Include="Content\images\Mail\mailHeader.png" />
+    <Content Include="Content\images\Mail\register.png" />
     <Content Include="Content\images\Mail\tick.png" />
     <Content Include="Content\images\Mail\tick_green.png" />
     <Content Include="Content\images\marta_matusiak.png" />
