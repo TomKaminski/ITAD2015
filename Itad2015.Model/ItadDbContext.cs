@@ -22,7 +22,9 @@ namespace Itad2015.Model
 
         public virtual IDbSet<Workshop> Workshop { get; set; }
 
-        public virtual IDbSet<User> User { get; set; } 
+        public virtual IDbSet<User> User { get; set; }
+        public virtual IDbSet<InvitedPerson> InvitedPerson { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

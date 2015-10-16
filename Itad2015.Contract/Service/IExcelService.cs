@@ -9,5 +9,6 @@ namespace Itad2015.Contract.Service
         void SaveFile(byte[] file, string path);
         void DeleteFile(string path);
         IEnumerable<ExcelFileItem> GetEmailData(ExcelPostFileDto fileOptions);
+        byte[] GetShirtsFile(List<GuestShirtGetDto> notOrderedShirts);
     }
 }

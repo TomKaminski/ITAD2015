@@ -29,12 +29,14 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<WorkshopGetDto, WorkshopDropdownViewModel>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap<GuestGetDto, AdminGuestViewModel>().AfterMap((src, dest) =>
-            {
-                dest.IsCheckIn = src.CheckInDate != null;
-            });
+            Mapper.CreateMap<GuestGetDto, AdminGuestViewModel>()
+                .ForMember(x => x.Size, opt => opt.MapFrom(m => m.Size.ToString()))
+                .AfterMap((src, dest) =>
+                   {
+                       dest.IsCheckIn = src.CheckInDate != null;
+                   });
 
-            Mapper.CreateMap<ExcelPostViewModel,ExcelPostFileDto>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<ExcelPostViewModel, ExcelPostFileDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<ExcelPostViewModel, ExcelGetDataViewModel>().IgnoreNotExistingProperties();
             Mapper.CreateMap<ExcelGetDataViewModel, ExcelPostFileDto>().IgnoreNotExistingProperties();
 
@@ -42,9 +44,13 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<ExcelFileItem, ExcelListItemViewModel>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap(typeof (SingleServiceResult<>), typeof (BaseReturnViewModel<>));
+            Mapper.CreateMap(typeof(SingleServiceResult<>), typeof(BaseReturnViewModel<>));
 
-            Mapper.CreateMap<RegisterDeviceApiModel, ConnectedDevicePostDto>().IgnoreNotExistingProperties();    
+            Mapper.CreateMap<RegisterDeviceApiModel, ConnectedDevicePostDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<GuestGetDto,GuestShirtGetDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<ExcelListItemViewModel, InvitedPersonPostDto>().IgnoreNotExistingProperties();
         }
     }
 }

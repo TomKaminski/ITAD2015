@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using Itad2015.Contract.Common;
 using Itad2015.Contract.DTO.Api;
+using Itad2015.Contract.DTO.Base;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
@@ -137,7 +138,8 @@ namespace Itad2015.Service.Concrete
                     Email = guest.Email,
                     FirstName = guest.FirstName,
                     Id = guest.Id,
-                    LastName = guest.LastName
+                    LastName = guest.LastName,
+                    Size = (Size)Enum.Parse(typeof(Size),guest.Size.ToString())
                 }
             });
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Itad2015.Contract.Common;
@@ -13,7 +14,11 @@ namespace Itad2015.Contract.Service.Entity
         void Delete(int id);
         SingleServiceResult<TGetDto> Get(int id);
         void Edit(TPostDto entity);
+
+        void EditMany(IEnumerable<TPostDto> objs);
+
         SingleServiceResult<TGetDto> Create(TPostDto entity);
+        void CreateMany(IEnumerable<TPostDto> entities);
         MultipleServiceResult<TGetDto> GetAll();
         MultipleServiceResult<TGetDto> GetAll(Expression<Func<TGetDto, bool>> predicate);
 

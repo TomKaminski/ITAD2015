@@ -6,14 +6,18 @@ namespace Itad2015.Areas.Admin.ViewModels
     public class ExcelPostViewModel
     {
         [Required]
+        [Display(Name = "Nr arkusza")]
         public int WorkSheetNumber { get; set; }
         [Required]
+        [Display(Name = "Nr kolumny z emailem")]
         public int EmailPosition { get; set; }
         [Required]
+        [Display(Name = "Nr kolumny z imieniem")]
         public int NamePosition { get; set; }
         [Required]
+        [Display(Name = "Nr kolumny z nazwiskiem")]
         public int LastNamePosition { get; set; }
-
+        [Display(Name = "Posiada nagłówek")]
         public bool HasHeader { get; set; }
         [DataType(DataType.Upload)]
         [Required]
@@ -24,8 +28,11 @@ namespace Itad2015.Areas.Admin.ViewModels
     {
 
         public int WorkSheetNumber { get; set; }
+
         public int EmailPosition { get; set; }
+
         public int NamePosition { get; set; }
+
         public int LastNamePosition { get; set; }
         public string FileName { get; set; }
         public bool HasHeader { get; set; }

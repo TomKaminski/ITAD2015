@@ -356,6 +356,7 @@
     <Compile Include="Areas\Admin\Controllers\ExcelController.cs" />
     <Compile Include="Areas\Admin\Controllers\GuestController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ShirtsController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkshopController.cs" />
     <Compile Include="Areas\Admin\Helpers\HttpPostedFileBaseToByteConverter.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminGuestViewModels.cs" />
@@ -376,6 +377,7 @@
     <Compile Include="Helpers\Email\EmailHelper.cs" />
     <Compile Include="Helpers\Email\IEmailHelper.cs" />
     <Compile Include="Hubs\CheckInHub.cs" />
+    <Compile Include="Hubs\ConnectionMappings\CheckInHubConnectionMapping.cs" />
     <Compile Include="Hubs\ExcelHub.cs" />
     <Compile Include="Hubs\GuestHub.cs" />
     <Compile Include="Models\AppUserState.cs" />

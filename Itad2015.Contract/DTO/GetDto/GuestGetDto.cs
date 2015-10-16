@@ -18,5 +18,16 @@ namespace Itad2015.Contract.DTO.GetDto
         public string ConfirmationHash { get; set; }
         public string CancelationHash { get; set; }
         public string Info { get; set; }
+        public bool ShirtOrdered { get; set; }
+        public bool QrEmailSent { get; set; }
+    }
+
+
+    public class GuestShirtGetDto
+    {
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Size Size { get; set; }
     }
 }

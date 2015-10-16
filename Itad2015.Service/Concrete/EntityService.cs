@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -47,6 +48,28 @@ namespace Itad2015.Service.Concrete
             if (obj == null) return;
             obj = MapperHelper<TPostDto, TEntity>.MapNoIdToEntityOnEdit(entity, obj);
             _repository.Edit(obj);
+            _unitOfWork.Commit();
+        }
+
+        public virtual void EditMany(IEnumerable<TPostDto> objs)
+        {
+            var entities = _repository.GetAll(x => objs.Select(k => k.Id).Contains(x.Id)).ToList();
+
+            foreach (var t in objs)
+            {
+                var entity = entities.Single(x => x.Id == t.Id);
+                entity = MapperHelper<TPostDto, TEntity>.MapNoIdToEntityOnEdit(t, entity);
+                _repository.Edit(entity);
+            }
+            _unitOfWork.Commit();
+        }
+
+        public virtual void CreateMany(IEnumerable<TPostDto> entities)
+        {
+            foreach (var entity in entities)
+            {
+                _repository.AddPure(Mapper.Map<TEntity>(entity));
+            }
             _unitOfWork.Commit();
         }
 

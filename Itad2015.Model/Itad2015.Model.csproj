@@ -52,6 +52,7 @@
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\IEntity.cs" />
     <Compile Include="Concrete\Guest.cs" />
+    <Compile Include="Concrete\InvitedPerson.cs" />
     <Compile Include="Concrete\Prize.cs" />
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Concrete\Workshop.cs" />
@@ -61,6 +62,22 @@
     <Compile Include="Migrations\201510132010511_InitialMigration.cs" />
     <Compile Include="Migrations\201510132010511_InitialMigration.Designer.cs">
       <DependentUpon>201510132010511_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510151718021_ShirtOrdered.cs" />
+    <Compile Include="Migrations\201510151718021_ShirtOrdered.Designer.cs">
+      <DependentUpon>201510151718021_ShirtOrdered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510161555159_QrEmailSent.cs" />
+    <Compile Include="Migrations\201510161555159_QrEmailSent.Designer.cs">
+      <DependentUpon>201510161555159_QrEmailSent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510161825026_InvitedPerson.cs" />
+    <Compile Include="Migrations\201510161825026_InvitedPerson.Designer.cs">
+      <DependentUpon>201510161825026_InvitedPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510161941165_InvitedPerson2.cs" />
+    <Compile Include="Migrations\201510161941165_InvitedPerson2.Designer.cs">
+      <DependentUpon>201510161941165_InvitedPerson2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +89,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510132010511_InitialMigration.resx">
       <DependentUpon>201510132010511_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510151718021_ShirtOrdered.resx">
+      <DependentUpon>201510151718021_ShirtOrdered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510161555159_QrEmailSent.resx">
+      <DependentUpon>201510161555159_QrEmailSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510161825026_InvitedPerson.resx">
+      <DependentUpon>201510161825026_InvitedPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510161941165_InvitedPerson2.resx">
+      <DependentUpon>201510161941165_InvitedPerson2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

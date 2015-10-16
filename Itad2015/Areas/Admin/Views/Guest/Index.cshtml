@@ -11,7 +11,7 @@
             <label class="control-label col-md-1">Rozmiar strony:</label>
             <input type="text" class="form-control col-md-3" ng-model="ctrl.pageSize" ng-change="ctrl.setPageSize(ctrl.pageSize)" />
         </div>
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th>
                     Imię
@@ -21,6 +21,9 @@
                 </th>
                 <th>
                     Email
+                </th>
+                <th>
+                    Rozmiar koszulki
                 </th>
                 <th></th>
             </tr>
@@ -33,6 +36,9 @@
                 </td>
                 <td>
                     <div>{{item.Email}}</div>
+                </td>
+                <td>
+                    <div>{{item.Size}}</div>
                 </td>
                 <td>
                     <div ng-if="item.IsCheckIn == true">

@@ -53,6 +53,7 @@
     <Compile Include="Common\IGenericRepository.cs" />
     <Compile Include="Common\IUnitOfWork.cs" />
     <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="Concrete\InvitedPersonRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Concrete\GuestRepository.cs" />
     <Compile Include="Concrete\PrizeRepository.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Concrete\WorkshopGuestRepository.cs" />
     <Compile Include="EfDatabaseFactory.cs" />
     <Compile Include="IDatabaseFactory.cs" />
+    <Compile Include="Interfaces\IInvitedPersonRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IWorkshopRepository.cs" />
     <Compile Include="Interfaces\IWorkshopGuestRepository.cs" />

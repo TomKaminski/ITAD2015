@@ -9,8 +9,11 @@ namespace Itad2015.Repository.Common
     public interface IGenericRepository<T>
     {
         T Add(T entity);
+        void AddPure(T entity);
         void Delete(T entity);
         void Edit(T entity);
+
+        void EditMany(IEnumerable<T> entities);
 
         //Sync
         IQueryable<T> GetAll();

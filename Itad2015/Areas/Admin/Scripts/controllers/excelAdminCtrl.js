@@ -29,6 +29,9 @@
                 FileName: vm.fileName, HasHeader: vm.hasHeader
             }).then(function (result) {
                 vm.data = result.data;
+                angular.forEach(vm.data, function (item) {
+                    vm.sentEmailCount += item.EmailSent ? 1 : 0;
+                });
             }, function (errorData) {
                 console.log(errorData.message);
             });

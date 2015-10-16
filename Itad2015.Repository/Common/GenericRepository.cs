@@ -28,6 +28,11 @@ namespace Itad2015.Repository.Common
             return entity;
         }
 
+        public void AddPure(T entity)
+        {
+            Dbset.Add(entity);
+        }
+
         public void Delete(T entity)
         {
             Dbset.Attach(entity);
@@ -37,6 +42,14 @@ namespace Itad2015.Repository.Common
         public void Edit(T entity)
         {
             _entities.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void EditMany(IEnumerable<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                _entities.Entry(entity).State = EntityState.Modified;
+            }
         }
 
 

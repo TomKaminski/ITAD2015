@@ -34,8 +34,13 @@
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Excel">
-      <HintPath>..\..\..\..\..\Desktop\Excel.dll</HintPath>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalDLL\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalDLL\Excel.dll</HintPath>
     </Reference>
     <Reference Include="ImageResizer, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
@@ -87,6 +92,7 @@
     <Compile Include="Concrete\EntityService.cs" />
     <Compile Include="Concrete\ExcelService.cs" />
     <Compile Include="Concrete\ImageProcessorService.cs" />
+    <Compile Include="Concrete\InvitedPersonService.cs" />
     <Compile Include="Concrete\UserService.cs" />
     <Compile Include="Concrete\GuestService.cs" />
     <Compile Include="Concrete\PrizeService.cs" />
@@ -122,6 +128,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ExternalDLL\EPPlus.dll" />
     <Content Include="ExternalDLL\Excel.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

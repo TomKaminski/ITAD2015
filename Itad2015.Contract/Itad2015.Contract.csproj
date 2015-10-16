@@ -48,6 +48,7 @@
     <Compile Include="DTO\Base\Size.cs" />
     <Compile Include="DTO\GetDto\ExcelFileItem.cs" />
     <Compile Include="DTO\GetDto\ConnectedDeviceGetDto.cs" />
+    <Compile Include="DTO\GetDto\InvitedPersonGetDto.cs" />
     <Compile Include="DTO\GetDto\UserGetDto.cs" />
     <Compile Include="DTO\GetDto\GuestGetDto.cs" />
     <Compile Include="DTO\GetDto\PrizeGetDto.cs" />
@@ -56,12 +57,14 @@
     <Compile Include="DTO\PostDto\ConnectedDevicePostDto.cs" />
     <Compile Include="DTO\PostDto\ExcelPostFileDto.cs" />
     <Compile Include="DTO\PostDto\GuestPostDto.cs" />
+    <Compile Include="DTO\PostDto\InvitedPersonPostDto.cs" />
     <Compile Include="DTO\PostDto\PrizePostDto.cs" />
     <Compile Include="DTO\PostDto\UserPostDto.cs" />
     <Compile Include="DTO\PostDto\WorkshopGuestPostDto.cs" />
     <Compile Include="DTO\PostDto\WorkshopPostDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Entity\IEntityService.cs" />
+    <Compile Include="Service\Entity\IInvitedPersonService.cs" />
     <Compile Include="Service\Entity\IUserService.cs" />
     <Compile Include="Service\Entity\IGuestService.cs" />
     <Compile Include="Service\Entity\IPrizeService.cs" />

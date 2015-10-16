@@ -14,6 +14,7 @@ namespace Itad2015.Modules.Modules
             builder.RegisterType<WorkshopGuestRepository>().As<IWorkshopGuestRepository>();
             builder.RegisterType<PrizeRepository>().As<IPrizeRepository>();
             builder.RegisterType<UserRepository>().As<IUserRepository>();
+            builder.RegisterType<InvitedPersonRepository>().As<IInvitedPersonRepository>();
         }
     }
 }
