@@ -22,6 +22,10 @@
             vm.guests = {};
             vm.guestsList = {};
 
+            vm.connectedToDevice = true;
+            vm.deviceBlocked = false;
+
+
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
                     guestFilterService.setGuestsData(result.data);
@@ -79,6 +83,14 @@
 
             vm.guestsList = guestFilterService.getFilteredItems(vm.showCheckedIn, vm.searchText, vm.pageSize, vm.currentPage);
             vm.tableOfPages = guestFilterService.getPages();
+        }
+
+        vm.blockDevice = function() {
+            vm.deviceBlocked = true;
+        }
+
+        vm.unblockDevice = function () {
+            vm.deviceBlocked = false;
         }
     }
 

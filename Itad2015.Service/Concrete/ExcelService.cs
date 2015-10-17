@@ -64,23 +64,27 @@ namespace Itad2015.Service.Concrete
                 //Create the worksheet
                 var ws = pck.Workbook.Worksheets.Add($"NotOrderedShirts-{DateTime.Today.ToShortDateString()}");
 
-                var properties = notOrderedShirts.First().GetType().GetProperties();
-
-                for (var i = 0; i < properties.Length; i++)
+                if (notOrderedShirts.Count > 0)
                 {
-                    ws.Cells[1, i + 1].Value = properties[i].Name;
-                }
+                    var properties = notOrderedShirts.First().GetType().GetProperties();
 
-                ws.Row(1).Style.Font.Bold = true;
-
-                for (var j = 0; j < notOrderedShirts.Count; j++)
-                {
-                    var item = notOrderedShirts[j];
                     for (var i = 0; i < properties.Length; i++)
                     {
-                        ws.Cells[j+2, i+1].Value = item.GetType().GetProperty(properties[i].Name).GetValue(item);
+                        ws.Cells[1, i + 1].Value = properties[i].Name;
+                    }
+
+                    ws.Row(1).Style.Font.Bold = true;
+
+                    for (var j = 0; j < notOrderedShirts.Count; j++)
+                    {
+                        var item = notOrderedShirts[j];
+                        for (var i = 0; i < properties.Length; i++)
+                        {
+                            ws.Cells[j + 2, i + 1].Value = item.GetType().GetProperty(properties[i].Name).GetValue(item);
+                        }
                     }
                 }
+               
 
                 return pck.GetAsByteArray();
             }

@@ -9,4 +9,13 @@
         public int Id { get; set; }
         public string Size { get; set; }
     }
+
+    public class AdminGuestShirtViewModel
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Id { get; set; }
+        public string Size { get; set; }
+        public bool ShirtOrdered { get; set; }
+    }
 }

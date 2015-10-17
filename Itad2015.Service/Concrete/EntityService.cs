@@ -51,9 +51,10 @@ namespace Itad2015.Service.Concrete
             _unitOfWork.Commit();
         }
 
-        public virtual void EditMany(IEnumerable<TPostDto> objs)
+        public virtual void EditMany(IList<TPostDto> objs)
         {
-            var entities = _repository.GetAll(x => objs.Select(k => k.Id).Contains(x.Id)).ToList();
+            var ids = objs.Select(k => k.Id).ToList();
+            var entities = _repository.GetAll(x => ids.Contains(x.Id)).ToList();
 
             foreach (var t in objs)
             {

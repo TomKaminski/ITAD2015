@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "ImportShirts";
+}
+
+<style>
+    .color-green {
+        color: #3c763d;
+    }
+</style>
+
+<div ng-app="importShirtsApp">
+    <div ng-controller="importShirtsCtrl as ctrl" ng-init="ctrl.init()">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="form-group" style="padding: 25px 10px">
+                    <div class="row" style="margin-bottom: 5px">
+                        <label class="control-label col-md-4">Wyszukaj:</label>
+                        <input type="text" class="form-control col-md-10" ng-model="ctrl.searchText" ng-change="ctrl.filterList() "/>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-4">Rozmiar strony:</label>
+                        <input type="text" class="form-control col-md-8" ng-model="ctrl.pageSize" ng-change="ctrl.setPageSize(ctrl.pageSize)"/>
+                    </div>
+                    <div class="checkbox col-md-8 col-md-offset-4">
+                        <label>
+                            <input type="checkbox" ng-model="ctrl.showAll" ng-change="ctrl.filterList()"> Pokazuj wszystkich
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="row" style="margin-top: 30px">
+                    <a href="@Url.Action("GetNotOrderedShirts", "Excel")" class="btn btn-default col-xs-12">Kopiuj do arkusza Excel i <br/>oznacz jako zamówione</a>
+                    <button class="btn btn-success col-xs-12" ng-click="ctrl.init()" style="margin-top: 5px">Odśwież listę</button>
+
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Imię
+                </th>
+                <th>
+                    Nazwisko
+                </th>
+                <th>
+                    Rozmiar koszulki
+                </th>
+                <th>Zamówiona?</th>
+            </tr>
+            <tr ng-repeat="item in ctrl.guestsList" ng-class="{'color-green': item.ShirtOrdered==true}">
+                <td>
+                    <div>{{item.FirstName}}</div>
+                </td>
+                <td>
+                    <div>{{item.LastName}}</div>
+                </td>
+                <td>
+                    <div>{{item.Size}}</div>
+                </td>
+                <td>
+                    <span ng-show="item.ShirtOrdered==true">Tak &#10004;</span>
+                    <span ng-show="item.ShirtOrdered==false">Nie &#10006;</span>
+
+                </td>
+            </tr>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous" ng-click="ctrl.setPage(ctrl.currentPage-1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li ng-repeat="page in ctrl.tableOfPages" ng-class="{active: ctrl.currentPage==page}">
+                    <a href="#" ng-click="ctrl.setPage($index+1)">{{page}}</a>
+                </li>
+
+                <li>
+                    <a href="#" aria-label="Next" ng-click="ctrl.setPage(ctrl.currentPage+1)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Areas/Admin/Scripts/importShirtsApp.js"></script>
+    <script src="~/Areas/Admin/Scripts/controllers/importShirtsCtrl.js"></script>
+}
+
+
+
+

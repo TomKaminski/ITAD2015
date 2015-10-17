@@ -192,11 +192,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\controllers\excelAdminCtrl.js" />
+    <Content Include="Areas\Admin\Scripts\controllers\importShirtsCtrl.js" />
     <Content Include="Areas\Admin\Scripts\excelAdminApp.js" />
     <Content Include="Areas\Admin\Scripts\filters\getByEmailFilter.js" />
     <Content Include="Areas\Admin\Scripts\filters\getByIdFilter.js" />
     <Content Include="Areas\Admin\Scripts\controllers\guestAdminCtrl.js" />
     <Content Include="Areas\Admin\Scripts\guestAdminApp.js" />
+    <Content Include="Areas\Admin\Scripts\importShirtsApp.js" />
     <Content Include="Areas\Admin\Scripts\services\guestFilterService.js" />
     <Content Include="Areas\Admin\Scripts\services\hubProxyService.js" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -310,6 +312,7 @@
     <Content Include="Areas\Admin\Views\Guest\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Excel\UploadExcelFile.cshtml" />
     <Content Include="Areas\Admin\Views\Excel\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Excel\ImportShirts.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

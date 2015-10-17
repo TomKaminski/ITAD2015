@@ -4,16 +4,20 @@
     ViewBag.Title = "UploadExcelFile";
 }
 <style>
-    .bg-green {
-        background-color: #3c763d;
+    .color-green {
+        color: #3c763d;
     }
 </style>
 
 <div ng-app="excelAdminApp">
     <div ng-controller="excelAdminCtrl as ctrl" ng-init="ctrl.init('@Model.WorkSheetNumber','@Model.EmailPosition','@Model.NamePosition','@Model.LastNamePosition','@Model.FileName','@Model.HasHeader.ToString()')">
-        <h3 class="text-center">{{ctrl.sentEmailCount}}/{{ctrl.data.length}}</h3>
-        <button class="btn btn-success" ng-class="{'disabled':ctrl.sendBtnClicked==true}" ng-click="ctrl.inviteAll()">Wyślij emaile do wszystkich</button>
-        <table class="table">
+        <h3 class="text-center">Wysłane z listy: {{ctrl.sentEmailCount}}/{{ctrl.data.length}}</h3>
+
+        <div class="col-xs-4 col-xs-offset-4" style="margin-bottom: 20px">
+            <button class="btn btn-success col-xs-12" ng-class="{'disabled':(ctrl.sendBtnClicked==true || ctrl.sentEmailCount==ctrl.data.length)}" ng-click="ctrl.inviteAll()">Wyślij emaile do wszystkich</button>
+        </div>
+
+        <table class="table table-striped">
             <tr>
                 <th>
                     Imię
@@ -24,8 +28,9 @@
                 <th>
                     Email
                 </th>
+                <th>Wysłane</th>
             </tr>
-            <tr ng-repeat="item in ctrl.data" ng-class="{'bg-green': item.EmailSent==true}">
+            <tr ng-repeat="item in ctrl.data" ng-class="{'color-green':item.EmailSent==true}">
                 <td>
                     <div>{{item.Name}}</div>
                 </td>
@@ -35,9 +40,11 @@
                 <td>
                     <div>{{item.Email}}</div>
                 </td>
+                <td>
+                    <span ng-show="item.EmailSent==true">&#10004;</span>
+                </td>
             </tr>
         </table>
-
     </div>
 </div>
 

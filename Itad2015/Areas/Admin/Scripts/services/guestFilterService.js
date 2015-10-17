@@ -22,7 +22,7 @@
             var filteredGuests = !showCheckedIn ? $filter('filter')(guestsData, { IsCheckIn: false }) : guestsData;
 
             if (searchText !== "") {
-                filteredGuests = $filter('filter')(guestsData, searchText);
+                filteredGuests = $filter('filter')(filteredGuests, searchText);
             }
 
             tableOfPages = [];

@@ -38,19 +38,19 @@
         }
 
         vm.inviteAll = function () {
-            debugger;
-            vm.sendBtnClicked = true;
-            $http.post("/Admin/Excel/SendInvites", {
-                WorkSheetNumber: vm.workSheetNumber, EmailPosition: vm.emailPosition,
-                NamePosition: vm.namePosition, LastNamePosition: vm.lastNamePosition,
-                FileName: vm.fileName, HasHeader: vm.hasHeader, ConnectionId: excelHubProxy.connection.id
-            }).then(function (result) {
-                console.log(result);
-            }, function (errorData) {
-                console.log(errorData);
-            });
+            if (vm.sentEmailCount < vm.data.length) {
+                vm.sendBtnClicked = true;
+                $http.post("/Admin/Excel/SendInvites", {
+                    WorkSheetNumber: vm.workSheetNumber, EmailPosition: vm.emailPosition,
+                    NamePosition: vm.namePosition, LastNamePosition: vm.lastNamePosition,
+                    FileName: vm.fileName, HasHeader: vm.hasHeader, ConnectionId: excelHubProxy.connection.id
+                }).then(function (result) {
+                    console.log(result);
+                }, function (errorData) {
+                    console.log(errorData);
+                });
+            }
         }
-
     }
 
     angular.module('excelAdminApp')

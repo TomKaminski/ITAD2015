@@ -9,30 +9,31 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ExcelPostViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <br/>
+        <h4>Wypełnij formularz i załaduj plik excel (.xlsx)</h4>
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
         <div class="form-group">
-            @Html.LabelFor(model => model.WorkSheetNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.WorkSheetNumber, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.WorkSheetNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.WorkSheetNumber, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.WorkSheetNumber, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.WorkSheetNumber, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmailPosition, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmailPosition, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailPosition, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmailPosition, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.EmailPosition, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.EmailPosition, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NamePosition, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NamePosition, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NamePosition, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NamePosition, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NamePosition, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.NamePosition, "", new {@class = "text-danger"})
             </div>
         </div>
 
@@ -45,24 +46,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HasHeader, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HasHeader, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HasHeader, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HasHeader, "", new { @class = "text-danger" })
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.HasHeader)
+                    @Html.ValidationMessageFor(model => model.HasHeader, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.File, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.File, new { type = "file" })
-                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.File, new {type = "file"})
+                @Html.ValidationMessageFor(model => model.File, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default"/>
             </div>
         </div>
     </div>
