@@ -2,7 +2,7 @@
 
 namespace Itad2015.Hubs
 {
-    public class QrHub:Hub
+    public class ExcelHub:Hub
     {
         public void NotifyEmailSent(string userId, string email)
         {

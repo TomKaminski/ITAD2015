@@ -316,6 +316,7 @@
     <Content Include="Areas\Admin\Views\Guest\SendQr.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_PaginationPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Guest\QrTicket.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -368,6 +369,7 @@
     <Compile Include="Areas\Admin\ViewModels\AdminGuestViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExcelViewModels.cs" />
+    <Compile Include="Areas\Admin\ViewModels\PdfViewModels\QrTicketViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopViewModels.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
@@ -384,6 +386,7 @@
     <Compile Include="Helpers\Email\IEmailHelper.cs" />
     <Compile Include="Hubs\CheckInHub.cs" />
     <Compile Include="Hubs\ConnectionMappings\CheckInHubConnectionMapping.cs" />
+    <Compile Include="Hubs\QrHub.cs" />
     <Compile Include="Hubs\ExcelHub.cs" />
     <Compile Include="Hubs\GuestHub.cs" />
     <Compile Include="Models\AppUserState.cs" />

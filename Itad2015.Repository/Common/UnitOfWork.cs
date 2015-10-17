@@ -29,12 +29,18 @@ namespace Itad2015.Repository.Common
         public int Commit()
         {
             // Save changes with the default options
-            return _dbContext.SaveChanges();
+            _dbContext.Configuration.ValidateOnSaveEnabled = false;
+            var savedEntities = _dbContext.SaveChanges();
+            _dbContext.Configuration.ValidateOnSaveEnabled = true;
+            return savedEntities;
         }
 
         public async Task<int> CommitAsync()
         {
-            return await _dbContext.SaveChangesAsync();
+            _dbContext.Configuration.ValidateOnSaveEnabled = false;
+            var savedEntities = await _dbContext.SaveChangesAsync();
+            _dbContext.Configuration.ValidateOnSaveEnabled = true;
+            return savedEntities;
         }
 
         /// <summary>

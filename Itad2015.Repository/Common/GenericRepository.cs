@@ -24,7 +24,9 @@ namespace Itad2015.Repository.Common
         public T Add(T entity)
         {
             Dbset.Add(entity);
+            _entities.Configuration.ValidateOnSaveEnabled = false;
             _unitOfWork.Commit();
+            _entities.Configuration.ValidateOnSaveEnabled = true;
             return entity;
         }
 

@@ -103,7 +103,6 @@
     <Compile Include="Helpers\HashGenerator.cs" />
     <Compile Include="Helpers\Interfaces\IHashGeneratorcs.cs" />
     <Compile Include="Helpers\Interfaces\IPasswordHasher.cs" />
-    <Compile Include="Helpers\Interfaces\IQrCodeGenerator.cs" />
     <Compile Include="Helpers\MapperHelper.cs" />
     <Compile Include="Concrete\PdfService.cs" />
     <Compile Include="Helpers\PasswordHasher.cs" />

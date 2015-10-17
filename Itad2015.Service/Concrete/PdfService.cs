@@ -17,7 +17,7 @@ namespace Itad2015.Service.Concrete
 {
     public class PdfService : IPdfService
     {
-        private DefaultTagProcessorFactory InitializeTagProcessor()
+        private static DefaultTagProcessorFactory InitializeTagProcessor()
         {
             var tagProcessors = (DefaultTagProcessorFactory)Tags.GetHtmlTagProcessorFactory();
             tagProcessors.RemoveProcessor(HTML.Tag.IMG);
@@ -28,7 +28,7 @@ namespace Itad2015.Service.Concrete
 
         private StyleAttrCSSResolver InitializeCssFiles(string[] cssPaths)
         {
-            CssFilesImpl cssFiles = new CssFilesImpl();
+            var cssFiles = new CssFilesImpl();
             cssFiles.Add(XMLWorkerHelper.GetInstance().GetDefaultCSS());
 
             var cssResolver = new StyleAttrCSSResolver(cssFiles);

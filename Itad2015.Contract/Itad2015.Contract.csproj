@@ -73,6 +73,7 @@
     <Compile Include="Service\IExcelService.cs" />
     <Compile Include="Service\IImageProcessorService.cs" />
     <Compile Include="Service\IPdfService.cs" />
+    <Compile Include="Service\IQrCodeGenerator.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

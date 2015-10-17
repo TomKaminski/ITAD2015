@@ -1,0 +1,35 @@
+﻿@model Itad2015.Areas.Admin.ViewModels.PdfViewModels.QrTicketViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QrTicketPdf</title>
+</head>
+<body>
+    <h2 style="text-align: center">Twój bilet na konferencję ITAD 2015</h2>
+    <table style="border:none" >
+        <tbody style="width: 100%;">
+            <tr style="width: 100%;">
+                <td>
+                    <img src="@Model.QrSrc" style="width: 100%;" />
+                </td>
+                <td>
+                    <div style="padding: 20px; text-align: center">
+                        <p>@Model.FirstName @Model.LastName</p>
+                        <p>@Model.Email</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+
+

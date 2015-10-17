@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Itad2015.Areas.Admin.ViewModels;
+using Itad2015.Areas.Admin.ViewModels.PdfViewModels;
 using Itad2015.Contract.Common;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
@@ -52,6 +53,9 @@ namespace Itad2015.FrontendMappings
             Mapper.CreateMap<GuestGetDto,GuestShirtGetDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<ExcelListItemViewModel, InvitedPersonPostDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<GuestGetDto, QrTicketViewModel>().IgnoreNotExistingProperties();
+
         }
     }
 }
