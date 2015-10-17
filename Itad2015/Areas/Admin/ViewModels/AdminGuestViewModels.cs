@@ -4,9 +4,11 @@
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public bool IsCheckIn { get; set; }
         public string Email { get; set; }
         public int Id { get; set; }
         public string Size { get; set; }
+        public bool IsCheckIn { get; set; }
+        public bool ShirtOrdered { get; set; }
+        public bool QrEmailSent { get; set; }
     }
 }

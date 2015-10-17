@@ -1,16 +1,20 @@
-﻿<div ng-app="guestAdminApp">
+﻿<div ng-app="adminApp">
     <div ng-controller="guestAdminCtrl as ctrl" ng-init="ctrl.init()">
-        <div class="form-group" style="padding: 25px 10px">
-            <label class="control-label col-md-1">Wyszukaj:</label>
-            <input type="text" class="form-control col-md-3" ng-model="ctrl.searchText" ng-change="ctrl.filterList() " />
-            <div class="checkbox col-md-2 col-md-offset-1">
-                <label>
-                    <input type="checkbox" ng-model="ctrl.showCheckedIn" ng-change="ctrl.filterList()"> Pokazuj wszystkich
-                </label>
+        <div class="row">
+            @Html.Partial("_MenuPartial")
+            <div class="col-sm-3">
+                <h3 class="text-center">Aplikacja do rejestracji</h3>
+                <p class="text-center">
+                    Status: <span ng-if="ctrl.connectedToDevice == true" style="color: green">ONLINE</span>
+                    <span ng-if="ctrl.connectedToDevice == false" style="color: red">OFFLINE &nbsp;<button class="btn btn-success">Połącz</button></span>
+                </p>
+                <div ng-if="ctrl.connectedToDevice == true">
+                    <button class="btn btn-danger col-xs-12" ng-show="ctrl.deviceBlocked == false" ng-click="ctrl.blockDevice()">Zablokuj urządzenie</button>
+                    <button class="btn btn-success col-xs-12" ng-show="ctrl.deviceBlocked == true" ng-click="ctrl.unblockDevice()">Odblokuj urządzenie</button>
+                </div>
             </div>
-            <label class="control-label col-md-1">Rozmiar strony:</label>
-            <input type="text" class="form-control col-md-3" ng-model="ctrl.pageSize" ng-change="ctrl.setPageSize(ctrl.pageSize)" />
         </div>
+
         <table class="table table-striped">
             <tr>
                 <th>
@@ -50,24 +54,7 @@
                 </td>
             </tr>
         </table>
-        <nav>
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous" ng-click="ctrl.setPage(ctrl.currentPage-1)">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li ng-repeat="page in ctrl.tableOfPages" ng-class="{active: ctrl.currentPage==page}">
-                    <a href="#" ng-click="ctrl.setPage($index+1)">{{page}}</a>
-                </li>
-
-                <li>
-                    <a href="#" aria-label="Next" ng-click="ctrl.setPage(ctrl.currentPage+1)">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        @Html.Partial("_PaginationPartial")
     </div>
 </div>
 
@@ -79,9 +66,10 @@
 
     <script src="~/Scripts/angular.js"></script>
 
-    <script src="~/Areas/Admin/Scripts/guestAdminApp.js"></script>
+    <script src="~/Areas/Admin/Scripts/adminApp.js"></script>
     <script src="~/Areas/Admin/Scripts/services/hubProxyService.js"></script>
     <script src="~/Areas/Admin/Scripts/filters/getByIdFilter.js"></script>
     <script src="~/Areas/Admin/Scripts/services/guestFilterService.js"></script>
+    <script src="~/Areas/Admin/Scripts/controllers/baseGuestController.js"></script>
     <script src="~/Areas/Admin/Scripts/controllers/guestAdminCtrl.js"></script>
 }

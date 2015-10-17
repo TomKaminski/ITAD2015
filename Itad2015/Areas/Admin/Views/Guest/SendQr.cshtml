@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "SendQr";
+}
+
+<style>
+    .color-green {
+        color: #3c763d;
+    }
+</style>
+
+<div ng-app="adminApp">
+    <div ng-controller="sendQrCtrl as ctrl" ng-init="ctrl.init()">
+        <div class="row">
+            @Html.Partial("_MenuPartial")
+            <div class="col-sm-3">
+                <div class="row" style="margin-top: 30px">
+                    <a href="@Url.Action("SendQrToAll", "Guest")" class="btn btn-default col-xs-12">Wyślij QR do wszystkich</a>
+                    <button class="btn btn-success col-xs-12" ng-click="ctrl.init()" style="margin-top: 5px">Odśwież listę</button>
+
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Imię
+                </th>
+                <th>
+                    Nazwisko
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>QR wysłany?</th>
+            </tr>
+            <tr ng-repeat="item in ctrl.guestsList" ng-class="{'color-green': item.QrEmailSent==true}">
+                <td>
+                    <div>{{item.FirstName}}</div>
+                </td>
+                <td>
+                    <div>{{item.LastName}}</div>
+                </td>
+                <td>
+                    <div>{{item.Email}}</div>
+                </td>
+                <td>
+                    <span ng-show="item.QrEmailSent==true">Tak &#10004;</span>
+                    <span ng-show="item.QrEmailSent==false">Nie &#10006;</span>
+
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_PaginationPartial")
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Areas/Admin/Scripts/adminApp.js"></script>
+    <script src="~/Areas/Admin/Scripts/services/guestFilterService.js"></script>
+    <script src="~/Areas/Admin/Scripts/controllers/baseGuestController.js"></script>
+    <script src="~/Areas/Admin/Scripts/controllers/sendQrCtrl.js"></script>
+}
+
+
+
+
+
+

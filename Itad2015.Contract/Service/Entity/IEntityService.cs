@@ -15,7 +15,7 @@ namespace Itad2015.Contract.Service.Entity
         SingleServiceResult<TGetDto> Get(int id);
         void Edit(TPostDto entity);
 
-        void EditMany(IEnumerable<TPostDto> objs);
+        void EditMany(IList<TPostDto> objs);
 
         SingleServiceResult<TGetDto> Create(TPostDto entity);
         void CreateMany(IEnumerable<TPostDto> entities);

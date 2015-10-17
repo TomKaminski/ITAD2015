@@ -13,5 +13,5 @@
         }
     };
 
-    angular.module('excelAdminApp').filter('getByEmail', getByEmail);
+    angular.module('adminApp').filter('getByEmail', getByEmail);
 })();

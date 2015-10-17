@@ -127,10 +127,18 @@ namespace Itad2015.Areas.Admin.Controllers
 
             var file = _excelService.GetShirtsFile(notOrderedShirts.Select(Mapper.Map<GuestShirtGetDto>).ToList());
 
-            //TODO: BULK UPDATE
+            notOrderedShirts.ForEach(x=>x.ShirtOrdered=true);
+
+            _guestService.EditMany(notOrderedShirts.Select(Mapper.Map<GuestPostDto>).ToList());
 
             return File(file, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 $"NotOrderedShirts-{DateTime.Today.ToShortDateString()}.xlsx");
+        }
+
+
+        public ActionResult ImportShirts()
+        {
+            return View();
         }
     }
 }

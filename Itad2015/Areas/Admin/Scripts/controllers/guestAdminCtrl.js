@@ -1,7 +1,9 @@
 ﻿(function () {
     'use strict';
 
-    function guestAdminCtrl($http, $filter, hubProxyService, guestFilterService) {
+    function guestAdminCtrl($scope, $http, $filter, $controller, hubProxyService, guestFilterService) {
+        angular.extend(this, $controller('baseGuestController', { $scope: $scope }));
+
         var vm = this;
 
         var guestHubProxy = hubProxyService(hubProxyService.defaultServer, 'guestHub', { logging: true });
@@ -10,23 +12,27 @@
             var item = $filter('getById')(guestFilterService.getGuestsData(), data.id);
             item.IsCheckIn = data.checkedIn;
 
-            vm.guestsList = guestFilterService.getFilteredItems(vm.showCheckedIn, vm.searchText, vm.pageSize,vm.currentPage);
+            vm.guestsList = guestFilterService.getFilteredItems(vm.shouldFilter, vm.searchText, vm.pageSize, vm.currentPage);
             vm.tableOfPages = guestFilterService.getPages();
         });
 
         vm.init = function () {
-            vm.showCheckedIn = false;
+            vm.baseInit({ IsCheckIn: false });
+            vm.connectedToDevice = true;
+            vm.deviceBlocked = false;
+
+            vm.guests = {};
+            vm.guestsList = {};
+            vm.shouldFilter = false;
             vm.searchText = "";
             vm.pageSize = 5;
             vm.currentPage = 1;
-            vm.guests = {};
-            vm.guestsList = {};
+
 
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
                     guestFilterService.setGuestsData(result.data);
-
-                    vm.guestsList = guestFilterService.getFilteredItems(vm.showCheckedIn, vm.searchText, vm.pageSize, vm.currentPage);
+                    vm.guestsList = guestFilterService.getFilteredItems(false, "", 5, 1);
                     vm.tableOfPages = guestFilterService.getPages();
                 }, function (errorData) {
                     console.log(errorData.message);
@@ -53,35 +59,15 @@
             });
         }
 
-        vm.filterList = function () {
-            vm.guestsList = guestFilterService.getFilteredItems(vm.showCheckedIn, vm.searchText, vm.pageSize, vm.currentPage);
-            vm.tableOfPages = guestFilterService.getPages();
+        vm.blockDevice = function() {
+            vm.deviceBlocked = true;
         }
 
-        vm.setPage = function (page) {
-            if (page <= 0)
-                page = 1;
-            if (page > vm.tableOfPages.length)
-                page = vm.tableOfPages.length;
-
-            vm.currentPage = page;
-
-            vm.guestsList = guestFilterService.getFilteredItems(vm.showCheckedIn, vm.searchText, vm.pageSize, vm.currentPage);
-            vm.tableOfPages = guestFilterService.getPages();
-        }
-
-        vm.setPageSize = function (size) {
-            vm.pageSize = parseInt(size);
-            
-            if (vm.pageSize == undefined || vm.pageSize === 0) {
-                vm.pageSize = 25;
-            }
-
-            vm.guestsList = guestFilterService.getFilteredItems(vm.showCheckedIn, vm.searchText, vm.pageSize, vm.currentPage);
-            vm.tableOfPages = guestFilterService.getPages();
+        vm.unblockDevice = function () {
+            vm.deviceBlocked = false;
         }
     }
 
-    angular.module('guestAdminApp')
+    angular.module('adminApp')
         .controller('guestAdminCtrl', guestAdminCtrl);
 })();

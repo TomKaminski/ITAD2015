@@ -20,6 +20,7 @@ namespace Itad2015.Contract.DTO.GetDto
         public string Info { get; set; }
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
+        public bool AgendaEmailSent { get; set; }
     }
 
 

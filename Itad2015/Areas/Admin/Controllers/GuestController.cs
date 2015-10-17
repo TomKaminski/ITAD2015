@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Areas.Admin.ViewModels;
 using Itad2015.Contract.Service.Entity;
-using Microsoft.AspNet.SignalR;
 
 namespace Itad2015.Areas.Admin.Controllers
 {
@@ -51,6 +48,11 @@ namespace Itad2015.Areas.Admin.Controllers
                 status = result.Result,
                 errors = result.ValidationErrors ?? new List<string>()
             });
+        }
+
+        public ActionResult SendQr()
+        {
+            return View();
         }
     }
 }

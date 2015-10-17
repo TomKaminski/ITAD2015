@@ -1,0 +1,18 @@
+﻿<nav>
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous" ng-click="ctrl.setPage(ctrl.currentPage-1)">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li ng-repeat="page in ctrl.tableOfPages" ng-class="{active: ctrl.currentPage==page}">
+            <a href="#" ng-click="ctrl.setPage($index+1)">{{page}}</a>
+        </li>
+
+        <li>
+            <a href="#" aria-label="Next" ng-click="ctrl.setPage(ctrl.currentPage+1)">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

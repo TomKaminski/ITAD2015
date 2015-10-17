@@ -23,6 +23,7 @@ namespace Itad2015.FrontendMappings
             Mapper.CreateMap<WorkshopGetDto, WorkshopEditViewModel>().IgnoreNotExistingProperties();
             Mapper.CreateMap<WorkshopEditViewModel, WorkshopPostDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<RegisterGuestViewModel, GuestPostDto>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<GuestGetDto, GuestPostDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, GuestPostDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<RegisterWorkshopGuestViewModel, WorkshopGuestPostDto>().IgnoreNotExistingProperties();
@@ -34,7 +35,7 @@ namespace Itad2015.FrontendMappings
                 .AfterMap((src, dest) =>
                    {
                        dest.IsCheckIn = src.CheckInDate != null;
-                   });
+                   }).IgnoreNotExistingProperties();
 
             Mapper.CreateMap<ExcelPostViewModel, ExcelPostFileDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<ExcelPostViewModel, ExcelGetDataViewModel>().IgnoreNotExistingProperties();
