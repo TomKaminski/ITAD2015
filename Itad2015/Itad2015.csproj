@@ -205,8 +205,12 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\ATH_logo.png" />
     <Content Include="Content\images\bag.png" />
     <Content Include="Content\images\gears.gif" />
+    <Content Include="Content\images\gift_icon.png" />
+    <Content Include="Content\images\guest_icon.png" />
+    <Content Include="Content\images\ITAD infografika.png" />
     <Content Include="Content\images\Logo_ITAD.png" />
     <Content Include="Content\images\Mail\cancel.png" />
     <Content Include="Content\images\Mail\cancel_red.png" />
@@ -222,10 +226,13 @@
     <Content Include="Content\images\org\Marcin_Wadoń.png" />
     <Content Include="Content\images\org\Tomasz_Kamiński.png" />
     <Content Include="Content\images\packet.png" />
+    <Content Include="Content\images\people_icon.png" />
+    <Content Include="Content\images\prelegent_icon.png" />
     <Content Include="Content\images\register.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
     <Content Include="Content\images\Register\shirt_size.png" />
     <Content Include="Content\images\ResetLogo.png" />
+    <Content Include="Content\images\ResetLogo_BIG.png" />
     <Content Include="Content\images\ring.gif" />
     <Content Include="Content\images\slide.png" />
     <Content Include="Content\images\slides\1.jpg" />
@@ -233,8 +240,10 @@
     <Content Include="Content\images\slides\3.jpg" />
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
+    <Content Include="Content\images\staff_icon.png" />
     <Content Include="Content\images\web.png" />
     <Content Include="Content\images\workshop.png" />
+    <Content Include="Content\images\Wydzial_Logo.png" />
     <Content Include="Content\images\Żłobiński_jcommerce.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
