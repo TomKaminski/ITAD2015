@@ -140,13 +140,5 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public JsonResult GetAllShirtsData()
-        {
-            var registeredGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null);
-
-            var mappedModel = registeredGuests.Result.Select(Mapper.Map<AdminGuestShirtViewModel>).ToList();
-            return Json(mappedModel, JsonRequestBehavior.AllowGet);
-        }
     }
 }

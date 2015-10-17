@@ -1,0 +1,17 @@
+﻿<div class="col-sm-8">
+    <div class="form-group" style="padding: 25px 10px">
+        <div class="row" style="margin-bottom: 5px">
+            <label class="control-label col-md-4">Wyszukaj:</label>
+            <input type="text" class="form-control col-md-10" ng-model="ctrl.searchText" ng-change="ctrl.filterList() " />
+        </div>
+        <div class="row">
+            <label class="control-label col-md-4">Rozmiar strony:</label>
+            <input type="text" class="form-control col-md-8" ng-model="ctrl.pageSize" ng-change="ctrl.setPageSize(ctrl.pageSize)" />
+        </div>
+        <div class="checkbox col-md-8 col-md-offset-4">
+            <label>
+                <input type="checkbox" ng-model="ctrl.shouldFilter" ng-change="ctrl.filterList()"> Pokazuj wszystkich
+            </label>
+        </div>
+    </div>
+</div>

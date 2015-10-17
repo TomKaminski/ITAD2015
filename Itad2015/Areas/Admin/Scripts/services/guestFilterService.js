@@ -5,7 +5,12 @@
         
         var guestsData = {}
         var tableOfPages = [];
+        var filterBy = {};
         
+        function setFilterBy(fB) {
+            filterBy = fB;
+        }
+
         function setGuestsData(data) {
             guestsData = data;
         }
@@ -18,8 +23,8 @@
             return tableOfPages;
         }
 
-        function getFilteredItems(showCheckedIn, searchText, pageSize, currentPage) {
-            var filteredGuests = !showCheckedIn ? $filter('filter')(guestsData, { IsCheckIn: false }) : guestsData;
+        function getFilteredItems(shouldFilter, searchText, pageSize, currentPage) {
+            var filteredGuests = !shouldFilter ? $filter('filter')(guestsData, filterBy) : guestsData;
 
             if (searchText !== "") {
                 filteredGuests = $filter('filter')(filteredGuests, searchText);
@@ -37,6 +42,7 @@
         }
 
         return {
+            setFilterBy: setFilterBy,
             getPages: getPages,
             getFilteredItems: getFilteredItems,
             setGuestsData: setGuestsData,
@@ -44,5 +50,5 @@
         }
     }
 
-    angular.module('guestAdminApp').factory('guestFilterService', guestFilterService);
+    angular.module('adminApp').factory('guestFilterService', guestFilterService);
 })();

@@ -13,5 +13,6 @@ namespace Itad2015.Contract.DTO.PostDto
         public bool QrEmailSent { get; set; }
         public string Info { get; set; }
         public bool ShirtOrdered { get; set; }
+        public bool AgendaEmailSent { get; set; }
     }
 }

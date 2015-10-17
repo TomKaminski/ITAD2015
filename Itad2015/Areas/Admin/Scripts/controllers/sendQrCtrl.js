@@ -1,13 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    function importShirtsCtrl($scope, $controller, $http, guestFilterService) {
+    function sendQrCtrl($scope, $controller, $http, guestFilterService) {
         angular.extend(this, $controller('baseGuestController', { $scope: $scope }));
 
         var vm = this;
 
         vm.init = function () {
-            vm.baseInit({ ShirtOrdered: false });
+            vm.baseInit({ QrEmailSent: false });
 
             vm.guests = {};
             vm.guestsList = {};
@@ -15,7 +15,6 @@
             vm.searchText = "";
             vm.pageSize = 5;
             vm.currentPage = 1;
-
 
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
@@ -29,5 +28,5 @@
     }
 
     angular.module('adminApp')
-        .controller('importShirtsCtrl', importShirtsCtrl);
+        .controller('sendQrCtrl', sendQrCtrl);
 })();

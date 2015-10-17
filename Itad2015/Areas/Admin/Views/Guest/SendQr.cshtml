@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ImportShirts";
+    ViewBag.Title = "SendQr";
 }
 
 <style>
@@ -10,12 +10,12 @@
 </style>
 
 <div ng-app="adminApp">
-    <div ng-controller="importShirtsCtrl as ctrl" ng-init="ctrl.init()">
+    <div ng-controller="sendQrCtrl as ctrl" ng-init="ctrl.init()">
         <div class="row">
             @Html.Partial("_MenuPartial")
             <div class="col-sm-3">
                 <div class="row" style="margin-top: 30px">
-                    <a href="@Url.Action("GetNotOrderedShirts", "Excel")" class="btn btn-default col-xs-12">Kopiuj do arkusza Excel i <br />oznacz jako zamówione</a>
+                    <a href="@Url.Action("SendQrToAll", "Guest")" class="btn btn-default col-xs-12">Wyślij QR do wszystkich</a>
                     <button class="btn btn-success col-xs-12" ng-click="ctrl.init()" style="margin-top: 5px">Odśwież listę</button>
 
                 </div>
@@ -31,11 +31,11 @@
                     Nazwisko
                 </th>
                 <th>
-                    Rozmiar koszulki
+                    Email
                 </th>
-                <th>Zamówiona?</th>
+                <th>QR wysłany?</th>
             </tr>
-            <tr ng-repeat="item in ctrl.guestsList" ng-class="{'color-green': item.ShirtOrdered==true}">
+            <tr ng-repeat="item in ctrl.guestsList" ng-class="{'color-green': item.QrEmailSent==true}">
                 <td>
                     <div>{{item.FirstName}}</div>
                 </td>
@@ -43,11 +43,11 @@
                     <div>{{item.LastName}}</div>
                 </td>
                 <td>
-                    <div>{{item.Size}}</div>
+                    <div>{{item.Email}}</div>
                 </td>
                 <td>
-                    <span ng-show="item.ShirtOrdered==true">Tak &#10004;</span>
-                    <span ng-show="item.ShirtOrdered==false">Nie &#10006;</span>
+                    <span ng-show="item.QrEmailSent==true">Tak &#10004;</span>
+                    <span ng-show="item.QrEmailSent==false">Nie &#10006;</span>
 
                 </td>
             </tr>
@@ -61,8 +61,10 @@
     <script src="~/Areas/Admin/Scripts/adminApp.js"></script>
     <script src="~/Areas/Admin/Scripts/services/guestFilterService.js"></script>
     <script src="~/Areas/Admin/Scripts/controllers/baseGuestController.js"></script>
-    <script src="~/Areas/Admin/Scripts/controllers/importShirtsCtrl.js"></script>
+    <script src="~/Areas/Admin/Scripts/controllers/sendQrCtrl.js"></script>
 }
+
+
 
 
 

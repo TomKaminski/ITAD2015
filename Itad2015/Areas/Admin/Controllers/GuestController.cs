@@ -49,5 +49,10 @@ namespace Itad2015.Areas.Admin.Controllers
                 errors = result.ValidationErrors ?? new List<string>()
             });
         }
+
+        public ActionResult SendQr()
+        {
+            return View();
+        }
     }
 }

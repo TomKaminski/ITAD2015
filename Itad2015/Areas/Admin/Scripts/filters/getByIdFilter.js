@@ -13,5 +13,5 @@
         }
     };
 
-    angular.module('guestAdminApp').filter('getById', getById);
+    angular.module('adminApp').filter('getById', getById);
 })();

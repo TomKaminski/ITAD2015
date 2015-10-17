@@ -35,10 +35,7 @@ namespace Itad2015.FrontendMappings
                 .AfterMap((src, dest) =>
                    {
                        dest.IsCheckIn = src.CheckInDate != null;
-                   });
-
-            Mapper.CreateMap<GuestGetDto, AdminGuestShirtViewModel>()
-                .ForMember(x => x.Size, opt => opt.MapFrom(m => m.Size.ToString()));
+                   }).IgnoreNotExistingProperties();
 
             Mapper.CreateMap<ExcelPostViewModel, ExcelPostFileDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<ExcelPostViewModel, ExcelGetDataViewModel>().IgnoreNotExistingProperties();

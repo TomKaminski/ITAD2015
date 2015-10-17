@@ -53,6 +53,6 @@
         }
     }
 
-    angular.module('excelAdminApp')
+    angular.module('adminApp')
         .controller('excelAdminCtrl', excelAdminCtrl);
 })();

@@ -18,6 +18,7 @@ namespace Itad2015.Model.Concrete
         public DateTime? ConfirmationTime { get; set; }
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
+        public bool AgendaEmailSent { get; set; }
         public bool Cancelled { get; set; }
 
         public int? WorkshopGuestId { get; set; }
