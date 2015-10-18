@@ -32,7 +32,7 @@ namespace Itad2015.Service.Concrete
             cssFiles.Add(XMLWorkerHelper.GetInstance().GetDefaultCSS());
 
             var cssResolver = new StyleAttrCSSResolver(cssFiles);
-            cssResolver.AddCss(@"code { padding: 2px 4px; }", "utf-8", true);
+            cssResolver.AddCss(@"body { padding: 2px 4px; }", "utf-8", true);
 
             foreach (var cssPath in cssPaths)
             {

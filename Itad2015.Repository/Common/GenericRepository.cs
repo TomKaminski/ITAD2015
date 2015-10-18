@@ -54,7 +54,17 @@ namespace Itad2015.Repository.Common
             }
         }
 
+        public IGenericRepository<T> Include(Expression<Func<T, Entity>> include)
+        {
+            Dbset.Include(include);
+            return this;
+        }
 
+        public IGenericRepository<T> Include(Expression<Func<T, IEnumerable<Entity>>> include)
+        {
+            Dbset.Include(include);
+            return this;
+        }
         //Sync
         public int Count(Expression<Func<T, bool>> expression)
         {

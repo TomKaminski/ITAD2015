@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Itad2015.Model.Common;
 
 namespace Itad2015.Repository.Common
 {
@@ -14,6 +15,9 @@ namespace Itad2015.Repository.Common
         void Edit(T entity);
 
         void EditMany(IEnumerable<T> entities);
+
+        IGenericRepository<T> Include(Expression<Func<T, Entity>> include);
+        IGenericRepository<T> Include(Expression<Func<T, IEnumerable<Entity>>> include);
 
         //Sync
         IQueryable<T> GetAll();
