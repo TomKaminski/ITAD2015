@@ -229,6 +229,7 @@
     <Content Include="Content\images\org\Tomasz_Kamiński.png" />
     <Content Include="Content\images\packet.png" />
     <Content Include="Content\images\people_icon.png" />
+    <Content Include="Content\images\pizza_icon.png" />
     <Content Include="Content\images\prelegent_icon.png" />
     <Content Include="Content\images\register.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
