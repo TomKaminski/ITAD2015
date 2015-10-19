@@ -84,9 +84,11 @@ namespace Itad2015.Areas.Admin.Controllers
             {
                 var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(_qrCodeGenerator.GenerateQrCode(d.Email));
                 var pdfModel = Mapper.Map<QrTicketViewModel>(d);
+                pdfModel.RegisterNumber = allGuests.FindIndex(x => x.Id == d.Id) + 1;
                 pdfModel.QrSrc = qrStringSrc;
 
-                var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel), new string[] {});
+                var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel), 
+                    new[] {Server.MapPath("~/Content/pdfStyles.css")}, Server.MapPath("~/Content/fonts/segoeui.ttf"));
 
                 await new EmailHelper<GuestInviteEmail>(new GuestInviteEmail(d.Email, "reset@ath.bielsko.pl",
                     "Zaproszenie na konferencję ITAD 2015.")

@@ -247,6 +247,7 @@
     <Content Include="Content\images\workshop.png" />
     <Content Include="Content\images\Wydzial_Logo.png" />
     <Content Include="Content\images\Żłobiński_jcommerce.png" />
+    <Content Include="Content\pdfStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
     <Content Include="Favicon\android-chrome-144x144.png" />
@@ -326,6 +327,8 @@
     <Content Include="Areas\Admin\Views\Shared\_PaginationPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Guest\QrTicket.cshtml" />
+    <Content Include="Content\fonts\SinkinSansRegular.otf" />
+    <Content Include="Content\fonts\segoeui.ttf" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

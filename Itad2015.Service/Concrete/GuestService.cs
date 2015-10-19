@@ -62,8 +62,8 @@ namespace Itad2015.Service.Concrete
             var errors = ValidateConfirm(guest, confirmHash);
             if (!errors.Any() && guest != null)
             {
-                var confirmedGuests = guests.Where(x => x.ConfirmationTime != null && !x.Cancelled);
-                if (confirmedGuests.Count() >= 300)
+                var confirmedGuests = guests.Where(x => x.ConfirmationTime != null && !x.Cancelled).ToList();
+                if (confirmedGuests.Count >= 300)
                 {
                     guest.Size = Model.Enums.Size.NoShirt;
                 }

@@ -2,6 +2,6 @@
 {
     public interface IPdfService
     {
-        byte[] GeneratePdfFromView(string viewString, string[] cssPaths);
+        byte[] GeneratePdfFromView(string viewString, string[] cssPaths, string fontPath);
     }
 }

@@ -1,0 +1,6 @@
+﻿body,p,h1,h2,h3,h4,h5 {
+    font-family:'segoeui'
+}
+p,h3,h4,h5,h2,h1 {
+    text-align: center;
+}
