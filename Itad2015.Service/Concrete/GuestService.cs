@@ -29,11 +29,6 @@ namespace Itad2015.Service.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public int RegisteredGuestsCount()
-        {
-            return _repository.Count(x => x.Cancelled != true);
-        }
-
         public SingleServiceResult<GuestGetDto> Register(GuestPostDto model)
         {
             var registeredPersons = _repository.GetAll().ToList();
@@ -60,18 +55,24 @@ namespace Itad2015.Service.Concrete
             return new SingleServiceResult<GuestGetDto>(new GuestGetDto(), errors);
         }
 
-        public SingleServiceResult<bool> ConfirmRegistration(int id, string confirmHash)
+        public SingleServiceResult<bool, int> ConfirmRegistration(int id, string confirmHash)
         {
-            var guest = _repository.Find(id);
+            var guests = _repository.GetAll();
+            var guest = guests.FirstOrDefault(x => x.Id == id);
             var errors = ValidateConfirm(guest, confirmHash);
-            if (!errors.Any())
+            if (!errors.Any() && guest != null)
             {
+                var confirmedGuests = guests.Where(x => x.ConfirmationTime != null && !x.Cancelled);
+                if (confirmedGuests.Count() >= 300)
+                {
+                    guest.Size = Model.Enums.Size.NoShirt;
+                }
                 guest.ConfirmationTime = DateTime.Now;
                 _repository.Edit(guest);
                 _unitOfWork.Commit();
-                return new SingleServiceResult<bool>(true, errors);
+                return new SingleServiceResult<bool, int>(true, confirmedGuests.Count() + 1, errors);
             }
-            return new SingleServiceResult<bool>(false, errors);
+            return new SingleServiceResult<bool, int>(false, 0, errors);
         }
 
         public SingleServiceResult<bool> CancelRegistration(int id, string cancelHash)
@@ -80,11 +81,7 @@ namespace Itad2015.Service.Concrete
             var errors = ValidateCancel(guest, cancelHash);
             if (!errors.Any())
             {
-                //guest.Cancelled = true;
-
                 _repository.Delete(guest);
-
-                //_repository.Edit(guest);
                 _unitOfWork.Commit();
                 return new SingleServiceResult<bool>(true, errors);
             }
@@ -139,7 +136,7 @@ namespace Itad2015.Service.Concrete
                     FirstName = guest.FirstName,
                     Id = guest.Id,
                     LastName = guest.LastName,
-                    Size = (Size)Enum.Parse(typeof(Size),guest.Size.ToString())
+                    Size = (Size)Enum.Parse(typeof(Size), guest.Size.ToString())
                 }
             });
         }
@@ -154,7 +151,7 @@ namespace Itad2015.Service.Concrete
                 _unitOfWork.Commit();
                 return new SingleServiceResult<bool>(true);
             }
-            return new SingleServiceResult<bool>(false, new List<string> {"Nie ma takiego użytkownika."});
+            return new SingleServiceResult<bool>(false, new List<string> { "Nie ma takiego użytkownika." });
         }
 
         private static List<string> ValidateConfirm(Guest guest, string confirmationHash)
@@ -168,7 +165,7 @@ namespace Itad2015.Service.Concrete
             if (guest.ConfirmationTime != null)
                 errors.Add("Uczestnik został już potwierdzony!");
             if (guest.ConfirmationHash != confirmationHash)
-                errors.Add("Błędny kod.!");
+                errors.Add("Błędny kod.");
             return errors;
         }
 

@@ -123,7 +123,9 @@ namespace Itad2015.Areas.Admin.Controllers
 
         public FileResult GetNotOrderedShirts()
         {
-            var notOrderedShirts = _guestService.GetAll(x => !x.ShirtOrdered && x.ConfirmationTime != null).Result.ToList();
+            var confirmedGuests = _guestService.GetAll(x => x.ConfirmationTime != null).Result.OrderBy(x=>x.ConfirmationTime).Take(300);
+
+            var notOrderedShirts = confirmedGuests.Where(x => !x.ShirtOrdered).ToList();
 
             var file = _excelService.GetShirtsFile(notOrderedShirts.Select(Mapper.Map<GuestShirtGetDto>).ToList());
 

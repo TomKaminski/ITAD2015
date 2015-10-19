@@ -11,6 +11,7 @@
         MeskaM = 7,
         MeskaL = 8,
         MeskaXL = 9,
-        MeskaXXL = 10
+        MeskaXXL = 10,
+        NoShirt = 11
     }
 }

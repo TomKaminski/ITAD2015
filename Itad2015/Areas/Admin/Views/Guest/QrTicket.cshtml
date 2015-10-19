@@ -16,7 +16,12 @@
         <p style="text-align: center">
             <img src="@Model.QrSrc" width="350" />
         </p>
-        <p style="text-align: center">@Model.FirstName @Model.LastName <br />@Model.Email</p>
+        <p style="text-align: center">@Model.FirstName @Model.LastName <br/>@Model.Email</p>
+        <h3>Jesteś naszym @Model.RegisterNumber gościem!</h3>
+         @if (Model.RegisterNumber <= 300)
+         {
+             <h4>Dlatego w giftpacku czekać będzie na Ciebie konferencyjna koszulka.</h4>
+         }
     </div>
 </body>
 </html>

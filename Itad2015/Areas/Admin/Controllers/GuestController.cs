@@ -73,8 +73,10 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<QrHub>();
             await context.Groups.Add(connectionId, connectionId);
+            
+            var allGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null).Result.ToList();
 
-            var data = _guestService.GetAll(x => !x.Cancelled && !x.QrEmailSent && x.ConfirmationTime != null).Result.ToList();
+            var data = allGuests.Where(x=>!x.QrEmailSent).ToList();
 
             var guestsToEdit = new List<GuestPostDto>();
 
