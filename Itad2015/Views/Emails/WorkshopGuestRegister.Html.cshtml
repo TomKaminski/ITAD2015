@@ -31,9 +31,10 @@
         <b>POTWIERDŻ SWOJĄ REJESTRACJĘ</b>
     </p>
 </a>
+<div style="margin: auto; width: 40%;border-bottom:1px solid #50efff"></div>
 
 <a style="text-decoration: none; margin-top:50px" href="@Url.Action("CancelRegistration","Home", new {id=Model.Id, cancelationCode = Model.CancelationHash},"https")">
-    <div style="width: 50px; height: 50px; margin: auto">
+    <div style="width: 50px; height: 50px; margin: auto; margin-top: 30px">
         @Html.EmbedImage("~/Content/images/Mail/cancel.png")
     </div>
     <p style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:12px; color:#808080">
