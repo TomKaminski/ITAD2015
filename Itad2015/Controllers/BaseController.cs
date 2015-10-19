@@ -4,6 +4,7 @@ using System.Web.Routing;
 
 namespace Itad2015.Controllers
 {
+    [RequireHttps]
     public class BaseController : Controller
     {
         protected string RenderViewToString(string controllerName, string viewName, object viewData)
