@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI;
 using AutoMapper;
+using DevTrends.MvcDonutCaching;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.ViewModels.Base;
 using Itad2015.ViewModels.Home;
@@ -15,7 +16,6 @@ namespace Itad2015.Controllers
         private readonly IWorkshopService _workshopService;
         private readonly IWorkshopGuestService _workshopGuestService;
 
-
         private const int NormalTicketsCount = 350;
 
         public HomeController(IGuestService guestService, IWorkshopService workshopService, IWorkshopGuestService workshopGuestService)
@@ -25,8 +25,23 @@ namespace Itad2015.Controllers
             _workshopGuestService = workshopGuestService;
         }
 
-        [OutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
+        [DonutOutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
         public ActionResult Index(List<AlertViewModel> alerts = null)
+        {
+            //var normalTicketsLeft = NormalTicketsCount - _guestService.Count();
+
+            return View("Index",new IndexViewModel
+            {
+                IndexGuestModel = new IndexGuestModel
+                {
+                    //NormalTicketsLeft = normalTicketsLeft
+                },
+                Alerts = alerts ?? new List<AlertViewModel>()
+            });
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult WorkshopRegisterSection()
         {
             var workshops = _workshopService.GetAll().Result.Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
 
@@ -41,19 +56,9 @@ namespace Itad2015.Controllers
                 workshop.LeftParticipants = workshop.MaxParticipants - firstOrDefault?.Count ?? workshop.MaxParticipants;
             }
 
-            var normalTicketsLeft = NormalTicketsCount - _guestService.Count();
-
-            return View("Index",new IndexViewModel
+            return PartialView("RegisterWorkshopGuest", new IndexWorkshopGuestModel
             {
-                IndexGuestModel = new IndexGuestModel
-                {
-                    NormalTicketsLeft = normalTicketsLeft
-                },
-                IndexWorkshopGuestModel = new IndexWorkshopGuestModel
-                {
-                    WorkshopDropdownList = workshops
-                },
-                Alerts = alerts ?? new List<AlertViewModel>()
+                WorkshopDropdownList = workshops
             });
         }
 
@@ -101,14 +106,12 @@ namespace Itad2015.Controllers
 
         //Home child actions
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
         public PartialViewResult UpperSection()
         {
             return PartialView();
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
         public PartialViewResult LowerSection()
         {
             return PartialView();
