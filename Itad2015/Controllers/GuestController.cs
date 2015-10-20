@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
@@ -22,6 +23,7 @@ namespace Itad2015.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [OutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
         public JsonResult Register([Bind(Prefix = "RegisterGuestViewModel")]RegisterGuestViewModel model)
         {
             if (!ModelState.IsValid)

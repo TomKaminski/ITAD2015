@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using AutoMapper;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.ViewModels.Base;
@@ -24,8 +25,7 @@ namespace Itad2015.Controllers
             _workshopGuestService = workshopGuestService;
         }
 
-        // GET: Home
-        //[OutputCache(Duration = 100800)]
+        [OutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
         public ActionResult Index(List<AlertViewModel> alerts = null)
         {
             var workshops = _workshopService.GetAll().Result.Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
@@ -57,24 +57,6 @@ namespace Itad2015.Controllers
             });
         }
 
-        public ActionResult DummyRedirectAlerts()
-        {
-            var alerts = new List<AlertViewModel>
-            {
-                new AlertViewModel
-                {
-                    AlertText = "<img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji. Spróbuj ponownie lub skontaktuj się z administratorem strony</span>",
-                    AlertClass = "alert-danger"
-                },
-                new AlertViewModel
-                {
-                    AlertText = @"<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Dziękujemy!</span>",
-                    AlertClass = "alert-success"
-                }
-            };
-            return Index(alerts);
-        }
-
         [HttpGet]
         public ActionResult ConfirmRegistration(int id, string confirmationCode)
         {
@@ -91,7 +73,7 @@ namespace Itad2015.Controllers
             {
                 alertModel.AlertClass = "alert-danger";
                 alertModel.AlertText =
-                    $"< img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji ({result.ValidationErrors.FirstOrDefault()}). Spróbuj ponownie lub skontaktuj się z administratorem strony</span>";
+                    $"<img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji ({result.ValidationErrors.FirstOrDefault()}). Spróbuj ponownie lub skontaktuj się z administratorem strony</span>";
             }
             return Index(new List<AlertViewModel> { alertModel });
         }
@@ -114,6 +96,22 @@ namespace Itad2015.Controllers
 
             }
             return Index(new List<AlertViewModel> { alertModel });
+        }
+
+
+        //Home child actions
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
+        public PartialViewResult UpperSection()
+        {
+            return PartialView();
+        }
+
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
+        public PartialViewResult LowerSection()
+        {
+            return PartialView();
         }
     }
 }

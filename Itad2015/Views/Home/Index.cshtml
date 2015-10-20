@@ -50,21 +50,13 @@
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
-@Html.Partial("_OverlayPartial")
-@Html.Partial("_AlertsPartial", Model.Alerts)
+    @Html.Partial("_AlertsPartial", Model.Alerts)
 
-<!-- LEFT MENU SECTION -->
-@Html.Partial("_LeftMenuPartial")
-<!--END LEFT MENU SECTION -->
-<!-- MAIN CONTAINER -->
-<div class="container">
 
-    <!-- HOME SECTION -->
-    @Html.Partial("_HomeSectionPartial")
-    <!-- END HOME SECTION -->
+    @Html.Action("UpperSection")
 
     <!-- REGISTER SECTION -->
-    <section id="register-section">
+    <section id="register-section" class="container">
         <div class="row srvc-back-color">
             <section class="col-xs-12 center" data-stage-id="1">
                 <div class="divider-two"></div>
@@ -107,44 +99,12 @@
     </section>
     <!-- END REGISTER SECTION -->
 
-    <!-- ABOUT SECTION -->
-    @Html.Partial("_AboutSectionPartial")
-    <!-- END ABOUT SECTION -->
+    @Html.Action("LowerSection")
 
-    <!-- PRELEGENCI SECTION -->
-    @Html.Partial("_ServicesSectionPartial")
-    <!--END SERVICES SECTION -->
 
-    <!-- AGENDA SECTION -->
-    @Html.Partial("_AgendaSectionPartial")
-    <!-- END AGENDA SECTION -->
 
-    <!-- WHAT'S NEW SECTION -->
-    @Html.Partial("_WhatsNewSectionPartial")
-    <!-- END WHAT'S NEW SECTION -->
-
-    <!-- SPONSORS SECTION -->
-    @Html.Partial("_SponsorsSectionPartial")
-    <!-- END SPONSORS SECTION -->
-
-    <!-- STAFF SECTION -->
-    @Html.Partial("_StaffSectionPartial")
-    <!-- END STAFF SECTION -->
-
-    <!-- FOOTER SECTION -->
-    <section id="footer">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                &copy; reset.ath.bielsko.pl All rights Reserved.
-            </div>
-        </div>
-        <!--./row-->
-    </section>
-    <!--END FOOTER SECTION -->
-</div>
-<!-- END MAIN CONTAINER -->
-
-@Scripts.Render("~/bundles/js")
+   
+    @Scripts.Render("~/bundles/js")
 </body>
 </html>
 
