@@ -229,6 +229,7 @@
     <Content Include="Content\images\org\Tomasz_Kamiński.png" />
     <Content Include="Content\images\packet.png" />
     <Content Include="Content\images\people_icon.png" />
+    <Content Include="Content\images\pizza_icon.png" />
     <Content Include="Content\images\prelegent_icon.png" />
     <Content Include="Content\images\register.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
@@ -242,11 +243,24 @@
     <Content Include="Content\images\slides\3.jpg" />
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
+    <Content Include="Content\images\Staff\Bartek_Borak.png" />
+    <Content Include="Content\images\Staff\Bartek_Szczepanski.png" />
+    <Content Include="Content\images\Staff\Beata_Gołuch.png" />
+    <Content Include="Content\images\Staff\Janusz_Zukowicz.png" />
+    <Content Include="Content\images\Staff\Jan_Frindt.png" />
+    <Content Include="Content\images\Staff\Kasia_Jasiewicz.png" />
+    <Content Include="Content\images\Staff\Marcin_Wadon.png" />
+    <Content Include="Content\images\Staff\Pawel_Falat.png" />
+    <Content Include="Content\images\Staff\Pawel_Leja.png" />
+    <Content Include="Content\images\Staff\Szymon_Tengler.png" />
+    <Content Include="Content\images\Staff\Tomasz_Gancarczyk.png" />
+    <Content Include="Content\images\Staff\Tomasz_Kamiński.png" />
     <Content Include="Content\images\staff_icon.png" />
     <Content Include="Content\images\web.png" />
     <Content Include="Content\images\workshop.png" />
     <Content Include="Content\images\Wydzial_Logo.png" />
     <Content Include="Content\images\Żłobiński_jcommerce.png" />
+    <Content Include="Content\pdfStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
     <Content Include="Favicon\android-chrome-144x144.png" />
@@ -326,6 +340,8 @@
     <Content Include="Areas\Admin\Views\Shared\_PaginationPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Guest\QrTicket.cshtml" />
+    <Content Include="Content\fonts\SinkinSansRegular.otf" />
+    <Content Include="Content\fonts\segoeui.ttf" />
     <Content Include="Content\files\ofertaSponsorska.pdf" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -360,7 +376,9 @@
     <Content Include="Content\vegas\overlays\14.png" />
     <Content Include="Content\vegas\overlays\15.png" />
     <Content Include="Scripts\registerApp.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -483,11 +501,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>47216</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:47216/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

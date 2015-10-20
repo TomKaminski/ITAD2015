@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using AutoMapper.Internal;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
@@ -41,12 +42,11 @@ namespace Itad2015.Service.Concrete
 
             return cssResolver;
         }
-        public byte[] GeneratePdfFromView(string viewString, string[] cssPaths)
+        public byte[] GeneratePdfFromView(string viewString, string[] cssPaths, string fontPath)
         {
             using (var memoryStream = new MemoryStream())
             {
                 var doc = new Document(PageSize.A4);
-
                 var writer = PdfWriter.GetInstance(doc, memoryStream);
 
                 doc.Open();
@@ -54,14 +54,19 @@ namespace Itad2015.Service.Concrete
                 var tagProcessors = InitializeTagProcessor();
                 var cssResolver = InitializeCssFiles(cssPaths);
 
-                var hpc = new HtmlPipelineContext(new CssAppliersImpl(new XMLWorkerFontProvider()));
+
+                XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
+                fontProvider.Register(fontPath,"segoeui");
+                fontProvider.UseUnicode = true;
+
+                var hpc = new HtmlPipelineContext(new CssAppliersImpl(fontProvider));
                 hpc.SetAcceptUnknown(true).AutoBookmark(true).SetTagFactory(tagProcessors); // inject the tagProcessors
 
                 var htmlPipeline = new HtmlPipeline(hpc, new PdfWriterPipeline(doc, writer));
                 var pipeline = new CssResolverPipeline(cssResolver, htmlPipeline);
 
                 var worker = new XMLWorker(pipeline, true);
-                var xmlParser = new XMLParser(true, worker, Encoding.UTF8);
+                var xmlParser = new XMLParser(true, worker, Encoding.Unicode);
                 xmlParser.Parse(new StringReader(viewString));
 
                 doc.Close();

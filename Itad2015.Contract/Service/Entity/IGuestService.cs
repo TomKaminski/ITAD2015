@@ -8,11 +8,10 @@ namespace Itad2015.Contract.Service.Entity
 {
     public interface IGuestService : IEntityService<GuestGetDto, GuestPostDto>
     {
-        int RegisteredGuestsCount();
 
         SingleServiceResult<GuestGetDto> Register(GuestPostDto model);
 
-        SingleServiceResult<bool> ConfirmRegistration(int id, string confirmHash);
+        SingleServiceResult<bool, int> ConfirmRegistration(int id, string confirmHash);
 
         SingleServiceResult<bool> CancelRegistration(int id, string cancelHash);
 

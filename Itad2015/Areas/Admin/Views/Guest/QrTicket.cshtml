@@ -11,12 +11,17 @@
     <title>QrTicketPdf</title>
 </head>
 <body>
-    <h2 style="text-align: center">Twój bilet na konferencję &#281;  ITAD 2015</h2>
+    <h2 style="text-align: center">Twój bilet na konferencję &#281;  &#x0119; ą y ITAD 2015</h2>
     <div>
         <p style="text-align: center">
             <img src="@Model.QrSrc" width="350" />
         </p>
-        <p style="text-align: center">@Model.FirstName @Model.LastName <br />@Model.Email</p>
+        <p style="text-align: center">@Model.FirstName @Model.LastName <br/>@Model.Email</p>
+        <h3>Jesteś naszym @Model.RegisterNumber gościem!</h3>
+         @if (Model.RegisterNumber <= 300)
+         {
+             <h4>Dlatego w giftpacku czekać będzie na Ciebie konferencyjna koszulka.</h4>
+         }
     </div>
 </body>
 </html>

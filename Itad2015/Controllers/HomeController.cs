@@ -25,6 +25,7 @@ namespace Itad2015.Controllers
         }
 
         // GET: Home
+        //[OutputCache(Duration = 100800)]
         public ActionResult Index(List<AlertViewModel> alerts = null)
         {
             var workshops = _workshopService.GetAll().Result.Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
@@ -79,11 +80,11 @@ namespace Itad2015.Controllers
         {
             var result = _guestService.ConfirmRegistration(id, confirmationCode);
             var alertModel = new AlertViewModel();
-            if (result.Result)
+            if (result.FirstResult)
             {
                 alertModel.AlertClass = "alert-success";
                 alertModel.AlertText =
-                    @"<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Dziękujemy!</span>";
+                    $"<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Jesteś naszym {result.SecondResult} gościem. Dziękujemy!</span>";
 
             }
             else
