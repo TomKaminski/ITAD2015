@@ -54,13 +54,10 @@ namespace Itad2015.Service.Concrete
                 var tagProcessors = InitializeTagProcessor();
                 var cssResolver = InitializeCssFiles(cssPaths);
 
-
-                XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
-                fontProvider.Register(fontPath,"segoeui");
-                fontProvider.UseUnicode = true;
+                var fontProvider = new CustomFontFactory(fontPath);
 
                 var hpc = new HtmlPipelineContext(new CssAppliersImpl(fontProvider));
-                hpc.SetAcceptUnknown(true).AutoBookmark(true).SetTagFactory(tagProcessors); // inject the tagProcessors
+                hpc.SetAcceptUnknown(true).AutoBookmark(true).SetTagFactory(tagProcessors);
 
                 var htmlPipeline = new HtmlPipeline(hpc, new PdfWriterPipeline(doc, writer));
                 var pipeline = new CssResolverPipeline(cssResolver, htmlPipeline);

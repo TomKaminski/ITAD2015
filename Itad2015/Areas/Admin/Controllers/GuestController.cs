@@ -37,10 +37,10 @@ namespace Itad2015.Areas.Admin.Controllers
 
         public JsonResult GetAll()
         {
-            var registeredGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime!=null);
+            var registeredGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null);
 
             var mappedModel = registeredGuests.Result.Select(Mapper.Map<AdminGuestViewModel>).ToList();
-            return Json(mappedModel,JsonRequestBehavior.AllowGet);
+            return Json(mappedModel, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult CheckIn(int id)
@@ -49,7 +49,7 @@ namespace Itad2015.Areas.Admin.Controllers
             return Json(new
             {
                 status = result.Result,
-                errors = result.ValidationErrors??new List<string>()
+                errors = result.ValidationErrors ?? new List<string>()
             });
         }
         [HttpPost]
@@ -73,29 +73,33 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<QrHub>();
             await context.Groups.Add(connectionId, connectionId);
-            
+
             var allGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null).Result.ToList();
 
-            var data = allGuests.Where(x=>!x.QrEmailSent).ToList();
+            var data = allGuests.Where(x => !x.QrEmailSent).ToList();
 
             var guestsToEdit = new List<GuestPostDto>();
 
             foreach (var d in data)
             {
-                var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(_qrCodeGenerator.GenerateQrCode(d.Email));
+                var qrByteArray = _qrCodeGenerator.GenerateQrAsByteArray(_qrCodeGenerator.GenerateQrCode(d.Email));
+                var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(qrByteArray);
                 var pdfModel = Mapper.Map<QrTicketViewModel>(d);
                 pdfModel.RegisterNumber = allGuests.FindIndex(x => x.Id == d.Id) + 1;
                 pdfModel.QrSrc = qrStringSrc;
 
-                var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel), 
-                    new[] {Server.MapPath("~/Content/pdfStyles.css")}, Server.MapPath("~/Content/fonts/segoeui.ttf"));
+                var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel),
+                    new[] { Server.MapPath("~/Content/pdfStyles.css") }, Server.MapPath("~/Content/fonts/sinkinsansregular.ttf"));
 
                 await new EmailHelper<GuestInviteEmail>(new GuestInviteEmail(d.Email, "reset@ath.bielsko.pl",
                     "Zaproszenie na konferencję ITAD 2015.")
-                {
-                    LastName = d.LastName,
-                    Name = d.FirstName
-                }).AddAttachement(pdfFile,"Bilet.pdf").SendEmailAsync();
+                    {
+                        LastName = d.LastName,
+                        Name = d.FirstName
+                    })
+                .AddAttachement(pdfFile, "Bilet.pdf")
+                .AddAttachement(qrByteArray, "Bilet.png")
+                .SendEmailAsync();
 
                 d.QrEmailSent = true;
                 guestsToEdit.Add(Mapper.Map<GuestGetDto, GuestPostDto>(d));

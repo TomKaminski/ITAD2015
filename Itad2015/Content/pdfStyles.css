@@ -1,6 +1,28 @@
-﻿body,p,h1,h2,h3,h4,h5 {
-    font-family:'segoeui'
+﻿body {
+    background-color: white;
+    font-size: .85em;
+    font-family: 'sinkinsansregular';
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-align: center;
 }
-p,h3,h4,h5,h2,h1 {
+
+p, ul {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+div, span {
+    text-align: center;
+    font-family: 'sinkinsansregular';
+        font-size: .6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #000;
+    font-family: 'sinkinsansregular';
     text-align: center;
 }

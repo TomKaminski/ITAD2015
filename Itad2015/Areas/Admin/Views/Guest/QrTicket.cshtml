@@ -3,25 +3,32 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>QrTicketPdf</title>
 </head>
 <body>
-    <h2 style="text-align: center">Twój bilet na konferencję &#281;  &#x0119; ą y ITAD 2015</h2>
+    <h2 style="text-align: center">Twój bilet na konferencję ITAD 2015</h2>
+    <div style="text-align: center">20 Listopada 2015, Bielsko Biała</div>
+    <div style="text-align: center">Akademia Techniczno-Humanistyczna</div>
+    <h3 style="text-align: center">Jesteś naszym @Model.RegisterNumber gościem!</h3>
+    @if (Model.RegisterNumber <= 300)
+    {
+        <h4 style="text-align: center">Dlatego w giftpacku czekać będzie na Ciebie konferencyjna koszulka.</h4>
+    }
     <div>
         <p style="text-align: center">
             <img src="@Model.QrSrc" width="350" />
         </p>
-        <p style="text-align: center">@Model.FirstName @Model.LastName <br/>@Model.Email</p>
-        <h3>Jesteś naszym @Model.RegisterNumber gościem!</h3>
-         @if (Model.RegisterNumber <= 300)
-         {
-             <h4>Dlatego w giftpacku czekać będzie na Ciebie konferencyjna koszulka.</h4>
-         }
+        <p style="text-align: center"><b>@Model.FirstName @Model.LastName <br />@Model.Email</b></p>
+        <p style="text-align: center">
+            Zabierz ze sobą swój bilet na konferencję, w dowolnej formie.<br />
+            Będziesz mógł/mogła wypróbować nasz nowy system rejestracji :).<br />
+            Czekamy na <b>Ciebie!</b>
+        </p>
     </div>
 </body>
 </html>

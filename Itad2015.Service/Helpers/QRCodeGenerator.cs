@@ -1289,12 +1289,16 @@ namespace Itad2015.Service.Helpers
             return CreateQrCode(data, QRCodeGenerator.ECCLevel.M).GetGraphic(20);
         }
 
-
-        public string GenerateQrCodeStringSrc(Bitmap qr)
+        public byte[] GenerateQrAsByteArray(Bitmap qr)
         {
             MemoryStream ms = new MemoryStream();
             qr.Save(ms, ImageFormat.Gif);
-            byte[] imageData = ms.ToArray();
+            return ms.ToArray();
+        }
+
+
+        public string GenerateQrCodeStringSrc(byte[] imageData)
+        {
             string imageBase64 = Convert.ToBase64String(imageData);
             return string.Format("data:image/gif;base64,{0}", imageBase64);
         }
