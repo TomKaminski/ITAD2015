@@ -341,6 +341,7 @@
     <Content Include="Areas\Admin\Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Guest\QrTicket.cshtml" />
     <Content Include="Content\fonts\sinkinsansregular.ttf" />
+    <Content Include="Content\files\ofertaSponsorska.pdf" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -473,7 +474,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Content\files\" />
     <Folder Include="Content\static\excel\guests\" />
     <Folder Include="Content\static\html\" />
     <Folder Include="Views\Base\" />

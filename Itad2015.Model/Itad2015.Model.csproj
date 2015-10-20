@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\DeleteNotConfirmedGuests.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
