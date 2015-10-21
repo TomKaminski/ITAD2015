@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Itad2015.ViewModels.Home.WorkshopDropdownViewModel>
+
+
+<p class="text-center workshopText">Wybierz warsztat, w którym chciałbyś/chciałabyś uczestniczyć:</p>
+<div class="row" style="margin-bottom:10px">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span id="activeWorkshop">Wybierz warsztat</span> &nbsp;
+                <span><span class="caret"></span></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                @foreach (var item in Model)
+                {
+                    <li><a href="" data-workshop-id="@item.Id">@item.Title</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center margin-botom-20">
+        @foreach (var item in Model)
+        {
+            <div class="row workshop-container" data-workshop-id="@item.Id" style="display: none">
+                <div class="col-xs-5 col-xs-offset-2 ">
+                    <p>
+                        <strong>
+                            Prowadzący: @item.TutorName<br />
+                            <span class="@(item.LeftParticipants > 0 ? "main-color" : "bk-red")">Liczba wolnych miejsc: @item.LeftParticipants</span>
+                        </strong>
+                    </p>
+                    <p>@item.Description</p>
+                </div>
+                <div class="col-xs-4">
+                    <img class="img-responsive col-sm-6 col-sm-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -425,7 +425,6 @@
     <Compile Include="Models\AppUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Base\AlertViewModel.cs" />
-    <Compile Include="ViewModels\Base\BaseReturnViewModel.cs" />
     <Compile Include="ViewModels\Device\RegisterDeviceApiModel.cs" />
     <Compile Include="ViewModels\Email\EmailCommon.cs" />
     <Compile Include="ViewModels\Email\GuestInviteEmail.cs" />
@@ -447,8 +446,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Views\Guest\ConfirmRegistration.cshtml" />
-    <Content Include="Views\Guest\CancelRegistration.cshtml" />
     <Content Include="Views\Emails\_EmailLayout.cshtml" />
     <Content Include="Views\Emails\GuestRegister.cshtml" />
     <Content Include="Views\Emails\GuestRegister.Html.cshtml" />
@@ -473,6 +470,8 @@
     <Content Include="Scripts\web.config" />
     <Content Include="Views\Home\UpperSection.cshtml" />
     <Content Include="Views\Home\LowerSection.cshtml" />
+    <Content Include="Views\Home\WorkshopRegisterListSection.cshtml" />
+    <Content Include="Views\Home\RegisteredGuestsPartialCount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -486,6 +485,7 @@
     <Folder Include="Content\static\excel\guests\" />
     <Folder Include="Content\static\html\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Guest\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

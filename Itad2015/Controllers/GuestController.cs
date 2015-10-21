@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.UI;
 using AutoMapper;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.Helpers.Email;
-using Itad2015.ViewModels.Base;
 using Itad2015.ViewModels.Email;
 using Itad2015.ViewModels.Guest;
+using Itad2015.ViewModels.Home;
 
 namespace Itad2015.Controllers
 {
@@ -21,10 +20,10 @@ namespace Itad2015.Controllers
             _guestService = guestService;
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [OutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
-        public JsonResult Register([Bind(Prefix = "RegisterGuestViewModel")]RegisterGuestViewModel model)
+        public JsonResult Register(RegisterGuestViewModel model)
         {
             if (!ModelState.IsValid)
             {

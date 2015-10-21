@@ -21,7 +21,7 @@ namespace Itad2015.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Register([Bind(Prefix = "RegisterWorkshopGuestViewModel")]RegisterWorkshopGuestViewModel model)
+        public JsonResult Register(RegisterWorkshopGuestViewModel model)
         {
             if (!ModelState.IsValid)
             {

@@ -21,7 +21,8 @@ namespace Itad2015.Service.Concrete
         private readonly IHashGenerator _hashGenerator;
         private readonly IUnitOfWork _unitOfWork;
 
-        const int MaxRegisteredGuests = 350;
+        public int MaxNormalRegisteredGuests => 350;
+
         public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository, IHashGenerator hashGenerator) : base(unitOfWork, repository)
         {
             _repository = repository;
@@ -154,7 +155,9 @@ namespace Itad2015.Service.Concrete
             return new SingleServiceResult<bool>(false, new List<string> { "Nie ma takiego użytkownika." });
         }
 
-        private static List<string> ValidateConfirm(Guest guest, string confirmationHash)
+
+
+        private List<string> ValidateConfirm(Guest guest, string confirmationHash)
         {
             var errors = new List<string>();
             if (guest == null)
@@ -169,7 +172,7 @@ namespace Itad2015.Service.Concrete
             return errors;
         }
 
-        private static List<string> ValidateCancel(Guest guest, string cancelationHash)
+        private List<string> ValidateCancel(Guest guest, string cancelationHash)
         {
             var errors = new List<string>();
             if (guest == null)
@@ -182,14 +185,14 @@ namespace Itad2015.Service.Concrete
             return errors;
         }
 
-        private static List<string> ValidateRegister(List<Guest> guests, string email)
+        private List<string> ValidateRegister(List<Guest> guests, string email)
         {
             var errors = new List<string>();
 
             if (guests.FirstOrDefault(x => x.Email == email && !x.Cancelled) != null)
                 errors.Add("Ten email jest już zarejestrowany!");
 
-            if (guests.Count(x => !x.Cancelled) >= MaxRegisteredGuests)
+            if (guests.Count(x => !x.Cancelled && x.WorkshopGuestId == null) >= MaxNormalRegisteredGuests)
                 errors.Add("Przepraszamy, brak miejsc.");
 
             return errors;

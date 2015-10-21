@@ -5,7 +5,9 @@ using System.Web.UI;
 using AutoMapper;
 using DevTrends.MvcDonutCaching;
 using Itad2015.Contract.Service.Entity;
+using Itad2015.ViewModels;
 using Itad2015.ViewModels.Base;
+using Itad2015.ViewModels.Guest;
 using Itad2015.ViewModels.Home;
 
 namespace Itad2015.Controllers
@@ -15,8 +17,6 @@ namespace Itad2015.Controllers
         private readonly IGuestService _guestService;
         private readonly IWorkshopService _workshopService;
         private readonly IWorkshopGuestService _workshopGuestService;
-
-        private const int NormalTicketsCount = 350;
 
         public HomeController(IGuestService guestService, IWorkshopService workshopService, IWorkshopGuestService workshopGuestService)
         {
@@ -28,20 +28,16 @@ namespace Itad2015.Controllers
         [DonutOutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
         public ActionResult Index(List<AlertViewModel> alerts = null)
         {
-            //var normalTicketsLeft = NormalTicketsCount - _guestService.Count();
-
-            return View("Index",new IndexViewModel
+            return View("Index", new IndexViewModel
             {
-                IndexGuestModel = new IndexGuestModel
-                {
-                    //NormalTicketsLeft = normalTicketsLeft
-                },
+                RegisterWorkshopGuestViewModel = new RegisterWorkshopGuestViewModel(),
+                RegisterGuestViewModel = new RegisterGuestViewModel(),
                 Alerts = alerts ?? new List<AlertViewModel>()
             });
         }
 
         [ChildActionOnly]
-        public PartialViewResult WorkshopRegisterSection()
+        public PartialViewResult WorkshopRegisterListSection()
         {
             var workshops = _workshopService.GetAll().Result.Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
 
@@ -56,10 +52,7 @@ namespace Itad2015.Controllers
                 workshop.LeftParticipants = workshop.MaxParticipants - firstOrDefault?.Count ?? workshop.MaxParticipants;
             }
 
-            return PartialView("RegisterWorkshopGuest", new IndexWorkshopGuestModel
-            {
-                WorkshopDropdownList = workshops
-            });
+            return PartialView(workshops);
         }
 
         [HttpGet]
@@ -115,6 +108,17 @@ namespace Itad2015.Controllers
         public PartialViewResult LowerSection()
         {
             return PartialView();
+        }
+
+
+        [ChildActionOnly]
+        public PartialViewResult RegisteredGuestsPartialCount()
+        {
+            return PartialView(new RegisteredGuestsCountViewModel
+            {
+                MaxGuests = _guestService.MaxNormalRegisteredGuests,
+                RegisteredGuests = _guestService.Count(x => !x.Cancelled && x.WorkshopGuestId == null)
+            });
         }
     }
 }

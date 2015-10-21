@@ -1,10 +1,11 @@
-﻿@model Itad2015.ViewModels.Home.IndexGuestModel
+﻿@model Itad2015.ViewModels.Guest.RegisterGuestViewModel
 
 @using (Html.BeginForm("Register", "Guest", FormMethod.Post, new { id = "RegisterForm" }))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(x => x.RegisterGuestViewModel.Size, new { id = "sizeInput", aria_required = true, aria_invalid=false, aria_describedby = "RegisterGuestViewModel_Size-error" })
+    @Html.HiddenFor(x => x.Size, new { id = "sizeInput", aria_required = true, aria_invalid=false, aria_describedby = "RegisterGuestViewModel_Size-error" })
     <section data-stage-id="2">
+        @Html.Action("RegisteredGuestsPartialCount",true)
         <div class="row">
             <div class="col-xs-4 col-xs-offset-4 text-center">
                 <p class="requiredText">Pola oznaczone * są wymagane</p>
@@ -13,15 +14,15 @@
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterGuestViewModel.FirstName, new { @class = "itad-required-input", placeholder = "Imię*", id = "registerInput_Name" })
-                    @Html.ValidationMessageFor(x => x.RegisterGuestViewModel.FirstName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.FirstName, new {@class = "itad-required-input", placeholder = "Imię*", id = "registerInput_Name"})
+                    @Html.ValidationMessageFor(x => x.FirstName, null, new {@class = "validation-itad bk-red"})
                 </div>
             </div>
 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterGuestViewModel.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko*", id = "registerInput_LastName" })
-                    @Html.ValidationMessageFor(x => x.RegisterGuestViewModel.LastName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.LastName, new {@class = "itad-required-input", placeholder = "Nazwisko*", id = "registerInput_LastName"})
+                    @Html.ValidationMessageFor(x => x.LastName, null, new {@class = "validation-itad bk-red"})
                 </div>
             </div>
         </div>
@@ -29,21 +30,21 @@
         <div class="row margin-botom-20">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterGuestViewModel.Email, new { @class = "itad-required-input", placeholder = "Adres email*", id = "registerInput_Email" })
-                    @Html.ValidationMessageFor(x => x.RegisterGuestViewModel.Email, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.Email, new {@class = "itad-required-input", placeholder = "Adres email*", id = "registerInput_Email"})
+                    @Html.ValidationMessageFor(x => x.Email, null, new {@class = "validation-itad bk-red"})
                 </div>
             </div>
 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextAreaFor(x => x.RegisterGuestViewModel.Info, new { style = "", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?" })
+                    @Html.TextAreaFor(x => x.Info, new {style = "", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?"})
                 </div>
             </div>
         </div>
     </section>
     @Html.Partial("_ItadShirtsPartial")
 
-    @Html.ValidationMessageFor(x => x.RegisterGuestViewModel.Size, null, new { @class = "validation-itad bk-red center" })
+    @Html.ValidationMessageFor(x => x.Size, null, new { @class = "validation-itad bk-red center" })
 
     @Html.Partial("_RegisterStagePartial")
 }

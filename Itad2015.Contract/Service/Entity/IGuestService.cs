@@ -19,5 +19,7 @@ namespace Itad2015.Contract.Service.Entity
         SingleServiceResult<GuestApiDto> CheckIn(string email);
 
         SingleServiceResult<bool> CheckOut(int id);
+
+        int MaxNormalRegisteredGuests { get;}
     }
 }

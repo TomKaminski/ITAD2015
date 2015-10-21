@@ -2,9 +2,9 @@
 
 namespace Itad2015.ViewModels.Home
 {
-    public class IndexGuestModel
+    public class RegisteredGuestsCountViewModel
     {
-        public int NormalTicketsLeft { get; set; }
-        public RegisterGuestViewModel RegisterGuestViewModel { get; set; }
+        public int RegisteredGuests { get; set; }
+        public int MaxGuests { get; set; }
     }
 }

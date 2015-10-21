@@ -50,7 +50,9 @@ namespace Itad2015.Service.Concrete
                 var guestObj = _guestRepository.Add(guestEntity);
 
                 workshopGuestEntity.GuestId = guestObj.Id;
-                _repository.Add(workshopGuestEntity);
+                var workshopObj = _repository.Add(workshopGuestEntity);
+                guestObj.WorkshopGuestId = workshopObj.Id;
+                _guestRepository.Edit(guestObj);
 
                 _unitOfWork.Commit();
 

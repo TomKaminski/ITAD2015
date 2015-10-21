@@ -1,11 +1,11 @@
-﻿@model Itad2015.ViewModels.Home.IndexWorkshopGuestModel
+﻿@model Itad2015.ViewModels.RegisterWorkshopGuestViewModel
 
 @using (Html.BeginForm("Register", "WorkshopGuest", FormMethod.Post, new { id = "RegisterWorkshopForm" }))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.Size, new { id = "sizeInput", aria_required = true, aria_invalid = false, aria_describedby = "RegisterWorkshopGuestViewModel_Size-error" })
-    @Html.HiddenFor(x => x.RegisterWorkshopGuestViewModel.WorkshopId, new { id = "workshopId", aria_required = true, aria_invalid = false, aria_describedby = "RegisterWorkshopGuestViewModel_WorkshopId-error" })
-    
+    @Html.HiddenFor(x => x.Size, new { id = "sizeInput", aria_required = true, aria_invalid = false, aria_describedby = "RegisterWorkshopGuestViewModel_Size-error" })
+    @Html.HiddenFor(x => x.WorkshopId, new { id = "workshopId", aria_required = true, aria_invalid = false, aria_describedby = "RegisterWorkshopGuestViewModel_WorkshopId-error" })
+
     <section data-stage-id="2">
         <div class="row">
             <div class="col-xs-4 col-xs-offset-4 text-center">
@@ -15,15 +15,15 @@
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.FirstName, new { @class = "itad-required-input", placeholder = "Imię*", id="registerInput_Name" })
-                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.FirstName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "itad-required-input", placeholder = "Imię*", id = "registerInput_Name" })
+                    @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko*", id = "registerInput_LastName" })
-                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.LastName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.LastName, new { @class = "itad-required-input", placeholder = "Nazwisko*", id = "registerInput_LastName" })
+                    @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
         </div>
@@ -31,62 +31,30 @@
         <div class="row margin-botom-20">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.Email, new { @class = "itad-required-input", placeholder = "Adres email*", id = "registerInput_Email" })
-                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.Email, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.Email, new { @class = "itad-required-input", placeholder = "Adres email*", id = "registerInput_Email" })
+                    @Html.ValidationMessageFor(x => x.Email, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły*" })
-                    @Html.ValidationMessageFor(x => x.RegisterWorkshopGuestViewModel.SchoolName, null, new { @class = "validation-itad bk-red" })
+                    @Html.TextBoxFor(x => x.SchoolName, new { @class = "itad-required-input", placeholder = "Nazwa szkoły*" })
+                    @Html.ValidationMessageFor(x => x.SchoolName, null, new { @class = "validation-itad bk-red" })
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="form-group">
-                    @Html.TextAreaFor(x => x.RegisterWorkshopGuestViewModel.Info, new { style = "", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?"})
+                    @Html.TextAreaFor(x => x.Info, new { style = "", placeholder = "Skąd dowiedziałeś się o konferencji IT Academic Day?" })
                 </div>
             </div>
         </div>
-
-        <p class="text-center workshopText">Wybierz warsztat, w którym chciałbyś/chciałabyś uczestniczyć:</p>
-        <div class="row" style="margin-bottom:10px">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="dropdown">
-                    <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span id="activeWorkshop">Wybierz warsztat</span> &nbsp;
-                        <span><span class="caret"></span></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        @foreach (var item in Model.WorkshopDropdownList)
-                        {
-                            <li><a href="" data-workshop-id="@item.Id">@item.Title</a></li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-center margin-botom-20">
-                @foreach (var item in Model.WorkshopDropdownList)
-                {
-                    <div class="row workshop-container" data-workshop-id="@item.Id" style="display: none">
-                        <div class="col-xs-5 col-xs-offset-2 ">
-                            <p><strong>Prowadzący: @item.TutorName<br/>Liczba wolnych miejsc: @item.LeftParticipants</strong>
-                            </p>
-                            <p>@item.Description</p>
-                        </div>
-                        <div class="col-xs-4"><img class="img-responsive col-sm-6 col-sm-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" /></div>
-                    </div>
-                }
-                @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.WorkshopId, null, new { @class = "validation-itad bk-red text-center" })
-            </div>
-        </div>
+        @Html.Action("WorkshopRegisterListSection", true)
+        @Html.ValidationMessageFor(x => x.WorkshopId, null, new { @class = "validation-itad bk-red text-center" })
     </section>
     @Html.Partial("_ItadShirtsPartial")
 
-    @Html.ValidationMessageFor(x=>x.RegisterWorkshopGuestViewModel.Size, null, new { @class = "validation-itad bk-red center" })
+    @Html.ValidationMessageFor(x => x.Size, null, new { @class = "validation-itad bk-red center" })
 
     @Html.Partial("_RegisterStagePartial")
 }

@@ -46,8 +46,6 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<ExcelFileItem, ExcelListItemViewModel>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap(typeof(SingleServiceResult<>), typeof(BaseReturnViewModel<>));
-
             Mapper.CreateMap<RegisterDeviceApiModel, ConnectedDevicePostDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<GuestGetDto,GuestShirtGetDto>().IgnoreNotExistingProperties();

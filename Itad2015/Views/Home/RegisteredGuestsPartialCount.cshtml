@@ -1,0 +1,5 @@
+﻿@model Itad2015.ViewModels.Home.RegisteredGuestsCountViewModel
+
+<p class="text-center @(Model.RegisteredGuests < Model.MaxGuests ? "main-color" : "bk-red")">
+    Ilość zarejestrowanych użytkowników: @Model.RegisteredGuests/@Model.MaxGuests
+</p>
