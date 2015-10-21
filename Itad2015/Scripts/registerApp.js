@@ -230,11 +230,18 @@ $(document).ready(function () {
         $("a.registerSubmit").toggleClass("disabled");
     });
 
-
     var options = {
         success: function (data) {
             $(".overlay").hide();
             if (data.status === true) {
+                var id = registerModule.getFormId();
+                if (id === regId) {
+                    $("#registeredGuestsCount").text(parseInt($("#registeredGuestsCount").text())+1);
+                } else {
+                    var selectedWorkshop = $("input#workshopId").val();
+                    var workshopCounter = $(".workshop-container[data-workshop-id='" + selectedWorkshop + "'] .workshopGuestCounter");
+                    workshopCounter.text(parseInt(workshopCounter.text()) - 1);
+                }
                 $('body').scrollTop(0);
                 registerModule.setStage(1, true);
                 registerModule.init();
