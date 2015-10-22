@@ -529,9 +529,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     color: white;
     font-size: 26px;
 }
-.fun-number-desc{
+
+.fun-number-desc {
     color: #50efff;
-    font-size:20px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -556,7 +557,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     align-items: center;
     height: 100%;
     color: #50efff;
-
 }
 
     .container-center > div {
@@ -565,26 +565,168 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
         text-align: center;
     }
 
-    .registerBtn {
-        font-size:24px;
+.registerBtn {
+    font-size: 24px;
+    color: white;
+}
+
+    .registerBtn a {
+        font-size: 24px;
         color: white;
+        text-decoration: none;
     }
-      .registerBtn a{
-        font-size:24px;
-        color: white;
-        text-decoration:none;
-    }
-        .registerBtn a:hover{
-        font-size:24px;
-        color: white;
-    }
+
+        .registerBtn a:hover {
+            font-size: 24px;
+            color: white;
+        }
+
 .itad-alert-container {
     padding: 5px 0 5px 50px;
 }
-.itad-alert.alert-success .itad-alert-container{
-   background: url('images/Mail/tick_green.png') no-repeat left;
-}  
-.itad-alert.alert-danger .itad-alert-container{
-   background: url('images/Mail/cancel_red.png') no-repeat left;
-}  
-  
+
+.itad-alert.alert-success .itad-alert-container {
+    background: url('images/Mail/tick_green.png') no-repeat left;
+}
+
+.itad-alert.alert-danger .itad-alert-container {
+    background: url('images/Mail/cancel_red.png') no-repeat left;
+}
+
+@media(min-width:992px) {
+    .no-p-border-but-bottom {
+        padding-left: 0 !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .left-panel {
+        width: 275px;
+    }
+
+    #social-links {
+        padding-left: 60px;
+    }
+}
+
+.col-xxs-1, .col-xxs-3, .col-xxs-3, .col-xxs-4, .col-xxs-5, .col-xxs-6, .col-xxs-7, .col-xxs-8, .col-xxs-9, .col-xxs-10, .col-xxs-11, .col-xxs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (max-width: 420px) {
+    .itad-guy, .itad-girl {
+        margin: auto;
+        float: none !important;
+    }
+
+    #TShirtType .shirt-container {
+        margin-bottom: 10px;
+    }
+
+    .col-xxs-1, .col-xxs-2, .col-xxs-3, .col-xxs-4, .col-xxs-5, .col-xxs-6, .col-xxs-7, .col-xxs-8, .col-xxs-9, .col-xxs-10, .col-xxs-11, .col-xxs-12 {
+        float: left;
+    }
+
+    .col-xxs-12 {
+        width: 100%;
+    }
+
+    .col-xxs-11 {
+        width: 91.66666667%;
+    }
+
+    .col-xxs-10 {
+        width: 83.33333333%;
+    }
+
+    .col-xxs-9 {
+        width: 75%;
+    }
+
+    .col-xxs-8 {
+        width: 66.66666667%;
+    }
+
+    .col-xxs-7 {
+        width: 58.33333333%;
+    }
+
+    .col-xxs-6 {
+        width: 50%;
+    }
+
+    .col-xxs-5 {
+        width: 41.66666667%;
+    }
+
+    .col-xxs-4 {
+        width: 33.33333333%;
+    }
+
+    .col-xxs-3 {
+        width: 25%;
+    }
+
+    .col-xxs-2 {
+        width: 16.66666667%;
+    }
+
+    .col-xxs-1 {
+        width: 8.33333333%;
+    }
+
+    .col-xxs-offset-12 {
+        margin-left: 100%;
+    }
+
+    .col-xxs-offset-11 {
+        margin-left: 91.66666667%;
+    }
+
+    .col-xxs-offset-10 {
+        margin-left: 83.33333333%;
+    }
+
+    .col-xxs-offset-9 {
+        margin-left: 75%;
+    }
+
+    .col-xxs-offset-8 {
+        margin-left: 66.66666667%;
+    }
+
+    .col-xxs-offset-7 {
+        margin-left: 58.33333333%;
+    }
+
+    .col-xxs-offset-6 {
+        margin-left: 50%;
+    }
+
+    .col-xxs-offset-5 {
+        margin-left: 41.66666667%;
+    }
+
+    .col-xxs-offset-4 {
+        margin-left: 33.33333333%;
+    }
+
+    .col-xxs-offset-3 {
+        margin-left: 25%;
+    }
+
+    .col-xxs-offset-2 {
+        margin-left: 16.66666667%;
+    }
+
+    .col-xxs-offset-1 {
+        margin-left: 8.33333333%;
+    }
+
+    .col-xxs-offset-0 {
+        margin-left: 0;
+    }
+}

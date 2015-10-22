@@ -422,6 +422,7 @@
     <Compile Include="Hubs\QrHub.cs" />
     <Compile Include="Hubs\ExcelHub.cs" />
     <Compile Include="Hubs\GuestHub.cs" />
+    <Compile Include="Infrastructure\Attributes\MustBeTrueAttribute.cs" />
     <Compile Include="Models\AppUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Base\AlertViewModel.cs" />

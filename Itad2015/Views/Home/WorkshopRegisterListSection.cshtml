@@ -23,7 +23,7 @@
         @foreach (var item in Model)
         {
             <div class="row workshop-container" data-workshop-id="@item.Id" style="display: none">
-                <div class="col-xs-5 col-xs-offset-2 ">
+                <div class="col-sm-5 col-sm-offset-2 ">
                     <p>
                         <strong>
                             Prowadzący: @item.TutorName<br />
@@ -32,8 +32,8 @@
                     </p>
                     <p>@item.Description</p>
                 </div>
-                <div class="col-xs-4">
-                    <img class="img-responsive col-sm-6 col-sm-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" />
+                <div class="col-sm-4">
+                    <img class="col-xs-6 col-xs-offset-3 img-responsive col-sm-6 col-sm-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" />
                 </div>
             </div>
         }

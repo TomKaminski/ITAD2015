@@ -422,6 +422,16 @@
             setValidationValues(options, "regex", options.params.regex);
         }
     });
+    adapters.add("mustbetrue", function (options) {
+        setValidationValues(options, "mustbetrue", true);
+    });
+
+    $jQval.addMethod("mustbetrue", function (value, element, param) {
+        // check if dependency is met
+        if (!this.depend(param, element))
+            return "dependency-mismatch";
+        return element.checked;
+    });
 
     $(function () {
         $jQval.unobtrusive.parse(document);

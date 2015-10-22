@@ -20,6 +20,7 @@ namespace Itad2015.Model.Concrete
         public bool QrEmailSent { get; set; }
         public bool AgendaEmailSent { get; set; }
         public bool Cancelled { get; set; }
+        public bool PolicyAccepted { get; set; }
 
         public int? WorkshopGuestId { get; set; }
 

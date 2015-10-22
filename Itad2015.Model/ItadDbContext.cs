@@ -34,9 +34,9 @@ namespace Itad2015.Model
             modelBuilder.Entity<Workshop>()
                 .HasMany(x => x.WorkshopGuests)
                 .WithRequired(x => x.Workshop)
-                .HasForeignKey(x => x.WorkshopId);
+                .HasForeignKey(x => x.WorkshopId).WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<WorkshopGuest>().HasRequired(x => x.Guest).WithMany().HasForeignKey(x => x.GuestId);
+            modelBuilder.Entity<WorkshopGuest>().HasRequired(x => x.Guest).WithMany().HasForeignKey(x => x.GuestId).WillCascadeOnDelete(true);
 
             base.OnModelCreating(modelBuilder);
         }

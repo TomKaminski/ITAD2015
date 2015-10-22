@@ -21,6 +21,7 @@ namespace Itad2015.Contract.DTO.GetDto
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
         public bool AgendaEmailSent { get; set; }
+        public bool PolicyAccepted { get; set; }
     }
 
 
