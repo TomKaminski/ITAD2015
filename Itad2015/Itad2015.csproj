@@ -232,6 +232,8 @@
     <Content Include="Content\images\org\Marcin_Wadoń.png" />
     <Content Include="Content\images\org\Tomasz_Kamiński.png" />
     <Content Include="Content\images\packet.png" />
+    <Content Include="Content\images\Partners\4experience-logo.png" />
+    <Content Include="Content\images\Partners\hackerspace-logo.png" />
     <Content Include="Content\images\people_icon.png" />
     <Content Include="Content\images\pizza_icon.png" />
     <Content Include="Content\images\prelegent_icon.png" />
@@ -481,6 +483,7 @@
     <Content Include="Views\Home\LowerSection.cshtml" />
     <Content Include="Views\Home\WorkshopRegisterListSection.cshtml" />
     <Content Include="Views\Home\RegisteredGuestsPartialCount.cshtml" />
+    <Content Include="Views\Home\_PartnersSectionPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
