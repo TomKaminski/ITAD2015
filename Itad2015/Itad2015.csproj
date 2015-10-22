@@ -247,6 +247,7 @@
     <Content Include="Content\images\slides\3.jpg" />
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
+    <Content Include="Content\images\Sponsors\oferta_image.png" />
     <Content Include="Content\images\Staff\Andrzej_Kastelik.png" />
     <Content Include="Content\images\Staff\Artur_Loska.png" />
     <Content Include="Content\images\Staff\Bartek_Borak.png" />
