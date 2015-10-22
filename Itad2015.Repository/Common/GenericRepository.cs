@@ -21,7 +21,7 @@ namespace Itad2015.Repository.Common
             Dbset = factory.Get().Set<T>();
         }
 
-        public T Add(T entity)
+        public virtual T Add(T entity)
         {
             Dbset.Add(entity);
             _entities.Configuration.ValidateOnSaveEnabled = false;
@@ -30,18 +30,18 @@ namespace Itad2015.Repository.Common
             return entity;
         }
 
-        public void AddPure(T entity)
+        public virtual void AddPure(T entity)
         {
             Dbset.Add(entity);
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             Dbset.Attach(entity);
             Dbset.Remove(entity);
         }
 
-        public void Edit(T entity)
+        public virtual void Edit(T entity)
         {
             _entities.Entry(entity).State = EntityState.Modified;
         }

@@ -83,6 +83,10 @@
     <Compile Include="Migrations\201510171604448_AgendaEmailSent.Designer.cs">
       <DependentUpon>201510171604448_AgendaEmailSent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510220945550_PolicyAccepted.cs" />
+    <Compile Include="Migrations\201510220945550_PolicyAccepted.Designer.cs">
+      <DependentUpon>201510220945550_PolicyAccepted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Scripts\DeleteNotConfirmedGuests.sql" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510171604448_AgendaEmailSent.resx">
       <DependentUpon>201510171604448_AgendaEmailSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510220945550_PolicyAccepted.resx">
+      <DependentUpon>201510220945550_PolicyAccepted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

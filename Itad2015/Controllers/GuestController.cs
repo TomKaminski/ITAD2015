@@ -39,20 +39,22 @@ namespace Itad2015.Controllers
                 });
             }
 
+            
+
             var mappedModel = Mapper.Map<GuestPostDto>(model);
 
             var res = _guestService.Register(mappedModel);
 
             if (!res.ValidationErrors.Any())
             {
-                new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
-                {
-                    LastName = res.Result.LastName,
-                    FirstName = res.Result.FirstName,
-                    ConfirmationHash = res.Result.ConfirmationHash,
-                    CancelationHash = res.Result.CancelationHash,
-                    Id = res.Result.Id
-                }).SendEmail();
+                //new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
+                //{
+                //    LastName = res.Result.LastName,
+                //    FirstName = res.Result.FirstName,
+                //    ConfirmationHash = res.Result.ConfirmationHash,
+                //    CancelationHash = res.Result.CancelationHash,
+                //    Id = res.Result.Id
+                //}).SendEmail();
             }
 
             return Json(new

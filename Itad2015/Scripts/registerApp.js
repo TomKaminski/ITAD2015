@@ -81,6 +81,8 @@ $.validator.setDefaults({
     ignore: []
 });
 
+$.validator.unobtrusive.adapters.addBool("mustbetrue", "required");
+
 
 function fillBackendErrorMessages(result) {
     $(".serverErrorsContainer").empty();
@@ -247,12 +249,14 @@ $(document).ready(function () {
                 registerModule.init();
                 alertApp.appendAlert("alert-success", "<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Na podany adres email została wysłana wiadomość potwierdzająca</span>");
             } else {
+
                 fillBackendErrorMessages(data);
             }
 
         },
-        beforeSubmit: function() {
-            $(".overlay").fadeIn();
+        beforeSubmit: function () {
+            $(".overlay").hide();
+            $(".overlay").show();
         }
     };
 

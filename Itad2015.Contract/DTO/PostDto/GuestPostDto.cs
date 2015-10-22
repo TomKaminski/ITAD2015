@@ -14,5 +14,6 @@ namespace Itad2015.Contract.DTO.PostDto
         public string Info { get; set; }
         public bool ShirtOrdered { get; set; }
         public bool AgendaEmailSent { get; set; }
+        public bool PolicyAccepted { get; set; }
     }
 }

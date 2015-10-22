@@ -1,6 +1,10 @@
-﻿<section data-stage-id="5">
+﻿@model Itad2015.ViewModels.Guest.RegisterGuestViewModel
+<section data-stage-id="5">
     <div class="checkbox margin-botom-20">
-        <label><input type="checkbox" name="Accepted" class="rulesCheckbox">Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).</label>
+        <label>
+            @Html.CheckBoxFor(x => x.PolicyAccepted, new { @class = "rulesCheckbox" })
+            Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do finalizacji procesu rejestracji na konferencje IT Academic Day w Bielsku-Białej (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).
+        </label>
     </div>
     <div class="validation-itad bk-red serverErrorsContainer center"></div>
     <div class="validation-itad bk-green serverSuccessContainer center"></div>

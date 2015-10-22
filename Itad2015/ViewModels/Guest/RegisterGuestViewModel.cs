@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Itad2015.Contract.DTO.Base;
+using Itad2015.Infrastructure.Attributes;
 
 namespace Itad2015.ViewModels.Guest
 {
@@ -15,5 +16,7 @@ namespace Itad2015.ViewModels.Guest
         [Required(ErrorMessage = "Wybierz rozmiar koszulki")]
         public Size Size { get; set; }
         public string Info { get; set; }
+        [MustBeTrue(ErrorMessage = "Musisz zaakceptować zgodę na przetwarzanie danych osobowych")]
+        public bool PolicyAccepted { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace Itad2015.Service.Concrete
         private readonly IHashGenerator _hashGenerator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public int MaxNormalRegisteredGuests => 350;
+        public int MaxNormalRegisteredGuests => 3;
 
         public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository, IHashGenerator hashGenerator) : base(unitOfWork, repository)
         {
