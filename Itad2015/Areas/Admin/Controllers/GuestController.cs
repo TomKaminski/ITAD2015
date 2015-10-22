@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Areas.Admin.ViewModels;
 using Itad2015.Areas.Admin.ViewModels.PdfViewModels;
+using Itad2015.Contract.DTO.Base;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service;
@@ -35,9 +36,14 @@ namespace Itad2015.Areas.Admin.Controllers
             return View();
         }
 
-        public JsonResult GetAll()
+        public JsonResult GetAll(bool forShirts = false)
         {
             var registeredGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null);
+
+            if (forShirts)
+            {
+                registeredGuests.Result = registeredGuests.Result.Where(x => x.Size != Size.NoShirt);
+            }
 
             var mappedModel = registeredGuests.Result.Select(Mapper.Map<AdminGuestViewModel>).ToList();
             return Json(mappedModel, JsonRequestBehavior.AllowGet);
@@ -85,6 +91,7 @@ namespace Itad2015.Areas.Admin.Controllers
                 var qrByteArray = _qrCodeGenerator.GenerateQrAsByteArray(_qrCodeGenerator.GenerateQrCode(d.Email));
                 var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(qrByteArray);
                 var pdfModel = Mapper.Map<QrTicketViewModel>(d);
+                pdfModel.MaxNumberForShirt = _guestService.MaxGuestsForShirt;
                 pdfModel.RegisterNumber = allGuests.FindIndex(x => x.Id == d.Id) + 1;
                 pdfModel.QrSrc = qrStringSrc;
 

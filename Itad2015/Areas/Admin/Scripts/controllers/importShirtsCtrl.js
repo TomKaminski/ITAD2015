@@ -17,7 +17,7 @@
             vm.currentPage = 1;
 
 
-            $http.get("/Admin/Guest/GetAll")
+            $http.get("/Admin/Guest/GetAll?forShirts=True")
                 .then(function (result) {
                     guestFilterService.setGuestsData(result.data);
                     vm.guestsList = guestFilterService.getFilteredItems(false, "", 5, 1);

@@ -7,7 +7,6 @@ using Itad2015.Contract.Service.Entity;
 using Itad2015.Helpers.Email;
 using Itad2015.ViewModels.Email;
 using Itad2015.ViewModels.Guest;
-using Itad2015.ViewModels.Home;
 
 namespace Itad2015.Controllers
 {
@@ -47,14 +46,14 @@ namespace Itad2015.Controllers
 
             if (!res.ValidationErrors.Any())
             {
-                //new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
-                //{
-                //    LastName = res.Result.LastName,
-                //    FirstName = res.Result.FirstName,
-                //    ConfirmationHash = res.Result.ConfirmationHash,
-                //    CancelationHash = res.Result.CancelationHash,
-                //    Id = res.Result.Id
-                //}).SendEmail();
+                new EmailHelper<GuestRegisterEmail>(new GuestRegisterEmail(res.Result.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
+                {
+                    LastName = res.Result.LastName,
+                    FirstName = res.Result.FirstName,
+                    ConfirmationHash = res.Result.ConfirmationHash,
+                    CancelationHash = res.Result.CancelationHash,
+                    Id = res.Result.Id
+                }).SendEmail();
             }
 
             return Json(new

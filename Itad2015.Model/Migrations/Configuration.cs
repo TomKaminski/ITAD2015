@@ -16,13 +16,6 @@ namespace Itad2015.Model.Migrations
 
         protected override void Seed(ItadDbContext context)
         {
-            context.Guest.AddOrUpdate(new Guest
-            {
-                Email = "tkaminski93@gmail.com",
-                FirstName = "Tomasz",
-                LastName = "Kamiñski",
-                RegistrationTime = DateTime.Now
-            });
 
             var saltHash = PasswordHasherHelper.CreateHash("xcwdwpkbwk");
             char[] delimiter = { ':' };

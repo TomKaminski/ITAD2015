@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Itad2015.Areas.Admin.ViewModels
 {
@@ -14,7 +15,9 @@ namespace Itad2015.Areas.Admin.ViewModels
         public string TutorName { get; set; }
         [Required]
         public DateTime Date { get; set; }
+
         [Required]
+        [AllowHtml]
         public string Description { get; set; }
 
         [Required]

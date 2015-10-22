@@ -21,5 +21,6 @@ namespace Itad2015.Contract.Service.Entity
         SingleServiceResult<bool> CheckOut(int id);
 
         int MaxNormalRegisteredGuests { get;}
+        int MaxGuestsForShirt { get; }
     }
 }

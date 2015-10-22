@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Areas.Admin.Helpers;
 using Itad2015.Areas.Admin.ViewModels;
+using Itad2015.Contract.DTO.Base;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service;
@@ -125,7 +126,7 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             var confirmedGuests = _guestService.GetAll(x => x.ConfirmationTime != null).Result.OrderBy(x=>x.ConfirmationTime).Take(300);
 
-            var notOrderedShirts = confirmedGuests.Where(x => !x.ShirtOrdered).ToList();
+            var notOrderedShirts = confirmedGuests.Where(x => !x.ShirtOrdered && x.Size != Size.NoShirt).ToList();
 
             var file = _excelService.GetShirtsFile(notOrderedShirts.Select(Mapper.Map<GuestShirtGetDto>).ToList());
 

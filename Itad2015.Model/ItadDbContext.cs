@@ -45,14 +45,6 @@ namespace Itad2015.Model
         {
             protected override void Seed(ItadDbContext context)
             {
-                context.Guest.Add(new Guest
-                {
-                    Email = "tkaminski93@gmail.com",
-                    FirstName = "Tomasz",
-                    LastName = "Kamiński",
-                    RegistrationTime = DateTime.Now
-                });
-
                 var saltHash = PasswordHasherHelper.CreateHash("xcwdwpkbwk");
                 char[] delimiter = { ':' };
                 var split = saltHash.Split(delimiter);

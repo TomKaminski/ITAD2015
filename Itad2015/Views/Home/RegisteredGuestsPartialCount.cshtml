@@ -1,5 +1,5 @@
 ﻿@model Itad2015.ViewModels.Home.RegisteredGuestsCountViewModel
 
-<p class="text-center @(Model.RegisteredGuests < Model.MaxGuests ? "main-color" : "bk-red")">
-    Ilość zarejestrowanych użytkowników: <span id="registeredGuestsCount">@Model.RegisteredGuests</span>/@Model.MaxGuests
+<p class="text-center @(Model.MaxGuests-Model.RegisteredGuests > 0 ? "main-color" : "bk-red")">
+    Ilość wolnych miejsc: <span id="registeredGuestsCount">@(Model.MaxGuests-Model.RegisteredGuests)</span>
 </p>

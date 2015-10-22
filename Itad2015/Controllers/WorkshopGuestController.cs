@@ -48,16 +48,16 @@ namespace Itad2015.Controllers
                 var user = res.FirstResult;
                 var workshop = res.SecondResult;
 
-                //new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
-                //{
-                //    LastName = user.LastName,
-                //    FirstName = user.FirstName,
-                //    ConfirmationHash = user.ConfirmationHash,
-                //    CancelationHash = user.CancelationHash,
-                //    SchoolName = model.SchoolName,
-                //    WorkshopTitle = workshop.Title,
-                //    Id = user.Id
-                //}).SendEmail();
+                new EmailHelper<WorkshopGuestRegisterEmail>(new WorkshopGuestRegisterEmail(user.Email, "reset@ath.bielsko.pl", "Rejestracja na konferencję.")
+                {
+                    LastName = user.LastName,
+                    FirstName = user.FirstName,
+                    ConfirmationHash = user.ConfirmationHash,
+                    CancelationHash = user.CancelationHash,
+                    SchoolName = model.SchoolName,
+                    WorkshopTitle = workshop.Title,
+                    Id = user.Id
+                }).SendEmail();
             }
 
             return Json(new

@@ -15,7 +15,7 @@
     <div style="text-align: center">20 Listopada 2015, Bielsko Biała</div>
     <div style="text-align: center">Akademia Techniczno-Humanistyczna</div>
     <h3 style="text-align: center">Jesteś naszym @Model.RegisterNumber gościem!</h3>
-    @if (Model.RegisterNumber <= 300)
+    @if (Model.RegisterNumber <= Model.MaxNumberForShirt)
     {
         <h4 style="text-align: center">Dlatego w giftpacku czekać będzie na Ciebie konferencyjna koszulka.</h4>
     }

@@ -21,7 +21,8 @@ namespace Itad2015.Service.Concrete
         private readonly IHashGenerator _hashGenerator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public int MaxNormalRegisteredGuests => 3;
+        public int MaxNormalRegisteredGuests => 350;
+        public int MaxGuestsForShirt => 300;
 
         public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository, IHashGenerator hashGenerator) : base(unitOfWork, repository)
         {
@@ -64,14 +65,14 @@ namespace Itad2015.Service.Concrete
             if (!errors.Any() && guest != null)
             {
                 var confirmedGuests = guests.Where(x => x.ConfirmationTime != null && !x.Cancelled).ToList();
-                if (confirmedGuests.Count >= 300)
+                if (confirmedGuests.Count >= MaxGuestsForShirt)
                 {
                     guest.Size = Model.Enums.Size.NoShirt;
                 }
                 guest.ConfirmationTime = DateTime.Now;
                 _repository.Edit(guest);
                 _unitOfWork.Commit();
-                return new SingleServiceResult<bool, int>(true, confirmedGuests.Count() + 1, errors);
+                return new SingleServiceResult<bool, int>(true, confirmedGuests.Count + 1, errors);
             }
             return new SingleServiceResult<bool, int>(false, 0, errors);
         }

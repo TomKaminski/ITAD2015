@@ -22,18 +22,18 @@
     <div class="col-xs-12 text-center margin-botom-20">
         @foreach (var item in Model)
         {
-            <div class="row workshop-container" data-workshop-id="@item.Id" style="display: none">
-                <div class="col-sm-5 col-sm-offset-2 ">
+            <div class="row workshop-container flex-align-center" data-workshop-id="@item.Id" style="display: none">
+                <div class="col-sm-6 col-sm-offset-1">
                     <p>
                         <strong>
                             Prowadzący: @item.TutorName<br />
                             <span class="@(item.LeftParticipants > 0 ? "main-color" : "bk-red")">Liczba wolnych miejsc: <span class="workshopGuestCounter">@item.LeftParticipants</span></span>
                         </strong>
                     </p>
-                    <p>@item.Description</p>
+                    <p>@Html.Raw(item.Description)</p>
                 </div>
                 <div class="col-sm-4">
-                    <img class="col-xs-6 col-xs-offset-3 img-responsive col-sm-6 col-sm-offset-3" src="@Url.Content(item.ImgPath + "_small.png")" />
+                    <img class="col-xxs-6 col-xxs-offset-3 col-xs-4 col-xs-offset-4 img-responsive col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1" src="@Url.Content(item.ImgPath + "_small.png")" />
                 </div>
             </div>
         }
