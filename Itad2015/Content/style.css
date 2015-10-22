@@ -565,10 +565,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
         text-align: center;
     }
 
-.registerBtn {
+    .registerBtn {
     font-size: 24px;
-    color: white;
-}
+        color: white;
+    }
 
     .registerBtn a {
         font-size: 24px;
@@ -578,21 +578,25 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
         .registerBtn a:hover {
             font-size: 24px;
-            color: white;
-        }
+        color: white;
+    }
 
 .itad-alert-container {
     padding: 5px 0 5px 50px;
 }
 
 .itad-alert.alert-success .itad-alert-container {
-    background: url('images/Mail/tick_green.png') no-repeat left;
-}
+   background: url('images/Mail/tick_green.png') no-repeat left;
+}  
 
 .itad-alert.alert-danger .itad-alert-container {
-    background: url('images/Mail/cancel_red.png') no-repeat left;
+   background: url('images/Mail/cancel_red.png') no-repeat left;
+}  
+.font-14{
+    font-size: 14px;
+    color: white;
 }
-
+  
 @media(min-width:992px) {
     .no-p-border-but-bottom {
         padding-left: 0 !important;
