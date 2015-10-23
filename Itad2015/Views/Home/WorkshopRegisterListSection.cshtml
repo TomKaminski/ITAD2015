@@ -26,7 +26,7 @@
                 <div class="col-sm-6 col-sm-offset-1">
                     <p>
                         <strong>
-                            Prowadzący: @item.TutorName<br />
+                            Prowadzący: <a class="slide-inner" href="#@(item.TutorName.ToLower().Replace(" ",""))">@item.TutorName</a><br />
                             <span class="@(item.LeftParticipants > 0 ? "main-color" : "bk-red")">Liczba wolnych miejsc: <span class="workshopGuestCounter">@item.LeftParticipants</span></span>
                         </strong>
                     </p>

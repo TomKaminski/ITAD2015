@@ -24,12 +24,17 @@
                     $('html, body').stop().animate({
                         scrollTop: $($anchor.attr('href')).offset().top
                     }, 1000, 'easeInOutExpo');
-                    /*
-                    if you don't want to use the easing effects:
+                    event.preventDefault();
+                });
+            });
+
+            $(function () {
+                $('.slide-inner').bind('click', function (event) {
+                    var $anchor = $(this);
+
                     $('html, body').stop().animate({
-                        scrollTop: $($anchor.attr('href')).offset().top
-                    }, 1000);
-                    */
+                        scrollTop: $($anchor.attr('href')).offset().top - $(window).height()/2
+                    }, 1000, 'easeInOutExpo');
                     event.preventDefault();
                 });
             });
