@@ -237,6 +237,7 @@
     <Content Include="Content\images\people_icon.png" />
     <Content Include="Content\images\pizza_icon.png" />
     <Content Include="Content\images\Prelegenci\Błazej_Faliszek.png" />
+    <Content Include="Content\images\Prelegenci\Lukasz_Gawel.png" />
     <Content Include="Content\images\prelegent_icon.png" />
     <Content Include="Content\images\register.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
@@ -265,6 +266,7 @@
     <Content Include="Content\images\Staff\Krzysztof_Gren.png" />
     <Content Include="Content\images\Staff\Malgorzata_Mazurek.png" />
     <Content Include="Content\images\Staff\Marcin_Wadon.png" />
+    <Content Include="Content\images\Staff\Marek_Bubiak.png" />
     <Content Include="Content\images\Staff\Pawel_Falat.png" />
     <Content Include="Content\images\Staff\Pawel_Leja.png" />
     <Content Include="Content\images\Staff\Szymon_Tengler.png" />
