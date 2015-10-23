@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading.Tasks;
+using System.Timers;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
@@ -30,6 +33,8 @@ namespace Itad2015
 
             InitializerModule.InitializeDb();
 
+            AddTask("RemoveUsers", 3600);
+
             var config = GlobalConfiguration.Configuration;
 
             //Autofac Configuration
@@ -46,6 +51,29 @@ namespace Itad2015
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+        }
+
+
+        private static void DeleteUsers()
+        {
+            InitializerModule.DeleteUsers();
+        }
+
+
+        private static CacheItemRemovedCallback _onCacheRemove;
+
+        private void AddTask(string name, int seconds)
+        {
+            _onCacheRemove = CacheItemRemoved;
+            HttpRuntime.Cache.Insert(name, seconds, null,
+                DateTime.Now.AddSeconds(seconds), Cache.NoSlidingExpiration,
+                CacheItemPriority.NotRemovable, _onCacheRemove);
+        }
+
+        private void CacheItemRemoved(string k, object v, CacheItemRemovedReason r)
+        {
+            DeleteUsers();
+            AddTask(k, Convert.ToInt32(v));
         }
     }
 }

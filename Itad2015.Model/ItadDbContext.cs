@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Cryptography;
 using Itad2015.Model.Concrete;
+using Itad2015.Model.Migrations;
 
 namespace Itad2015.Model
 {
@@ -12,6 +13,7 @@ namespace Itad2015.Model
         public ItadDbContext() : base("ItadDbContext")
         {
             Database.SetInitializer(new ItadDbInitializer());
+            Database.SetInitializer<ItadDbContext>(new MigrateDatabaseToLatestVersion<ItadDbContext, Configuration>());
         }
 
         public virtual IDbSet<Guest> Guest { get; set; }
@@ -23,9 +25,12 @@ namespace Itad2015.Model
         public virtual IDbSet<Workshop> Workshop { get; set; }
 
         public virtual IDbSet<User> User { get; set; }
-        public virtual IDbSet<InvitedPerson> InvitedPerson { get; set; }
+        public virtual IDbSet<Model.Concrete.InvitedPerson> InvitedPerson { get; set; }
 
-
+        public void DeleteUsers()
+        {
+            Database.ExecuteSqlCommand(@"DELETE FROM Guest WHERE ConfirmationTime IS NULL AND DATEDIFF(DD,RegistrationTime,GETDATE()) >=2");
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

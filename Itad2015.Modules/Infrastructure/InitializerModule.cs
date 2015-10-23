@@ -9,5 +9,10 @@ namespace Itad2015.Modules.Infrastructure
         {
             Database.SetInitializer(new ItadDbContext.ItadDbInitializer());
         }
+
+        public static void DeleteUsers()
+        {
+            new ItadDbContext().DeleteUsers();
+        }
     }
 }

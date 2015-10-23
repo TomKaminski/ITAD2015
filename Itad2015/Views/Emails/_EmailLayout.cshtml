@@ -8,15 +8,15 @@ Content-Type: text/html; charset=utf-8
 
 </head>
 <body mail="fix">
-    <div style="width: 700px; margin: auto">
+    <div style="width: 700px; text-align:center">
         <a href="@Url.Action("Index","Home",null,"http")" style="margin-bottom:35px">
-            <div style="width: 700px; height: 350px; margin: auto">
+            <div style="width: 700px; height: 350px">
                 @Html.EmbedImage("~/Content/images/Mail/mailHeader.png")
             </div>
         </a>
         @RenderBody()
         <a href="@Url.Action("Index","Home",null,"http")" style="margin-top:35px">
-            <div style="width: 700px; height: 350px; margin: auto">
+            <div style="width: 700px; height: 350px">
                 @Html.EmbedImage("~/Content/images/Mail/mailFooter.png")
             </div>
         </a>

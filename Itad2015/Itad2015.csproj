@@ -361,6 +361,7 @@
     <Content Include="Content\files\ofertaSponsorska.pdf" />
     <Content Include="Areas\Admin\Scripts\web.config" />
     <Content Include="Content\web.config" />
+    <None Include="Properties\PublishProfiles\FtpReset.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -487,6 +488,9 @@
     <Content Include="Views\Home\WorkshopRegisterListSection.cshtml" />
     <Content Include="Views\Home\RegisteredGuestsPartialCount.cshtml" />
     <Content Include="Views\Home\_PartnersSectionPartial.cshtml" />
+    <Content Include="Web.FtpReset.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

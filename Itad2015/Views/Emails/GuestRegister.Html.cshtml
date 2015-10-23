@@ -1,37 +1,40 @@
 ﻿@model Itad2015.ViewModels.Email.GuestRegisterEmail
 
-<h1 style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif">Cześć @Model.FirstName!</h1>
-<p style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px">
+<h1 style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif">Cześć @Model.FirstName!</h1>
+<p style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px">
     Dziękujemy za rejestrację na <b>ITAD2015</b>!
 </p>
-<div style="width: 150px; height: 156px; margin: auto">
+<div style="width: 700px; text-align: center">
     @Html.EmbedImage("~/Content/images/Mail/register.png")
-</div>
-<p style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px">
-    Dla usprawnienia rejestracji w dniu konferencji, w tym roku będzie<br /> miała ona inny przebieg. <br />
-    <b>Tydzień przed konferencją</b> prześlemy Ci Twój <b>QR kod</b> - prosimy <b>zabierz go</b> ze sobą na ITAD2015 - w <b>dowolnej formie</b> :)
-</p>
-<div style="margin: auto; width: 40%;border-bottom:1px solid #50efff"></div>
-<p style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px">
-    czekamy na Ciebie <b>20 listopada 2015</b> <br />
-    roku na <b>Akademii Techniczno-Humanistycznej</b> <br />
-    w Bielsku-Białej.
-</p>
-
-<a style="text-decoration: none" href="@Url.Action("ConfirmRegistration", "Home", new {id = Model.Id, confirmationCode = Model.ConfirmationHash},"https")">
-    <div style="width: 100px; height: 100px; margin: auto">
-        @Html.EmbedImage("~/Content/images/Mail/tick.png")
-    </div>
-    <p style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px; color:#50efff">
-        <b>POTWIERDŻ SWOJĄ REJESTRACJĘ</b>
+    <p style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px">
+        Dla usprawnienia rejestracji w dniu konferencji, w tym roku będzie<br /> miała ona inny przebieg. <br />
+        <b>Tydzień przed konferencją</b> prześlemy Ci Twój <b>QR kod</b> - prosimy <b>zabierz go</b> ze sobą na ITAD2015 - w <b>dowolnej formie</b> :)
     </p>
-</a>
-<div style="margin: auto; width: 40%;border-bottom:1px solid #50efff"></div>
-<a style="text-decoration: none; margin-top:50px" href="@Url.Action("CancelRegistration","Home", new {id=Model.Id, cancelationCode = Model.CancelationHash},"https")">
-    <div style="width: 50px; height: 50px; margin: auto ; margin-top: 30px">
+    <p style="border-bottom:1px solid #50efff"></p>
+    <p style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:18px">
+        czekamy na Ciebie <b>20 listopada 2015</b> <br />
+        roku na <b>Akademii Techniczno-Humanistycznej</b> <br />
+        w Bielsku-Białej.
+    </p>
+</div>
+
+
+<div style="width: 700px; text-align: center">
+    <a style="text-decoration: none" href="@Url.Action("ConfirmRegistration", "Home", new {id = Model.Id, confirmationCode = Model.ConfirmationHash}, "https")">
+        @Html.EmbedImage("~/Content/images/Mail/tick.png")
+    </a>
+    <p style="font-family: 'Sinkin Sans', 'Open Sans', 'Segoe UI', sans-serif; font-size: 18px; color: #50efff">
+        <b>POTWIERDŻ SWOJĄ REJESTRACJĘ</b><br />
+        Masz 2 dni na potwierdzenie rejestracji.
+    </p>
+    <p style="border-bottom:1px solid #50efff"></p>
+    <a style="text-decoration: none; margin-top: 50px" href="@Url.Action("CancelRegistration", "Home", new {id = Model.Id, cancelationCode = Model.CancelationHash}, "https")">
         @Html.EmbedImage("~/Content/images/Mail/cancel.png")
-    </div>
-    <p style="text-align: center;font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:12px; color:#808080">
+    </a>
+    <p style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif;font-size:12px; color:#808080">
         <b>JEŚLI Z JAKICHKOLWIEK PRZYCZYN NIE JESTEŚ W STANIE DOTRZEĆ NA KONFERENCJĘ, PROSIMY, ANULUJ SWOJĄ REZERWACJĘ</b>
     </p>
-</a>
+</div>
+
+
+

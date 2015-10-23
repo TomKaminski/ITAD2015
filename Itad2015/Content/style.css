@@ -298,7 +298,7 @@ h4 {
 }
 
 .itad-gender {
-    background-image: url("images/Register/ItadGeek.png");
+    background-image: url("/Content/images/Register/ItadGeek.png");
     background-repeat: no-repeat;
     width: 179px;
     height: 234px;
@@ -344,7 +344,7 @@ h4 {
 
 
 .itad-shirt {
-    background-image: url("images/Register/shirt_size.png");
+    background-image: url("/Content/images/Register/shirt_size.png");
     background-repeat: no-repeat;
     width: 97px;
     height: 97px;

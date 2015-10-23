@@ -29,8 +29,6 @@ namespace Itad2015
                          "~/Content/vegas/jquery.vegas.css",
                          "~/Content/countdown.css",
                          "~/Content/style.css"));
-
-            BundleTable.EnableOptimizations = false;
         }
     }
 }
