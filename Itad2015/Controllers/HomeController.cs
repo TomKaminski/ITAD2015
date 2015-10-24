@@ -25,10 +25,10 @@ namespace Itad2015.Controllers
             _workshopGuestService = workshopGuestService;
         }
 
-        //[DonutOutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
+        [DonutOutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
         public ActionResult Index(List<AlertViewModel> alerts = null)
         {
-            return View("Index", new IndexViewModel
+            return View("Index",new IndexViewModel
             {
                 RegisterWorkshopGuestViewModel = new RegisterWorkshopGuestViewModel(),
                 RegisterGuestViewModel = new RegisterGuestViewModel(),
@@ -85,12 +85,12 @@ namespace Itad2015.Controllers
             {
                 alertModel.AlertClass = "alert-success";
                 alertModel.AlertText =
-                    @"<img src='~/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja została ANULOWANA pomyślnie!</span>";
+                    @"<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja została ANULOWANA pomyślnie!</span>";
             }
             else
             {
                 alertModel.AlertClass = "alert-danger";
-                alertModel.AlertText = $"<img src='~/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji ({result.ValidationErrors.FirstOrDefault()}). Spróbuj ponownie lub skontaktuj się z administratorem strony</span>";
+                alertModel.AlertText = $"<img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Wystąpił błąd podczas procesu rejestracji ({result.ValidationErrors.FirstOrDefault()}). Spróbuj ponownie lub skontaktuj się z administratorem strony</span>";
 
             }
             return Index(new List<AlertViewModel> { alertModel });

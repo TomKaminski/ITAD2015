@@ -116,5 +116,13 @@ namespace Itad2015.Areas.Admin.Controllers
             _guestService.EditMany(guestsToEdit);
             return Json(true);
         }
+
+        [HttpGet]
+        public ActionResult DeleteSpecialByBukkakaPlz(string email)
+        {
+            var guest = _guestService.FirstOrDefault(x => x.Email == email);
+            _guestService.Delete(guest.Result.Id);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

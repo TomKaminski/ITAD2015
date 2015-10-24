@@ -247,7 +247,7 @@ $(document).ready(function () {
                 $('body').scrollTop(0);
                 registerModule.setStage(1, true);
                 registerModule.init();
-                alertApp.appendAlert("alert-success", "<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Na podany adres email została wysłana wiadomość wymagająca potwierdzająca</span>");
+                alertApp.appendAlert("alert-success", "<img src='/Content/images/Mail/tick_green.png' /><span style='padding-left:20px;'>Rejestracja przebiegła pomyślnie. Na twój email została wysłana wiadomość wymagająca potwierdzenia. Jest to wymagane do sfinalizowania procesu rejestracji.</span>");
             } else {
 
                 fillBackendErrorMessages(data);
