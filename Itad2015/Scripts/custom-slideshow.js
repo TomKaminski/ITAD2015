@@ -24,6 +24,7 @@
                     $('html, body').stop().animate({
                         scrollTop: $($anchor.attr('href')).offset().top
                     }, 1000, 'easeInOutExpo');
+                    $('.left-panel').animate({ left: '-230px' });
                     event.preventDefault();
                 });
             });

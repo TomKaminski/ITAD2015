@@ -32,4 +32,14 @@ namespace Itad2015.Contract.DTO.GetDto
         public string LastName { get; set; }
         public Size Size { get; set; }
     }
+
+    public class GuestExtendedWorkshopGetDto
+    {
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int? WorkshopGuestId { get; set; }
+        public string SchoolName { get; set; }
+    }
 }

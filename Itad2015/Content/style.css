@@ -130,6 +130,8 @@ h4 {
     z-index: 9999;
 }
 
+
+
 .menu-text {
     width: 120px;
     text-align: justify;
@@ -624,7 +626,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 @media(max-width: 768px) {
     .left-panel {
         width: 275px;
+        background: rgba(80, 239, 255, 1);
     }
+
+    .navigatation a:hover {
+        color: white;
+    }
+
 
     h2 {
         font-size: 25px;
@@ -633,6 +641,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     h3 {
         font-size: 18px;
     }
+
     #social-links {
         padding-left: 60px;
     }
@@ -758,10 +767,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     .col-xxs-offset-0 {
         margin-left: 0;
     }
-
-
 }
 
-    .close span {
-        font-size: 35px;
-    }
+.close span {
+    font-size: 35px;
+}

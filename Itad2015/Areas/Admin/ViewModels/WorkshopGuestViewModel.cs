@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Itad2015.Contract.DTO.GetDto;
 
 namespace Itad2015.Areas.Admin.ViewModels
 {
@@ -7,7 +6,7 @@ namespace Itad2015.Areas.Admin.ViewModels
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public List<AdminGuestViewModel> Guests { get; set; }
+        public List<WorkshopGuestExtendedItemViewModel> Guests { get; set; }
     }
 
     public class WorkshopGuestExtendedViewModel
@@ -16,5 +15,16 @@ namespace Itad2015.Areas.Admin.ViewModels
         public string SchoolName { get; set; }
         public int WorkshopId { get; set; }
         public AdminGuestViewModel Guest { get; set; }
+
+    }
+
+    public class WorkshopGuestExtendedItemViewModel
+    {
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int? WorkshopGuestId { get; set; }
+        public string SchoolName { get; set; }
     }
 }

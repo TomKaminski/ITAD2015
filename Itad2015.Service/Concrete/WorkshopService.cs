@@ -43,7 +43,7 @@ namespace Itad2015.Service.Concrete
             var workshoplist = workshops.Select(Mapper.Map<WorkshopGuestListGetDto>).ToList();
             foreach (var item in workshoplist)
             {
-                var thisWorkshopGuests = workshopGuests.Where(x => x.WorkshopGuest.WorkshopId == item.Id).Select(Mapper.Map<GuestGetDto>);
+                var thisWorkshopGuests = workshopGuests.Where(x => x.WorkshopGuest.WorkshopId == item.Id).Select(Mapper.Map<GuestExtendedWorkshopGetDto>);
                 item.Guests = thisWorkshopGuests.ToList();
             }
             return new SingleServiceResult<IEnumerable<WorkshopGuestListGetDto>>(workshoplist);

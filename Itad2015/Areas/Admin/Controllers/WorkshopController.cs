@@ -103,7 +103,5 @@ namespace Itad2015.Areas.Admin.Controllers
             var mappedModel = _workshopService.GetWorkshopGuestsGrouped().Result.Select(Mapper.Map<WorkshopGuestViewModel>).ToList();
             return View(mappedModel);
         }
-
-
     }
 }

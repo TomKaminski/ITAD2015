@@ -1,4 +1,5 @@
 ﻿@using Itad2015.Models
+@model IEnumerable<Itad2015.Areas.Admin.ViewModels.AdminGuestViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -7,3 +8,29 @@
 
 <h2>Zalogowany jako: @appUserState.Email.</h2>
 
+<h3>Niepotwierdzeni zarejestrowani:</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Email</th>
+            <th>Rozmiar Koszulki</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.Size</td>
+                <td>@Html.ActionLink("Wyślij email potwierdzający jeszcze raz", "SendConfirmationEmail", "Home", new { id = item.Id }, new { @class = "btn btn-success" })</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

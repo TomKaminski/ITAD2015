@@ -20,6 +20,6 @@ namespace Itad2015.Contract.DTO.GetDto
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public List<GuestGetDto> Guests { get; set; }
+        public List<GuestExtendedWorkshopGetDto> Guests { get; set; }
     }
 }

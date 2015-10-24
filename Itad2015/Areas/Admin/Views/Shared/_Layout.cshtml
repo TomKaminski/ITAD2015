@@ -22,8 +22,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        @Html.ActionLink("Warsztaty", "Index", "Workshop")
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Warsztaty<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Lista warsztatów", "Index", "Workshop")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Lista osób na warsztaty", "WorkshopGuestsList", "Workshop")</li>
+                        </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uczestnicy <span class="caret"></span></a>
@@ -42,7 +47,7 @@
                         </ul>
                     </li>
                     <li>
-                        
+
                     </li>
                 </ul>
             </div>

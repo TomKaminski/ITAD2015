@@ -39,6 +39,9 @@ namespace Itad2015.Modules.Modules
             Mapper.CreateMap<Workshop, WorkshopGuestListGetDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<WorkshopGuest, WorkshopGuestExtendedGetDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<Guest, GuestExtendedWorkshopGetDto>()
+                .ForMember(x => x.SchoolName, opt => opt.MapFrom(m => m.WorkshopGuest.SchoolName));
         }
     }
 }
