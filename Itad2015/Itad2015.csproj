@@ -361,6 +361,8 @@
     <Content Include="Content\files\ofertaSponsorska.pdf" />
     <Content Include="Areas\Admin\Scripts\web.config" />
     <Content Include="Content\web.config" />
+    <Content Include="Areas\Admin\Views\Workshop\WorkshopGuestsList.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkshopGuest\DeleteGuest.cshtml" />
     <None Include="Properties\PublishProfiles\FtpReset.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -412,11 +414,13 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShirtsController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkshopController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WorkshopGuestController.cs" />
     <Compile Include="Areas\Admin\Helpers\HttpPostedFileBaseToByteConverter.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminGuestViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExcelViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\PdfViewModels\QrTicketViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\WorkshopGuestViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopViewModels.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />

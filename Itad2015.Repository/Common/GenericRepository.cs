@@ -12,18 +12,18 @@ namespace Itad2015.Repository.Common
     {
         private readonly DbContext _entities;
         private readonly IUnitOfWork _unitOfWork;
-        protected readonly IDbSet<T> Dbset;
+        private readonly IDbSet<T> _dbset;
 
         protected GenericRepository(IDatabaseFactory factory, IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _entities = factory.Get();
-            Dbset = factory.Get().Set<T>();
+            _dbset = factory.Get().Set<T>();
         }
 
         public virtual T Add(T entity)
         {
-            Dbset.Add(entity);
+            _dbset.Add(entity);
             _entities.Configuration.ValidateOnSaveEnabled = false;
             _unitOfWork.Commit();
             _entities.Configuration.ValidateOnSaveEnabled = true;
@@ -32,13 +32,13 @@ namespace Itad2015.Repository.Common
 
         public virtual void AddPure(T entity)
         {
-            Dbset.Add(entity);
+            _dbset.Add(entity);
         }
 
         public virtual void Delete(T entity)
         {
-            Dbset.Attach(entity);
-            Dbset.Remove(entity);
+            _dbset.Attach(entity);
+            _dbset.Remove(entity);
         }
 
         public virtual void Edit(T entity)
@@ -54,78 +54,76 @@ namespace Itad2015.Repository.Common
             }
         }
 
-        public IGenericRepository<T> Include(Expression<Func<T, Entity>> include)
+        public IQueryable<T> Include(Expression<Func<T, Entity>> include)
         {
-            Dbset.Include(include);
-            return this;
+            return _dbset.Include(include);
         }
 
-        public IGenericRepository<T> Include(Expression<Func<T, IEnumerable<Entity>>> include)
+        public IQueryable<T> Include(Expression<Func<T, IEnumerable<Entity>>> include)
         {
-            Dbset.Include(include);
-            return this;
+            return _dbset.Include(include);
         }
         //Sync
         public int Count(Expression<Func<T, bool>> expression)
         {
-            return Dbset.Count(expression);
+            return _dbset.Count(expression);
         }
 
         public T Find(int id)
         {
-            return Dbset.SingleOrDefault(x => x.Id == id);
+            return _dbset.SingleOrDefault(x => x.Id == id);
         }
 
         public T First(Expression<Func<T, bool>> expression)
         {
-            return Dbset.First(expression);
+            return _dbset.First(expression);
         }
 
         public T FirstOrDefault(Expression<Func<T, bool>> expression)
         {
-            return Dbset.FirstOrDefault(expression);
+            return _dbset.FirstOrDefault(expression);
         }
 
         public IQueryable<T> GetAll()
         {
-            return Dbset;
+            return _dbset;
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
         {
-            return Dbset.Where(expression);
+            return _dbset.Where(expression);
         }
 
         public int Count()
         {
-            return Dbset.Count();
+            return _dbset.Count();
         }
 
         //Async
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await Dbset.ToListAsync();
+            return await _dbset.ToListAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> expression)
         {
-            return await Dbset.Where(expression).ToListAsync();
+            return await _dbset.Where(expression).ToListAsync();
         }
 
         public async Task<T> FindAsync(int id)
         {
-            return await Dbset.SingleOrDefaultAsync(x => x.Id == id);
+            return await _dbset.SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<T> FirstAsync(Expression<Func<T, bool>> expression)
         {
-            return await Dbset.FirstAsync(expression);
+            return await _dbset.FirstAsync(expression);
         }
 
         public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression)
         {
-            return await Dbset.FirstOrDefaultAsync(expression);
+            return await _dbset.FirstOrDefaultAsync(expression);
         }
     }
 }

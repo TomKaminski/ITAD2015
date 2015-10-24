@@ -23,7 +23,7 @@
                 }
             default :
             {
-                $(formId + " section[data-stage-id='" + actualStage + "'").fadeIn(1000);
+                $(formId + " section[data-stage-id='" + actualStage + "']").fadeIn(1000);
                 break;
             }
         }

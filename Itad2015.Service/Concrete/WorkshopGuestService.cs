@@ -71,5 +71,19 @@ namespace Itad2015.Service.Concrete
                 errors.Add("Ten email jest już zarejestrowany!");
             return errors;
         }
+
+        public SingleServiceResult<WorkshopGuestExtendedGetDto> GetExtendedWorkshopGuest(int id)
+        {
+            var extendedGuest = Mapper.Map<WorkshopGuestExtendedGetDto>(_repository.Include(x => x.Guest).Single(x => x.Id == id));
+            return new SingleServiceResult<WorkshopGuestExtendedGetDto>(extendedGuest);
+        }
+
+        public override void Delete(int id)
+        {
+            var guest = _guestRepository.FirstOrDefault(x => x.WorkshopGuestId == id);
+            guest.WorkshopGuestId = null;
+            _guestRepository.Edit(guest);
+            base.Delete(id);
+        }
     }
 }

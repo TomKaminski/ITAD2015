@@ -1,0 +1,51 @@
+﻿@model Itad2015.Areas.Admin.ViewModels.WorkshopGuestExtendedViewModel
+
+@{
+    ViewBag.Title = "DeleteGuest";
+}
+
+<h2>DeleteGuest</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WorkshopGuestExtendedViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Guest.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Guest.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Guest.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guest.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Guest.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guest.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolName)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id",Model.Guest.WorkshopGuestId)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "WorkshopGuestsList","Workshop")
+        </div>
+    }
+</div>

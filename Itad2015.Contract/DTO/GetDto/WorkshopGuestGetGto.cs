@@ -8,4 +8,9 @@ namespace Itad2015.Contract.DTO.GetDto
         public string SchoolName { get; set; }
         public int WorkshopId { get; set; }
     }
+
+    public class WorkshopGuestExtendedGetDto: WorkshopGuestGetGto
+    {
+        public GuestGetDto Guest { get; set; }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Itad2015.Contract.DTO.Base;
 
 namespace Itad2015.Contract.DTO.GetDto
@@ -13,5 +14,12 @@ namespace Itad2015.Contract.DTO.GetDto
         public string Description { get; set; }
         public string ImgPath { get; set; }
         public string Room { get; set; }
+    }
+
+    public class WorkshopGuestListGetDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public List<GuestGetDto> Guests { get; set; }
     }
 }

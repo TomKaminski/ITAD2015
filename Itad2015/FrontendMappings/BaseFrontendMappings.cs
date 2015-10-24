@@ -54,6 +54,9 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<GuestGetDto, QrTicketViewModel>().IgnoreNotExistingProperties();
 
+            Mapper.CreateMap<WorkshopGuestListGetDto,WorkshopGuestViewModel>().ForMember(x=>x.Guests, opt=>opt.MapFrom(k=>k.Guests)).IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<WorkshopGuestExtendedGetDto, WorkshopGuestExtendedViewModel>().ForMember(x => x.Guest, opt => opt.MapFrom(k => k.Guest)).IgnoreNotExistingProperties();
         }
     }
 }

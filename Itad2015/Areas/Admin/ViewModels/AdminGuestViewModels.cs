@@ -10,5 +10,6 @@
         public bool IsCheckIn { get; set; }
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
+        public int? WorkshopGuestId { get; set; }
     }
 }

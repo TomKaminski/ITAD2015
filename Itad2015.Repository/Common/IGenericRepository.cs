@@ -16,8 +16,8 @@ namespace Itad2015.Repository.Common
 
         void EditMany(IEnumerable<T> entities);
 
-        IGenericRepository<T> Include(Expression<Func<T, Entity>> include);
-        IGenericRepository<T> Include(Expression<Func<T, IEnumerable<Entity>>> include);
+        IQueryable<T> Include(Expression<Func<T, Entity>> include);
+        IQueryable<T> Include(Expression<Func<T, IEnumerable<Entity>>> include);
 
         //Sync
         IQueryable<T> GetAll();

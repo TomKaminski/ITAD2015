@@ -98,7 +98,7 @@ namespace Itad2015.Areas.Admin.Controllers
                 var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel),
                     new[] { Server.MapPath("~/Content/pdfStyles.css") }, Server.MapPath("~/Content/fonts/sinkinsansregular.ttf"));
 
-                await new EmailHelper<GuestInviteEmail>(new GuestInviteEmail(d.Email, "reset@ath.bielsko.pl",
+                await new EmailHelper<GuestQrEmail>(new GuestQrEmail(d.Email, "reset@ath.bielsko.pl",
                     "Zaproszenie na konferencję ITAD 2015.")
                     {
                         LastName = d.LastName,

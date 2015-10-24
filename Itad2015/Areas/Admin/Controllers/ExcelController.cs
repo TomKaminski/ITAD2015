@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -101,19 +102,18 @@ namespace Itad2015.Areas.Admin.Controllers
 
             var invitesToAdd = new List<InvitedPersonPostDto>();
 
+            var guestinviteEmail = new GuestInviteEmail("reset@ath.bielsko.pl", "reset@ath.bielsko.pl",
+                "Zaproszenie na konferencję ITAD 2015.");
+
             foreach (var d in data.Where(d => !d.EmailSent))
             {
-                await new EmailHelper<GuestInviteEmail>(new GuestInviteEmail(d.Email, "reset@ath.bielsko.pl",
-                    "Zaproszenie na konferencję ITAD 2015.")
-                {
-                    LastName = d.LastName,
-                    Name = d.Name
-                }).SendEmailAsync();
-
+                guestinviteEmail.Bcc += $"{d.Email}, ";
                 invitesToAdd.Add(Mapper.Map<ExcelListItemViewModel,InvitedPersonPostDto>(d));
-
                 context.Clients.Group(model.ConnectionId).notifyEmailSent(d.Email);
             }
+
+            guestinviteEmail.Bcc = guestinviteEmail.Bcc.Remove(guestinviteEmail.Bcc.Length - 2);
+            new EmailHelper<GuestInviteEmail>(guestinviteEmail).SendEmail();
 
             _invitedPersonService.CreateMany(invitesToAdd);
 

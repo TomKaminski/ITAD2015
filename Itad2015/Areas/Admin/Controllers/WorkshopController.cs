@@ -13,6 +13,7 @@ namespace Itad2015.Areas.Admin.Controllers
     {
         private readonly IImageProcessorService _imageProcessorService;
         private readonly IWorkshopService _workshopService;
+       
         public WorkshopController(IImageProcessorService imageProcessorService, IWorkshopService workshopService)
         {
             _imageProcessorService = imageProcessorService;
@@ -95,5 +96,14 @@ namespace Itad2015.Areas.Admin.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult WorkshopGuestsList()
+        {
+            var mappedModel = _workshopService.GetWorkshopGuestsGrouped().Result.Select(Mapper.Map<WorkshopGuestViewModel>).ToList();
+            return View(mappedModel);
+        }
+
+
     }
 }

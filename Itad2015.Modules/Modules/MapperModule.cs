@@ -35,6 +35,10 @@ namespace Itad2015.Modules.Modules
 
             Mapper.CreateMap<InvitedPersonPostDto, InvitedPerson>().IgnoreNotExistingProperties();
             Mapper.CreateMap<InvitedPerson, InvitedPersonGetDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<Workshop, WorkshopGuestListGetDto>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<WorkshopGuest, WorkshopGuestExtendedGetDto>().IgnoreNotExistingProperties();
         }
     }
 }
