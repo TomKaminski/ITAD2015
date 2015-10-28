@@ -39,7 +39,7 @@ namespace Itad2015.Controllers
         [ChildActionOnly]
         public PartialViewResult WorkshopRegisterListSection()
         {
-            var workshops = _workshopService.GetAll().Result.Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
+            var workshops = _workshopService.GetAll().Result.OrderBy(x=>x.Title).Select(Mapper.Map<WorkshopDropdownViewModel>).ToList();
 
             var workshopGuestsGrouped =
                 _workshopGuestService.GetAll()

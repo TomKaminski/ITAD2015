@@ -24,7 +24,6 @@ namespace Itad2015.Areas.Admin.ViewModels
         public string Room { get; set; }
 
         [DataType(DataType.Upload)]
-        [Required]
         public HttpPostedFileBase Image { get; set; }
     }
 

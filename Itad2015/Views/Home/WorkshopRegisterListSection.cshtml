@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Itad2015.ViewModels.Home.WorkshopDropdownViewModel>
 
-
+@Html.AntiForgeryToken()
 <p class="text-center workshopText">Wybierz warsztat, w którym chciałbyś/chciałabyś uczestniczyć:</p>
 <div class="row" style="margin-bottom:10px">
     <div class="col-sm-8 col-sm-offset-2">
@@ -12,7 +12,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 @foreach (var item in Model)
                 {
-                    <li><a href="" data-workshop-id="@item.Id">@item.Title</a></li>
+                    <li><a href="" data-workshop-id="@item.Id">@item.Title, godz. @item.Date.ToShortTimeString()</a></li>
                 }
             </ul>
         </div>
@@ -26,7 +26,8 @@
                 <div class="col-sm-6 col-sm-offset-1">
                     <p>
                         <strong>
-                            Prowadzący: <a class="slide-inner" href="#@(item.TutorName.ToLower().Replace(" ",""))">@item.TutorName</a><br />
+                            Prowadzący: <a class="slide-inner" href="#@(item.TutorName.ToLower().Replace(" ", ""))">@item.TutorName</a><br/>
+                            godzina: @item.Date.ToShortTimeString(), sala: Wkrótce!<br/>
                             <span class="@(item.LeftParticipants > 0 ? "main-color" : "bk-red")">Liczba wolnych miejsc: <span class="workshopGuestCounter">@item.LeftParticipants</span></span>
                         </strong>
                     </p>

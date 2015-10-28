@@ -60,13 +60,30 @@
 
         ga('create', 'UA-69226849-1', 'auto');
         ga('send', 'pageview');
-
     </script>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
-    @Html.Partial("_AlertsPartial", Model.Alerts)
+    <div class="cookie-container" style="display: none;">
+        <div class="alert alert-info alert-dismissible col-xs-12 itad-alert text-center" role="alert" style="position: fixed;border-radius:0; opacity: 0.8">
+            <button type="button" class="close cookies-accept" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="row">
+                <div class="col-xs-1 col-xs-offset-3">
+                    <img src='/Content/images/cookies.png' class="pull-right"/>
+                </div>
+                <div class="col-xs-5">
+                    <p>
+                        Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a target="blank" href="@Url.Content("~/Content/files/ITAD-polityka-prywatnosci.pdf")"><b>Polityką Plików Cookies</b></a>.
+                        Możesz określić warunki przechowywania lub dostępu do plików cookies w Twojej przeglądarce. <a href="" class="cookies-accept"><b>Rozumiem</b></a>
+                    </p>
+                </div>
 
+            </div>
+
+
+        </div>
+    </div>
+    @Html.Partial("_AlertsPartial", Model.Alerts)
 
     @Html.Action("UpperSection")
 
@@ -80,7 +97,9 @@
                 </h2>
                 <div class="divider-two margin-botom-50"></div>
                 <h3><span class="glyphicon glyphicon-gift"></span></h3>
-                <p class="margin-botom-20"><b> SPIESZ SIĘ!</b> Dla pierwszych 300 osób ITADowa koszulka :).</p>
+                <p class="margin-botom-20">
+                    <b> SPIESZ SIĘ!</b> Dla pierwszych 300 osób ITADowa koszulka :).
+                </p>
 
                 <div class="row margin-botom-20">
                     <div class="col-xs-6">

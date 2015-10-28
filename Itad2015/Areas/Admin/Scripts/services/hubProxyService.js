@@ -8,6 +8,13 @@
             var proxy = connection.createHubProxy(hubName);
             connection.start(startOptions).done(function () { });
 
+            connection.disconnected(function () {
+                debugger;
+                setTimeout(function () {
+                    connection.start(startOptions).done(function () { });
+                }, 5000);
+            });
+
             return {
                 on: function (eventName, callback) {
                     proxy.on(eventName, function (result) {

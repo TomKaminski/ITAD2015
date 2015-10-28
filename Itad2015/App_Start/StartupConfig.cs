@@ -1,7 +1,9 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using System.Web.Helpers;
 using Itad2015;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -14,6 +16,9 @@ namespace Itad2015
     {
         public void Configuration(IAppBuilder app)
         {
+            GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(110);
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(30);
+            GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(10);
             app.MapSignalR();
             ConfigureAuth(app);
         }

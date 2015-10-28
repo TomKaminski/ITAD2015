@@ -17,7 +17,8 @@
     <AssemblyName>Itad2015</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -213,7 +214,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\ATH_logo.png" />
     <Content Include="Content\images\bag.png" />
-    <Content Include="Content\images\gears.gif" />
+    <Content Include="Content\images\cookies.png" />
     <Content Include="Content\images\gift_icon.png" />
     <Content Include="Content\images\guest_icon.png" />
     <Content Include="Content\images\ITAD infografika.png" />
@@ -225,19 +226,20 @@
     <Content Include="Content\images\Mail\register.png" />
     <Content Include="Content\images\Mail\tick.png" />
     <Content Include="Content\images\Mail\tick_green.png" />
-    <Content Include="Content\images\marta_matusiak.png" />
-    <Content Include="Content\images\michał dudak.png" />
     <Content Include="Content\images\org\Artur_Loska.png" />
     <Content Include="Content\images\org\Katarzyna_Jasiewicz.png" />
     <Content Include="Content\images\org\Marcin_Wadoń.png" />
     <Content Include="Content\images\org\Tomasz_Kamiński.png" />
     <Content Include="Content\images\packet.png" />
-    <Content Include="Content\images\Partners\4experience-logo.png" />
-    <Content Include="Content\images\Partners\hackerspace-logo.png" />
+    <Content Include="Content\images\Partners\4experience-logo2.png" />
+    <Content Include="Content\images\Partners\hackerspace-logo2.png" />
+    <Content Include="Content\images\Partners\microsoft-logo2.png" />
     <Content Include="Content\images\people_icon.png" />
     <Content Include="Content\images\pizza_icon.png" />
-    <Content Include="Content\images\Prelegenci\Blazej_Faliszek1.png" />
-    <Content Include="Content\images\Prelegenci\Lukasz_Gawel1.png" />
+    <Content Include="Content\images\Prelegenci\Blazej_Faliszek2.png" />
+    <Content Include="Content\images\Prelegenci\Lukasz_Gawel2.png" />
+    <Content Include="Content\images\Prelegenci\Marcin_Rzeszowski2.png" />
+    <Content Include="Content\images\Prelegenci\Mateusz_Jonderko2.png" />
     <Content Include="Content\images\prelegent_icon.png" />
     <Content Include="Content\images\register.png" />
     <Content Include="Content\images\Register\ItadGeek.png" />
@@ -252,32 +254,36 @@
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
     <Content Include="Content\images\Sponsors\oferta_image.png" />
-    <Content Include="Content\images\Staff\Andrzej_Kastelik1.png" />
-    <Content Include="Content\images\Staff\Ania_Galuszka1.png" />
-    <Content Include="Content\images\Staff\Artur_Loska1.png" />
-    <Content Include="Content\images\Staff\Bartek_Borak1.png" />
-    <Content Include="Content\images\Staff\Bartek_Szczepanski1.png" />
-    <Content Include="Content\images\Staff\Beata_Goluch1.png" />
-    <Content Include="Content\images\Staff\Damian_Kowalczyk1.png" />
-    <Content Include="Content\images\Staff\Grzegorz_Zareba1.png" />
-    <Content Include="Content\images\Staff\Hanna_Pereverzieva1.png" />
-    <Content Include="Content\images\Staff\Janusz_Zukowicz1.png" />
-    <Content Include="Content\images\Staff\Jan_Frindt1.png" />
-    <Content Include="Content\images\Staff\Kasia_Jasiewicz1.png" />
-    <Content Include="Content\images\Staff\Krzysiek_Gren1.png" />
-    <Content Include="Content\images\Staff\Malgorzata_Mazurek1.png" />
-    <Content Include="Content\images\Staff\Marcin_Wadon1.png" />
-    <Content Include="Content\images\Staff\Marek_Bubiak1.png" />
-    <Content Include="Content\images\Staff\Pawel_Falat1.png" />
-    <Content Include="Content\images\Staff\Pawel_Leja1.png" />
-    <Content Include="Content\images\Staff\Szymon_Tengler1.png" />
-    <Content Include="Content\images\Staff\Tomasz_Gancarczyk1.png" />
-    <Content Include="Content\images\Staff\Tomasz_Kaminski1.png" />
+    <Content Include="Content\images\Sponsors\sponsors_brown.png" />
+    <Content Include="Content\images\Sponsors\sponsors_diamond.png" />
+    <Content Include="Content\images\Sponsors\sponsors_euvic.png" />
+    <Content Include="Content\images\Sponsors\sponsors_gold.png" />
+    <Content Include="Content\images\Sponsors\sponsors_next.png" />
+    <Content Include="Content\images\Staff\Andrzej_Kastelik2.png" />
+    <Content Include="Content\images\Staff\Ania_Galuszka2.png" />
+    <Content Include="Content\images\Staff\Artur_Loska2.png" />
+    <Content Include="Content\images\Staff\Bartek_Borak2.png" />
+    <Content Include="Content\images\Staff\Bartek_Szczepanski2.png" />
+    <Content Include="Content\images\Staff\Beata_Goluch2.png" />
+    <Content Include="Content\images\Staff\Damian_Kowalczyk2.png" />
+    <Content Include="Content\images\Staff\Grzegorz_Zareba2.png" />
+    <Content Include="Content\images\Staff\Hanna_Pereverzieva2.png" />
+    <Content Include="Content\images\Staff\Janusz_Zukowicz2.png" />
+    <Content Include="Content\images\Staff\Jan_Frindt2.png" />
+    <Content Include="Content\images\Staff\Kasia_Jasiewicz2.png" />
+    <Content Include="Content\images\Staff\Krzysiek_Gren2.png" />
+    <Content Include="Content\images\Staff\Malgorzata_Mazurek2.png" />
+    <Content Include="Content\images\Staff\Marcin_Wadon2.png" />
+    <Content Include="Content\images\Staff\Marek_Bubiak2.png" />
+    <Content Include="Content\images\Staff\Pawel_Falat2.png" />
+    <Content Include="Content\images\Staff\Pawel_Leja2.png" />
+    <Content Include="Content\images\Staff\Szymon_Tengler2.png" />
+    <Content Include="Content\images\Staff\Tomasz_Gancarczyk2.png" />
+    <Content Include="Content\images\Staff\Tomasz_Kaminski2.png" />
     <Content Include="Content\images\staff_icon.png" />
     <Content Include="Content\images\web.png" />
     <Content Include="Content\images\workshop.png" />
     <Content Include="Content\images\Wydzial_Logo.png" />
-    <Content Include="Content\images\Żłobiński_jcommerce.png" />
     <Content Include="Content\pdfStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vegas\jquery.vegas.css" />
@@ -364,6 +370,7 @@
     <Content Include="Content\web.config" />
     <Content Include="Areas\Admin\Views\Workshop\WorkshopGuestsList.cshtml" />
     <Content Include="Areas\Admin\Views\WorkshopGuest\DeleteGuest.cshtml" />
+    <Content Include="Content\files\ITAD-polityka-prywatnosci.pdf" />
     <None Include="Properties\PublishProfiles\FtpReset.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -537,7 +544,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>47216</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44300/</IISUrl>
+          <IISUrl>http://localhost:47216/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

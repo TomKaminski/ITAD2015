@@ -1,5 +1,5 @@
 ﻿@model Itad2015.ViewModels.Home.RegisteredGuestsCountViewModel
-
+@Html.AntiForgeryToken()
 <p class="text-center @(Model.MaxGuests-Model.RegisteredGuests > 0 ? "main-color" : "bk-red")">
     Ilość wolnych miejsc: <span id="registeredGuestsCount">@(Model.MaxGuests-Model.RegisteredGuests)</span>
 </p>

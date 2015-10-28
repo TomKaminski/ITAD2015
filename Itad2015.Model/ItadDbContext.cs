@@ -13,7 +13,7 @@ namespace Itad2015.Model
         public ItadDbContext() : base("ItadDbContext")
         {
             Database.SetInitializer(new ItadDbInitializer());
-            Database.SetInitializer<ItadDbContext>(new MigrateDatabaseToLatestVersion<ItadDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ItadDbContext, Configuration>());
         }
 
         public virtual IDbSet<Guest> Guest { get; set; }

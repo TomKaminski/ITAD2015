@@ -1,4 +1,6 @@
-﻿namespace Itad2015.ViewModels.Home
+﻿using System;
+
+namespace Itad2015.ViewModels.Home
 {
     public class WorkshopDropdownViewModel
     {
@@ -6,6 +8,7 @@
         public int Id { get; set; }
         public string Description { get; set; }
         public string ImgPath { get; set; }
+        public DateTime Date { get; set; }
 
         public int LeftParticipants { get; set; }
         public string TutorName { get; set; }

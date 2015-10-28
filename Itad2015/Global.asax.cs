@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
@@ -15,6 +13,7 @@ using Itad2015.FrontendMappings;
 using Itad2015.FrontendModules;
 using Itad2015.Modules.Infrastructure;
 using Itad2015.Modules.Modules;
+using Microsoft.AspNet.SignalR;
 
 namespace Itad2015
 {
@@ -28,7 +27,6 @@ namespace Itad2015
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             BaseFrontendMappings.Initialize();
 
             InitializerModule.InitializeDb();

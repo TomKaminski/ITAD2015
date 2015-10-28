@@ -87,9 +87,14 @@
     <Compile Include="Migrations\201510220945550_PolicyAccepted.Designer.cs">
       <DependentUpon>201510220945550_PolicyAccepted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510261902450_workshophour.cs" />
+    <Compile Include="Migrations\201510261902450_workshophour.Designer.cs">
+      <DependentUpon>201510261902450_workshophour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Scripts\DeleteNotConfirmedGuests.sql" />
+    <Content Include="Scripts\WorkshopDateTimeMigration.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -116,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510220945550_PolicyAccepted.resx">
       <DependentUpon>201510220945550_PolicyAccepted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510261902450_workshophour.resx">
+      <DependentUpon>201510261902450_workshophour.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

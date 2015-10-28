@@ -2,7 +2,6 @@
 
 @using (Html.BeginForm("Register", "Guest", FormMethod.Post, new { id = "RegisterForm" }))
 {
-    @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.Size, new { id = "sizeInput", aria_required = true, aria_invalid=false, aria_describedby = "RegisterGuestViewModel_Size-error" })
     <section data-stage-id="2">
         @Html.Action("RegisteredGuestsPartialCount",true)

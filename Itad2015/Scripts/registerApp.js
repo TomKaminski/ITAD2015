@@ -83,6 +83,23 @@ $.validator.setDefaults({
 
 $.validator.unobtrusive.adapters.addBool("mustbetrue", "required");
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1);
+        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
 
 function fillBackendErrorMessages(result) {
     $(".serverErrorsContainer").empty();
@@ -94,6 +111,17 @@ function fillBackendErrorMessages(result) {
 }
 
 $(document).ready(function () {
+
+    if (getCookie("cookiesAccepted") === "") {
+        $(".cookie-container").show();
+    }
+
+    $(".cookies-accept").click(function(e) {
+        setCookie("cookiesAccepted", true, 14);
+        $(".cookie-container").hide();
+        e.preventDefault();
+    });
+
 
     $(window).scroll(function () {
         if (!$("#fun-numbers").hasClass('fun-number-done')) {
