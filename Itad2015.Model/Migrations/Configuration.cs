@@ -34,8 +34,8 @@ namespace Itad2015.Model.Migrations
             {
                 Email = "tkaminski93@gmail.com",
                 SuperAdmin = true,
-                PasswordHash = salt1,
-                PasswordSalt = hash1
+                PasswordHash = hash1,
+                PasswordSalt = salt1
             });
             context.User.AddOrUpdate(new User
             {

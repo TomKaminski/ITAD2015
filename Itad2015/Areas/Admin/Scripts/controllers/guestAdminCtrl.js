@@ -73,10 +73,12 @@
         }
 
         vm.blockDevice = function() {
+            checkInHub.invoke('LockDevice', 'tkaminski93@gmail.com');
             vm.deviceBlocked = true;
         }
 
         vm.unblockDevice = function () {
+            checkInHub.invoke('UnlockDevice', 'tkaminski93@gmail.com');
             vm.deviceBlocked = false;
         }
 

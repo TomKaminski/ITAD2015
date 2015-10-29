@@ -410,7 +410,7 @@ h4 {
 }
 
 .spn-back-color {
-    background-color: rgba(255, 242, 0, 0.3);
+    background-color: rgba(255, 242, 0, 0.5);
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -610,6 +610,14 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     font-size: 14px;
     color: white;
 }
+
+.align-center {
+        display: -webkit-flexbox;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+    }
 
 @media(min-width: 768px) {
     .flex-align-center {

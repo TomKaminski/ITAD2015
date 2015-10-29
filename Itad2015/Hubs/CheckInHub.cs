@@ -39,12 +39,16 @@ namespace Itad2015.Hubs
 
         public void LockDevice(string key)
         {
-            Clients.Client(Connections.GetConnections(key).DeviceConnectionId.ToString()).lockDevice();
+            var connection = Connections.GetConnections(key);
+            Clients.Client(connection.DeviceConnectionId.ToString()).lockDevice();
+            Clients.Client(connection.UserConnectionId.ToString()).lockDevice();
         }
 
         public void UnlockDevice(string key)
         {
-            Clients.Client(Connections.GetConnections(key).DeviceConnectionId.ToString()).unlockDevice();
+            var connection = Connections.GetConnections(key);
+            Clients.Client(connection.DeviceConnectionId.ToString()).unlockDevice();
+            Clients.Client(connection.UserConnectionId.ToString()).unlockDevice();
         }
 
         public void CheckDeviceOnline(string key)

@@ -17,8 +17,7 @@
     <AssemblyName>Itad2015</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -236,6 +235,7 @@
     <Content Include="Content\images\Partners\microsoft-logo2.png" />
     <Content Include="Content\images\people_icon.png" />
     <Content Include="Content\images\pizza_icon.png" />
+    <Content Include="Content\images\Prelegenci\Adam_Smolnik2.png" />
     <Content Include="Content\images\Prelegenci\Blazej_Faliszek2.png" />
     <Content Include="Content\images\Prelegenci\Lukasz_Gawel2.png" />
     <Content Include="Content\images\Prelegenci\Marcin_Rzeszowski2.png" />
@@ -254,6 +254,9 @@
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
     <Content Include="Content\images\Sponsors\oferta_image.png" />
+    <Content Include="Content\images\Sponsors\sponsors_davinci.png" />
+    <Content Include="Content\images\Sponsors\sponsors_fp.png" />
+    <Content Include="Content\images\Sponsors\sponsors_pitney.png" />
     <Content Include="Content\images\Sponsors\sponsors_brown.png" />
     <Content Include="Content\images\Sponsors\sponsors_diamond.png" />
     <Content Include="Content\images\Sponsors\sponsors_euvic.png" />

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations.Model;
 using Itad2015.Model.Common;
 
 namespace Itad2015.Model.Concrete
