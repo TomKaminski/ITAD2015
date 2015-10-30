@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function guestAdminCtrl($scope, $http, $filter, $controller, hubProxyService, guestFilterService) {
+    function guestAdminCtrl($scope, $http, $filter, $controller, hubProxyService, guestFilterService, registeredPersonService) {
         angular.extend(this, $controller('baseGuestController', { $scope: $scope }));
 
         var vm = this;
@@ -30,6 +30,45 @@
             vm.deviceOnline = true;
         });
 
+        vm.userAwaits = function() {
+            return registeredPersonService.userAwaits();
+        }
+
+        vm.userInitials = function () {
+            return registeredPersonService.userInitials();
+        }
+
+        vm.userEmail= function () {
+            return registeredPersonService.userEmail();
+        }
+
+        vm.userShirt = function () {
+            return registeredPersonService.userShirt();
+        }
+
+        function checkIn(id) {
+            $http.post("/Admin/Guest/CheckIn", { id: id }).then(function (result) {
+                if (result.data.status === true) {
+                    guestHubProxy.invoke('notifyCheck', id, true);
+                }
+            }, function (error) {
+                console.log(error);
+            });
+        }
+
+        checkInHub.on('lockDevice', function (data) {
+            if (data.Status === true) {
+                registeredPersonService.fillPerson(data);
+                vm.modalStatus = true;
+                var item = $filter('getByEmail')(guestFilterService.getGuestsData(), registeredPersonService.userEmail());
+                checkIn(item.Id);
+            } else {
+                vm.modalStatus = false;
+                vm.errorValue = data.Error;
+            }
+            $('#appModal').modal('show');
+        });
+
         vm.init = function () {
             vm.baseInit({ IsCheckIn: false });
             vm.connectedToDevice = false;
@@ -51,15 +90,8 @@
                     console.log(errorData.message);
                 });
         }
-
         vm.checkIn = function (id) {
-            $http.post("/Admin/Guest/CheckIn", { id: id }).then(function (result) {
-                if (result.data.status === true) {
-                    guestHubProxy.invoke('notifyCheck', id, true);
-                }
-            }, function (error) {
-                console.log(error);
-            });
+            checkIn(id);
         }
 
         vm.checkOut = function (id) {
@@ -74,12 +106,14 @@
 
         vm.blockDevice = function() {
             checkInHub.invoke('LockDevice', 'tkaminski93@gmail.com');
-            vm.deviceBlocked = true;
         }
 
         vm.unblockDevice = function () {
+            vm.modalStatus = null;
+            vm.errorValue = null;
+            registeredPersonService.clearPerson();
+            $('#appModal').modal('hide');
             checkInHub.invoke('UnlockDevice', 'tkaminski93@gmail.com');
-            vm.deviceBlocked = false;
         }
 
         vm.connectToDevice = function() {

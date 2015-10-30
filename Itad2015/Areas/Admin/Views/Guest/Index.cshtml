@@ -3,18 +3,14 @@
         <div class="row">
             @Html.Partial("_MenuPartial")
             <div class="col-sm-3">
-                <h3 class="text-center">Aplikacja do rejestracji</h3>
+                <h3 class="text-center">Panel aplikacji</h3>
                 <p class="text-center">
                     Status: <span ng-if="ctrl.connectedToDevice == true" style="color: green">ONLINE</span>
                     <span ng-if="ctrl.connectedToDevice == false" style="color: red">OFFLINE &nbsp;<button class="btn btn-success" ng-click="ctrl.connectToDevice()">Połącz</button></span>
-                    <br/>
+                    <br />
                     Urządzenie: <span ng-if="ctrl.deviceOnline == true" style="color: green">ONLINE</span>
-                                <span ng-if="ctrl.deviceOnline == false" style="color: red">OFFLINE</span>
+                    <span ng-if="ctrl.deviceOnline == false" style="color: red">OFFLINE</span>
                 </p>
-                <div ng-if="ctrl.connectedToDevice == true">
-                    <button class="btn btn-danger col-xs-12" ng-show="ctrl.deviceBlocked == false" ng-click="ctrl.blockDevice()">Zablokuj urządzenie</button>
-                    <button class="btn btn-success col-xs-12" ng-show="ctrl.deviceBlocked == true" ng-click="ctrl.unblockDevice()">Odblokuj urządzenie</button>
-                </div>
             </div>
         </div>
 
@@ -58,6 +54,35 @@
             </tr>
         </table>
         @Html.Partial("_PaginationPartial")
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="appModal" tabindex="-1" role="dialog" aria-labelledby="appModal" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Uczestnik oczekuje na giftpack!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center" ng-show="ctrl.modalStatus==true">
+                            Oczekujący: {{ctrl.userInitials()}}<br/>
+                            {{ctrl.userEmail()}}<br/>
+                            Koszulka: <b>{{ctrl.userShirt()}}</b>
+                        </p>
+                        <div ng-show="ctrl.modalStatus==false" class="text-center">
+                            <h1>Wystąpił błąd!</h1>
+                            <p>
+                                Zadzwoń do Tomka pod numer 789 252 925
+                            </p>
+                            <p class="text-danger">Treść błędu: {{ctrl.errorValue}}</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success col-xs-12" ng-click="ctrl.unblockDevice()">Odblokuj urządzenie</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -70,8 +95,10 @@
     <script src="~/Scripts/angular.js"></script>
 
     <script src="~/Areas/Admin/Scripts/adminApp.js"></script>
+    <script src="~/Areas/Admin/Scripts/services/registeredPersonService.js"></script>
     <script src="~/Areas/Admin/Scripts/services/hubProxyService.js"></script>
     <script src="~/Areas/Admin/Scripts/filters/getByIdFilter.js"></script>
+    <script src="~/Areas/Admin/Scripts/filters/getByEmailFilter.js"></script>
     <script src="~/Areas/Admin/Scripts/services/guestFilterService.js"></script>
     <script src="~/Areas/Admin/Scripts/controllers/baseGuestController.js"></script>
     <script src="~/Areas/Admin/Scripts/controllers/guestAdminCtrl.js"></script>

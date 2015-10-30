@@ -27,7 +27,8 @@
                     <p>
                         <strong>
                             Prowadzący: <a class="slide-inner" href="#@(item.TutorName.ToLower().Replace(" ",""))">@item.TutorName</a><br />
-                            <span class="@(item.LeftParticipants > 0 ? "main-color" : "bk-red")">Liczba wolnych miejsc: <span class="workshopGuestCounter">@item.LeftParticipants</span></span>
+                            <span class="@(item.LeftParticipants > 0 ? "main-color" : "bk-red")">Liczba wolnych miejsc: <span class="workshopGuestCounter">@item.LeftParticipants</span></span><br/>
+                            Godzina: @item.Date.ToShortTimeString().Remove(item.Date.ToShortTimeString().Length-3)
                         </strong>
                     </p>
                     <p>@Html.Raw(item.Description)</p>

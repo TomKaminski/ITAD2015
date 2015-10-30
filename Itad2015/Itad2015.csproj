@@ -17,10 +17,11 @@
     <AssemblyName>Itad2015</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44301</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -205,6 +206,7 @@
     <Content Include="Areas\Admin\Scripts\adminApp.js" />
     <Content Include="Areas\Admin\Scripts\services\guestFilterService.js" />
     <Content Include="Areas\Admin\Scripts\services\hubProxyService.js" />
+    <Content Include="Areas\Admin\Scripts\services\registeredPersonService.js" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -237,6 +239,7 @@
     <Content Include="Content\images\pizza_icon.png" />
     <Content Include="Content\images\Prelegenci\Adam_Smolnik2.png" />
     <Content Include="Content\images\Prelegenci\Blazej_Faliszek2.png" />
+    <Content Include="Content\images\Prelegenci\Krzysztof_Szabelski.png" />
     <Content Include="Content\images\Prelegenci\Lukasz_Gawel2.png" />
     <Content Include="Content\images\Prelegenci\Marcin_Rzeszowski2.png" />
     <Content Include="Content\images\Prelegenci\Mateusz_Jonderko2.png" />
@@ -254,6 +257,7 @@
     <Content Include="Content\images\slides\4.jpg" />
     <Content Include="Content\images\slides\5.jpg" />
     <Content Include="Content\images\Sponsors\oferta_image.png" />
+    <Content Include="Content\images\Sponsors\sponsors_com4it.png" />
     <Content Include="Content\images\Sponsors\sponsors_davinci.png" />
     <Content Include="Content\images\Sponsors\sponsors_fp.png" />
     <Content Include="Content\images\Sponsors\sponsors_pitney.png" />
@@ -269,6 +273,7 @@
     <Content Include="Content\images\Staff\Bartek_Szczepanski2.png" />
     <Content Include="Content\images\Staff\Beata_Goluch2.png" />
     <Content Include="Content\images\Staff\Damian_Kowalczyk2.png" />
+    <Content Include="Content\images\Staff\Dawid_Holisz2.png" />
     <Content Include="Content\images\Staff\Grzegorz_Zareba2.png" />
     <Content Include="Content\images\Staff\Hanna_Pereverzieva2.png" />
     <Content Include="Content\images\Staff\Janusz_Zukowicz2.png" />
@@ -278,6 +283,7 @@
     <Content Include="Content\images\Staff\Malgorzata_Mazurek2.png" />
     <Content Include="Content\images\Staff\Marcin_Wadon2.png" />
     <Content Include="Content\images\Staff\Marek_Bubiak2.png" />
+    <Content Include="Content\images\Staff\Pawel_Adamus2.png" />
     <Content Include="Content\images\Staff\Pawel_Falat2.png" />
     <Content Include="Content\images\Staff\Pawel_Leja2.png" />
     <Content Include="Content\images\Staff\Szymon_Tengler2.png" />

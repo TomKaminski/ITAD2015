@@ -13,7 +13,6 @@ using Itad2015.FrontendMappings;
 using Itad2015.FrontendModules;
 using Itad2015.Modules.Infrastructure;
 using Itad2015.Modules.Modules;
-using Microsoft.AspNet.SignalR;
 
 namespace Itad2015
 {

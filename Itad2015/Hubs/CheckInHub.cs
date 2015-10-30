@@ -1,4 +1,5 @@
 ﻿using System;
+using Itad2015.Contract.DTO.Api;
 using Itad2015.Hubs.ConnectionMappings;
 using Microsoft.AspNet.SignalR;
 
@@ -37,11 +38,11 @@ namespace Itad2015.Hubs
             Clients.Client(Connections.GetConnections(key).UserConnectionId.ToString()).sendInfoToUser();
         }
 
-        public void LockDevice(string key)
+        public void LockDevice(string key, GuestApiDto data)
         {
             var connection = Connections.GetConnections(key);
             Clients.Client(connection.DeviceConnectionId.ToString()).lockDevice();
-            Clients.Client(connection.UserConnectionId.ToString()).lockDevice();
+            Clients.Client(connection.UserConnectionId.ToString()).lockDevice(data);
         }
 
         public void UnlockDevice(string key)
