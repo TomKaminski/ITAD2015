@@ -9,7 +9,6 @@
         var guestHubProxy = hubProxyService(hubProxyService.defaultServer, 'guestHub', { logging: true });
         var checkInHub = hubProxyService(hubProxyService.defaultServer, 'checkInHub', { logging: true });
 
-
         guestHubProxy.on('notifyCheck', function (data) {
             var item = $filter('getById')(guestFilterService.getGuestsData(), data.id);
             item.IsCheckIn = data.checkedIn;
@@ -69,7 +68,7 @@
             $('#appModal').modal('show');
         });
 
-        vm.init = function () {
+        vm.init = function (userEmail) {
             vm.baseInit({ IsCheckIn: false });
             vm.connectedToDevice = false;
             vm.deviceBlocked = false;
@@ -80,6 +79,7 @@
             vm.searchText = "";
             vm.pageSize = 5;
             vm.currentPage = 1;
+            vm.userEmail = userEmail;
 
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
@@ -105,7 +105,7 @@
         }
 
         vm.blockDevice = function() {
-            checkInHub.invoke('LockDevice', 'tkaminski93@gmail.com');
+            checkInHub.invoke('LockDevice', vm.userEmail);
         }
 
         vm.unblockDevice = function () {
@@ -113,12 +113,12 @@
             vm.errorValue = null;
             registeredPersonService.clearPerson();
             $('#appModal').modal('hide');
-            checkInHub.invoke('UnlockDevice', 'tkaminski93@gmail.com');
+            checkInHub.invoke('UnlockDevice', vm.userEmail);
         }
 
         vm.connectToDevice = function() {
-            checkInHub.invoke('connect', 'tkaminski93@gmail.com', checkInHub.connection.id, 1);
-            checkInHub.invoke('checkDeviceOnline', 'tkaminski93@gmail.com');
+            checkInHub.invoke('connect', vm.userEmail, checkInHub.connection.id, 1);
+            checkInHub.invoke('checkDeviceOnline', vm.userEmail);
         }
     }
 

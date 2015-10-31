@@ -1,5 +1,11 @@
-﻿<div ng-app="adminApp">
-    <div ng-controller="guestAdminCtrl as ctrl" ng-init="ctrl.init()">
+﻿@using Itad2015.Models
+@{
+    var appUserState = (AppUserState)ViewBag.UserState;
+}
+
+
+<div ng-app="adminApp">
+    <div ng-controller="guestAdminCtrl as ctrl" ng-init="ctrl.init('@appUserState.Email')">
         <div class="row">
             @Html.Partial("_MenuPartial")
             <div class="col-sm-3">

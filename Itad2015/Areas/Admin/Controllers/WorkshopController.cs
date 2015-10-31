@@ -6,9 +6,11 @@ using Itad2015.Areas.Admin.ViewModels;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Contract.Service;
 using Itad2015.Contract.Service.Entity;
+using Itad2015.Infrastructure.Attributes;
 
 namespace Itad2015.Areas.Admin.Controllers
 {
+    [SuperAdminAuthorize]
     public class WorkshopController : AdminBaseController
     {
         private readonly IImageProcessorService _imageProcessorService;

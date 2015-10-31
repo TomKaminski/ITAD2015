@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Itad2015.Areas.Admin.Helpers;
@@ -16,11 +13,13 @@ using Itad2015.Contract.Service;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.Helpers.Email;
 using Itad2015.Hubs;
+using Itad2015.Infrastructure.Attributes;
 using Itad2015.ViewModels.Email;
 using Microsoft.AspNet.SignalR;
 
 namespace Itad2015.Areas.Admin.Controllers
 {
+    [SuperAdminAuthorize]
     public class ExcelController : AdminBaseController
     {
         private readonly IExcelService _excelService;

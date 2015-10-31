@@ -7,6 +7,7 @@ using Itad2015.Contract.Service.Entity;
 using Itad2015.Model.Concrete;
 using Itad2015.Repository.Common;
 using Itad2015.Repository.Interfaces;
+using Itad2015.Service.Helpers;
 using Itad2015.Service.Helpers.Interfaces;
 
 namespace Itad2015.Service.Concrete
@@ -15,9 +16,11 @@ namespace Itad2015.Service.Concrete
     {
         private readonly IUserRepository _repository;
         private readonly IPasswordHasher _passwordHasher;
-        
+        private readonly IUnitOfWork _unitOfWork;
+                
         public UserService(IUnitOfWork unitOfWork, IUserRepository repository, IPasswordHasher passwordHasher) : base(unitOfWork, repository)
         {
+            _unitOfWork = unitOfWork;
             _repository = repository;
             _passwordHasher = passwordHasher;
         }
@@ -48,6 +51,41 @@ namespace Itad2015.Service.Concrete
             var user = _repository.FirstOrDefault(x => x.Email == email);
             var obj = user == null ? null : Mapper.Map<UserGetDto>(user);
             return new SingleServiceResult<UserGetDto>(obj);
+        }
+
+        public override SingleServiceResult<UserGetDto> Create(UserPostDto entity)
+        {
+            var saltHash = _passwordHasher.CreateHash(entity.Password);
+            char[] delimiter = { ':' };
+            var split = saltHash.Split(delimiter);
+            var salt = split[0];
+            var hash = split[1];
+
+            var mappedEntity = Mapper.Map<User>(entity);
+            mappedEntity.PasswordSalt = salt;
+            mappedEntity.PasswordHash = hash;
+
+            var obj = _repository.Add(mappedEntity);
+            _unitOfWork.Commit();
+            return new SingleServiceResult<UserGetDto>(Mapper.Map<UserGetDto>(obj));
+        }
+
+        public override void Edit(UserPostDto entity)
+        {
+            var obj = Mapper.Map<User>(_repository.Find(entity.Id));
+            if (obj == null) return;
+            if (entity.Password != string.Empty)
+            {
+                var saltHash = _passwordHasher.CreateHash(entity.Password);
+                char[] delimiter = { ':' };
+                var split = saltHash.Split(delimiter);
+                var salt = split[0];
+                var hash = split[1];
+                obj.PasswordHash = hash;
+                obj.PasswordSalt = salt;
+            }
+            _repository.Edit(obj);
+            _unitOfWork.Commit();
         }
     }
 }

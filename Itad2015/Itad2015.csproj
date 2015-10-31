@@ -17,8 +17,7 @@
     <AssemblyName>Itad2015</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -380,6 +379,10 @@
     <Content Include="Areas\Admin\Views\Workshop\WorkshopGuestsList.cshtml" />
     <Content Include="Areas\Admin\Views\WorkshopGuest\DeleteGuest.cshtml" />
     <Content Include="Content\files\ITAD-polityka-prywatnosci.pdf" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\FtpReset.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -429,7 +432,7 @@
     <Compile Include="Areas\Admin\Controllers\ExcelController.cs" />
     <Compile Include="Areas\Admin\Controllers\GuestController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ShirtsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkshopController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkshopGuestController.cs" />
     <Compile Include="Areas\Admin\Helpers\HttpPostedFileBaseToByteConverter.cs" />
@@ -437,6 +440,7 @@
     <Compile Include="Areas\Admin\ViewModels\LoginViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExcelViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\PdfViewModels\QrTicketViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\UserViewModels.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopGuestViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\WorkshopViewModels.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -458,6 +462,7 @@
     <Compile Include="Hubs\ExcelHub.cs" />
     <Compile Include="Hubs\GuestHub.cs" />
     <Compile Include="Infrastructure\Attributes\MustBeTrueAttribute.cs" />
+    <Compile Include="Infrastructure\Attributes\SuperAdminAuthorizeAttribute.cs" />
     <Compile Include="Models\AppUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Base\AlertViewModel.cs" />

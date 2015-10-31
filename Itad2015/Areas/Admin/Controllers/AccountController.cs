@@ -45,6 +45,12 @@ namespace Itad2015.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult Logout()
+        {
+            IdentitySignout();
+            return RedirectToAction("Index", "Home");
+        }
+
         private async Task IdentitySignin(string email, bool isPersistent = false)
         {
             var x = await _userService.GetByEmailAsync(email);

@@ -24,20 +24,20 @@ namespace Itad2015.Model.Migrations
             var hash = split[1];
 
 
-            var saltHash1 = PasswordHasherHelper.CreateHash("j5cdmwg6tpm1");
+            var saltHash1 = PasswordHasherHelper.CreateHash("haslo123");
             char[] delimiter1 = { ':' };
             var split1 = saltHash1.Split(delimiter1);
             var salt1 = split1[0];
             var hash1 = split1[1];
 
-            context.User.AddOrUpdate(new User
+            context.User.AddOrUpdate(x => x.Email, new User
             {
                 Email = "tkaminski93@gmail.com",
                 SuperAdmin = true,
                 PasswordHash = hash1,
                 PasswordSalt = salt1
             });
-            context.User.AddOrUpdate(new User
+            context.User.AddOrUpdate(x => x.Email, new User
             {
                 Email = "katarzynajasiewicz.93@gmail.com",
                 SuperAdmin = true,

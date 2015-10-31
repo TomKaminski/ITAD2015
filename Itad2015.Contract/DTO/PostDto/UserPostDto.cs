@@ -6,6 +6,6 @@ namespace Itad2015.Contract.DTO.PostDto
     {
         public string Email { get; set; }
         public bool SuperAdmin { get; set; }
-        public string DeviceCode { get; set; }
+        public string Password { get; set; }
     }
 }

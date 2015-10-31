@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
@@ -34,8 +35,10 @@ namespace Itad2015.Areas.Admin.Controllers
                 var user = User as ClaimsPrincipal;
                 var claims = user.Claims.ToList();
                 var email = GetClaim(claims, ClaimTypes.NameIdentifier);
+                var isSuperAdmin = GetClaim(claims, "isSuperAdmin");
 
                 appUserState.Email = email;
+                appUserState.SuperAdmin = Convert.ToBoolean(isSuperAdmin);
             }
             AppUserState = appUserState;
             ViewBag.UserState = AppUserState;

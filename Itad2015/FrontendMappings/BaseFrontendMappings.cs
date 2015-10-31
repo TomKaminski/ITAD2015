@@ -19,6 +19,12 @@ namespace Itad2015.FrontendMappings
         public static void Initialize()
         {
             Mapper.CreateMap<UserGetDto, AppUserState>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<UserGetDto, UserListViewModel>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<UserGetDto, UserEditViewModel>().IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<UserCreateViewModel, UserPostDto>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<UserEditViewModel, UserPostDto>().IgnoreNotExistingProperties();
+
             Mapper.CreateMap<WorkshopCreateViewModel, WorkshopPostDto>().IgnoreNotExistingProperties();
             Mapper.CreateMap<WorkshopGetDto, WorkshopListItem>().IgnoreNotExistingProperties();
             Mapper.CreateMap<WorkshopGetDto, WorkshopEditViewModel>().IgnoreNotExistingProperties();
