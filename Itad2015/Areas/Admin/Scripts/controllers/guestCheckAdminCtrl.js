@@ -33,18 +33,6 @@
             return registeredPersonService.userAwaits();
         }
 
-        vm.userInitials = function () {
-            return registeredPersonService.userInitials();
-        }
-
-        vm.userEmail= function () {
-            return registeredPersonService.userEmail();
-        }
-
-        vm.userShirt = function () {
-            return registeredPersonService.userShirt();
-        }
-
         function checkIn(id) {
             $http.post("/Admin/Guest/CheckIn", { id: id }).then(function (result) {
                 if (result.data.status === true) {
@@ -58,6 +46,9 @@
         checkInHub.on('lockDevice', function (data) {
             if (data.Status === true) {
                 registeredPersonService.fillPerson(data);
+                vm.userResultEmail = registeredPersonService.userEmail();
+                vm.userShirt = registeredPersonService.userShirt();
+                vm.userInitials = registeredPersonService.userInitials();
                 vm.modalStatus = true;
                 var item = $filter('getByEmail')(guestFilterService.getGuestsData(), registeredPersonService.userEmail());
                 checkIn(item.Id);
@@ -108,13 +99,25 @@
             checkInHub.invoke('LockDevice', vm.userEmail);
         }
 
+        function checkIfDeviceCallbackOccures() {
+            setTimeout(function() {
+                if (vm.modalStatus != null) {
+                    checkInHub.invoke('UnlockDevice', vm.userEmail);
+                    checkIfDeviceCallbackOccures();
+                }
+            }, 3000);
+        }
+
         vm.unblockDevice = function () {
+            checkInHub.invoke('UnlockDevice', vm.userEmail);
+            checkIfDeviceCallbackOccures();
+        }
+        checkInHub.on('unlockDeviceUserCallback', function () {
             vm.modalStatus = null;
             vm.errorValue = null;
             registeredPersonService.clearPerson();
             $('#appModal').modal('hide');
-            checkInHub.invoke('UnlockDevice', vm.userEmail);
-        }
+        });
 
         vm.connectToDevice = function() {
             checkInHub.invoke('connect', vm.userEmail, checkInHub.connection.id, 1);

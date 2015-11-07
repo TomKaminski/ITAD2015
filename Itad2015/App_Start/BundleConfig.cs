@@ -19,6 +19,7 @@ namespace Itad2015
                         "~/Scripts/custom-slideshow.js",
                         "~/Scripts/jquery.animateNumber.js",
                         "~/Scripts/alertApp.js",
+                        "~/Scripts/circle-progress.js",
                         "~/Scripts/registerApp.js"));
 
             bundles.Add(new ScriptBundle("~/modernizr").Include("~/Scripts/modernizr-{version}.js"));
@@ -29,6 +30,18 @@ namespace Itad2015
                          "~/Content/vegas/jquery.vegas.css",
                          "~/Content/countdown.css",
                          "~/Content/style.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminCheckJs").Include(
+                "~/Scripts/angular.js",
+                "~/Areas/Admin/Scripts/adminApp.js",
+                "~/Areas/Admin/Scripts/services/registeredPersonService.js",
+                "~/Areas/Admin/Scripts/services/hubProxyService.js",
+                "~/Areas/Admin/Scripts/filters/getByIdFilter.js",
+                "~/Areas/Admin/Scripts/filters/getByEmailFilter.js",
+                "~/Areas/Admin/Scripts/services/guestFilterService.js",
+                "~/Areas/Admin/Scripts/controllers/baseGuestController.js",
+                "~/Areas/Admin/Scripts/controllers/guestCheckAdminCtrl.js"
+                ));
         }
     }
 }

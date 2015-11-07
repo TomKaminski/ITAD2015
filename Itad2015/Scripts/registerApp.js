@@ -294,4 +294,37 @@ $(document).ready(function () {
         $(".serverErrorsContainer").empty();
         $(this).parent().parent().submit();
     });
+
+
+    $(".agenda-box:not(a)").click(function () {
+        var obj = $(this);
+        if ($(this).hasClass("collapsed")) {
+            obj.removeClass("collapsed").addClass("expanded");
+            obj.children('.collapsed-content').fadeOut();
+            setTimeout(function () {
+                obj.children('.expanded-content').fadeIn();
+                obj.find('.circle').circleProgress();
+            }, 1000);
+        } else {
+            obj.css("background-color", "white");
+            obj.addClass("collapsed").removeClass("expanded");
+            obj.children('.collapsed-content').fadeIn();
+            obj.children('.expanded-content').fadeOut();
+            setTimeout(function() {
+                obj.css("background-color", "");
+            }, 2000);
+        }
+
+    });
+
+    $('.circle').circleProgress({
+        size: 120,
+        fill: {
+            gradient: ["#0d5ee5", "#50eeff"]
+        }
+    }).on('circle-animation-progress', function (event, progress, stepValue) {
+        var value = stepValue * 100;
+        var minutes = parseInt(Math.round((value * 60) / 100));
+        $(this).find('strong').text(String(minutes));
+    });
 });

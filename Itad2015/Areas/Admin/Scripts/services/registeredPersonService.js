@@ -23,7 +23,7 @@
             registeredPerson = {
                 fullName: r.FirstName + " " + r.LastName,
                 email: r.Email,
-                size: sizeEnum[r.Size+1]
+                size: sizeEnum[r.Size-1]
             };
         };
 
@@ -40,7 +40,7 @@
         }
 
         var userEmail = function() {
-            return registeredPerson.email;
+            return registeredPerson.email == null ? "" : registeredPerson.email;
         }
 
         var userShirt = function() {

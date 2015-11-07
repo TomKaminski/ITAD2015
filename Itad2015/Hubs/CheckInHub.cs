@@ -16,7 +16,6 @@ namespace Itad2015.Hubs
             if (type == ConnectionType.Device)
             {
                 Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
-                Clients.Client(connection.DeviceConnectionId.ToString()).notifyDeviceConnectedCallback();
                 if (connection.DeviceConnectionId != Guid.Empty)
                 {
                     Clients.Client(connection.DeviceConnectionId.ToString()).notifyUserConnected();
@@ -25,7 +24,6 @@ namespace Itad2015.Hubs
             else
             {
                 Clients.Client(connection.UserConnectionId.ToString()).notifyUserConnectedCallback();
-                Clients.Client(connection.DeviceConnectionId.ToString()).notifyUserConnected();
                 if (connection.DeviceConnectionId != Guid.Empty)
                 {
                     Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
@@ -33,15 +31,9 @@ namespace Itad2015.Hubs
             }
         }
 
-        public void SendInfoToUser(string key)
-        {
-            Clients.Client(Connections.GetConnections(key).UserConnectionId.ToString()).sendInfoToUser();
-        }
-
         public void LockDevice(string key, GuestApiDto data)
         {
             var connection = Connections.GetConnections(key);
-            Clients.Client(connection.DeviceConnectionId.ToString()).lockDevice();
             Clients.Client(connection.UserConnectionId.ToString()).lockDevice(data);
         }
 
@@ -49,21 +41,13 @@ namespace Itad2015.Hubs
         {
             var connection = Connections.GetConnections(key);
             Clients.Client(connection.DeviceConnectionId.ToString()).unlockDevice();
-            Clients.Client(connection.UserConnectionId.ToString()).unlockDevice();
         }
 
-        public void CheckDeviceOnline(string key)
+        public void UnlockDeviceUserCallback(string key)
         {
             var connection = Connections.GetConnections(key);
-            Clients.Client(connection.UserConnectionId.ToString())
-                .deviceOnlineNotification(connection.DeviceConnectionId != Guid.Empty);
-        }
+            Clients.Client(connection.UserConnectionId.ToString()).unlockDeviceUserCallback();
 
-        public void CheckUserOnline(string key)
-        {
-            var connection = Connections.GetConnections(key);
-            Clients.Client(connection.DeviceConnectionId.ToString())
-                .userOnlineNotification(connection.UserConnectionId != Guid.Empty);
         }
     }
 

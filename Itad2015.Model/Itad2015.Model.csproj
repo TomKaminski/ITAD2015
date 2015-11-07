@@ -91,6 +91,10 @@
     <Compile Include="Migrations\201510261902450_workshophour.Designer.cs">
       <DependentUpon>201510261902450_workshophour.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511031143274_workshophour-deleted.cs" />
+    <Compile Include="Migrations\201511031143274_workshophour-deleted.Designer.cs">
+      <DependentUpon>201511031143274_workshophour-deleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Scripts\DeleteNotConfirmedGuests.sql" />
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510261902450_workshophour.resx">
       <DependentUpon>201510261902450_workshophour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031143274_workshophour-deleted.resx">
+      <DependentUpon>201511031143274_workshophour-deleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

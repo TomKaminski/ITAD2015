@@ -31,6 +31,7 @@
 
             $(function () {
                 $('.slide-inner').bind('click', function (event) {
+                    event.stopPropagation();
                     var $anchor = $(this);
 
                     $('html, body').stop().animate({
