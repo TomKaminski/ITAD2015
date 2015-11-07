@@ -508,7 +508,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
             overflow: hidden;
         }
 
-.dropdown .dropdown-menu li a:hover {
+            .dropdown .dropdown-menu li a:hover {
                 background-color: transparent;
                 color: #50efff;
                 font-weight: bold;
@@ -615,12 +615,12 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 
 .align-center {
-        display: -webkit-flexbox;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        align-items: center;
-    }
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
 
 @media(min-width: 768px) {
     .flex-align-center {
@@ -804,88 +804,86 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 .agenda-box {
     width: 200px;
-    height: 200px;
     margin: 25px;
     border: 3px solid #50eeff;
     cursor: pointer;
-
 }
 
-.agenda-box.collapsed {
-    -ms-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s; 
-    -moz-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s; 
-    -ms-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s; 
-    -o-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s; 
-    transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
-    width: 200px;
-    background-image: url('/Content/images/Agenda/agenda-box-bg.png');
-    -ms-background-size: cover;
-    background-size: cover;
-}
+    .agenda-box.collapsed {
+        -ms-border-radius: 50%;
+        border-radius: 50%;
+        -webkit-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
+        -moz-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
+        -ms-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
+        -o-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
+        transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
+        width: 200px;
+        height: 200px;
+        background-image: url('/Content/images/Agenda/agenda-box-bg.png');
+        -ms-background-size: cover;
+        background-size: cover;
+    }
 
-.agenda-box.expanded {
-    background-color: rgba(255, 255, 255, 0.9);
-    width: 90%;
-    color: black;
-    min-height: 400px;
-    -ms-border-radius: 60px;
-    border-radius: 60px;
-    -webkit-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-    -moz-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-    -ms-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s; 
-    -o-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-    transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-}
+    .agenda-box.expanded {
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 90%;
+        color: black;
+        min-height: 400px;
+        -ms-border-radius: 60px;
+        border-radius: 60px;
+        -webkit-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
+        -moz-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
+        -ms-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
+        -o-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
+        transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
+    }
 
-.agenda-box.expanded.small {
-    min-height: 250px;
-}
+        .agenda-box.expanded.small {
+            min-height: 250px;
+        }
 
-.agenda-box.collapsed.agenda-euvic:hover {
-    background-image: url('/Content/images/Agenda/bg-agenda-euvic.png');
-    -ms-background-size: cover;
-    background-size: cover;
-}
+    .agenda-box.collapsed.agenda-euvic:hover {
+        background-image: url('/Content/images/Agenda/bg-agenda-euvic.png');
+        -ms-background-size: cover;
+        background-size: cover;
+    }
 
-.agenda-box.collapsed.agenda-versum:hover {
-    background-image: url('/Content/images/Agenda/bg-agenda-versum.png');
-    -ms-background-size: cover;
-    background-size: cover;
-}
+    .agenda-box.collapsed.agenda-versum:hover {
+        background-image: url('/Content/images/Agenda/bg-agenda-versum.png');
+        -ms-background-size: cover;
+        background-size: cover;
+    }
 
 
-.agenda-box .collapsed-content .agenda-hour {
-    margin-top: 8px;
-    font-size: 18px;
+    .agenda-box .collapsed-content .agenda-hour {
+        margin-top: 8px;
+        font-size: 18px;
+    }
 
-}
+    .agenda-box .collapsed-content {
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 170px;
+        margin: auto;
+    }
 
-.agenda-box .collapsed-content {
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 170px;
-    margin: auto;
-}
+    .agenda-box.expanded .align-content-agenda {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 325px;
+        color: black;
+        text-align: center;
+    }
 
-.agenda-box.expanded .align-content-agenda {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 325px;
-    color: black;
-    text-align: center;
-}
-
-.agenda-box.expanded.small .align-content-agenda {
-    min-height: 250px;
-}
+    .agenda-box.expanded.small .align-content-agenda {
+        min-height: 250px;
+    }
 
 .t0 {
     font-size: 22px;
@@ -912,15 +910,15 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     line-height: 1.2;
 }
 
-.circle strong {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    line-height: 40px;
-    font-size: 40px;
-}
+    .circle strong {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 40px;
+    }
 
 .agenda-expanded-title {
     font-weight: bold;
@@ -932,6 +930,36 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     color: black;
 }
 
-.align-content-agenda a p {
-    font-size: 25px;
+    .align-content-agenda a p {
+        font-size: 25px;
+    }
+
+@media(max-width: 768px) {
+    .agenda-box.expanded {
+        min-height: 300px;
+    }
+
+        .agenda-expanded-title {
+        font-size: 22px;
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+    }
+
+        .agenda-box.expanded.small .align-content-agenda {
+            min-height: 150px;
+        }
+
+
+        .agenda-box.expanded.small .align-content-agenda.first {
+            margin-top:25px
+        }
+
+        .agenda-box.expanded .align-content-agenda {
+            min-height: 300px;
+        }
+
+        .agenda-box.expanded.small {
+            min-height: 150px;
+        }
 }
