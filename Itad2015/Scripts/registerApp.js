@@ -309,7 +309,7 @@ $(document).ready(function () {
             obj.css("background-color", "white");
             obj.addClass("collapsed").removeClass("expanded");
             obj.children('.collapsed-content').fadeIn();
-            obj.children('.expanded-content').fadeOut();
+            obj.children('.expanded-content').hide();
             setTimeout(function() {
                 obj.css("background-color", "");
             }, 2000);

@@ -102,6 +102,13 @@ h4 {
     margin: 0 auto;
 }
 
+.divider-one {
+    width: 70%;
+    height: 1px;
+    background: #50efff;
+    margin: 0 auto;
+}
+
 .margin-botom-50 {
     margin-bottom: 50px;
 }
