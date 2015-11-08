@@ -819,11 +819,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     .agenda-box.collapsed {
         -ms-border-radius: 50%;
         border-radius: 50%;
-        -webkit-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
-        -moz-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
-        -ms-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
-        -o-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
-        transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-out background-image 1s;
+        -webkit-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-out background-image 2.5s;
+        -moz-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-out background-image 2.5s;
+        -ms-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-out background-image 2.5s;
+        -o-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-out background-image 2.5s;
+        transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-out background-image 2.5s;
         width: 200px;
         height: 200px;
         background-image: url('/Content/images/Agenda/agenda-box-bg.png');
@@ -838,11 +838,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
         min-height: 400px;
         -ms-border-radius: 60px;
         border-radius: 60px;
-        -webkit-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-        -moz-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-        -ms-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-        -o-transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
-        transition: ease-in-out width 1s, ease-in-out border-radius 1s, ease-in-out height 1s;
+        -webkit-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-in-out height 2.5s;
+        -moz-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-in-out height 2.5s;
+        -ms-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-in-out height 2.5s;
+        -o-transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-in-out height 2.5s;
+        transition: ease-in-out width 2.5s, ease-in-out border-radius 2.5s, ease-in-out height 2.5s;
     }
 
         .agenda-box.expanded.small {
