@@ -23,6 +23,7 @@
             vm.searchText = "";
             vm.pageSize = 5;
             vm.currentPage = 1;
+            vm.qrInProgress = false;
 
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
@@ -35,11 +36,14 @@
         }
 
         vm.sendQrToAll = function () {
+            vm.qrInProgress = true;
             $http.post("/Admin/Guest/SendQr", {
                 connectionId: qrHubProxy.connection.id
             }).then(function (result) {
+                vm.qrInProgress = false;
                 console.log(result);
             }, function (errorData) {
+                vm.qrInProgress = false;
                 console.log(errorData);
             });
         }

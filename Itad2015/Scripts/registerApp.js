@@ -12,7 +12,7 @@
             case 4:
                 {
                     if (isFemale) {
-                        $(formId + " section[data-stage-id='"+actualStage+"'].male").hide();
+                        $(formId + " section[data-stage-id='" + actualStage + "'].male").hide();
                         $(formId + " section[data-stage-id='" + actualStage + "'].female").fadeIn(1000);
 
                     } else {
@@ -21,11 +21,11 @@
                     }
                     break;
                 }
-            default :
-            {
-                $(formId + " section[data-stage-id='" + actualStage + "']").fadeIn(1000);
-                break;
-            }
+            default:
+                {
+                    $(formId + " section[data-stage-id='" + actualStage + "']").fadeIn(1000);
+                    break;
+                }
         }
     }
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
         $(".cookie-container").show();
     }
 
-    $(".cookies-accept").click(function(e) {
+    $(".cookies-accept").click(function (e) {
         setCookie("cookiesAccepted", true, 14);
         $(".cookie-container").hide();
         e.preventDefault();
@@ -266,7 +266,7 @@ $(document).ready(function () {
             if (data.status === true) {
                 var id = registerModule.getFormId();
                 if (id === regId) {
-                    $("#registeredGuestsCount").text(parseInt($("#registeredGuestsCount").text())-1);
+                    $("#registeredGuestsCount").text(parseInt($("#registeredGuestsCount").text()) - 1);
                 } else {
                     var selectedWorkshop = $("input#workshopId").val();
                     var workshopCounter = $(".workshop-container[data-workshop-id='" + selectedWorkshop + "'] .workshopGuestCounter");
@@ -300,27 +300,20 @@ $(document).ready(function () {
         var obj = $(this);
         if ($(this).hasClass("collapsed")) {
             obj.removeClass("collapsed").addClass("expanded");
-            obj.children('.collapsed-content').fadeOut();
-            setTimeout(function () {
-                obj.children('.expanded-content').fadeIn();
+            obj.children('.collapsed-content').hide();
+            obj.children('.expanded-content').fadeIn();
                 obj.find('.circle').circleProgress();
-            }, 1000);
         } else {
-            obj.css("background-color", "white");
-            obj.addClass("collapsed").removeClass("expanded");
-            obj.children('.collapsed-content').fadeIn();
             obj.children('.expanded-content').hide();
-            setTimeout(function() {
-                obj.css("background-color", "");
-            }, 2000);
+            obj.addClass("collapsed").removeClass("expanded");
+            obj.children('.collapsed-content').show();
         }
-
     });
 
     $('.circle').circleProgress({
         size: 120,
         fill: {
-            gradient: ["#0d5ee5", "#50eeff"]
+            gradient: ["white", "white"]
         }
     }).on('circle-animation-progress', function (event, progress, stepValue) {
         var value = stepValue * 100;

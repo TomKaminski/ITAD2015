@@ -15,7 +15,7 @@
             @Html.Partial("_MenuPartial")
             <div class="col-sm-3">
                 <div class="row" style="margin-top: 30px">
-                    <button class="btn btn-success col-xs-12" ng-click="ctrl.sendQrToAll()">Wyślij kody QR do wszystkich</button>
+                    <button class="btn btn-success col-xs-12" ng-click="ctrl.sendQrToAll()" ng-show="ctrl.qrInProgress == false">Wyślij kody QR do 50 osób</button>
                     <button class="btn btn-default col-xs-12" ng-click="ctrl.init()" style="margin-top: 5px">Odśwież listę</button>
                 </div>
             </div>
@@ -62,6 +62,7 @@
 
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Areas/Admin/Scripts/adminApp.js"></script>
+    <script src="~/Areas/Admin/Scripts/services/appEmailService.js"></script>
     <script src="~/Areas/Admin/Scripts/services/hubProxyService.js"></script>
     <script src="~/Areas/Admin/Scripts/filters/getByEmailFilter.js"></script>
     <script src="~/Areas/Admin/Scripts/services/guestFilterService.js"></script>

@@ -42,6 +42,33 @@ namespace Itad2015.Hubs.ConnectionMappings
             }
         }
 
+        public void Remove(string key, ConnectionType type)
+        {
+            lock (Connections)
+            {
+                Connections connection;
+                if (Connections.TryGetValue(key, out connection))
+                {
+                    if (type == ConnectionType.Device)
+                    {
+                        connection.DeviceConnectionId = Guid.Empty;
+                        if (connection.UserConnectionId == Guid.Empty)
+                        {
+                            Connections.Remove(key);
+                        }
+                    }
+                    else
+                    {
+                        connection.UserConnectionId = Guid.Empty;
+                        if (connection.DeviceConnectionId == Guid.Empty)
+                        {
+                            Connections.Remove(key);
+                        }
+                    }
+                }
+            }
+        }
+
         public Connections GetConnections(string key)
         {
             lock (Connections)

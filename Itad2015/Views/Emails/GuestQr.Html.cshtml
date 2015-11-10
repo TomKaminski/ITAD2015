@@ -1,0 +1,18 @@
+﻿@model Itad2015.ViewModels.Email.GuestQrEmail
+
+<h1 style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif">Cześć @Model.Name!</h1>
+<p style="border-bottom: 1px solid #50efff"></p>
+<p style="font-family: 'Sinkin Sans', 'Open Sans', 'Segoe UI', sans-serif; font-size: 16px;">
+    Do <b>IT Academic Day</b> pozostał już tylko tydzień!<br/>
+    <br/>
+    Zgodnie z zapowiedzią w załącznikach przesyłamy <b>Twój QR kod</b> w dwóch formatach (zdjęcie oraz plik PDF).<br/>
+    Dzięki niemu <b>potwierdzisz</b> swoją obecność 20 listopada i odbierzesz swój <b>giftpack</b>.
+    <br/>
+    <br/>
+    <div style="width: 700px; height: 350px">
+        @Html.EmbedImage("~/Content/images/Mail/mail_QR.png")
+    </div>
+    <br/>
+    <br/>
+</p>
+<h2 style="font-family:'Sinkin Sans','Open Sans','Segoe UI', sans-serif">Widzimy się już za tydzień! :)</h2>

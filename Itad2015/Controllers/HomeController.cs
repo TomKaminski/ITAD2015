@@ -25,7 +25,7 @@ namespace Itad2015.Controllers
             _workshopGuestService = workshopGuestService;
         }
 
-        //[DonutOutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
+        [DonutOutputCache(CacheProfile = "1Day", Location = OutputCacheLocation.Server)]
         public ActionResult Index(List<AlertViewModel> alerts = null)
         {
             return View("Index",new IndexViewModel

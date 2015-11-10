@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function guestAdminCtrl($scope, $http, $filter, $controller, hubProxyService, guestFilterService, registeredPersonService) {
+    function guestAdminCtrl($scope, $http, $filter, $controller, hubProxyService, guestFilterService, registeredPersonService, appEmailService) {
         angular.extend(this, $controller('baseGuestController', { $scope: $scope }));
 
         var vm = this;
@@ -21,7 +21,8 @@
             vm.connectedToDevice = true;
         });
 
-        checkInHub.on('notifyDeviceConnected', function() {
+        checkInHub.on('notifyDeviceConnected', function (data) {
+            vm.deviceConId = data;
             vm.deviceOnline = true;
         });
 
@@ -29,7 +30,7 @@
             vm.deviceOnline = true;
         });
 
-        vm.userAwaits = function() {
+        vm.userAwaits = function () {
             return registeredPersonService.userAwaits();
         }
 
@@ -71,6 +72,7 @@
             vm.pageSize = 5;
             vm.currentPage = 1;
             vm.userEmail = userEmail;
+            appEmailService.setEmail(userEmail);
 
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
@@ -95,14 +97,13 @@
             });
         }
 
-        vm.blockDevice = function() {
+        vm.blockDevice = function () {
             checkInHub.invoke('LockDevice', vm.userEmail);
         }
 
         function checkIfDeviceCallbackOccures() {
-            setTimeout(function() {
+            setTimeout(function () {
                 if (vm.modalStatus != null) {
-                    checkInHub.invoke('UnlockDevice', vm.userEmail);
                     checkIfDeviceCallbackOccures();
                 }
             }, 3000);
@@ -119,8 +120,8 @@
             $('#appModal').modal('hide');
         });
 
-        vm.connectToDevice = function() {
-            checkInHub.invoke('connect', vm.userEmail, checkInHub.connection.id, 1);
+        vm.connectToDevice = function () {
+            checkInHub.invoke('connect', appEmailService.getEmail(), checkInHub.connection.id, 1);
             checkInHub.invoke('checkDeviceOnline', vm.userEmail);
         }
     }

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function hubProxyService($rootScope, $, signalRServer) {
+    function hubProxyService($rootScope, $, signalRServer, appEmailService) {
         function signalRHubProxyFactory(serverUrl, hubName, startOptions) {
 
             var connection = $.hubConnection(signalRServer);
@@ -9,9 +9,10 @@
             connection.start(startOptions).done(function () { });
 
             connection.disconnected(function () {
-                debugger;
                 setTimeout(function () {
-                    connection.start(startOptions).done(function () { });
+                    connection.start(startOptions).done(function() {
+                        invoke('connect', appEmailService.getEmail(), connection.id, 1);
+                    });
                 }, 5000);
             });
 

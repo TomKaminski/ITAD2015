@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
@@ -82,7 +84,7 @@ namespace Itad2015.Areas.Admin.Controllers
 
             var allGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null).Result.ToList();
 
-            var data = allGuests.Where(x => !x.QrEmailSent).ToList();
+            var data = allGuests.Where(x => !x.QrEmailSent).Take(50).ToList();
 
             var guestsToEdit = new List<GuestPostDto>();
 
@@ -99,14 +101,16 @@ namespace Itad2015.Areas.Admin.Controllers
                     new[] { Server.MapPath("~/Content/pdfStyles.css") }, Server.MapPath("~/Content/fonts/sinkinsansregular.ttf"));
 
                 await new EmailHelper<GuestQrEmail>(new GuestQrEmail(d.Email, "reset@ath.bielsko.pl",
-                    "Zaproszenie na konferencję ITAD 2015.")
-                    {
-                        LastName = d.LastName,
-                        Name = d.FirstName
-                    })
+                    "ITAD 2015 QR kod rejestracyjny")
+                {
+                    LastName = d.LastName,
+                    Name = d.FirstName
+                })
                 .AddAttachement(pdfFile, "Bilet.pdf")
                 .AddAttachement(qrByteArray, "Bilet.png")
                 .SendEmailAsync();
+
+                Thread.Sleep(1000);
 
                 d.QrEmailSent = true;
                 guestsToEdit.Add(Mapper.Map<GuestGetDto, GuestPostDto>(d));
@@ -122,6 +126,15 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             var guest = _guestService.FirstOrDefault(x => x.Email == email);
             _guestService.Delete(guest.Result.Id);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateSpecialByBukkakaPlz(string email)
+        {
+            var guest = _guestService.FirstOrDefault(x => x.Email == email);
+            guest.Result.RegistrationTime = new DateTime(2015, 11, 20);
+            _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
             return RedirectToAction("Index", "Home");
         }
     }

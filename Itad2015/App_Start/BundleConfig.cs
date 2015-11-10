@@ -34,6 +34,7 @@ namespace Itad2015
             bundles.Add(new ScriptBundle("~/bundles/adminCheckJs").Include(
                 "~/Scripts/angular.js",
                 "~/Areas/Admin/Scripts/adminApp.js",
+                "~/Areas/Admin/Scripts/services/appEmailService.js",
                 "~/Areas/Admin/Scripts/services/registeredPersonService.js",
                 "~/Areas/Admin/Scripts/services/hubProxyService.js",
                 "~/Areas/Admin/Scripts/filters/getByIdFilter.js",

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Itad2015.Contract.DTO.Api;
 using Itad2015.Hubs.ConnectionMappings;
 using Microsoft.AspNet.SignalR;
@@ -9,44 +10,49 @@ namespace Itad2015.Hubs
     {
         private static readonly CheckInHubConnectionMapping Connections = new CheckInHubConnectionMapping();
 
-        public void Connect(string key, Guid connectionId, ConnectionType type)
+        public async Task Connect(string key, Guid connectionId, ConnectionType type)
         {
-            Connections.Add(key,connectionId,type);
+            Connections.Add(key, connectionId, type);
             var connection = Connections.GetConnections(key);
             if (type == ConnectionType.Device)
             {
-                Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
+                await Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
                 if (connection.DeviceConnectionId != Guid.Empty)
                 {
-                    Clients.Client(connection.DeviceConnectionId.ToString()).notifyUserConnected();
+                    await Clients.Client(connection.DeviceConnectionId.ToString()).notifyUserConnected();
                 }
             }
             else
             {
-                Clients.Client(connection.UserConnectionId.ToString()).notifyUserConnectedCallback();
+                await Clients.Client(connection.UserConnectionId.ToString()).notifyUserConnectedCallback();
                 if (connection.DeviceConnectionId != Guid.Empty)
                 {
-                    Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
+                    await Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
                 }
             }
         }
 
-        public void LockDevice(string key, GuestApiDto data)
+        public void Disconnect(string key, ConnectionType type)
         {
-            var connection = Connections.GetConnections(key);
-            Clients.Client(connection.UserConnectionId.ToString()).lockDevice(data);
+            Connections.Remove(key, type);
         }
 
-        public void UnlockDevice(string key)
+        public async Task LockDevice(string key, GuestApiDto data)
         {
             var connection = Connections.GetConnections(key);
-            Clients.Client(connection.DeviceConnectionId.ToString()).unlockDevice();
+            await Clients.Client(connection.UserConnectionId.ToString()).lockDevice(data);
         }
 
-        public void UnlockDeviceUserCallback(string key)
+        public async Task UnlockDevice(string key)
         {
             var connection = Connections.GetConnections(key);
-            Clients.Client(connection.UserConnectionId.ToString()).unlockDeviceUserCallback();
+            await Clients.Client(connection.DeviceConnectionId.ToString()).unlockDevice();
+        }
+
+        public async Task UnlockDeviceUserCallback(string key)
+        {
+            var connection = Connections.GetConnections(key);
+            await Clients.Client(connection.UserConnectionId.ToString()).unlockDeviceUserCallback();
 
         }
     }
@@ -63,3 +69,4 @@ namespace Itad2015.Hubs
         User = 1
     }
 }
+

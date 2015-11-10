@@ -203,6 +203,7 @@
     <Content Include="Areas\Admin\Scripts\filters\getByIdFilter.js" />
     <Content Include="Areas\Admin\Scripts\controllers\guestCheckAdminCtrl.js" />
     <Content Include="Areas\Admin\Scripts\adminApp.js" />
+    <Content Include="Areas\Admin\Scripts\services\appEmailService.js" />
     <Content Include="Areas\Admin\Scripts\services\guestFilterService.js" />
     <Content Include="Areas\Admin\Scripts\services\hubProxyService.js" />
     <Content Include="Areas\Admin\Scripts\services\registeredPersonService.js" />
@@ -215,7 +216,11 @@
     <Content Include="Content\images\Agenda\agenda-box-bg.png" />
     <Content Include="Content\images\Agenda\bg-agenda-euvic.png" />
     <Content Include="Content\images\Agenda\bg-agenda-versum.png" />
+    <Content Include="Content\images\Agenda\iphone6.png" />
+    <Content Include="Content\images\Agenda\rpi-logo.png" />
     <Content Include="Content\images\Agenda\itad-logo-mini.png" />
+    <Content Include="Content\images\Agenda\ruby-logo.png" />
+    <Content Include="Content\images\Agenda\unity-logo.png" />
     <Content Include="Content\images\ATH_logo.png" />
     <Content Include="Content\images\bag.png" />
     <Content Include="Content\images\cookies.png" />
@@ -227,6 +232,7 @@
     <Content Include="Content\images\Mail\cancel_red.png" />
     <Content Include="Content\images\Mail\mailFooter.png" />
     <Content Include="Content\images\Mail\mailHeader.png" />
+    <Content Include="Content\images\Mail\mail_QR.png" />
     <Content Include="Content\images\Mail\register.png" />
     <Content Include="Content\images\Mail\tick.png" />
     <Content Include="Content\images\Mail\tick_green.png" />
@@ -533,6 +539,8 @@
     <Content Include="Web.FtpReset.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Emails\GuestQr.Html.cshtml" />
+    <Content Include="Views\Emails\GuestQr.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

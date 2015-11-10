@@ -14,11 +14,12 @@
                 <p class="text-center">
                     Status: <span ng-if="ctrl.connectedToDevice == true" style="color: green">ONLINE</span>
                     <span ng-if="ctrl.connectedToDevice == false" style="color: red">OFFLINE &nbsp;<button class="btn btn-success" ng-click="ctrl.connectToDevice()">Połącz</button></span>
-                    <br />
+                    <br/>
                     Urządzenie: <span ng-if="ctrl.deviceOnline == true" style="color: green">ONLINE</span>
                     <span ng-if="ctrl.deviceOnline == false" style="color: red">OFFLINE</span>
                 </p>
             </div>
+            <p>devid: {{ctrl.deviceConId}}</p>
         </div>
 
         <table class="table table-striped">
