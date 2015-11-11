@@ -6,6 +6,7 @@
 
             var connection = $.hubConnection(signalRServer);
             var proxy = connection.createHubProxy(hubName);
+
             connection.start(startOptions).done(function () { });
 
             connection.disconnected(function () {
@@ -15,6 +16,12 @@
                     });
                 }, 5000);
             });
+
+            var start = function(callback) {
+                connection.start(startOptions).done(function() {
+                    callback();
+                });
+            }
 
             return {
                 on: function (eventName, callback) {
@@ -39,7 +46,8 @@
                     var args = $.makeArray(arguments);
                     proxy.invoke.apply(proxy, args);
                 },
-                connection: connection
+                connection: connection,
+                start: start
             };
         };
         return signalRHubProxyFactory;

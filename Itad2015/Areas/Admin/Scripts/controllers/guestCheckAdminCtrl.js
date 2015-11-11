@@ -21,13 +21,12 @@
             vm.connectedToDevice = true;
         });
 
-        checkInHub.on('notifyDeviceConnected', function (data) {
-            vm.deviceConId = data;
+        checkInHub.on('notifyDeviceConnected', function () {
             vm.deviceOnline = true;
         });
 
-        checkInHub.on('checkDeviceOnline', function () {
-            vm.deviceOnline = true;
+        checkInHub.on('notifyDeviceDisconnected', function () {
+            vm.deviceOnline = false;
         });
 
         vm.userAwaits = function () {
@@ -73,6 +72,11 @@
             vm.currentPage = 1;
             vm.userEmail = userEmail;
             appEmailService.setEmail(userEmail);
+
+            checkInHub.start(function () {
+                checkInHub.invoke('connect', appEmailService.getEmail(), checkInHub.connection.id, 1);
+                checkInHub.invoke('checkDeviceOnline', vm.userEmail);
+            });
 
             $http.get("/Admin/Guest/GetAll")
                 .then(function (result) {
@@ -121,8 +125,10 @@
         });
 
         vm.connectToDevice = function () {
-            checkInHub.invoke('connect', appEmailService.getEmail(), checkInHub.connection.id, 1);
-            checkInHub.invoke('checkDeviceOnline', vm.userEmail);
+            checkInHub.start(function () {
+                checkInHub.invoke('connect', appEmailService.getEmail(), checkInHub.connection.id, 1);
+                checkInHub.invoke('checkDeviceOnline', vm.userEmail);
+            });
         }
     }
 

@@ -1,10 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using System.Web.Mvc;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.ViewModels.Qr;
 
 namespace Itad2015.Controllers
 {
+    [RequireHttps]
     public class QrController : ApiController
     {
         private readonly IGuestService _guestService;
@@ -15,7 +17,7 @@ namespace Itad2015.Controllers
 
         private const string Token = "kn432k4n32b4325n34lk5ms23423423423901adsjkdn5465ujojzcxzasdasdas";
 
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public object GetGuestsCount()
         {
             var guests = _guestService.GetAll(x => x.ConfirmationTime != null).Result.ToList();
@@ -27,7 +29,7 @@ namespace Itad2015.Controllers
             };
         }
 
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public object CheckInApp(QrCheckInViewModel model)
         {
 

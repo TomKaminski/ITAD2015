@@ -17,10 +17,6 @@ namespace Itad2015.Hubs
             if (type == ConnectionType.Device)
             {
                 await Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceConnected();
-                if (connection.DeviceConnectionId != Guid.Empty)
-                {
-                    await Clients.Client(connection.DeviceConnectionId.ToString()).notifyUserConnected();
-                }
             }
             else
             {
@@ -32,9 +28,14 @@ namespace Itad2015.Hubs
             }
         }
 
-        public void Disconnect(string key, ConnectionType type)
+        public async Task Disconnect(string key, ConnectionType type)
         {
             Connections.Remove(key, type);
+            var connection = Connections.GetConnections(key);
+            if (type == ConnectionType.Device)
+            {
+                await Clients.Client(connection.UserConnectionId.ToString()).notifyDeviceDisconnected();
+            }
         }
 
         public async Task LockDevice(string key, GuestApiDto data)
