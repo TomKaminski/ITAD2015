@@ -1,12 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Http;
-using System.Web.Mvc;
 using Itad2015.Contract.Service.Entity;
 using Itad2015.ViewModels.Qr;
 
 namespace Itad2015.Controllers
 {
-    [RequireHttps]
     public class QrController : ApiController
     {
         private readonly IGuestService _guestService;

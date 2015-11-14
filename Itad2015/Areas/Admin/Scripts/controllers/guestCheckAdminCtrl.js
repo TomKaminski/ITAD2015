@@ -5,6 +5,10 @@
         angular.extend(this, $controller('baseGuestController', { $scope: $scope }));
 
         var vm = this;
+        vm.modalStatus = null;
+        vm.lastError = null;
+        vm.lastPerson = null;
+        vm.date = null;
 
         var guestHubProxy = hubProxyService(hubProxyService.defaultServer, 'guestHub', { logging: true });
         var checkInHub = hubProxyService(hubProxyService.defaultServer, 'checkInHub', { logging: true });
@@ -43,20 +47,38 @@
             });
         }
 
+        function checkAppIsWaiting() {
+            setTimeout(function () {
+                if (vm.modalStatus === null) {
+                    checkInHub.invoke('checkAppIsWaiting', appEmailService.getEmail());
+                }
+                checkAppIsWaiting();
+            }, 7000);
+        }
+
+        checkAppIsWaiting();
+
         checkInHub.on('lockDevice', function (data) {
-            if (data.Status === true) {
-                registeredPersonService.fillPerson(data);
-                vm.userResultEmail = registeredPersonService.userEmail();
-                vm.userShirt = registeredPersonService.userShirt();
-                vm.userInitials = registeredPersonService.userInitials();
-                vm.modalStatus = true;
-                var item = $filter('getByEmail')(guestFilterService.getGuestsData(), registeredPersonService.userEmail());
-                checkIn(item.Id);
-            } else {
-                vm.modalStatus = false;
-                vm.errorValue = data.Error;
+            checkInHub.invoke('userRecievedMessageCallback', appEmailService.getEmail());
+            if (vm.modalStatus == null && vm.date !== data.Date) {
+                if (data.Status === true) {
+                    registeredPersonService.fillPerson(data);
+                    vm.userResultEmail = registeredPersonService.userEmail();
+                    vm.userShirt = registeredPersonService.userShirt();
+                    vm.userInitials = registeredPersonService.userInitials();
+                    vm.modalStatus = true;
+                    var item = $filter('getByEmail')(guestFilterService.getGuestsData(), registeredPersonService.userEmail());
+                    checkIn(item.Id);
+                } else {
+                    vm.modalStatus = false;
+                    vm.errorValue = data.Error;
+                }
+                $(".modal-backdrop").each(function() {
+                    $(this).remove();
+                });
+                $('#appModal').modal('show');
+                vm.date = data.Date;
             }
-            $('#appModal').modal('show');
         });
 
         vm.init = function (userEmail) {
@@ -70,12 +92,11 @@
             vm.searchText = "";
             vm.pageSize = 5;
             vm.currentPage = 1;
-            vm.userEmail = userEmail;
             appEmailService.setEmail(userEmail);
 
             checkInHub.start(function () {
                 checkInHub.invoke('connect', appEmailService.getEmail(), checkInHub.connection.id, 1);
-                checkInHub.invoke('checkDeviceOnline', vm.userEmail);
+                checkInHub.invoke('checkDeviceOnline', appEmailService.getEmail());
             });
 
             $http.get("/Admin/Guest/GetAll")
@@ -101,33 +122,33 @@
             });
         }
 
-        vm.blockDevice = function () {
-            checkInHub.invoke('LockDevice', vm.userEmail);
-        }
-
-        function checkIfDeviceCallbackOccures() {
+        function checkIfDeviceCallbackOccured() {
             setTimeout(function () {
                 if (vm.modalStatus != null) {
-                    checkIfDeviceCallbackOccures();
+                    checkInHub.invoke('UnlockDevice', appEmailService.getEmail());
+                    checkIfDeviceCallbackOccured();
                 }
             }, 3000);
         }
 
         vm.unblockDevice = function () {
-            checkInHub.invoke('UnlockDevice', vm.userEmail);
-            checkIfDeviceCallbackOccures();
+            checkInHub.invoke('UnlockDevice', appEmailService.getEmail());
+            checkIfDeviceCallbackOccured();
         }
+
         checkInHub.on('unlockDeviceUserCallback', function () {
-            vm.modalStatus = null;
             vm.errorValue = null;
             registeredPersonService.clearPerson();
             $('#appModal').modal('hide');
+            setTimeout(function() {
+                vm.modalStatus = null;
+            }, 500);
         });
 
         vm.connectToDevice = function () {
             checkInHub.start(function () {
                 checkInHub.invoke('connect', appEmailService.getEmail(), checkInHub.connection.id, 1);
-                checkInHub.invoke('checkDeviceOnline', vm.userEmail);
+                checkInHub.invoke('checkDeviceOnline', appEmailService.getEmail());
             });
         }
     }

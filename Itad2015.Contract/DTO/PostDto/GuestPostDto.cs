@@ -9,6 +9,7 @@ namespace Itad2015.Contract.DTO.PostDto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime RegistrationTime { get; set; }
+        public DateTime? ConfirmationTime { get; set; }
         public Size Size { get; set; }
         public bool QrEmailSent { get; set; }
         public string Info { get; set; }

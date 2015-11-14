@@ -79,6 +79,17 @@ namespace Itad2015.Controllers
         [HttpGet]
         public ActionResult CancelRegistration(int id, string cancelationCode)
         {
+            return Index(new List<AlertViewModel>
+            {
+                new AlertViewModel
+                {
+                    AlertClass = "alert-danger",
+                    AlertText =
+                        "<img src='/Content/images/Mail/cancel_red.png' /><span style='padding-left:20px;'>Możliwość anulowania rejestracji została zablokowana z powodu ZAMKNIĘCIA rejestracji</span>"
+                    
+                }
+            });
+
             var result = _guestService.CancelRegistration(id, cancelationCode);
             var alertModel = new AlertViewModel();
             if (result.Result)

@@ -33,6 +33,7 @@
                     Email
                 </th>
                 <th>QR wysłany?</th>
+                <th></th>
             </tr>
             <tr ng-repeat="item in ctrl.guestsList" ng-class="{'color-green': item.QrEmailSent==true}">
                 <td>
@@ -48,6 +49,9 @@
                     <span ng-show="item.QrEmailSent==true">Tak &#10004;</span>
                     <span ng-show="item.QrEmailSent==false">Nie &#10006;</span>
 
+                </td>
+                <td>
+                    <button class="btn btn-success" ng-show="ctrl.qrInProgress == false" ng-click="ctrl.sendQr(item.Id)">Wyślij email</button>
                 </td>
             </tr>
         </table>
@@ -65,6 +69,7 @@
     <script src="~/Areas/Admin/Scripts/services/appEmailService.js"></script>
     <script src="~/Areas/Admin/Scripts/services/hubProxyService.js"></script>
     <script src="~/Areas/Admin/Scripts/filters/getByEmailFilter.js"></script>
+    <script src="~/Areas/Admin/Scripts/filters/getByIdFilter.js"></script>
     <script src="~/Areas/Admin/Scripts/services/guestFilterService.js"></script>
     <script src="~/Areas/Admin/Scripts/controllers/baseGuestController.js"></script>
     <script src="~/Areas/Admin/Scripts/controllers/sendQrCtrl.js"></script>

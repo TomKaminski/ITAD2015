@@ -19,5 +19,6 @@ namespace Itad2015.Contract.DTO.Api
         public GuestApiDtoPerson Person { get; set; }
         public bool Status { get; set; }
         public string Error { get; set; }
+        public DateTime Date { get; set; }
     }
 }

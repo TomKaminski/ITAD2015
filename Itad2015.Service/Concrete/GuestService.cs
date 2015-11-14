@@ -111,6 +111,7 @@ namespace Itad2015.Service.Concrete
             {
                 return new SingleServiceResult<GuestApiDto>(new GuestApiDto
                 {
+                    Date = DateTime.Now,
                     Status = false,
                     Error = $"Email: {email} nie występuje na liście uczestników"
                 });
@@ -120,6 +121,7 @@ namespace Itad2015.Service.Concrete
             {
                 return new SingleServiceResult<GuestApiDto>(new GuestApiDto
                 {
+                    Date = DateTime.Now,
                     Status = false,
                     Error = $"{guest.FirstName} {guest.LastName} został już zarejestrowany!"
                 });
@@ -130,6 +132,7 @@ namespace Itad2015.Service.Concrete
             _unitOfWork.Commit();
             return new SingleServiceResult<GuestApiDto>(new GuestApiDto
             {
+                Date = DateTime.Now,
                 Status = true,
                 Person = new GuestApiDtoPerson
                 {

@@ -47,6 +47,19 @@
                 console.log(errorData);
             });
         }
+
+        vm.sendQr = function (id) {
+            vm.qrInProgress = true;
+            $http.post("/Admin/Guest/SendQrEmail", {
+                id: id
+            }).then(function (result) {
+                var item = $filter('getById')(guestFilterService.getGuestsData(), id);
+                item.QrEmailSent = true;
+                console.log(result);
+            }, function (errorData) {
+                console.log(errorData);
+            });
+        }
     }
 
     angular.module('adminApp')

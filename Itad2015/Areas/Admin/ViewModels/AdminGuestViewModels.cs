@@ -1,4 +1,7 @@
-﻿namespace Itad2015.Areas.Admin.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+using Itad2015.Contract.DTO.Base;
+
+namespace Itad2015.Areas.Admin.ViewModels
 {
     public class AdminGuestViewModel
     {
@@ -24,5 +27,18 @@
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
         public int? WorkshopGuestId { get; set; }
+    }
+
+
+    public class AdminCreateGuestViewModel
+    {
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public Size Size { get; set; }
     }
 }

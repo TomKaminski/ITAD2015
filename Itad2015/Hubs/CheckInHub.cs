@@ -54,7 +54,18 @@ namespace Itad2015.Hubs
         {
             var connection = Connections.GetConnections(key);
             await Clients.Client(connection.UserConnectionId.ToString()).unlockDeviceUserCallback();
+        }
 
+        public async Task UserRecievedMessageCallback(string key)
+        {
+            var connection = Connections.GetConnections(key);
+            await Clients.Client(connection.DeviceConnectionId.ToString()).userRecievedMessageCallback();
+        }
+
+        public async Task CheckAppIsWaiting(string key)
+        {
+            var connection = Connections.GetConnections(key);
+            await Clients.Client(connection.DeviceConnectionId.ToString()).checkAppIsWaiting();
         }
     }
 

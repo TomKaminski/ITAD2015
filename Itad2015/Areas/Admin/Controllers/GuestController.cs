@@ -77,6 +77,41 @@ namespace Itad2015.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        public async Task<JsonResult> SendQrEmail(int id)
+        {
+            var allGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null).Result.ToList();
+
+            var guest = _guestService.Get(id);
+            if (!guest.Result.QrEmailSent)
+            {
+                var qrByteArray = _qrCodeGenerator.GenerateQrAsByteArray(_qrCodeGenerator.GenerateQrCode(guest.Result.Email));
+                var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(qrByteArray);
+                var pdfModel = Mapper.Map<QrTicketViewModel>(guest.Result);
+                pdfModel.MaxNumberForShirt = _guestService.MaxGuestsForShirt;
+                pdfModel.RegisterNumber = allGuests.FindIndex(x => x.Id == guest.Result.Id) + 1;
+                pdfModel.QrSrc = qrStringSrc;
+
+                var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel),
+                    new[] { Server.MapPath("~/Content/pdfStyles.css") }, Server.MapPath("~/Content/fonts/sinkinsansregular.ttf"));
+
+                await new EmailHelper<GuestQrEmail>(new GuestQrEmail(guest.Result.Email, "reset@ath.bielsko.pl",
+                    "ITAD 2015 QR kod rejestracyjny")
+                {
+                    LastName = guest.Result.LastName,
+                    Name = guest.Result.FirstName
+                })
+                .AddAttachement(pdfFile, "Bilet.pdf")
+                .AddAttachement(qrByteArray, "Bilet.png")
+                .SendEmailAsync();
+
+
+                guest.Result.QrEmailSent = true;
+            }
+            _guestService.Edit(Mapper.Map<GuestGetDto, GuestPostDto>(guest.Result));
+            return Json(true);
+        }
+
+        [HttpPost]
         public async Task<JsonResult> SendQr(string connectionId)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<QrHub>();
@@ -84,7 +119,7 @@ namespace Itad2015.Areas.Admin.Controllers
 
             var allGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null).Result.ToList();
 
-            var data = allGuests.Where(x => !x.QrEmailSent).Take(50).ToList();
+            var data = allGuests.Where(x => !x.QrEmailSent).Take(10).ToList();
 
             var guestsToEdit = new List<GuestPostDto>();
 
@@ -136,6 +171,33 @@ namespace Itad2015.Areas.Admin.Controllers
             guest.Result.RegistrationTime = new DateTime(2015, 11, 20);
             _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateQrSpecialByBukkakaPlz(string email)
+        {
+            var guest = _guestService.FirstOrDefault(x => x.Email == email);
+            guest.Result.QrEmailSent = true;
+            _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(AdminCreateGuestViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var mappedModel = Mapper.Map<GuestPostDto>(model);
+                _guestService.Create(mappedModel);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
     }
 }

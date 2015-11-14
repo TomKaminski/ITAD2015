@@ -243,6 +243,7 @@
     <Content Include="Content\images\packet.png" />
     <Content Include="Content\images\Prelegenci\Bartlomiej_Zass.png" />
     <Content Include="Content\images\Prelegenci\Jakub_Binda.png" />
+    <Content Include="Content\images\Prelegenci\Marcin_Balda.png" />
     <Content Include="Content\images\Prelegenci\Przemyslaw_Galuszka.png" />
     <Content Include="Content\images\Prelegenci\Piotr_Nieweglowski.png" />
     <Content Include="Content\images\Prelegenci\Tomasz_Kosowski.png" />
@@ -283,6 +284,7 @@
     <Content Include="Content\images\Sponsors\sponsors_euvic.png" />
     <Content Include="Content\images\Sponsors\sponsors_gold.png" />
     <Content Include="Content\images\Sponsors\sponsors_next.png" />
+    <Content Include="Content\images\Sponsors\sponsors_programista.png" />
     <Content Include="Content\images\Sponsors\sponsors_rekord.png" />
     <Content Include="Content\images\Sponsors\sponsors_selleo.png" />
     <Content Include="Content\images\Sponsors\sponsors_versum.png" />
@@ -405,6 +407,7 @@
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Guest\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FtpReset.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />

@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Itad2015.Areas.Admin.ViewModels;
 using Itad2015.Areas.Admin.ViewModels.PdfViewModels;
 using Itad2015.Contract.Common;
+using Itad2015.Contract.DTO.Base;
 using Itad2015.Contract.DTO.GetDto;
 using Itad2015.Contract.DTO.PostDto;
 using Itad2015.Models;
@@ -37,6 +39,14 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<WorkshopGetDto, WorkshopDropdownViewModel>().IgnoreNotExistingProperties();
 
+            Mapper.CreateMap<AdminCreateGuestViewModel, GuestPostDto>()
+                .ForMember(x => x.PolicyAccepted, s => s.UseValue(true))
+                .ForMember(x => x.RegistrationTime, s => s.UseValue(DateTime.Now))
+                .ForMember(x => x.ConfirmationTime, s => s.UseValue(DateTime.Now.AddSeconds(1)))
+                .ForMember(x => x.ShirtOrdered, s => s.UseValue(true))
+                .ForMember(x => x.Info, s => s.UseValue("Registered by admin tool."))
+                .IgnoreNotExistingProperties();
+
             Mapper.CreateMap<GuestGetDto, AdminGuestViewModel>()
                 .ForMember(x => x.Size, opt => opt.MapFrom(m => m.Size.ToString()))
                 .AfterMap((src, dest) =>
@@ -54,13 +64,13 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<RegisterDeviceApiModel, ConnectedDevicePostDto>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap<GuestGetDto,GuestShirtGetDto>().IgnoreNotExistingProperties();
+            Mapper.CreateMap<GuestGetDto, GuestShirtGetDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<ExcelListItemViewModel, InvitedPersonPostDto>().IgnoreNotExistingProperties();
 
             Mapper.CreateMap<GuestGetDto, QrTicketViewModel>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap<WorkshopGuestListGetDto,WorkshopGuestViewModel>().ForMember(x=>x.Guests, opt=>opt.MapFrom(k=>k.Guests)).IgnoreNotExistingProperties();
+            Mapper.CreateMap<WorkshopGuestListGetDto, WorkshopGuestViewModel>().ForMember(x => x.Guests, opt => opt.MapFrom(k => k.Guests)).IgnoreNotExistingProperties();
 
             Mapper.CreateMap<WorkshopGuestExtendedGetDto, WorkshopGuestExtendedViewModel>().ForMember(x => x.Guest, opt => opt.MapFrom(k => k.Guest)).IgnoreNotExistingProperties();
 
