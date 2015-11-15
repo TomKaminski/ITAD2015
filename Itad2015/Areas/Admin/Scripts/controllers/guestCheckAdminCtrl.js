@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function guestAdminCtrl($scope, $http, $filter, $controller, hubProxyService, guestFilterService, registeredPersonService, appEmailService) {
+    function guestAdminCtrl($scope, $timeout, $http, $filter, $controller, hubProxyService, guestFilterService, registeredPersonService, appEmailService) {
         angular.extend(this, $controller('baseGuestController', { $scope: $scope }));
 
         var vm = this;
@@ -48,7 +48,7 @@
         }
 
         function checkAppIsWaiting() {
-            setTimeout(function () {
+            $timeout(function () {
                 if (vm.modalStatus === null) {
                     checkInHub.invoke('checkAppIsWaiting', appEmailService.getEmail());
                 }
@@ -73,11 +73,13 @@
                     vm.modalStatus = false;
                     vm.errorValue = data.Error;
                 }
-                $(".modal-backdrop").each(function() {
+                $(".modal-backdrop").each(function () {
                     $(this).remove();
                 });
                 $('#appModal').modal('show');
                 vm.date = data.Date;
+            } else if (vm.modalStatus == null && vm.date === data.Date) {
+                checkInHub.invoke('UnlockDevice', appEmailService.getEmail());
             }
         });
 
@@ -123,7 +125,7 @@
         }
 
         function checkIfDeviceCallbackOccured() {
-            setTimeout(function () {
+            $timeout(function () {
                 if (vm.modalStatus != null) {
                     checkInHub.invoke('UnlockDevice', appEmailService.getEmail());
                     checkIfDeviceCallbackOccured();
@@ -140,9 +142,9 @@
             vm.errorValue = null;
             registeredPersonService.clearPerson();
             $('#appModal').modal('hide');
-            setTimeout(function() {
+            $timeout(function () {
                 vm.modalStatus = null;
-            }, 500);
+            }, 1000);
         });
 
         vm.connectToDevice = function () {

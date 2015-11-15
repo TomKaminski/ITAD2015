@@ -13,6 +13,12 @@
 
         function setGuestsData(data) {
             guestsData = data;
+            angular.forEach(guestsData, function (value, key) {
+                var fullName1 = value.FirstName + ' ' + value.LastName;
+                var fullName2 = value.LastName + ' ' + value.FirstName;
+                guestsData[key].fullName1 = fullName1;
+                guestsData[key].fullName2 = fullName2;
+            });
         }
 
         function getGuestsData() {

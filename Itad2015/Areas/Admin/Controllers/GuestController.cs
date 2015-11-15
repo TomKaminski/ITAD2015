@@ -183,6 +183,15 @@ namespace Itad2015.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        public ActionResult UpdateLastnameSpecialByBukkakaPlz(string email, string lastName)
+        {
+            var guest = _guestService.FirstOrDefault(x => x.Email == email);
+            guest.Result.LastName = lastName;
+            _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
