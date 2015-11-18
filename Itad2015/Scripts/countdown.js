@@ -69,7 +69,7 @@ function fillHourBar(percent) {
 function fillDayBar(percent) {
     $('#day-number').html(percent);
     if (percent === 1) {
-        $('#day-number').siblings('.timer-text').text('DZIEÑ');
+        $('#day-number').siblings('.timer-text').html('DZIE&#323;');
     } else {
         $('#day-number').siblings('.timer-text').text('DNI');
     }

@@ -78,6 +78,12 @@ namespace Itad2015.Service.Concrete
             return new SingleServiceResult<WorkshopGuestExtendedGetDto>(extendedGuest);
         }
 
+        public MultipleServiceResult<WorkshopGuestExtendedGetDto> GetExtendedWorkshopGuests()
+        {
+            var extendedGuests = _repository.Include(x => x.Guest).Select(Mapper.Map<WorkshopGuestExtendedGetDto>);
+            return new MultipleServiceResult<WorkshopGuestExtendedGetDto>(extendedGuests);
+        }
+
         public override void Delete(int id)
         {
             var guest = _guestRepository.FirstOrDefault(x => x.WorkshopGuestId == id);

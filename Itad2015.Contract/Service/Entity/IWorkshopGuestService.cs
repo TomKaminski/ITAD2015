@@ -9,5 +9,7 @@ namespace Itad2015.Contract.Service.Entity
         SingleServiceResult<GuestGetDto,WorkshopGetDto> Register(GuestPostDto guestModel, WorkshopGuestPostDto workshopGuestModel);
 
         SingleServiceResult<WorkshopGuestExtendedGetDto> GetExtendedWorkshopGuest(int id);
+
+        MultipleServiceResult<WorkshopGuestExtendedGetDto> GetExtendedWorkshopGuests();
     }
 }

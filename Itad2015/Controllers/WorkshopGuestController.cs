@@ -26,7 +26,7 @@ namespace Itad2015.Controllers
             return Json(new
             {
                 status = false,
-                errors = new List<string> { "Rejestracja na IT Academic Day jest zamknięta"}
+                errors = new List<string> { "Rejestracja na IT Academic Day jest zamknięta" }
             });
             if (!ModelState.IsValid)
             {

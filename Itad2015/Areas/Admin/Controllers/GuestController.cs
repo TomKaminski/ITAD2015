@@ -82,31 +82,30 @@ namespace Itad2015.Areas.Admin.Controllers
             var allGuests = _guestService.GetAll(x => !x.Cancelled && x.ConfirmationTime != null).Result.ToList();
 
             var guest = _guestService.Get(id);
-            if (!guest.Result.QrEmailSent)
+
+            var qrByteArray = _qrCodeGenerator.GenerateQrAsByteArray(_qrCodeGenerator.GenerateQrCode(guest.Result.Email));
+            var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(qrByteArray);
+            var pdfModel = Mapper.Map<QrTicketViewModel>(guest.Result);
+            pdfModel.MaxNumberForShirt = _guestService.MaxGuestsForShirt;
+            pdfModel.RegisterNumber = allGuests.FindIndex(x => x.Id == guest.Result.Id) + 1;
+            pdfModel.QrSrc = qrStringSrc;
+
+            var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel),
+                new[] { Server.MapPath("~/Content/pdfStyles.css") }, Server.MapPath("~/Content/fonts/sinkinsansregular.ttf"));
+
+            await new EmailHelper<GuestQrEmail>(new GuestQrEmail(guest.Result.Email, "reset@ath.bielsko.pl",
+                "ITAD 2015 QR kod rejestracyjny")
             {
-                var qrByteArray = _qrCodeGenerator.GenerateQrAsByteArray(_qrCodeGenerator.GenerateQrCode(guest.Result.Email));
-                var qrStringSrc = _qrCodeGenerator.GenerateQrCodeStringSrc(qrByteArray);
-                var pdfModel = Mapper.Map<QrTicketViewModel>(guest.Result);
-                pdfModel.MaxNumberForShirt = _guestService.MaxGuestsForShirt;
-                pdfModel.RegisterNumber = allGuests.FindIndex(x => x.Id == guest.Result.Id) + 1;
-                pdfModel.QrSrc = qrStringSrc;
-
-                var pdfFile = _pdfService.GeneratePdfFromView(RenderViewToString("Guest", "~/Areas/Admin/Views/Guest/QrTicket.cshtml", pdfModel),
-                    new[] { Server.MapPath("~/Content/pdfStyles.css") }, Server.MapPath("~/Content/fonts/sinkinsansregular.ttf"));
-
-                await new EmailHelper<GuestQrEmail>(new GuestQrEmail(guest.Result.Email, "reset@ath.bielsko.pl",
-                    "ITAD 2015 QR kod rejestracyjny")
-                {
-                    LastName = guest.Result.LastName,
-                    Name = guest.Result.FirstName
-                })
-                .AddAttachement(pdfFile, "Bilet.pdf")
-                .AddAttachement(qrByteArray, "Bilet.png")
-                .SendEmailAsync();
+                LastName = guest.Result.LastName,
+                Name = guest.Result.FirstName
+            })
+            .AddAttachement(pdfFile, "Bilet.pdf")
+            .AddAttachement(qrByteArray, "Bilet.png")
+            .SendEmailAsync();
 
 
-                guest.Result.QrEmailSent = true;
-            }
+            guest.Result.QrEmailSent = true;
+
             _guestService.Edit(Mapper.Map<GuestGetDto, GuestPostDto>(guest.Result));
             return Json(true);
         }
@@ -187,6 +186,15 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             var guest = _guestService.FirstOrDefault(x => x.Email == email);
             guest.Result.LastName = lastName;
+            _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateConfirmationTimeSpecialByBukkakaPlz(string email)
+        {
+            var guest = _guestService.FirstOrDefault(x => x.Email == email);
+            guest.Result.ConfirmationTime = DateTime.Now;
             _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
             return RedirectToAction("Index", "Home");
         }

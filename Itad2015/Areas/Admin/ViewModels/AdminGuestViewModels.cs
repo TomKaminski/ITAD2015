@@ -14,6 +14,7 @@ namespace Itad2015.Areas.Admin.ViewModels
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
         public int? WorkshopGuestId { get; set; }
+        public bool AgendaEmailSent { get; set; }
     }
 
     public class AdminWorkshopGuestViewModel
@@ -27,6 +28,8 @@ namespace Itad2015.Areas.Admin.ViewModels
         public bool ShirtOrdered { get; set; }
         public bool QrEmailSent { get; set; }
         public int? WorkshopGuestId { get; set; }
+        public bool AgendaEmailSent { get; set; }
+
     }
 
 
