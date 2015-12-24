@@ -39,12 +39,15 @@ namespace Itad2015.FrontendMappings
 
             Mapper.CreateMap<WorkshopGetDto, WorkshopDropdownViewModel>().IgnoreNotExistingProperties();
 
-            Mapper.CreateMap<AdminCreateGuestViewModel, GuestPostDto>()
+            Mapper.CreateMap<AdminCreateGuestViewModel, GuestAdminPostDto>()
                 .ForMember(x => x.PolicyAccepted, s => s.UseValue(true))
                 .ForMember(x => x.RegistrationTime, s => s.UseValue(DateTime.Now))
                 .ForMember(x => x.ConfirmationTime, s => s.UseValue(DateTime.Now.AddSeconds(1)))
                 .ForMember(x => x.ShirtOrdered, s => s.UseValue(true))
                 .ForMember(x => x.Info, s => s.UseValue("Registered by admin tool."))
+                .IgnoreNotExistingProperties();
+
+            Mapper.CreateMap<GuestAdminPostDto,WorkshopGuestPostDto>()
                 .IgnoreNotExistingProperties();
 
             Mapper.CreateMap<GuestGetDto, AdminGuestViewModel>()

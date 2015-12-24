@@ -22,5 +22,7 @@ namespace Itad2015.Contract.Service.Entity
 
         int MaxNormalRegisteredGuests { get;}
         int MaxGuestsForShirt { get; }
+
+        SingleServiceResult<bool> RegisterAdmin(GuestAdminPostDto model);
     }
 }

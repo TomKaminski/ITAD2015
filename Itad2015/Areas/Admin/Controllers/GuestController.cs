@@ -173,6 +173,15 @@ namespace Itad2015.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        public ActionResult UpdateEmailSpecialByBukkakaPlz(string email, string newEmail)
+        {
+            var guest = _guestService.FirstOrDefault(x => x.Email == email);
+            guest.Result.Email = newEmail;
+            _guestService.Edit(Mapper.Map<GuestPostDto>(guest.Result));
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
         public ActionResult UpdateQrSpecialByBukkakaPlz(string email)
         {
             var guest = _guestService.FirstOrDefault(x => x.Email == email);
@@ -210,8 +219,8 @@ namespace Itad2015.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var mappedModel = Mapper.Map<GuestPostDto>(model);
-                _guestService.Create(mappedModel);
+                var mappedModel = Mapper.Map<GuestAdminPostDto>(model);
+                _guestService.RegisterAdmin(mappedModel);
                 return RedirectToAction("Index");
             }
             return View(model);

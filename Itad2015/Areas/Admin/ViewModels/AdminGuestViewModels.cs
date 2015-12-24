@@ -29,7 +29,6 @@ namespace Itad2015.Areas.Admin.ViewModels
         public bool QrEmailSent { get; set; }
         public int? WorkshopGuestId { get; set; }
         public bool AgendaEmailSent { get; set; }
-
     }
 
 
@@ -43,5 +42,8 @@ namespace Itad2015.Areas.Admin.ViewModels
         public string LastName { get; set; }
         [Required]
         public Size Size { get; set; }
+        
+        public int? WorkshopId { get; set; }
+        public string SchoolName { get; set; }
     }
 }

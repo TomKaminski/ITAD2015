@@ -36,6 +36,11 @@ namespace Itad2015.Controllers
             });
         }
 
+        public ActionResult Gallery()
+        {
+            return View();
+        }
+
         [ChildActionOnly]
         public PartialViewResult WorkshopRegisterListSection()
         {

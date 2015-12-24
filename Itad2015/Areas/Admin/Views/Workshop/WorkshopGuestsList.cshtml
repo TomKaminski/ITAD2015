@@ -11,23 +11,25 @@
         <h3 class="text-center">@item.Title</h3>
         <table class="table">
             <thead>
-                <tr>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Email</th>
-                    <th>Szkoła</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th>Id</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Email</th>
+                <th>Szkoła</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
                 @foreach (var guest in item.Guests)
                 {
                     <tr>
+                        <td>@guest.Id</td>
                         <td>@guest.FirstName</td>
                         <td>@guest.LastName</td>
                         <td>@guest.Email</td>
                         <td>@guest.SchoolName</td>
-                        <td>@Html.ActionLink("Usuń z warsztatu", "DeleteGuest", "WorkshopGuest", new { id = guest.WorkshopGuestId }, new { @class = "btn btn-danger" })</td>
+                        <td>@Html.ActionLink("Usuń z warsztatu", "DeleteGuest", "WorkshopGuest", new {id = guest.WorkshopGuestId}, new {@class = "btn btn-danger"})</td>
                     </tr>
                 }
             </tbody>

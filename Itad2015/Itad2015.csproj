@@ -410,6 +410,7 @@
     <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Guest\Create.cshtml" />
     <Content Include="Areas\Admin\Views\WorkshopGuest\SendWorkshopInfo.cshtml" />
+    <Content Include="Content\files\ITAD 2015 regulamin.pdf" />
     <None Include="Properties\PublishProfiles\FtpReset.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />

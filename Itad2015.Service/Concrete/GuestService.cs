@@ -20,14 +20,38 @@ namespace Itad2015.Service.Concrete
         private readonly IGuestRepository _repository;
         private readonly IHashGenerator _hashGenerator;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IWorkshopGuestRepository _workshopGuestRepository;
 
         public int MaxNormalRegisteredGuests => 350;
         public int MaxGuestsForShirt => 300;
+        public SingleServiceResult<bool> RegisterAdmin(GuestAdminPostDto model)
+        {
+            if (model.WorkshopId != null)
+            {
+                var guestMappedModel = Mapper.Map<Guest>(model);
+                var mappedWorkshopGuestModel = Mapper.Map<WorkshopGuestPostDto>(model);
+                var workshopMappedModel = Mapper.Map<WorkshopGuest>(mappedWorkshopGuestModel);
 
-        public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository, IHashGenerator hashGenerator) : base(unitOfWork, repository)
+                var guestObj = _repository.Add(guestMappedModel);
+
+                workshopMappedModel.GuestId = guestObj.Id;
+                var workshopObj = _workshopGuestRepository.Add(workshopMappedModel);
+                guestObj.WorkshopGuestId = workshopObj.Id;
+                _repository.Edit(guestObj);               
+            }
+            else
+            {
+                _repository.Add(Mapper.Map<Guest>(model));
+            }
+            _unitOfWork.Commit();
+            return new SingleServiceResult<bool>(true);
+        }
+
+        public GuestService(IUnitOfWork unitOfWork, IGuestRepository repository, IHashGenerator hashGenerator, IWorkshopGuestRepository workshopGuestRepository) : base(unitOfWork, repository)
         {
             _repository = repository;
             _hashGenerator = hashGenerator;
+            _workshopGuestRepository = workshopGuestRepository;
             _unitOfWork = unitOfWork;
         }
 

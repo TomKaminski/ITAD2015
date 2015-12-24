@@ -17,4 +17,10 @@ namespace Itad2015.Contract.DTO.PostDto
         public bool AgendaEmailSent { get; set; }
         public bool PolicyAccepted { get; set; }
     }
+
+    public class GuestAdminPostDto : GuestPostDto
+    {
+        public int? WorkshopId { get; set; }
+        public string SchoolName { get; set; }
+    }
 }

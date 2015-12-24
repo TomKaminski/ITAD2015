@@ -39,10 +39,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Size, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextBoxFor(x=>x.Size, new { @class = "form-control col-md-2" })
-                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(x => x.Size, new {@class = "form-control col-md-2"})
+                @Html.ValidationMessageFor(model => model.Size, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SchoolName, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.SchoolName, new {@class = "form-control col-md-2"})
+                @Html.ValidationMessageFor(model => model.SchoolName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkshopId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.WorkshopId, new { @class = "form-control col-md-2" })
+                @Html.ValidationMessageFor(model => model.WorkshopId, "", new { @class = "text-danger" })
             </div>
         </div>
 
